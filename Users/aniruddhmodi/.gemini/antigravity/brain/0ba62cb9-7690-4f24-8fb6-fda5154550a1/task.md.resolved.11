@@ -1,0 +1,12 @@
+- [ ] Synchronize [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) with [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py)
+    - [x] Print ETA after each epoch
+    - [x] Add SHAP (KernelExplainer) to [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py)
+    - [x] Configure [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) to use [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) for Combined mode
+    - [/] Run full ablation suite (HOG -> LBP -> Combined/Research3)
+    
+- [ ] Migrate to Google Colab
+    - [ ] Zip `thousand_image` dataset
+    - [ ] Create `Research_Ablation_Colab.ipynb`
+    - [ ] Provide instructions for upload and execution
+
+- [x] Answer User Questions (Slowness & Exactness)

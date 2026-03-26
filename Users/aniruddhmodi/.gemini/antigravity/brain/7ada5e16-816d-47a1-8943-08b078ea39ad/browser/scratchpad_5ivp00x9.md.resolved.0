@@ -1,0 +1,9 @@
+# Task: Investigate "Jam Session" button on http://localhost:8767/instruments.html
+
+## Checklist
+- [ ] Open http://localhost:8767/instruments.html
+- [ ] Locate "Jam Session" button
+- [ ] Click the button
+- [ ] Check for console errors
+- [ ] Observe page transitions
+- [ ] Document findings

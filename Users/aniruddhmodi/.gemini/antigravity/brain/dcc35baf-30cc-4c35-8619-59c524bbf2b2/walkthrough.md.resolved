@@ -1,0 +1,38 @@
+# Work Completed
+
+## 1. Fixed Critical Data Loss Bug (Logout/Login)
+**The Issue:** User reported "everything deleted" after logging out and back in. This was caused by the [DriveService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#10-256) singleton holding onto stale state (like the old folder ID).
+**The Fix:** 
+- Updated `Store.initialize` in [lib/services/store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart) to explicitly call `_driveService!.clear()` before initializing.
+
+## 2. Implemented Offline Reliability (Local Backup)
+**The Issue:** Users risked losing data if the internet cut out during save (Drive upload failed) or if the app crashed.
+**The Fix:** Implemented a **Local-First Architecture** in `Store.dart`.
+- **Always Save Local:** Every new/edited entry is immediately written to `journal_cache.json` on the device.
+- **Instant Load:** On startup, the app loads from this local cache *first* (0 wait time).
+- **Safe Sync:** Drive data is now *merged* into the local state, not replacing it. This ensures offline entries are preserved.
+
+## 2. Fixed Google Drive Pagination (Missing Entries)
+**The Issue:** The app was only loading the first 100 journal entries.
+**The Fix:** Updated `DriveService.getJournalEntries` to use `nextPageToken` and loop until *all* entries are fetched.
+
+## 3. Updated App Icon
+**The Request:** Use [new_App.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/assets/images/new_App.png).
+**The Fix:**
+- Updated [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) to point to [assets/images/new_App.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/assets/images/new_App.png).
+- Ran `flutter_launcher_icons` to generate new assets.
+
+## 4. Updated Website Redirect
+**The Fix:** Changed redirect URL to `https://rozze.vercel.app/`.
+
+## 5. Added iPad Multitasking Support
+**The Fix:** Updated [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) with missing landscape orientations.
+
+## Verification
+- **Drive Fix:** The code now explicitly loops through all pages of results.
+- **Website:** The code now points to the Vercel URL.
+- **Icons:** The generation tool reported "Successfully generated launcher icons".
+
+## Next Steps
+1. **Rebuild your app** to see the new icon and test the Drive fix.
+2. **Submit to App Store:** The validation error regarding iPad orientations should now be resolved.

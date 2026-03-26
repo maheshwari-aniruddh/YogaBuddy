@@ -1,0 +1,46 @@
+# Tasks
+
+- [x] Fix Dart compilation error in `lib/services/drive_service.dart` <!-- id: 0 -->
+    - [x] Analyze `drive_service.dart` and `pubspec.yaml` <!-- id: 1 -->
+    - [x] Correct `authenticatedClient` usage <!-- id: 2 -->
+- [x] Fix iOS Build Configuration <!-- id: 3 -->
+    - [x] Check and fix `CFBundleVersion` in `Info.plist` <!-- id: 4 -->
+    - [x] Check Swift version configuration <!-- id: 5 -->
+- [x] Verify fix by running the build <!-- id: 6 -->
+    - [x] Check `journal_transition_screen.dart` and `main_screen.dart` mismatch <!-- id: 7 -->
+    - [x] Update `JournalTransitionScreen` to accept `GoogleSignInAccount` <!-- id: 8 -->
+    - [x] Ensure call sites of `JournalTransitionScreen` pass `GoogleSignInAccount` <!-- id: 9 -->
+    - [x] Verify `AuthService` stream type <!-- id: 10 -->
+    - [x] Check `FeedbackScreen` signature <!-- id: 11 -->
+- [x] Resolve iOS Installation Limit <!-- id: 12 -->
+    - [x] Check current Bundle Identifier <!-- id: 13 -->
+    - [x] Confirm and Update Team ID <!-- id: 15 -->
+    - [x] App requires Paid Account to be added to Xcode <!-- id: 17 -->
+    - [x] Select correct Team in Xcode to generate certificates <!-- id: 18 -->
+    - [x] Change Bundle ID to `com.aniruddhmodi.roze` to fix uniqueness error <!-- id: 19 -->
+    - [x] Add iOS App to Firebase with new Bundle ID <!-- id: 20 -->
+    - [x] Update `GoogleService-Info.plist` and `Info.plist` <!-- id: 21 -->
+    - [x] Enable Google Drive API in Cloud Console (Required) <!-- id: 22 -->
+- [x] Debug JSON Serialization Error <!-- id: 23 -->
+    - [x] Check `JournalEntry` for `Timestamp` usage <!-- id: 24 -->
+    - [x] Fix `toJson` to handle `Timestamp` or replace with `DateTime` <!-- id: 25 -->
+    - [x] Enhance UI borders as requested <!-- id: 26 -->
+- [x] Implement FaceID Lock <!-- id: 27 -->
+    - [x] Check `SettingsScreen` and `BiometricService` <!-- id: 28 -->
+    - [x] Update `AuthWrapper` to enforce lock <!-- id: 29 -->
+    - [x] Verify functionality <!-- id: 30 -->
+- [x] User Requested Visual Updates <!-- id: 31 -->
+    - [x] Remove Firestore usage from `FeedbackScreen` <!-- id: 32 -->
+    - [x] Create `SwipeToSaveWidget` <!-- id: 33 -->
+    - [x] Replace Save Button in `TodayScreen` <!-- id: 34 -->
+    - [x] Fix Microphone overlap (Alignment) in `TodayScreen` <!-- id: 35 -->
+    - [x] Clean up Legacy Firebase Code <!-- id: 37 -->
+- [x] User Requested Functional Changes <!-- id: 38 -->
+    - [x] Change Microphone to Toggle (Tap to Start/Stop) <!-- id: 39 -->
+    - [x] Implement Email Feedback (url_launcher) <!-- id: 40 -->
+    - [x] Verify changes <!-- id: 36 -->
+- [ ] Deploy to TestFlight <!-- id: 41 -->
+    - [x] Bump Version Number <!-- id: 42 -->
+    - [/] Register App ID & Create Record (User Action) <!-- id: 43 -->
+    - [ ] Archive/Build IPA <!-- id: 44 -->
+    - [ ] Upload to TestFlight <!-- id: 45 -->

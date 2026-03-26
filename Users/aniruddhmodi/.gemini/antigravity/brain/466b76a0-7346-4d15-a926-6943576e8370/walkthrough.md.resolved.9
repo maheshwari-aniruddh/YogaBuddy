@@ -1,0 +1,21 @@
+# Streamlit App Walkthrough (Accuracy & History)
+
+## Summary
+The app has been upgraded with improved accuracy algorithms and a real-time key history display.
+
+## Accuracy Improvements
+- **Debounce Logic**: Prevents accidental double-clicks. You must "release" a key (straighten finger) before pressing again.
+- **Angle Thresholds**: 
+    - **Click**: Curl finger < 160 degrees.
+    - **Release**: Straighten finger > 170 degrees.
+- **Debug Numbers**: The current angle of each finger is shown on screen to help you learn the trigger points.
+
+## New Features
+- **Key History**: A "Recent Notes" list appears on the webpage, showing the sequence of keys you've played.
+- **Full 5-Finger Support**: Play chords and melodies with any finger.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

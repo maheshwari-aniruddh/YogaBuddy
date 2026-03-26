@@ -1,0 +1,7 @@
+# Update App Icon
+
+- [/] Check for existing icon configuration and source files
+- [ ] Determine if a new icon image exists or needs to be generated
+- [ ] Update [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) or `flutter_launcher_icons.yaml` if needed
+- [ ] Run `flutter pub run flutter_launcher_icons` to generate icons
+- [ ] Verify the icons are updated in iOS and Android folders

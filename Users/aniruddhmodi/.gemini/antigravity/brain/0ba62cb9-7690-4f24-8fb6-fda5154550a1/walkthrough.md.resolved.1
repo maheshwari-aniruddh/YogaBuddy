@@ -1,0 +1,50 @@
+# Ablation Experiment Optimizations
+
+I have fully optimized your ablation experiment setup for the M2 Pro, added comprehensive metric reporting (Training & Validation), and enabled the `COMBINED` experiment for SHAP comparison.
+
+## Changes Verified
+
+### 1. M2 Pro / MPS Optimizations
+- **GPU Acceleration**: Enabled `tf.config.experimental.set_memory_growth` and explicit MPS device checking.
+- **Memory Efficiency**: Enforced contiguous numpy arrays for `X` and `y` to speed up data transfer to the GPU.
+- **Threading**: Set `intra_op` and `inter_op` parallelism threads to **6** to match the M2 Pro's performance cores.
+
+### 2. Comprehensive Metrics
+- **Training Set**: Now calculates and prints **Precision**, **Recall**, and **F1 Score** for the training set at the end of each fold, allowing you to detect overfitting immediately.
+- **Validation Set**: Continues to report these metrics for validation as before.
+
+### 3. SHAP Analysis & Saving
+- **Comparison Enabled**: The [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) script now runs the **COMBINED** (HOG + LBP) experiment. This is crucial for comparing the relative feature importance of HOG vs. LBP using SHAP.
+- **Data Saving**: Raw SHAP values are now saved to `shap_values_<MODE>.pkl` for every run, so you can perform custom analysis later without retraining.
+
+### 4. Syntax Verified
+- [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) passed syntax checks (`python3 -m py_compile`).
+
+## Terminal Output Explanation
+
+- **Epoch Progress**: You will see the standard Keras progress bar for each epoch (e.g., `Epoch 1/50 ... [=======]`).
+- **Fold Results**: After each fold, the script now prints a detailed summary block:
+  ```text
+  ----------------------------------------
+  FOLD 1 RESULTS
+  ----------------------------------------
+  TRAIN  - Acc: 0.9850 | Prec: 0.9800 | Rec: 0.9900 | F1: 0.9850
+  VALID  - Acc: 0.9200 | Prec: 0.9100 | Rec: 0.9300 | F1: 0.9200
+  ----------------------------------------
+  ```
+- **MPS Status**: Look for "🚀 MPS (Metal Performance Shaders) DETECTED" at the start of the script.
+
+## How to Run
+
+Simply run the shell script from your terminal:
+
+```bash
+./run_ablation.sh
+```
+
+This will sequentially run:
+1.  **HOG Only** Experiment
+2.  **LBP Only** Experiment
+3.  **COMBINED** Experiment (New!)
+
+Check the terminal output for the new training metrics and the confirmation of MPS usage!

@@ -1,0 +1,382 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,46)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,46)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,46)<span >Pricing />
+[8] (734,46)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,46)<div  />
+	[10] (733,46)<span >Search or jump to... />
+	[11] (831,46)<div  />
+[12] (870,46)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow%2Fblob%2Fmain%2Fone-breath-app%2Fsrc%2FApp.tsx'>Sign in />
+[13] (925,46)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=maheshwari-aniruddh%2FPoseFlow'>Sign up />
+[14] (968,46)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-3b032c70-a0af-41a2-9373-ab5afd51ea02' />
+[15] (100,133)<a class='url fn' href='/maheshwari-aniruddh'>maheshwari-aniruddh />
+/
+[16] (202,133)<a href='/maheshwari-aniruddh/PoseFlow'>PoseFlow />
+Public
+[17] (790,132)<a aria-label='You must be signed in to change notification settings' class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='repository-details-watch-button'>Notifications />
+[18] (871,132)<a class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='fork-button'>Fork />
+	[19] (889,132)<span >0 />
+[20] (944,132)<a aria-label='You must be signed in to star a repository' class='tooltipped tooltipped-sw btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' />
+	[21] (944,132)<span >Star />
+	[22] (963,132)<span >0 />
+[23] (46,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected' href='/maheshwari-aniruddh/PoseFlow' id='code-tab' />
+	[24] (54,204)<span >Code />
+[25] (104,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/issues' id='issues-tab' />
+	[26] (112,204)<span >Issues />
+[27] (179,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulls' id='pull-requests-tab' />
+	[28] (187,204)<span >Pull requests />
+[29] (257,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/actions' id='actions-tab' />
+	[30] (265,204)<span >Actions />
+[31] (324,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/projects' id='projects-tab' />
+	[32] (332,204)<span >Projects />
+[33] (393,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/security' id='security-tab' />
+	[34] (400,204)<span >Security />
+[35] (461,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulse' id='insights-tab' />
+	[36] (469,204)<span >Insights />
+[37] (21,276)<button class='prc-Button-ButtonBase-9n-Xk position-relative ExpandFileTreeButton-module__expandButton__hDOcv fgColor-muted prc-Button-IconButton-fyge7' />
+Files
+[38] (93,338)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk react-repos-tree-pane-ref-selector width-full ref-selector-class RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[39] (93,338)<span  />
+		[40] (85,338)<span  />
+			[41] (85,338)<div  />
+				[42] (24,338)<div  />
+				[43] (44,338)<div  />
+					[44] (44,338)<span >main />
+[45] (190,338)<button class='prc-Button-ButtonBase-9n-Xk SearchButton-module__IconButton__SBlqu prc-Button-IconButton-fyge7' />
+[46] (106,390)<span  />
+	[47] (22,390)<span  />
+	[48] (111,390)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+[49] (106,830)<div class='ReposFileTreePane-module__Box_5__Zy_o6' scrollable='true' />
+	[50] (106,447)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='.github-item' role='treeitem' />
+		[51] (106,447)<div  />
+			[52] (16,447)<div  />
+			[53] (111,447)<div  />
+				[54] (32,446)<div  />
+					[55] (32,446)<div  />
+				[56] (119,447)<span  />
+					[57] (57,446)<span >.github />
+	[58] (106,488)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='models-item' role='treeitem' />
+		[59] (106,488)<div  />
+			[60] (16,488)<div  />
+			[61] (111,488)<div  />
+				[62] (32,488)<div  />
+					[63] (32,488)<div  />
+				[64] (119,488)<span  />
+					[65] (58,488)<span >models />
+	[66] (106,530)<div  />
+		[67] (16,530)<div  />
+		[68] (111,530)<div  />
+			[69] (32,530)<div  />
+				[70] (32,530)<div  />
+			[71] (119,530)<span  />
+				[72] (76,529)<span >one-breath-app />
+	[73] (106,571)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/public-item' role='treeitem' />
+		[74] (106,571)<div  />
+			[75] (13,571)<div  />
+				[76] (13,571)<div  />
+					[77] (13,571)<div  />
+			[78] (21,571)<div  />
+			[79] (114,571)<div  />
+				[80] (37,571)<div  />
+					[81] (37,571)<div  />
+				[82] (122,571)<span  />
+					[83] (61,571)<span >public />
+	[84] (106,758)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src-item' role='treeitem' />
+		[85] (106,613)<div  />
+			[86] (13,613)<div  />
+				[87] (13,613)<div  />
+					[88] (13,613)<div  />
+			[89] (21,613)<div  />
+			[90] (114,613)<div  />
+				[91] (37,613)<div  />
+					[92] (37,613)<div  />
+				[93] (122,613)<span  />
+					[94] (54,612)<span >src />
+		[95] (106,654)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/assets-item' role='treeitem' />
+			[96] (106,654)<div  />
+				[97] (16,654)<div  />
+					[98] (16,654)<div  />
+						[99] (13,654)<div  />
+						[100] (19,654)<div  />
+				[101] (26,654)<div  />
+				[102] (116,654)<div  />
+					[103] (42,654)<div  />
+						[104] (42,654)<div  />
+					[105] (124,654)<span  />
+						[106] (67,654)<span >assets />
+		[107] (106,696)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components-item' role='treeitem' />
+			[108] (106,696)<div  />
+				[109] (16,696)<div  />
+					[110] (16,696)<div  />
+						[111] (13,696)<div  />
+						[112] (19,696)<div  />
+				[113] (26,696)<div  />
+				[114] (116,696)<div  />
+					[115] (42,696)<div  />
+						[116] (42,696)<div  />
+					[117] (124,696)<span  />
+						[118] (79,695)<span >components />
+		[119] (106,737)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/data-item' role='treeitem' />
+			[120] (106,737)<div  />
+				[121] (16,737)<div  />
+					[122] (16,737)<div  />
+						[123] (13,737)<div  />
+						[124] (19,737)<div  />
+				[125] (26,737)<div  />
+				[126] (116,737)<div  />
+					[127] (42,737)<div  />
+						[128] (42,737)<div  />
+					[129] (124,737)<span  />
+						[130] (62,737)<span >data />
+		[131] (106,779)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/App.tsx-item' role='treeitem' />
+			[132] (106,779)<div  />
+				[133] (16,779)<div  />
+					[134] (16,779)<div  />
+						[135] (13,779)<div  />
+						[136] (19,779)<div  />
+				[137] (116,779)<div  />
+					[138] (42,779)<div  />
+					[139] (124,779)<span  />
+						[140] (69,779)<span >App.tsx />
+		[141] (106,820)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/index.css-item' role='treeitem' />
+			[142] (106,820)<div  />
+				[143] (16,820)<div  />
+					[144] (16,820)<div  />
+						[145] (13,820)<div  />
+						[146] (19,820)<div  />
+				[147] (116,820)<div  />
+					[148] (42,820)<div  />
+					[149] (124,820)<span  />
+						[150] (73,820)<span >index.css />
+		[151] (106,862)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/main.tsx-item' role='treeitem' />
+			[152] (106,862)<div  />
+				[153] (16,862)<div  />
+					[154] (16,862)<div  />
+						[155] (13,862)<div  />
+						[156] (19,862)<div  />
+				[157] (116,862)<div  />
+					[158] (42,862)<div  />
+					[159] (124,862)<span  />
+						[160] (71,862)<span >main.tsx />
+		[161] (106,903)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/vite-env.d.ts-item' role='treeitem' />
+			[162] (106,903)<div  />
+				[163] (16,903)<div  />
+					[164] (16,903)<div  />
+						[165] (13,903)<div  />
+						[166] (19,903)<div  />
+				[167] (116,903)<div  />
+					[168] (42,903)<div  />
+					[169] (124,903)<span  />
+						[170] (79,903)<span >vite-env.d.ts />
+	[171] (106,945)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/.gitignore-item' role='treeitem' />
+		[172] (106,945)<div  />
+			[173] (13,945)<div  />
+				[174] (13,945)<div  />
+					[175] (13,945)<div  />
+			[176] (114,945)<div  />
+				[177] (37,945)<div  />
+				[178] (122,945)<span  />
+					[179] (68,945)<span >.gitignore />
+	[180] (106,986)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/README.md-item' role='treeitem' />
+		[181] (106,986)<div  />
+			[182] (13,986)<div  />
+				[183] (13,986)<div  />
+					[184] (13,986)<div  />
+			[185] (114,986)<div  />
+				[186] (37,986)<div  />
+				[187] (122,986)<span  />
+					[188] (74,986)<span >README.md />
+[189] (212,735)<div aria-label='Draggable pane splitter' class='prc-PageLayout-DraggableHandle-9s6B4' role='slider' />
+Breadcrumbs
+[190] (247,276)<a class='Breadcrumb-module__repoLink__O2Nbs prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main'>PoseFlow />
+/
+[191] (323,276)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app'>one-breath-app />
+/
+[192] (382,276)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app/src'>src />
+/
+App.tsx
+[193] (456,276)<button class='prc-Button-ButtonBase-9n-Xk ml-2 prc-Button-IconButton-fyge7' />
+[194] (979,276)<button class='prc-Button-ButtonBase-9n-Xk js-blob-dropdown-click NavigationMenu-module__IconButton__HpX3G prc-Button-IconButton-fyge7' id='_R_96dajal1d_' />
+Latest commit
+[195] (241,347)<a class='Link__StyledLink-sc-1syctfj-0 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh' />
+	[196] (239,348)<img  />
+[197] (300,347)<a aria-label='commits by maheshwari-aniruddh' class='Link__StyledLink-sc-1syctfj-0 iIGVMW AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commits?author=maheshwari-aniruddh'>maheshwari-aniruddh />
+[198] (505,347)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>Initialize full project with PoseFlow web app and GH Pages deployment />
+[199] (864,347)<a aria-label='Commit 99cbbaf' class='Link--secondary prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>99cbbaf />
+·
+History
+[200] (957,347)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/maheshwari-aniruddh/PoseFlow/commits/main/one-breath-app/src/App.tsx' />
+	[201] (957,347)<span  />
+		[202] (964,347)<span  />
+			[203] (964,347)<span >History />
+File metadata and controls
+[204] (249,427)<button class='prc-SegmentedControl-Button-E48xz' />
+	[205] (249,427)<span  />
+		[206] (249,427)<div >Code />
+[207] (293,427)<button class='prc-SegmentedControl-Button-E48xz' />
+	[208] (293,427)<span  />
+		[209] (293,427)<div >Blame />
+57 lines (54 loc) · 2.24 KB
+[210] (870,427)<a class='prc-Button-ButtonBase-9n-Xk LinkButton-module__linkButton__nFnov BlobViewHeader-module__LinkButton__X9kx2' href='https://github.com/maheshwari-aniruddh/PoseFlow/raw/refs/heads/main/one-breath-app/src/App.tsx' />
+	[211] (870,427)<span  />
+		[212] (870,427)<span >Raw />
+[213] (892,427)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' />
+[214] (910,427)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__downloadButton__ef459 prc-Button-IconButton-fyge7' />
+[215] (951,427)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' id='_r_5v_' />
+[216] (974,427)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__IconButton_2__RyjZg prc-Button-IconButton-fyge7' id='symbols-button' />
+[217] (606,1213)<textarea aria-label='file content' class='react-blob-textarea react-blob-print-hide' id='read-only-cursor-text-area' scrollable='true' />
+[218] (606,1203)<div class='react-code-line-container CodeLines-module__scrollContainerHidden__g7TeZ' scrollable='true' />
+	[219] (258,480)<div >1 />
+	[220] (258,506)<div >2 />
+	[221] (258,532)<div >3 />
+	[222] (258,557)<div >4 />
+	[223] (258,583)<div >5 />
+	[224] (258,609)<div >6 />
+	[225] (258,635)<div >7 />
+	[226] (258,661)<div >8 />
+	[227] (258,686)<div >9 />
+	[228] (256,712)<div >10 />
+	[229] (256,738)<div >11 />
+	[230] (256,764)<div >12 />
+		[231] (271,765)<div aria-label='Collapse code section' class='LineNumber-module__codeFoldingChevron__sY2Yt' role='button' />
+	[232] (256,790)<div >13 />
+	[233] (256,815)<div >14 />
+	[234] (256,841)<div >15 />
+	[235] (256,867)<div >16 />
+	[236] (256,893)<div >17 />
+	[237] (256,919)<div >18 />
+	[238] (256,945)<div >19 />
+	[239] (256,970)<div >20 />
+	21
+	import
+	{
+	Toaster
+	}
+	from
+	"@/components/ui/toaster"
+	;
+	import
+	{
+	Toaster
+	as
+	Sonner
+	}
+	from
+	"@/components/ui/sonner"
+	;
+	import
+	{
+	BrowserRouter
+	,
+	Routes
+	,
+	Route
+	}
+	from
+	"react-router-dom"
+	;
+	import
+	StartupAnimation
+	from
+	"./components/StartupAnimation"
+	;
+	import
+	OnboardingPage
+	from
+	"./components/OnboardingPage"
+	;
+	import
+	YogaSessionPage
+	from
+	"./components/YogaSessionPage"
+	;
+	import
+	PeacefulTabs
+	from
+	"./components/PeacefulTabs"
+	;
+	import
+	PracticePage
+	from
+	"./components/PracticePage"
+	;
+	import
+	ProgressPage
+	from
+	"./components/ProgressPage"
+	;
+	import
+	CommunityPage
+	from
+	"./components/CommunityPage"
+	;
+	const
+	NotFound
+	=
+	(
+	)
+	=>
+	(
+	<
+	div
+	className
+	=
+	"fixed inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(var(--gradient-bg-start))] via-[hsl(var(--gradient-bg-mid))] to-[hsl(var(--gradient-bg-end))]"
+	<
+	div
+	className
+	=
+	"text-center animate-fade-in-up"
+	>
+	<
+	h1
+	className
+	=
+	"mb-4 text-6xl font-light text-white"
+	>
+	404
+	</
+	h1
+	>
+	<
+	p
+	className
+	=
+	"mb-6 text-xl text-white/70 font-light"
+	>
+	Oops! Page not found
+	</
+	p
+	>
+	<
+	a
+	href
+	=
+	"/menu"
+	className
+	=
+	"text-white/90 underline hover:text-white font-light"
+	>
+	Return to Menu
+	</
+	a
+	>
+	</
+	div
+	>
+	</
+	div
+	>
+[240] (606,989)<div class='CodeLines-module__scrollBarContainer__fsxaw' scrollable='true' />
+
+</current_dom>

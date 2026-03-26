@@ -1,0 +1,41 @@
+# Plan to Compile and Run BoxBug on Mac
+
+The user is experiencing errors because the provided commands are for Windows and contain syntax that is incompatible with macOS (curly quotes and semicolons). Additionally, Java package structures require specific directory handling.
+
+## Proposed Changes
+
+### Explanation of Errors
+- **Curly Quotes**: The user's command uses `“` and `”` instead of standard double quotes `"`. macOS shells (like zsh or bash) do not recognize these as string delimiters.
+- **Classpath Separator**: Windows uses `;` as a separator, while macOS uses `:`.
+- **Package Hierarchy**: The [BoxBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java) file specifies `package GridWorldCode.projects.boxBug;`. Java expects to run classes from the root of the package structure (the `src` folder) using the full class name.
+
+### Corrected Commands for Mac
+I will provide the user with the following commands:
+
+1. **Navigate to the root of the project (the `src` folder):**
+   ```bash
+   cd src
+   ```
+
+2. **Compile the code:**
+   ```bash
+   javac -cp "GridWorldCode/gridworld.jar" GridWorldCode/projects/boxBug/*.java
+   ```
+
+3. **Run the program:**
+   ```bash
+   java -cp ".:GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.BoxBugRunner
+   ```
+
+### Increasing Grid Size
+To increase the grid size in [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java), I will:
+- Add imports for `BoundedGrid` and `Actor`.
+- Modify the `ActorWorld` initialization to use a `BoundedGrid` with custom dimensions (e.g., 20x20).
+
+#### [MODIFY] [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java)
+
+## Verification Plan
+
+### Automated Tests
+- Re-compile [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java).
+- Run [CircleBugRunner](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java#28-41) and check if it starts without errors.

@@ -1,0 +1,6 @@
+# Piano Player Refinements
+- [x] Fix camera flipped highlight mapping
+- [x] Enforce explicit single-finger hits and mute others
+- [x] Hide the score UI overlay
+- [x] Shrink horizontal width of the camera window
+- [x] Position camera window explicitly on the Left side with a small margin

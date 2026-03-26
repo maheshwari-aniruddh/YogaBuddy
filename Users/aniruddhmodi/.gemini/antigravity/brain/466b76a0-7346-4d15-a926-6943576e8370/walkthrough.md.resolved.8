@@ -1,0 +1,18 @@
+# Streamlit App Walkthrough (Multi-Finger Piano)
+
+## Summary
+The app now supports full-hand piano playing using all 5 fingers.
+
+## Features
+- **5-Finger Tracking**: Independent click detection for Thumb, Index, Middle, Ring, and Pinky.
+- **Polyphonic support**: Play chords by pressing multiple keys simultaneously.
+- **Robust Tracking**: Stable frame-based timestamps and resource cleanup.
+- **Interactive Feedback**:
+    - **HOVER**: Yellow highlight.
+    - **PRESS**: Red highlight + Key Name + Finger Name log.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

@@ -1,0 +1,16 @@
+# Update App Icon Walkthrough
+
+I have updated the app icon using the `flutter_launcher_icons` package.
+
+## Changes
+- **Icon Source**: Switched to [assets/images/new_app.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/assets/images/new_app.png) (moved from root [flutter_01.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/flutter_01.png) which was empty, found valid backup in assets).
+- **Configuration**: Updated [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) to point to the new icon file.
+- **Generation**: Ran `flutter pub run flutter_launcher_icons` to generate assets.
+
+## Verification
+### iOS
+- Verified existence of icon files in `ios/Runner/Assets.xcassets/AppIcon.appiconset`.
+- Files `Icon-App-*.png` are present with correct sizes.
+
+### Android
+- Verified existence of launcher icons in `android/app/src/main/res/`.

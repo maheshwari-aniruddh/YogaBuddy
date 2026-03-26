@@ -1,0 +1,29 @@
+# Switching to Finger-Mapped Piano Tracking
+
+Currently, [piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html) maps the horizontal X coordinate of a fingertip to a note on the keyboard. This forces players to "aim" their strikes in thin air, which is very difficult to do accurately. 
+
+The user has requested to change this behavior:
+1. **Finger Mapping:** Each finger should always play one specific note, regardless of where it strikes horizontally.
+2. **Speed-based Octaves:** The vertical position of the hand controls the octave by changing the playback speed of the base note (1x for Mid, 2x for High, 0.5x for Low).
+3. **Substitutions:** Since there are 10 fingers but 12 notes in an octave, songs that contain notes not assigned to any finger must be mapped to the closest playable finger so the player isn't stuck.
+
+## User Review Required
+
+> [!WARNING]
+> By mapping exactly one note to each finger, you won't be able to play all 12 chromatic notes. We currently map 7 diatonic notes (C, D, E, F, G, A, B). If a song uses a sharp (e.g., F#), the code will substitute it for the closest available finger (e.g., F). Please confirm if you are okay with these substitutions or if you prefer a different layout.
+
+## Proposed Changes
+
+### Piano Player Logic ([airplay 2/piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html))
+
+- **Change Hand Tracking**: Remove the X-coordinate horizontal mapping entirely. Look up which finger struck the air (`Left_Index`, etc.), and map that to its designated note using `NOTE_TO_FINGER`.
+- **Change Audio Playback**: When playing a note in the Top zone, double the playback speed (`osc.frequency.setValueAtTime(freq * 2, t)`). When in the Bottom zone, halve it (`freq * 0.5`). 
+- **Change Visual Zones**: Render exactly 3 dotted horizontal background zones (High = 2x, Mid = 1x, Low = 0.5x).
+- **Handle Missing Notes**: In [drawFrame](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html#348-548) and [checkHit](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html#605-623), if the song's current note is an accidental (like F#), we map it to the closest diatonic finger (F), so the user isn't stuck trying to play a finger that doesn't exist.
+
+## Verification Plan
+
+1. Verify the screen shows 3 clear dotted sections.
+2. Verify that wiggling left index finger ALWAYS triggers 'F', regardless of horizontal position.
+3. Verify that striking high plays the note 1 octave higher (2x speed/frequency), and striking low plays it 1 octave lower (0.5x frequency).
+4. Verify that the song progresses reliably when the designated finger is pressed.

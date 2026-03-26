@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan addressing three App Store review rejections: Sign in with Apple visibility, Export Data iPad cut-off bug, and account deletion visibility. Most features already exist but need fixes for reliability and App Store reviewer discoverability.",
+  "updatedAt": "2026-03-15T22:09:07.178441Z"
+}

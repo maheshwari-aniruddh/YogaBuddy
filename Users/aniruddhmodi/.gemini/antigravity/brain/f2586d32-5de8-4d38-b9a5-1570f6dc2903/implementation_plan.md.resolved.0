@@ -1,0 +1,32 @@
+# Keyboard UI Fixes and Customization
+
+## Goal Description
+Fix the issue where the keyboard obscures the UI in the journal entry screen by enabling scrolling and proper padding when the keyboard is open. Change the return key behavior to collapse the keyboard instead of adding a new line, as requested by the user.
+
+## Proposed Changes
+
+### Screens
+
+#### [MODIFY] [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart)
+- Disable `resizeToAvoidBottomInset` on the main `Scaffold`. This prevents the entire screen from resizing automatically and allows child widgets to handle `viewInsets` manually, which is necessary for the custom scrolling behavior in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#22-30).
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Keyboard Handling**: Update `SingleChildScrollView` padding to include `MediaQuery.of(context).viewInsets.bottom`. This ensures the content is padded above the keyboard.
+- **Scroll Physics**: The existing logic `viewInsets.bottom > 0` will now correctly trigger `BouncingScrollPhysics` (allowing modification/scrolling) because the parent Scaffold no longer consumes the insets.
+- **Return Key**: Change `TextField` `textInputAction` from `TextInputAction.newline` to `TextInputAction.done`. This will show a "Done" button (or return icon acting as done) that closes the keyboard.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Compile and Run**: Build the app on the iOS simulator or device.
+2.  **Navigate to Today**: Go to the "Today" screen (default).
+3.  **Open Keyboard**: Tap on a text field (e.g., "What went well?").
+4.  **Verify UI**: 
+    - Ensure the keyboard opens.
+    - Ensure the UI behind the keyboard pushes up or is scrollable.
+    - Swipe within the text area to confirm it is scrollable when keyboard is open.
+5.  **Verify Return Key**:
+    - Type some text.
+    - Tap the "Return" key on the software keyboard.
+    - **Expected**: The keyboard should close (collapse). New line should NOT be added.
+    - **Note**: Use the dedicated "New Line" button in the custom toolbar to ensure it still works (inserting `\n`).

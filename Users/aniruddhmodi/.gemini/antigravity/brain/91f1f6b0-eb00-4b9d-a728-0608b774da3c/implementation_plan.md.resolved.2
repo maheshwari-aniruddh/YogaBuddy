@@ -1,0 +1,29 @@
+# Plan: Resolve iPhone Connection Issue
+
+The user is experiencing a timeout issue when attempting to run the Flutter app on their iPhone wirelessly. As a workaround, we are pivoting to run the app on an iOS Simulator.
+
+## Proposed Steps
+
+### 1. Diagnostic & Cleanup [DONE]
+- Run `flutter clean` to clear the build cache.
+- Run `flutter pub get` to ensure dependencies are fresh.
+
+### 2. Simulator Run [IN PROGRESS]
+- Launch the iOS Simulator (iPhone 16 Pro).
+- Run the Flutter app on the simulator using `flutter run -d 57800566-8E1B-4110-96D1-38C34D785B7E`.
+
+### 3. Connection Reset (Manual) [DEFERRED]
+Steps to manually reset the physical device connection if needed later:
+- Connect the iPhone to the Mac via USB.
+- "Trust" the device if prompted.
+- Ensure the device is unlocked and on the same Wi-Fi network.
+- Toggle Wi-Fi on both devices.
+- Restart Xcode and the iPhone if the issue persists.
+
+## Verification Plan
+
+### Automated Tests
+- `flutter devices`: Confirm the simulator is recognized and available.
+
+### Manual Verification
+- The user will confirm if the app launches successfully on the simulator.

@@ -1,0 +1,18 @@
+## App Store Release Implementation
+- **Project Configuration**: Bumped version to `1.0.2+11` in [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) (though you should verify this matches your App Store Connect record).
+- **Podfile Optimization**: Added a comprehensive set of permission macros to the [Podfile](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Podfile). This resolved the "No such file or directory" and header mapping errors in `permission_handler_apple`.
+- **Deep Clean**: Performed a full cleanup of `Pods`, [build/](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart#101-216), and Xcode caches to ensure a stable environment.
+- **IPA Build**: Successfully generated the release bundle.
+
+## Next Step: Manual Upload
+The release IPA has been successfully built at:
+`build/ios/ipa/roze.ipa`
+
+To complete the release:
+1.  **Open Transporter**: Open the "Transporter" app on your Mac.
+2.  **Add IPA**: Drag and drop the file from [build/ios/ipa/roze.ipa](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/build/ios/ipa/roze.ipa) into Transporter.
+3.  **Deliver**: Click **Deliver** to upload it to App Store Connect.
+4.  **Wait**: Once it's "Processing" in App Store Connect, you can submit the version for review.
+
+> [!NOTE]
+> If you notice the version number is still `1.0.0` in App Store Connect, you may need to update it manually in the **General** tab of the **Runner** target in Xcode, as it seems to be hardcoded there.

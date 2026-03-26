@@ -1,0 +1,34 @@
+# Integration & Polish Plan
+
+## Goal
+Consolidate the app into a single polished Streamlit application with CSS styling, auto-thresholds, and cleanup.
+
+## Proposed Changes
+
+### 1. Auto-Threshold (No Slider)
+- **Piano Mode**: `velocity_threshold = 0.5`
+- **Drums Mode**: `velocity_threshold = 0.15`
+- Remove sidebar slider, set automatically based on mode.
+
+### 2. CSS/HTML Styling
+- Dark theme with neon accents
+- Custom title styling
+- Status indicators with color
+
+### 3. Console Logs
+- Add `[AUDIO]`, `[DETECT]`, `[HIT]` prefixes
+- Timestamp each log
+
+### 4. File Cleanup
+- **Keep**: [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py), [hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task), [sounds/](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#78-125), `drum_sounds/`, `keyboard_one_octave (1).jpg`
+- **Delete**: [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) (deprecated), [hand_landmarker.ipynb](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.ipynb), [piano_keys.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/piano_keys.png)
+
+### 5. Final File Structure
+```
+AirPlay/
+├── ar_studio.py          # Main unified app
+├── hand_landmarker.task  # MediaPipe model
+├── sounds/               # Piano sounds
+├── drum_sounds/          # Drum sounds
+└── keyboard_one_octave (1).jpg
+```

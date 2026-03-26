@@ -1,0 +1,26 @@
+# Fix Text Box Cutoff Bug
+
+## Goal
+Prevent the text box in the active journal page from being cut off by the keyboard.
+
+## Root Cause
+The `SingleChildScrollView` in [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-647) (and others) is set to `NeverScrollableScrollPhysics`, preventing the user from scrolling the content up when the viewport shrinks due to the keyboard appearance.
+
+## Proposed Changes
+### [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- [MODIFY] In [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-647), change the `physics` property of the `SingleChildScrollView` to be conditional.
+    -   If `MediaQuery.of(context).viewInsets.bottom > 0` (Keyboard is open), use `BouncingScrollPhysics` (or default).
+    -   Otherwise, keep `NeverScrollableScrollPhysics` to preserve the custom page-swipe gestures.
+
+```dart
+physics: MediaQuery.of(context).viewInsets.bottom > 0
+    ? const BouncingScrollPhysics()
+    : const NeverScrollableScrollPhysics(),
+```
+
+## Verification Plan
+### Manual Verification
+- Open the app and go to the "Today" screen.
+- Tap on "What went well?" to focus the text field and open the keyboard.
+- **Verify**: The view allows scrolling so the text field can be moved above the keyboard.
+- **Verify**: When the keyboard is closed, the swipe-up/down gestures to switch prompts still work.

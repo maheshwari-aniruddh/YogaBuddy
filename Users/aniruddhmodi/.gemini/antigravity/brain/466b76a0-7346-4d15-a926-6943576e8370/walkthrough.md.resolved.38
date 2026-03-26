@@ -1,0 +1,20 @@
+# AR Instrument Studio Walkthrough (Final)
+
+## Summary
+Complete AR Studio with **Circular Drums** and **Lift-to-Reset**.
+
+## Drum Mode (Circles)
+-   **Snare** (Yellow), **Hat** (Blue), **Tom** (Green), **Kick** (Red).
+-   **Precision**: You must hit INSIDE the circle.
+-   **Safe Zone**: Anywhere outside the circles is safe.
+
+## Controls
+-   **Strike**: Swift Downward Motion (`> 0.15`).
+-   **Reset**: **LIFT** finger up to play again.
+-   **Camera**: Indices 0 & 1 available.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

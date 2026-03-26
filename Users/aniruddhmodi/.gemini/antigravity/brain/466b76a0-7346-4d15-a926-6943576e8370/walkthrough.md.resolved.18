@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Stable)
+
+## Summary
+The piano is stable and prevents accidental repeat notes.
+
+## Fixes
+- **No More Machine Gun**: Prevents a single motion from playing the same note multiple times.
+- **Reset Logic**: You must "stop" (velocity drops) before you can strike again.
+- **Precision**: High velocity threshold (0.15) ensures only deliberate hits.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

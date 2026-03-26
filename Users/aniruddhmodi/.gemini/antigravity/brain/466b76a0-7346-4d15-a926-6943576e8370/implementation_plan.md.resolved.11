@@ -1,0 +1,28 @@
+# Audio Feedback Plan
+
+## Goal Description
+Play [.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/a1.wav) sound files when keys are pressed to complete the virtual piano experience.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### Dependencies
+- Install `pygame` for low-latency audio mixing.
+
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Initialization**:
+    - Import `pygame`.
+    - `pygame.mixer.init()` at the startup.
+    - Load sound files into a dictionary: `SOUNDS = {'C': pygame.mixer.Sound('sounds/c1.wav'), ...}`.
+- **Playback**:
+    - Inside the key press detection block (`if angle < CLICK_THRESHOLD:`):
+        - Call `SOUNDS[key].play()`.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Press keys.
+- Determine if sound plays without significant delay.
+- Default to creating a new task if performance issue arises (Streamlit reloading mixer might be tricky, will cache it).

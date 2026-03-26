@@ -1,0 +1,20 @@
+# Streamlit App Refinement Plan
+
+## Goal Description
+Modify [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) to prioritize the "Live Video" mode. The user specifically requested "take in a live video feed", implying the current multi-mode selection might be unnecessary or confusing. The app will now default to the live video feed.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### Files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- Remove `st.sidebar` and mode selection.
+- Default to "Live Video" logic.
+- Add a camera selector to `st.sidebar` instead (allows choosing between available cameras 0, 1, 2 etc. if needed, or just default to 0).
+- Keep the [draw_landmarks_on_image](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#17-52) and [load_detector](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#61-67) functions.
+- Ensure the webcam starts automatically or with a simple "Start" toggle.
+
+## Verification Plan
+### Manual Verification
+- Run `streamlit run app.py` and verify it immediately shows the webcam controls/feed without navigating menus.

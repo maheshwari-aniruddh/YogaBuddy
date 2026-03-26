@@ -1,0 +1,18 @@
+# Streamlit App Walkthrough (Piano Added)
+
+## Summary
+The app now includes a virtual piano interface overlay.
+
+## Features
+- **Piano Overlay**: A piano keyboard image is displayed at the bottom of the video feed.
+- **Click Detection**: Point your index finger at a key and **curl it** (angle < 160 degrees) to simulate a press.
+- **Feedback**:
+    - The pressed key name ("C", "D", "E", etc.) appears on the video feed.
+    - The key and finger angle are printed to the terminal for debugging.
+    - The current angle of your index finger is displayed on screen to help you adjust your "clicking" motion.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501 or 8502).

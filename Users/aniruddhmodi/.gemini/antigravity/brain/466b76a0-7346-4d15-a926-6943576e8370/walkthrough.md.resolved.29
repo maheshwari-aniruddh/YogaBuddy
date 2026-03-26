@@ -1,0 +1,14 @@
+# Streamlit App Walkthrough (Uniform)
+
+## Summary
+Reverted to uniform sensitivity for all fingers.
+
+## Configuration
+- **Threshold**: `0.10` (All Fingers).
+- **Smoothing**: Active (Alpha 0.7).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

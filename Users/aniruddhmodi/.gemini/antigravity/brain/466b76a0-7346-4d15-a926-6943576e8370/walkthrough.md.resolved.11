@@ -1,0 +1,16 @@
+# Streamlit App Walkthrough (Adjusted Position)
+
+## Summary
+The piano overlay has been lowered to simulate a better 3D perspective.
+
+## New Features
+- **3D Perspective**: The piano is now a shorter strip (100px high) at the very bottom.
+- **Top-Down Interaction**: This alignment encourages you to "tap the tops" of the keys, similar to a real piano viewed from above.
+- **Labels**: Keys are clearly labeled (C, D, E...).
+- **History**: Recent keys are logged on screen.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

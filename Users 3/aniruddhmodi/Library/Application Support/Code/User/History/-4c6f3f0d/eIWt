@@ -1,0 +1,70 @@
+platform :ios, '18.0'
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. Run 'flutter pub get' in the project root."
+  end
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    match = line.match(/FLUTTER_ROOT\=(.*)/)
+    return match[1].strip if match
+  end
+  raise "FLUTTER_ROOT not found. Run 'flutter pub get'."
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+target 'Runner' do
+  use_frameworks! :linkage => :static
+  use_modular_headers!
+
+  # Ensure a gRPC with the upstream header fix is used.
+  pod 'gRPC-Core', '>= 1.65.4'
+  pod 'gRPC-C++',  '>= 1.65.4'
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  # Keep Flutter defaults and enforce iOS 15+
+  installer.pods_project.targets.each do |t|
+    flutter_additional_ios_build_settings(t)
+    t.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
+
+  # 1) Remove invalid '-G' option injected by BoringSSL-GRPC on newer Xcode.
+  installer.pods_project.targets.each do |t|
+    next unless t.name == 'BoringSSL-GRPC'
+    t.source_build_phase.files.each do |f|
+      next unless f.settings && f.settings['COMPILER_FLAGS']
+      flags = f.settings['COMPILER_FLAGS'].split
+      flags.reject! { |flag| flag.start_with?('-G') }
+      f.settings['COMPILER_FLAGS'] = flags.join(' ')
+    end
+  end
+
+  # 2) Patch gRPC header for Clang CWG-96 enforcement in Xcode 16+.
+  hdr = File.join('Pods', 'gRPC-Core', 'src', 'core', 'lib', 'promise', 'detail', 'basic_seq.h')
+  if File.exist?(hdr)
+    txt = File.read(hdr)
+    patched = txt.gsub(/Traits::\s*template\s+CallSeqFactory\(/, 'Traits::template CallSeqFactory<>(')
+    if patched != txt
+      File.open(hdr, 'w') { |f| f.write(patched) }
+      puts 'Patched gRPC basic_seq.h (CallSeqFactory<>(…))'
+    end
+  end
+end

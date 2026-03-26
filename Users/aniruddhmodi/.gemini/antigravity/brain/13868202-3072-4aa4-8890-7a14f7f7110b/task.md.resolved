@@ -1,0 +1,6 @@
+# Implementation of FullBoundedGrid
+
+- [x] Create directory `projects/fullGrid`
+- [x] Implement [FullBoundedGrid.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/fullGrid/FullBoundedGrid.java)
+- [x] Implement [FullGridRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/fullGrid/FullGridRunner.java)
+- [x] Verify compilation and execution

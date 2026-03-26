@@ -1,0 +1,32 @@
+# Piano Interface Implementation Plan
+
+## Goal Description
+Overlay a piano keyboard image on the live video feed and detect key presses using hand landmarks. The user specifically requested monitoring "angles" to detect clicks.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### Assets
+- Use `piano_keys.png` (copied from upload).
+
+### Files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Image Overlay**: Load `piano_keys.png` and overlay it at the bottom of the frame (e.g., bottom 100-150px).
+- **Key Mapping**: Define regions (rectangles) for C, D, E, F, G, A, B and sharp keys based on the image layout relative to the video frame width (640px).
+    - Estimate relative positions:
+        - White keys are roughly 1/7th of the width each.
+        - Black keys are offset between white keys.
+- **Click Detection**:
+    - Calculate the angle of the Index Finger (Landmark 8) or use relative positions of landmarks (e.g., 8 relative to 6? or 8 relative to 5?).
+    - Simple approach: Check if Index Finger Tip (8) is inside a key region.
+    - User requested "angle change": I will implement a check for the angle of the index finger (PIP-MCP-Wrist? or TIP-PIP-MCP). A "bent" finger might indicate a press. Or simply, if the Z-coordinate (depth) suggests a press, or if the tip moves significantly fast.
+    - *Refined Plan*: I'll calculate the angle at the PIP joint (Tip-PIP-MCP). If the angle drops below a threshold (curled), register a click.
+- **Terminal Output**: `print(f"Key Pressed: {key_name}")` when a click is detected.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Ensure the piano image is visible at the bottom.
+- Move index finger over a key and "curl" or "tap" it.
+- Verify the key name is printed in the terminal.

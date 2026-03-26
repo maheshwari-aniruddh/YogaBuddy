@@ -1,0 +1,14 @@
+# Rozze Play Store ASO Update Plan
+
+## Checklist
+- [ ] Take initial screenshot and get DOM for Play Console page.
+- [ ] Locate "Short description" and "Full description" fields.
+- [ ] Update "Short description" with SEO-optimized text.
+- [ ] Update "Full description" with SEO-optimized text.
+- [ ] Save changes.
+- [ ] Take final screenshot.
+
+## Notes
+- Target page ID: 987C1D206853372D97C6A16587511692
+- Short description (max 80 chars): "Voice journal & mood tracker. Speak your daily diary, track emotions & mental health."
+- Full description: Long text provided in the prompt.

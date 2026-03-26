@@ -1,0 +1,86 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,46)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,46)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,46)<span >Pricing />
+[8] (734,46)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,46)<div  />
+	[10] (733,46)<span >Search or jump to... />
+	[11] (831,46)<div  />
+[12] (870,46)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FYogaBuddy%2Factions'>Sign in />
+[13] (925,46)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Findex&source=header-repo&source_repo=maheshwari-aniruddh%2FYogaBuddy'>Sign up />
+[14] (968,46)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-5982fc0c-40f0-43e0-8ff5-25bf6cf3b8e5' />
+[15] (100,133)<a class='url fn' href='/maheshwari-aniruddh'>maheshwari-aniruddh />
+/
+[16] (207,133)<a href='/maheshwari-aniruddh/YogaBuddy'>YogaBuddy />
+Public
+[17] (790,132)<a aria-label='You must be signed in to change notification settings' class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FYogaBuddy' id='repository-details-watch-button'>Notifications />
+[18] (871,132)<a class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FYogaBuddy' id='fork-button'>Fork />
+	[19] (889,132)<span >0 />
+[20] (944,132)<a aria-label='You must be signed in to star a repository' class='tooltipped tooltipped-sw btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FYogaBuddy' />
+	[21] (944,132)<span >Star />
+	[22] (963,132)<span >0 />
+[23] (46,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy' id='code-tab' />
+	[24] (54,204)<span >Code />
+[25] (104,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy/issues' id='issues-tab' />
+	[26] (112,204)<span >Issues />
+[27] (179,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy/pulls' id='pull-requests-tab' />
+	[28] (187,204)<span >Pull requests />
+[29] (257,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected' href='/maheshwari-aniruddh/YogaBuddy/actions' id='actions-tab' />
+	[30] (265,204)<span >Actions />
+[31] (324,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy/projects' id='projects-tab' />
+	[32] (332,204)<span >Projects />
+[33] (393,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy/security' id='security-tab' />
+	[34] (400,204)<span >Security />
+[35] (461,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/YogaBuddy/pulse' id='insights-tab' />
+	[36] (469,204)<span >Insights />
+Actions: maheshwari-aniruddh/YogaBuddy
+Actions
+[37] (111,331)<a class='ActionListContent' href='/maheshwari-aniruddh/YogaBuddy/actions' id='item-1ce0621c-25de-4684-a320-eb01dd2225b1' />
+	[38] (111,331)<span >All workflows />
+[39] (111,394)<a class='ActionListContent' href='/maheshwari-aniruddh/YogaBuddy/actions/workflows/deploy.yml' id='item-44eea4e9-f63a-4d3b-9a47-f3a2da7734bc' />
+	[40] (111,394)<span >Deploy to GitHub Pages />
+Management
+[41] (111,498)<a class='ActionListContent ActionListContent--visual16' href='/maheshwari-aniruddh/YogaBuddy/actions/caches' id='item-614335c2-65bf-4c87-bf38-2a6903d79ca8' />
+	[42] (119,498)<span >Caches />
+All workflows
+[43] (885,276)<input aria-label='Filter workflow runs' class='form-control subnav-search-input width-full f5 tmp-pr-5 flex-auto js-navigation-enable actions-tab-filter-input' placeholder='Filter workflow runs' role='combobox' />
+Showing runs from all workflows
+1 workflow run
+[44] (783,397)<button class='Button--invisible Button--medium Button color-fg-muted text-normal' id='actions_events_filter-button' />
+	[45] (778,397)<span  />
+		[46] (778,397)<span >Event />
+[47] (837,397)<button class='Button--invisible Button--medium Button color-fg-muted text-normal' id='actions_status_filter-button' />
+	[48] (831,397)<span  />
+		[49] (831,397)<span >Status />
+[50] (893,397)<button class='Button--invisible Button--medium Button color-fg-muted text-normal' id='actions_branch_filter-button' />
+	[51] (888,397)<span  />
+		[52] (888,397)<span >Branch />
+[53] (947,397)<button class='Button--invisible Button--medium Button color-fg-muted text-normal' id='actions_actors_filter-button' />
+	[54] (942,397)<span  />
+		[55] (942,397)<span >Actor />
+[56] (430,476)<a aria-label='completed successfully:  Run 1 of Deploy to GitHub Pages. Initialize full project with PoseFlow web app and GH Pages deployment' class='d-flex flex-items-center width-full mb-1' href='/maheshwari-aniruddh/YogaBuddy/actions/runs/23604964426' />
+	[57] (255,476)<div  />
+	[58] (432,476)<span >Initialize full project with PoseFlow web app and GH Pages deployment />
+Deploy to GitHub Pages
+#1:
+Commit
+[59] (420,508)<a class='Link--muted Link--inTextBlock' href='/maheshwari-aniruddh/YogaBuddy/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>99cbbaf />
+pushed
+            by
+[60] (520,508)<a class='Link--muted Link--inTextBlock' href='/maheshwari-aniruddh'>maheshwari-aniruddh />
+[61] (635,490)<a class='d-inline-block branch-name css-truncate css-truncate-target my-0 my-md-1' href='/maheshwari-aniruddh/YogaBuddy/tree/refs/heads/main' title='main'>main />
+27s
+[62] (965,490)<details class='details-overlay details-reset position-relative d-inline-block ' />
+	[63] (965,490)<summary class='timeline-comment-action btn-link' />
+
+</current_dom>

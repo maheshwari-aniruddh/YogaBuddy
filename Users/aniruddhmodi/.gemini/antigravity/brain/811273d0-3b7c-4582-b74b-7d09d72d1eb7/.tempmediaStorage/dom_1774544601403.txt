@@ -1,0 +1,231 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (21,41)<button class='prc-Button-ButtonBase-9n-Xk position-relative ExpandFileTreeButton-module__expandButton__hDOcv fgColor-muted prc-Button-IconButton-fyge7' />
+Files
+[1] (93,103)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk react-repos-tree-pane-ref-selector width-full ref-selector-class RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[2] (93,103)<span  />
+		[3] (85,103)<span  />
+			[4] (85,103)<div  />
+				[5] (24,103)<div  />
+				[6] (44,103)<div  />
+					[7] (44,103)<span >main />
+[8] (190,103)<button class='prc-Button-ButtonBase-9n-Xk SearchButton-module__IconButton__SBlqu prc-Button-IconButton-fyge7' />
+[9] (106,595)<div class='ReposFileTreePane-module__Box_5__Zy_o6' scrollable='true' />
+	[10] (106,611)<div  />
+		.github/
+		workflows
+		deploy.yml
+		models
+		one-breath-app
+		utils
+		.gitignore
+		[11] (106,461)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='README.md-item' role='treeitem' />
+			[12] (106,461)<div  />
+				[13] (111,461)<div  />
+					[14] (32,461)<div  />
+					[15] (119,461)<span  />
+						[16] (69,461)<span >README.md />
+		[17] (106,502)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='config.py-item' role='treeitem' />
+			[18] (106,502)<div  />
+				[19] (111,502)<div  />
+					[20] (32,502)<div  />
+					[21] (119,502)<span  />
+						[22] (62,502)<span >config.py />
+		[23] (106,544)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='form_corrector.py-item' role='treeitem' />
+			[24] (106,544)<div  />
+				[25] (111,544)<div  />
+					[26] (32,544)<div  />
+					[27] (119,544)<span  />
+						[28] (81,544)<span >form_corrector.py />
+		[29] (106,586)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='nlg_engine.py-item' role='treeitem' />
+			[30] (106,586)<div  />
+				[31] (111,586)<div  />
+					[32] (32,585)<div  />
+					[33] (119,586)<span  />
+						[34] (72,585)<span >nlg_engine.py />
+		[35] (106,627)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='pose_classifier.py-item' role='treeitem' />
+			[36] (106,627)<div  />
+				[37] (111,627)<div  />
+					[38] (32,627)<div  />
+					[39] (119,627)<span  />
+						[40] (80,627)<span >pose_classifier.py />
+		[41] (106,669)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='pose_detector.py-item' role='treeitem' />
+			[42] (106,669)<div  />
+				[43] (111,669)<div  />
+					[44] (32,668)<div  />
+					[45] (119,669)<span  />
+						[46] (80,668)<span >pose_detector.py />
+		[47] (106,710)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='pose_landmarker_full.task-item' role='treeitem' />
+			[48] (106,710)<div  />
+				[49] (111,710)<div  />
+					[50] (32,710)<div  />
+					[51] (119,710)<span  />
+						[52] (98,710)<span >pose_landmarker_full.task />
+		[53] (106,752)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='requirements.txt-item' role='treeitem' />
+			[54] (106,752)<div  />
+				[55] (111,752)<div  />
+					[56] (32,752)<div  />
+					[57] (119,752)<span  />
+						[58] (77,751)<span >requirements.txt />
+		[59] (106,793)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='session_tracker.py-item' role='treeitem' />
+			[60] (106,793)<div  />
+				[61] (111,793)<div  />
+					[62] (32,793)<div  />
+					[63] (119,793)<span  />
+						[64] (82,793)<span >session_tracker.py />
+		[65] (106,835)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='start_all_servers.sh-item' role='treeitem' />
+			[66] (106,835)<div  />
+				[67] (111,835)<div  />
+					[68] (32,835)<div  />
+					[69] (119,835)<span  />
+						[70] (84,834)<span >start_all_servers.sh />
+		[71] (106,876)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='start_yoga_app.sh-item' role='treeitem' />
+			[72] (106,876)<div  />
+				[73] (111,876)<div  />
+					[74] (32,876)<div  />
+					[75] (119,876)<span  />
+						[76] (82,876)<span >start_yoga_app.sh />
+		[77] (106,918)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='start_yoga_web.sh-item' role='treeitem' />
+			[78] (106,918)<div  />
+				[79] (111,918)<div  />
+					[80] (32,918)<div  />
+					[81] (119,918)<span  />
+						[82] (83,917)<span >start_yoga_web.sh />
+		[83] (106,959)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='yoga_api_server.py-item' role='treeitem' />
+			[84] (106,959)<div  />
+				[85] (111,959)<div  />
+					[86] (32,959)<div  />
+					[87] (119,959)<span  />
+						[88] (84,959)<span >yoga_api_server.py />
+		yoga_program.py
+[89] (212,500)<div aria-label='Draggable pane splitter' class='prc-PageLayout-DraggableHandle-9s6B4' role='slider' />
+Latest commit
+[90] (241,6)<a class='Link__StyledLink-sc-1syctfj-0 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh' />
+	[91] (239,7)<img  />
+[92] (300,6)<a aria-label='commits by maheshwari-aniruddh' class='Link__StyledLink-sc-1syctfj-0 iIGVMW AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/YogaBuddy/commits?author=maheshwari-aniruddh'>maheshwari-aniruddh />
+[93] (505,6)<a class='Link--secondary' href='/maheshwari-aniruddh/YogaBuddy/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>Initialize full project with PoseFlow web app and GH Pages deployment />
+[94] (670,6)<button class='prc-Button-ButtonBase-9n-Xk IconButton__StyledIconButton-sc-i53dt6-0 gUydnL ChecksStatusBadge-module__ChecksStatusBadgeIconButton__rcQQ1 prc-Button-IconButton-fyge7' />
+[95] (845,6)<a aria-label='Commit 99cbbaf' class='Link--secondary prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/YogaBuddy/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>99cbbaf />
+·
+[96] (957,6)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/maheshwari-aniruddh/YogaBuddy/commits/main/.github/workflows/deploy.yml' />
+	[97] (957,6)<span  />
+		[98] (964,6)<span  />
+			[99] (964,6)<span >History />
+File metadata and controls
+[100] (249,86)<button class='prc-SegmentedControl-Button-E48xz' />
+	[101] (249,86)<span  />
+		[102] (249,86)<div >Code />
+[103] (293,86)<button class='prc-SegmentedControl-Button-E48xz' />
+	[104] (293,86)<span  />
+		[105] (293,86)<div >Blame />
+31 lines (26 loc) · 595 Bytes
+[106] (870,86)<a class='prc-Button-ButtonBase-9n-Xk LinkButton-module__linkButton__nFnov BlobViewHeader-module__LinkButton__X9kx2' href='https://github.com/maheshwari-aniruddh/YogaBuddy/raw/refs/heads/main/.github/workflows/deploy.yml' />
+	[107] (870,86)<span  />
+		[108] (870,86)<span >Raw />
+[109] (892,86)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' />
+[110] (910,86)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__downloadButton__ef459 prc-Button-IconButton-fyge7' />
+[111] (951,86)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' id='_r_33_' />
+[112] (974,86)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__IconButton_2__RyjZg prc-Button-IconButton-fyge7' id='symbols-button' />
+[113] (606,537)<textarea aria-label='file content' class='react-blob-textarea react-blob-print-hide' id='read-only-cursor-text-area' />
+[114] (258,139)<div >1 />
+[115] (258,165)<div >2 />
+[116] (258,191)<div >3 />
+[117] (258,217)<div >4 />
+[118] (258,243)<div >5 />
+[119] (258,268)<div >6 />
+[120] (258,294)<div >7 />
+[121] (258,320)<div >8 />
+[122] (258,346)<div >9 />
+[123] (256,372)<div >10 />
+[124] (256,397)<div >11 />
+[125] (256,423)<div >12 />
+[126] (256,449)<div >13 />
+[127] (256,475)<div >14 />
+[128] (256,501)<div >15 />
+[129] (256,526)<div >16 />
+[130] (256,552)<div >17 />
+[131] (256,578)<div >18 />
+[132] (256,604)<div >19 />
+[133] (256,630)<div >20 />
+[134] (256,655)<div >21 />
+[135] (256,681)<div >22 />
+[136] (256,707)<div >23 />
+[137] (256,733)<div >24 />
+[138] (256,759)<div >25 />
+[139] (256,785)<div >26 />
+[140] (256,810)<div >27 />
+[141] (256,836)<div >28 />
+[142] (256,862)<div >29 />
+[143] (256,888)<div >30 />
+[144] (256,914)<div >31 />
+name
+:
+Deploy to GitHub Pages
+on
+:
+push
+:
+branches
+:
+-
+main
+paths
+:
+-
+'
+one-breath-app/**
+'
+permissions
+:
+contents
+:
+write
+jobs
+:
+build-and-deploy
+:
+concurrency
+:
+ci-${{ github.ref }}
+runs-on
+:
+ubuntu-latest
+steps
+:
+-
+name
+:
+Checkout 🛎️
+uses
+:
+actions/checkout@v4
+-
+name
+:
+Install and Build 🔧
+run
+:
+|
+cd one-breath-app
+npm install
+npm run build
+-
+name
+:
+Deploy 🚀
+uses
+:
+JamesIves/github-pages-deploy-action@v4
+with
+:
+folder
+:
+one-breath-app/dist
+branch
+:
+gh-pages
+While the code is focused, press Alt+F1 for a menu of operations.
+
+</current_dom>

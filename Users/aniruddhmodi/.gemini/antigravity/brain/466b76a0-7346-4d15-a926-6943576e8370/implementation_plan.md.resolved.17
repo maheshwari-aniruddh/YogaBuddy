@@ -1,0 +1,24 @@
+# Camera Selection Plan
+
+## Goal Description
+Allow the user to select which camera to use (e.g., FaceTime HD vs USB Webcams).
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **UI**:
+    - Add `st.sidebar.selectbox("Select Camera", ["Camera 0", "Camera 1", "Camera 2"])`.
+    - Map selection to integer index (0, 1, 2).
+- **Logic**:
+    - Use variables `cam_id` in `cv2.VideoCapture(cam_id)`.
+    - Note: Changing camera at runtime inside the loop is tricky in Streamlit without a rerun. The checkbox "Start Camera" already acts as a toggle. The user will select the camera *before* checking "Start Camera".
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Select "Camera 0" -> Start. Check feed.
+- Stop.
+- Select "Camera 1" -> Start. Check if feed changes (if user has 2 cameras).

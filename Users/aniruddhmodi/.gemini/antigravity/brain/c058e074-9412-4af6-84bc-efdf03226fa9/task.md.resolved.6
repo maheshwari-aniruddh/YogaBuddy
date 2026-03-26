@@ -1,0 +1,29 @@
+# 5 Major Features Implementation
+
+## Phase 1: Core Data Model & Migration
+- [x] Add `uuid` package
+- [x] Add [id](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#383-408) to [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#4-79)
+- [x] Change `photoPath` to `List<String> photos` in [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#4-79)
+- [x] Write migration logic in `JournalEntry.fromJson` for old data
+- [x] Ensure [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/.DS_Store) correctly handles saving/loading the new format without data loss
+
+## Phase 2: Today Screen UI & Multiple Entries
+- [x] Update [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#24-39) summary to show a timeline of today's entries
+- [x] Add "New Entry" FAB/button to trigger the swiping editor
+- [x] Update the swipe editor to insert/update the specific entry ID
+- [x] Update media preview strips to handle `List<String> photos`
+
+## Phase 3: Rich Text Formatting
+- [ ] Add `flutter_markdown` package
+- [ ] Create a formatting toolbar for the text fields (Bold, Italic, List)
+- [ ] Render entry summaries using `MarkdownBody`
+
+## Phase 4: Advanced Search & Filtering
+- [ ] Add filter chips to [search_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/search_screen.dart) (Mood, Has Photo, etc.)
+- [ ] Update search logic to combine text search and filters
+
+## Phase 5: Home Screen Widgets
+- [ ] Add `home_widget` package
+- [ ] Implement iOS SwiftUI widget
+- [ ] Implement Android Kotlin widget
+- [ ] Update [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/.DS_Store) to sync data to widgets on save

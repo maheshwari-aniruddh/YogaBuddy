@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Task list for running the YogaBuddy application. Includes starting servers and verifying their status.",
+  "updatedAt":  "2026-01-01T04:24:20.081989Z"
+}

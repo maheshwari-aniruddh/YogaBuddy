@@ -1,0 +1,18 @@
+# AR Instrument Studio Walkthrough (Stable CPU)
+
+## Summary
+Reverted to **CPU Engine** for maximum stability.
+(GPU caused crashes on this system).
+
+## Features
+-   **Stable**: Runs reliably without crashing.
+-   **Precise**: Strict Timestamp logic active.
+-   **Drums**: Circular Pads + Dead Zones.
+-   **Piano**: 10 distinct notes + Sharps.
+-   **Sens**: **0.02** (Max).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

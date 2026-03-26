@@ -1,0 +1,6 @@
+# Task Checklist
+
+- [/] Check for iPhone 14 simulator <!-- id: 0 -->
+- [ ] List all available iOS simulators if iPhone 14 is missing <!-- id: 1 -->
+- [ ] Boot iPhone 14 simulator (if found) <!-- id: 2 -->
+- [ ] Run the app on the simulator <!-- id: 3 -->

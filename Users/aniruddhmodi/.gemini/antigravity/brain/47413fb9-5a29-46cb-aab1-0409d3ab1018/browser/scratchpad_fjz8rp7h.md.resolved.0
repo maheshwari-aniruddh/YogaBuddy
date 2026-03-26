@@ -1,0 +1,14 @@
+# Task: Verify Rozze Website
+
+## Plan
+- [ ] Navigate to `http://localhost:5174/`
+- [ ] Take a screenshot of the hero section
+- [ ] Scroll through the page and take screenshots of each section
+- [ ] Verify the "Science" or "Backed by Science" section
+- [ ] Stop at the footer and summarize findings
+
+## Progress
+- [ ] Hero Section Captured
+- [ ] Features Section Captured
+- [ ] Science Section (if exists) Captured
+- [ ] CTA/Footer Captured

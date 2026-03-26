@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Ring Finger Boost)
+
+## Summary
+The **Ring Finger** is now boosted (more sensitive) to help with chords.
+
+## Configuration
+- **Ring Finger Threshold**: `0.05` (Easy).
+- **Other Fingers Threshold**: `0.10` (Normal).
+- **Smoothing**: Active (Alpha 0.7).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

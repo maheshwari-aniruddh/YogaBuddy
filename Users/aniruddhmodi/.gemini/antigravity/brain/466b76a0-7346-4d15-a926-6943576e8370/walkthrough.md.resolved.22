@@ -1,0 +1,14 @@
+# Streamlit App Walkthrough (High Sensitivity)
+
+## Summary
+The finger mode is now set to **High Sensitivity** (Easy to trigger).
+
+## Configuration
+- **Threshold**: 0.05 (Low Barrier).
+- **Strike**: Even gentle taps will register.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

@@ -1,0 +1,98 @@
+# App Store Rejection Fixes — Implementation Plan
+
+Three guideline violations need to be resolved before resubmission. Below is the plan for each.
+
+---
+
+## Fix 1: Sign in with Apple (Guideline 4.8)
+
+Apple requires an equivalent login option that limits data collection. Sign in with Apple meets all requirements.
+
+### Proposed Changes
+
+#### [MODIFY] [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- Add `sign_in_with_apple: ^6.1.4` dependency
+
+#### [MODIFY] [Runner.entitlements](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Runner.entitlements)
+- Add `com.apple.developer.applesignin` entitlement with `Default` value
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- Add `signInWithApple()` method that:
+  1. Requests Apple credentials via `SignInWithApple.getAppleIDCredential`
+  2. Creates an `OAuthCredential` with Apple provider
+  3. Signs into Firebase with that credential
+  4. Saves user to Firestore (email + display name)
+
+#### [MODIFY] [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart)
+- Add `_signInWithApple()` handler that calls `AuthService.signInWithApple()`
+- On success, initialize Store with `null` (like demo mode, or initialize with Firebase user)
+- Add a styled "Sign in with Apple" button below the Google button, matching the app's design
+- Show the button only on iOS via `Platform.isIOS`
+
+#### [MODIFY] [auth_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart)
+- Handle the case where Firebase user is signed in but no Google account exists (Apple sign-in user)
+- Initialize Store with `null` and navigate to [MainScreen(user: null)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart#18-25) for Apple users
+
+#### [MODIFY] [.arb](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/l10n/app_fr.arb) localization files (en, es, fr, hi, zh)
+- Add `signInApple` string key with translations
+
+> [!IMPORTANT]
+> You must also enable "Sign in with Apple" capability in Xcode under **Signing & Capabilities** for the Runner target, and enable it in your Apple Developer account under the App ID's capabilities. This cannot be done programmatically.
+
+---
+
+## Fix 2: iPad Export Data Bug (Guideline 2.1a)
+
+The share sheet on iPad requires a `sharePositionOrigin` `Rect` to anchor the popover. The current [_getSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#901-905) uses the entire settings screen's render box, which causes a cut-off screen.
+
+### Proposed Changes
+
+#### [MODIFY] [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+- Fix [_getSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#901-905) — instead of using the whole screen's `RenderObject`, use a `GlobalKey` on the Export buttons and pass the correct small rect from that specific button
+- Add `_exportDataKey` and `_exportPdfKey` `GlobalKey`s
+- Attach them to the export `ListTile`s
+- Derive the `sharePositionOrigin` from the button's render box instead
+
+---
+
+## Fix 3: Account Deletion (Guideline 5.1.1v)
+
+Must provide in-app account deletion.
+
+### Proposed Changes
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- Add `deleteAccount()` method that:
+  1. Deletes the user doc from Firestore `users` collection
+  2. Deletes any `super_thanks` docs for the user
+  3. Calls `FirebaseAuth.currentUser.delete()`
+  4. Disconnects Google Sign-In
+
+#### [MODIFY] [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+- Add `clearAllData()` method that clears `_entries`, deletes local cache files, and notifies listeners
+
+#### [MODIFY] [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+- Add a "Delete Account" tile in the Data & Privacy section (or a new "Danger Zone" section above the Log Out button)
+- Show a multi-step confirmation dialog:
+  1. First dialog: "Are you sure? This will permanently delete your account and all data."
+  2. Require typing "DELETE" to confirm
+- On confirmation: call `Store.clearAllData()`, then `AuthService.deleteAccount()`, then navigate to [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#15-20)
+
+#### [MODIFY] [.arb](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/l10n/app_fr.arb) localization files
+- Add `deleteAccount`, `deleteAccountConfirm`, `deleteAccountWarning` string keys
+
+---
+
+## Verification Plan
+
+### Automated
+1. **Static analysis**: `cd /Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal && flutter analyze`
+2. **Build check**: `flutter build ios --no-codesign` — verifies the project compiles with the new dependencies and code
+
+### Manual (for user)
+1. **Sign in with Apple**: Run on iOS simulator/device → login screen should show Apple button → tap it → completes sign-in → navigates to main screen
+2. **Export on iPad**: Run on iPad simulator → Settings → Export Data → share sheet should appear correctly positioned, not cut off
+3. **Account Deletion**: Run on device → Settings → "Delete Account" → confirm → account is deleted, user is returned to login screen
+
+> [!NOTE]
+> Sign in with Apple requires the capability enabled in Xcode and Apple Developer portal. The build check (`--no-codesign`) will verify code compiles, but actual Sign in with Apple testing requires a device with the capability provisioned.

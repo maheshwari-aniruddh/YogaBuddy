@@ -1,0 +1,41 @@
+# Tasks
+
+- [x] Fix Dart compilation error in [lib/services/drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) <!-- id: 0 -->
+    - [x] Analyze [drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) and [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) <!-- id: 1 -->
+    - [x] Correct `authenticatedClient` usage <!-- id: 2 -->
+- [x] Fix iOS Build Configuration <!-- id: 3 -->
+    - [x] Check and fix `CFBundleVersion` in [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 4 -->
+    - [x] Check Swift version configuration <!-- id: 5 -->
+- [x] Verify fix by running the build <!-- id: 6 -->
+    - [x] Check [journal_transition_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart) and [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart) mismatch <!-- id: 7 -->
+    - [x] Update [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) to accept `GoogleSignInAccount` <!-- id: 8 -->
+    - [x] Ensure call sites of [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) pass `GoogleSignInAccount` <!-- id: 9 -->
+    - [x] Verify [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#4-40) stream type <!-- id: 10 -->
+    - [x] Check [FeedbackScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart#5-12) signature <!-- id: 11 -->
+- [x] Resolve iOS Installation Limit <!-- id: 12 -->
+    - [x] Check current Bundle Identifier <!-- id: 13 -->
+    - [x] Confirm and Update Team ID <!-- id: 15 -->
+    - [x] App requires Paid Account to be added to Xcode <!-- id: 17 -->
+    - [x] Select correct Team in Xcode to generate certificates <!-- id: 18 -->
+    - [x] Change Bundle ID to `com.aniruddhmodi.roze` to fix uniqueness error <!-- id: 19 -->
+    - [x] Add iOS App to Firebase with new Bundle ID <!-- id: 20 -->
+    - [x] Update [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/GoogleService-Info.plist) and [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 21 -->
+    - [x] Enable Google Drive API in Cloud Console (Required) <!-- id: 22 -->
+- [x] Debug JSON Serialization Error <!-- id: 23 -->
+    - [x] Check [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#3-60) for `Timestamp` usage <!-- id: 24 -->
+    - [x] Fix [toJson](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#30-43) to handle `Timestamp` or replace with `DateTime` <!-- id: 25 -->
+    - [x] Enhance UI borders as requested <!-- id: 26 -->
+- [x] Implement FaceID Lock <!-- id: 27 -->
+    - [x] Check [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#18-25) and [BiometricService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/biometric_service.dart#4-32) <!-- id: 28 -->
+    - [x] Update [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#14-19) to enforce lock <!-- id: 29 -->
+    - [x] Verify functionality <!-- id: 30 -->
+- [x] User Requested Visual Updates <!-- id: 31 -->
+    - [x] Remove Firestore usage from [FeedbackScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart#5-12) <!-- id: 32 -->
+    - [x] Create [SwipeToSaveWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#5-18) <!-- id: 33 -->
+    - [x] Replace Save Button in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) <!-- id: 34 -->
+    - [x] Fix Microphone overlap (Alignment) in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) <!-- id: 35 -->
+    - [x] Clean up Legacy Firebase Code <!-- id: 37 -->
+- [ ] User Requested Functional Changes <!-- id: 38 -->
+    - [ ] Change Microphone to Toggle (Tap to Start/Stop) <!-- id: 39 -->
+    - [ ] Implement Email Feedback (url_launcher) <!-- id: 40 -->
+    - [ ] Verify changes <!-- id: 36 -->

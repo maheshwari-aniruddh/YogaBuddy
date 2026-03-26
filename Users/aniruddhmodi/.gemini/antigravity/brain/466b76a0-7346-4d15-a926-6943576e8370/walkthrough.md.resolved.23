@@ -1,0 +1,28 @@
+# Streamlit App Walkthrough (Balanced Sensitivity)
+
+## Summary
+The finger mode is now set to **Balanced Sensitivity** (0.10) per your manual adjustment.
+
+## Configuration
+- **Threshold**: 0.10 (Balanced).
+- **Strike**: Requires a moderate, natural tap.
+
+## Mappings
+| Hand | Finger | Natural (Straight) | Sharp (Curled) |
+| :--- | :--- | :--- | :--- |
+| **Left** | Pinky | C3 | C#3 |
+| **Left** | Ring | D3 | D#3 |
+| **Left** | Middle | E3 | F3 |
+| **Left** | Index | F3 | F#3 |
+| **Left** | Thumb | G3 | G#3 |
+| **Right** | Thumb | A3 | A#3 |
+| **Right** | Index | B3 | C4 |
+| **Right** | Middle | C4 | C#4 |
+| **Right** | Ring | D4 | D#4 |
+| **Right** | Pinky | E4 | F4 |
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

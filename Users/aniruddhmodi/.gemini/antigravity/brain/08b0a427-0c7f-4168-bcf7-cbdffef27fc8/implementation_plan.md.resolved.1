@@ -1,0 +1,26 @@
+# Plan to fix DataLoader and OneCycleLR Issues
+
+I will fix the `DataLoader` configuration and address the `OneCycleLR` step error to ensure robust training.
+
+## Proposed Changes
+
+### [Component Name] ML Pipeline
+
+#### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+- **DataLoader**: Keep the fix to only include `prefetch_factor` and `persistent_workers` if `NUM_WORKERS > 0`.
+- **OneCycleLR**: 
+    - Explicitly calculate `total_steps` to ensure consistency.
+    - Add a defensive check in [train_one_epoch](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#287-315) before calling `scheduler.step()` to prevent over-stepping (fixing the `ValueError`).
+
+#### [MODIFY] [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+
+- **DataLoader**: Keep the robustness fix.
+
+## Verification Plan
+
+### Automated Tests
+- Run [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) with the resumed checkpoint to ensure it finishes the final epoch (Epoch 30) without the `ValueError`.
+
+### Manual Verification
+- Verify that the training completes and the final ablation summary is printed.

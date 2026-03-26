@@ -1,0 +1,6 @@
+# Tasks
+
+- [ ] Read content of example1.html through example6.html <!-- id: 0 -->
+- [ ] Create a combined HTML structure <!-- id: 1 -->
+- [ ] Randomize/mix the body content of the examples <!-- id: 2 -->
+- [ ] Write the result to a new file (likely example8.html or overwrite example7.html) <!-- id: 3 -->

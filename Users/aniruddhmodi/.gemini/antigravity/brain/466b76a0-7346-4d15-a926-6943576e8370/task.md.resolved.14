@@ -1,0 +1,36 @@
+# Task: Install MediaPipe and Hand Landmarker
+
+- [ ] Check project structure and existing dependencies <!-- id: 0 -->
+- [x] Install `mediapipe` python package <!-- id: 1 -->
+- [x] Download MediaPipe Hand Landmarker model file ([hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task)) <!-- id: 2 -->
+- [x] Verify installation and model presence <!-- id: 3 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Verify Streamlit app functionality <!-- id: 7 -->
+- [x] Refactor app to default/focus on Live Video feed <!-- id: 8 -->
+- [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Implement frame skipping or resizing <!-- id: 12 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+    - [x] Print detected key to terminal <!-- id: 17 -->
+- [ ] Refine Piano Interface <!-- id: 18 -->
+    - [x] Switch to new image `keyboard_one_octave (1).jpg` <!-- id: 19 -->
+    - [x] Remove angle debug prints <!-- id: 20 -->
+    - [x] Tune accuracy (adjust threshold/mapping) <!-- id: 21 -->
+    - [ ] Make overlay translucent (alpha blending) <!-- id: 22 -->
+    - [ ] Adjust overlay position/height <!-- id: 23 -->

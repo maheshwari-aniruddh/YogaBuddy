@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "redhat.telemetry.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "dart.flutterSdkPath": "/Users/aniruddhmodi/Desktop/flutter",
+    "github.copilot.nextEditSuggestions.enabled": true
+}

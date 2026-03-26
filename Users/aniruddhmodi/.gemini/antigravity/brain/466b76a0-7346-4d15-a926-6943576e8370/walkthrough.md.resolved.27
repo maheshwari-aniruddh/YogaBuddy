@@ -1,0 +1,18 @@
+# Streamlit App Walkthrough (Smoothed & Stable)
+
+## Summary
+The app now uses **Motion Smoothing** to remove jitter and shaky lines.
+
+## Improvements
+- **Anti-Jitter**: A smoothing filter (EMA) keeps the points stable even if the camera is noisy.
+- **Threshold**: 0.10 (Balanced).
+
+## Configuration
+- **Sensitivity**: Balanced.
+- **Smoothing**: Active (Alpha 0.7).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

@@ -1,0 +1,6 @@
+[0] (59,57)<a class='back-btn' href='piano.html' />
+	[1] (68,57)<span >Back />
+Piano - Composer Mode
+Status
+AR Active
+Camera Active

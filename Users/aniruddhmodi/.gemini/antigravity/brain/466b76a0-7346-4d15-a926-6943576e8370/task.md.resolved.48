@@ -1,0 +1,74 @@
+# Task: Install MediaPipe and Hand Landmarker
+
+- [ ] Check project structure and existing dependencies <!-- id: 0 -->
+- [x] Install `mediapipe` python package <!-- id: 1 -->
+- [x] Download MediaPipe Hand Landmarker model file ([hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task)) <!-- id: 2 -->
+- [x] Verify installation and model presence <!-- id: 3 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Verify Streamlit app functionality <!-- id: 7 -->
+- [x] Refactor app to default/focus on Live Video feed <!-- id: 8 -->
+- [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Implement frame skipping or resizing <!-- id: 12 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+    - [x] Print detected key to terminal <!-- id: 17 -->
+- [x] Refine Piano Interface <!-- id: 18 -->
+    - [x] Switch to new image `keyboard_one_octave (1).jpg` <!-- id: 19 -->
+    - [x] Remove angle debug prints <!-- id: 20 -->
+    - [x] Tune accuracy (adjust threshold/mapping) <!-- id: 21 -->
+    - [x] Make overlay translucent (alpha blending) <!-- id: 22 -->
+    - [x] Adjust overlay position/height <!-- id: 23 -->
+- [x] Implement Multi-Finger Support <!-- id: 24 -->
+    - [x] Define landmarks for all 5 fingers <!-- id: 25 -->
+    - [x] Loop through fingers to detect clicks separately <!-- id: 26 -->
+    - [x] Support chords (multiple keys pressed) <!-- id: 27 -->
+- [x] Add Key History to UI <!-- id: 28 -->
+    - [x] Create UI placeholder for history <!-- id: 29 -->
+    - [x] Update history list on key press <!-- id: 30 -->
+    - [x] Display recent keys in placeholder <!-- id: 31 -->
+- [x] Improve Detection Accuracy <!-- id: 32 -->
+    - [x] Implement "Cooldown" (debounce) to prevent key spam <!-- id: 33 -->
+    - [x] Tune Angle Threshold (Experiment with 155-160) <!-- id: 34 -->
+    - [x] Add Angle Debug Display (to help user learn the motion) <!-- id: 35 -->
+- [ ] Visual Polish (app.py) <!-- id: 79 -->
+    - [ ] Make Piano Overlay Opaque (No Transparency) <!-- id: 80 -->
+- [ ] Create AR Instrument Studio ([ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)) <!-- id: 81 -->
+    - [ ] Implement Synthetic Audio Generator (Sine/Square/Noise) <!-- id: 82 -->
+    - [ ] Implement [HandPhysics](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#65-87) Class (Velocity, Curl) <!-- id: 83 -->
+    - [ ] Implement Mode A: 10-Finger Piano <!-- id: 84 -->
+    - [ ] Implement Mode B: Quadrant Air Drums <!-- id: 85 -->
+    - [ ] Wrap in Streamlit Interface <!-- id: 86 -->
+- [x] Implement "Grey Zones" (Dead Zones) for Drums <!-- id: 93 -->
+    - [x] Define central dead zone logic (margin around 0.5) <!-- id: 94 -->
+    - [x] Visualize dead zones as grey rectangles <!-- id: 95 -->
+- [x] Urgent Fix: Double Triggering <!-- id: 90 -->
+    - [x] Implement `finger_can_hit` State Machine <!-- id: 91 -->
+    - [x] Reset only on velocity drop (< 0.01) <!-- id: 92 -->
+- [ ] Integrate Real Audio Files <!-- id: 87 -->
+    - [ ] Map [sounds/](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#16-59) to Piano keys <!-- id: 88 -->
+    - [ ] Map `drum_sounds/` to Drum quadrants <!-- id: 89 -->
+- [x] Debug External Camera <!-- id: 75 -->
+    - [x] Add "Scan Cameras" button to sidebar <!-- id: 76 -->
+    - [x] Implement brute-force scan (indices 0-9) to find valid cameras <!-- id: 77 -->
+    - [x] Update selector to support detected indices <!-- id: 78 -->
+- [ ] Implement Finger-to-Note Mapping <!-- id: 58 -->
+    - [ ] Define Hand/Finger -> Note table <!-- id: 59 -->
+    - [ ] Re-enable [calculate_angle](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#51-64) for Straight/Curl detection <!-- id: 60 -->
+    - [ ] Remove Piano Overlay (Position-based logic) <!-- id: 61 -->
+    - [ ] Implement Note Trigger (Velocity + Handedness Check) <!-- id: 62 -->

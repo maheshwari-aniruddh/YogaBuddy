@@ -1,0 +1,17 @@
+# AR Instrument Studio Walkthrough (GPU Turbo)
+
+## Summary
+Running on **Metal Performance Shaders (MPS)** for maximum speed.
+Circular Pads + Lift-to-Reset + High Sensitivity.
+
+## Features
+-   **Engine**: MediaPipe Task API (GPU Delegate).
+-   **Drums**: Circular Pads with "Dead Zones".
+-   **Piano**: 10 distinct notes.
+-   **Sensitivity**: 0.02 (Max).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

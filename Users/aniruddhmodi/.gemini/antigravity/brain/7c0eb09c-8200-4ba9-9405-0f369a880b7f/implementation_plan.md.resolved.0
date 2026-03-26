@@ -1,0 +1,15 @@
+# Running App on iPhone 14 Simulator
+
+This plan outlines the steps to create, boot, and run the Flutter application on an iPhone 14 simulator.
+
+## Proposed Changes
+
+### Device Management
+- Create an iPhone 14 simulator using `xcrun simctl`.
+- Boot the created simulator.
+
+## Verification Plan
+
+### Manual Verification
+- Verify that the iPhone 14 simulator boots successfully.
+- Run `flutter run -d <device_id>` and verify the app launches on the simulator.

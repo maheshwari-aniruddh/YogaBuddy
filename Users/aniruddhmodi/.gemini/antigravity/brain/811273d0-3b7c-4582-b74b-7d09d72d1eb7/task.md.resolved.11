@@ -1,0 +1,13 @@
+# Task: PoseFlow Deployment and Renaming
+
+- [x] Renaming to PoseFlow <!-- id: 0 -->
+    - [x] Update strings in web app <!-- id: 1 -->
+    - [x] Update documentation and scripts <!-- id: 2 -->
+- [x] Full Project Deployment <!-- id: 3 -->
+    - [x] Add local ML disclaimer to web app <!-- id: 4 -->
+    - [x] Configure GitHub Actions for deployment <!-- id: 5 -->
+    - [x] Push full project to `PoseFlow` repo <!-- id: 6 -->
+- [x] Verification <!-- id: 7 -->
+    - [x] Resolve React Router 404 issue <!-- id: 8 -->
+    - [x] Verify live URL on GH Pages <!-- id: 9 -->
+    - [x] Create final walkthrough with proof <!-- id: 10 -->

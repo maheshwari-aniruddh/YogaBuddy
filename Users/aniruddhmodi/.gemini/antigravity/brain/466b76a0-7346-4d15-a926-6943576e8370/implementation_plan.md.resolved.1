@@ -1,0 +1,40 @@
+# Streamlit App Implementation Plan
+
+## Goal Description
+Create a Streamlit application (`app.py`) that uses the MediaPipe Hand Landmarker model to detect hand landmarks.
+The app will have two modes:
+1.  **Image Upload**: Users can upload an image for inference.
+2.  **Live Video**: Uses the local camera to perform real-time detection.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### Dependencies
+- Install `streamlit` and `opencv-python` (already installed) in `.venv`.
+
+### Files
+#### [NEW] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- Import `streamlit`, `cv2`, `mediapipe`, `numpy`.
+- Initialize `HandLandmarker` with [hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task).
+- **Mode 1: Upload Image**:
+    - Use `st.file_uploader`.
+    - Convert image to MediaPipe format.
+    - Run inference and draw landmarks using drawing utils from the notebook.
+- **Mode 2: Live Video**:
+    - Use `cv2.VideoCapture(0)`.
+    - Loop to read frames.
+    - Convert frame to RGB.
+    - Run inference (async or sync for video mode).
+    - Draw landmarks.
+    - Display in `st.image`.
+    - Add a "Stop" button to break the loop.
+
+## Verification Plan
+### Automated Tests
+- None.
+
+### Manual Verification
+- Run `streamlit run app.py`.
+- Test uploading an image.
+- Test "Live Video" mode to ensure camera opens and landmarks are drawn.

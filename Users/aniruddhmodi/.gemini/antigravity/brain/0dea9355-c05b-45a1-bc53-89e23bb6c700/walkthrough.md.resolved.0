@@ -1,0 +1,39 @@
+# Feedback Feature & TestFlight Guide
+
+## Changes Implemented
+1.  **Feedback Screen**: Added a new tab "Feedback" (next to Settings) where users can submit text feedback.
+2.  **Firestore Integration**: Feedback is saved to the `feedback` collection in your Firebase project.
+3.  **Bundle Identifier**: Updated to `com.aniruddh.roze` to prepare for TestFlight.
+
+## How to Check Feedback
+1.  Go to the [Firebase Console](https://console.firebase.google.com/).
+2.  Select your project ("the-30sec-journal" or similar).
+3.  Navigate to **Firestore Database** > **Data**.
+4.  Look for the `feedback` collection. You will see documents submitted by users there.
+
+## How to Run on Physical iPhone
+1.  Connect your iPhone to your Mac via cable.
+2.  Open the project in Xcode:
+    ```bash
+    open ios/Runner.xcworkspace
+    ```
+3.  In Xcode, select your **Team** in the **Signing & Capabilities** tab of the Runner target.
+4.  Select your iPhone from the device list in the top toolbar.
+5.  Click the **Run** (Play) button.
+    *   *Note: On your iPhone, you may need to go to Settings > General > VPN & Device Management to trust your developer certificate.*
+
+## How to Distribute to TestFlight
+1.  **Create App ID**: Go to [Apple Developer Portal](https://developer.apple.com/account/resources/identifiers/list) and create an App ID for `com.aniruddh.roze`.
+2.  **Create App**: Go to [App Store Connect](https://appstoreconnect.apple.com/) and create a new App with that Bundle ID.
+3.  **Archive**:
+    *   In Xcode, select "Any iOS Device (arm64)" as the target.
+    *   Go to **Product** > **Archive**.
+4.  **Upload**:
+    *   Once the archive finishes, the Organizer window opens.
+    *   Click **Distribute App** > **TestFlight & App Store** > **Distribute**.
+5.  **Beta Testing**:
+    *   In App Store Connect, go to the **TestFlight** tab.
+    *   Add yourself or others to "Internal Testing" to get the invite email.
+
+> [!IMPORTANT]
+> **Firebase Config**: I commented out the specific `DefaultFirebaseOptions` in [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) because `firebase_options.dart` was missing. Since you have [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/GoogleService-Info.plist), it should work on iOS. For best results, run `flutterfire configure` in your terminal to regenerate the configuration file.

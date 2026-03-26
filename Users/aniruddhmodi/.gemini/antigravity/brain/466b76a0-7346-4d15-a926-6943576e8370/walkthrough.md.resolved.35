@@ -1,0 +1,18 @@
+# AR Instrument Studio Walkthrough (Tuned)
+
+## Summary
+Retuned for better control.
+
+## Updates
+- **Sensitivity**: Defaulted to `0.15` (Harder to hit).
+- **Slider**: Now goes up to `1.0` if you need it even stricter.
+- **Double-Trigger Fix**: Active (State Machine).
+
+## Camera Selection
+- **Default**: Indices **0** and **1** available instantly.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

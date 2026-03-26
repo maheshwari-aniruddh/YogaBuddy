@@ -1,0 +1,37 @@
+# B4 Performance Tuning (Phase 2)
+
+The initial EfficientNet-B4 training showed a regression in robustness to Noise (89% vs 92% previously) and a relatively low training accuracy (~89%), suggesting the model is over-regularized and struggling to learn the underlying features behind the high-intensity noise.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Over-Regularization Fix**: We are reducing the total dropout and stochastic depth to allow the model more capacity to learn.
+> **Gradient Accumulation**: To stabilize training with `BATCH_SIZE=8`, we will accumulate gradients for 4 steps (effective batch size = 32).
+> **Softened Noise**: The Gaussian noise being added to training was `std=0.1`, which is too high for natural MRI patterns. We are reducing this to `0.03`.
+
+## Proposed Changes
+
+### [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+- **Regularization**:
+    - Update [HybridModel](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py#137-153) to use `drop_rate=0.2` (was 0.4) and `drop_path_rate=0.1` (was 0.2).
+    - Change classifier `Dropout` to `0.3` (was 0.5).
+- **Augmentation Tuning**:
+    - Reduce second [AddGaussianNoise](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#205-217) `std` to `0.03` (was 0.1).
+    - Reduce `GaussianBlur` `sigma` range to [(0.1, 1.0)](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_clean_noisy_model.py#138-222).
+- **Optimization**:
+    - Add `GRADIENT_ACCUMULATION_STEPS = 4`.
+    - Set `LEARNING_RATE = 5e-4` (more conservative for B4).
+    - Update the training loop to track and step the optimizer/scheduler only every N steps.
+
+### [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+- Update [HybridModel](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py#137-153) classifier dropout to `0.3` to match the new tuning.
+
+## Verification Plan
+
+### Automated Tests
+- Run `.venv/bin/python main.py` locally for 1 epoch to verify the accumulation logic.
+- Push the revised kernel to Kaggle for a new 30-epoch run.
+
+### Manual Verification
+- Monitor the training log for a higher Training Accuracy (>92%) compared to the previous run (89%).

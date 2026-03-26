@@ -1,0 +1,25 @@
+# Piano Interface Refinement Plan
+
+## Goal Description
+Update the piano interface to use the user-supplied image, improve accuracy (likely by strictly enforcing bottom alignment and perhaps a tighter click threshold), and remove verbose angle logging.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Image**: Change `PIANO_IMAGE_PATH` to `"keyboard_one_octave (1).jpg"`.
+- **Overlay**: Ensure the image is overlayed exactly at the bottom of the 480px high frame.
+- **Accuracy**:
+    - *Click Threshold*: Maybe tighten the angle to `< 150` or `< 140` degrees to avoid false positives? I'll keep it at 160 for now but maybe add a visual indicator of "ready vs click".
+    - *Key Mapping*: Stick to 7 white keys.
+    - *Z-Depth*: Maybe verify `landmark.z` is not too far back? (Optional, might be over-optimizing). Let's stick to angle for now but make sure the finger TIP is actually ON the keys (y coordinate check).
+- **Logging**: Remove `print(f"Key Pressed: ...")` for angles. Only print the key name if asked, or just overlay it. User said "dont printo ut angels", so I will remove the angle print but keep the key press overlay.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Check the new image is visible.
+- Check terminal is quiet regarding angles.
+- Test key clicking accuracy.

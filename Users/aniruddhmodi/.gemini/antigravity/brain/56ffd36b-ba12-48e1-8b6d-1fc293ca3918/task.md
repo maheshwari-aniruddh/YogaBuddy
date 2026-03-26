@@ -1,0 +1,12 @@
+# Trash Detection Task List
+
+- [x] Explore existing project structure <!-- id: 0 -->
+- [/] Determine dataset availability (Sing Garbage Dataset or similar) <!-- id: 1 -->
+- [x] Create implementation plan <!-- id: 2 -->
+- [x] Set up YOLOv8 training environment <!-- id: 3 -->
+- [x] Enable MPS (GPU) for M2 Pro training <!-- id: 3b -->
+- [x] Train the model <!-- id: 4 -->
+- [x] Create inference script <!-- id: 4b -->
+- [ ] Validate the model <!-- id: 5 -->
+- [x] Test "biological" (food) category <!-- id: 6 -->
+- [x] Calculate accuracy for all classes <!-- id: 7 -->

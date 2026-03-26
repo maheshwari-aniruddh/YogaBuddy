@@ -1,0 +1,9 @@
+# Music to Notes Converter Feature
+
+## Tasks
+- [x] Install audio processing libraries (basic-pitch, librosa)
+- [ ] Create Python backend script for audio-to-notes conversion
+- [ ] Create new "Music Converter" HTML page with UI
+- [ ] Add navigation link to instruments page
+- [ ] Add styling for the converter page
+- [ ] Test the feature end-to-end

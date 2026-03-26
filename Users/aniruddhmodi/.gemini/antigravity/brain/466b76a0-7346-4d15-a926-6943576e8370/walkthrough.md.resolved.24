@@ -1,0 +1,28 @@
+# Streamlit App Walkthrough (Precision Mode)
+
+## Summary
+The finger mode is now set to **Very High Threshold** (0.25).
+
+## Configuration
+- **Threshold**: 0.25 (Very High).
+- **Strike**: Requires a very fast, deliberate strike. This is the strictest setting to prevent accidental triggers.
+
+## Mappings
+| Hand | Finger | Natural (Straight) | Sharp (Curled) |
+| :--- | :--- | :--- | :--- |
+| **Left** | Pinky | C3 | C#3 |
+| **Left** | Ring | D3 | D#3 |
+| **Left** | Middle | E3 | F3 |
+| **Left** | Index | F3 | F#3 |
+| **Left** | Thumb | G3 | G#3 |
+| **Right** | Thumb | A3 | A#3 |
+| **Right** | Index | B3 | C4 |
+| **Right** | Middle | C4 | C#4 |
+| **Right** | Ring | D4 | D#4 |
+| **Right** | Pinky | E4 | F4 |
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

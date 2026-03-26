@@ -1,0 +1,21 @@
+# Walkthrough - SuperThanks Feature
+
+I have implemented the complete "SuperThanks" feature, allowing users to send gratitude messages to others and experience a celebration when receiving one.
+
+## Changes
+
+### User Interface
+- **Today Screen**: Added a prompt in the Gratitude section: "Feeling extra grateful? Use SuperThanks".
+- **SuperThanks Screen**: Created a new screen for searching users by email, auto-selecting single matches, and sending custom messages.
+- **Receiver Experience**: When a SuperThanks is received, a confetti explosion and a dialog appear on the Today screen.
+- **Settings Screen**: Added a "Allow SuperThanks" toggle to opt-out of receiving messages.
+
+### Data & Logic
+- **Firestore**: Created `super_thanks` collection. Updated `users` collection to track `allowSuperThanks` preference.
+- **AuthService**: Added methods to search users, send messages, listen for incoming messages, and update preferences.
+
+## How to Verify
+1.  **Run the App**: Launch on your device.
+2.  **Send**: Go to Today -> Gratitude -> SuperThanks. Search for a user (or yourself) and send a message.
+3.  **Receive**: If sent to yourself, the confetti dialog should appear immediately.
+4.  **Opt-Out**: Go to Settings -> Preferences -> Allow SuperThanks. Toggle it off. Try searching for yourself again from the search screen (you should affect visibility if fully implemented, or at least the preference is saved).

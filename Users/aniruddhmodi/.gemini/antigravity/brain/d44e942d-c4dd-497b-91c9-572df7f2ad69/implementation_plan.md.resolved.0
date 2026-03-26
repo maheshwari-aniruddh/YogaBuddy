@@ -1,0 +1,21 @@
+# Adjust Haptic Feedback Timing
+
+## Goal
+Make the haptic feedback for "slide to save" occur earlier in the swipe gesture.
+
+## Proposed Changes
+### [lib/widgets/swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart)
+- [MODIFY] Change the haptic feedback triggering threshold in [_onDragUpdate](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#42-55) from `0.8` (80%) to `0.5` (50%).
+
+```dart
+    // Haptic feedback intensity increases as you slide
+    if (_dragValue > (_maxWidth - _height) * 0.5) { // Changed from 0.8
+      HapticFeedback.lightImpact();
+    }
+```
+
+## Verification Plan
+### Manual Verification
+- Run the app on a physical device (if available to the user) or simulator.
+- Use the "slide to save" feature.
+- Verify that haptic feedback starts feeling "buzzy" or active earlier in the drag motion than before.

@@ -1,0 +1,28 @@
+# Optimization & Visual Polish Plan
+
+## Goal Description
+1.  **Fix Latency**: Drums are too slow. We must speed up the processing loop and audio trigger.
+2.  **Visual Polish**: Make it look like the "Falling" piano video (Dark background, colorful notes).
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Camera Init**:
+    - `cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)`
+    - `cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)`
+- **Audio Init**:
+    - `buffer=512` (Try lowest stable value).
+- **Game Engine**:
+    - [draw()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#159-176):
+        - Darken `annotated_image` by 50% (`frame // 2`).
+        - Draw bright, filled rectangles for notes.
+        - Add "Glow" effect (maybe just bright borders).
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Hit drum.
+- **Expected**: "Instant" response (<100ms).
+- **Visuals**: App looks like a dark AR game, not just a webcam feed.

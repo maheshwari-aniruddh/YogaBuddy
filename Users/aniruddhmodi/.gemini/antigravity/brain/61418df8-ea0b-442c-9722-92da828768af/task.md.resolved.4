@@ -1,0 +1,20 @@
+# Task: Fix Batch Normalization Mismatch and Retrain
+
+## Status
+- [x] Stop the currently running [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) process <!-- id: 0 -->
+- [x] Fix [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) <!-- id: 1 -->
+    - [x] Freeze ResNet50 base layers (or at least BN layers) to prevent running statistic corruption on small batches.
+    - [x] Verify metric calculation.
+- [x] Fix [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) <!-- id: 2 -->
+    - [x] Apply the same fix for the Combined experiment.
+- [x] Restart [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) <!-- id: 3 -->
+- [x] Monitor for convergence (Training Acc should align better with Validation metrics) <!-- id: 4 -->
+
+# Task: Disable SHAP Analysis & Resume
+
+## Status
+- [x] Stop current run (LBP in progress) <!-- id: 5 -->
+- [x] Disable SHAP in [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) (`RUN_SHAP = False`) <!-- id: 6 -->
+- [x] Disable SHAP in [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) <!-- id: 7 -->
+- [x] Modify [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) to skip HOG (already done) <!-- id: 8 -->
+- [/] Restart [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) (Runs LBP -> Combined) <!-- id: 9 -->

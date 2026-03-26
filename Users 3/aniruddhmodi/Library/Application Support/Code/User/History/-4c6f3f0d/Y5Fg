@@ -1,0 +1,64 @@
+platform :ios, '12.0'
+
+def flutter_root
+  xcconfig = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  raise "#{xcconfig} must exist. Run 'flutter pub get'." unless File.exist?(xcconfig)
+  File.foreach(xcconfig) do |line|
+    m = line.match(/FLUTTER_ROOT\=(.*)/)
+    return m[1].strip if m
+  end
+  raise "FLUTTER_ROOT not found. Run 'flutter pub get'."
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+target 'Runner' do
+  use_frameworks! :linkage => :static
+  use_modular_headers!
+
+  # Don’t pin gRPC; let Firebase choose 1.62.x.
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |t|
+    flutter_additional_ios_build_settings(t)
+    t.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+    end
+  end
+
+  # Strip invalid -G flag from BoringSSL-GRPC
+  installer.pods_project.targets.each do |t|
+    next unless t.name == 'BoringSSL-GRPC'
+    t.source_build_phase.files.each do |f|
+      next unless f.settings && f.settings['COMPILER_FLAGS']
+      flags = f.settings['COMPILER_FLAGS'].split
+      flags.reject! { |flag| flag.start_with?('-G') }
+      f.settings['COMPILER_FLAGS'] = flags.join(' ')
+    end
+  end
+
+  # Patch gRPC basic_seq.h for Clang 19+ (Xcode 16+)
+  Dir.glob(File.join('Pods', '{gRPC-Core,gRPC-C++}', 'src', 'core', 'lib', 'promise', 'detail', 'basic_seq.h')).each do |hdr|
+    next unless File.exist?(hdr)
+    txt = File.read(hdr)
+    patched = txt.gsub(/Traits::\s*template\s+CallSeqFactory\(/, 'Traits::template CallSeqFactory<>(')
+    if patched != txt
+      File.open(hdr, 'w') { |f| f.write(patched) }
+      puts "Patched #{hdr} (CallSeqFactory<>(…))"
+    end
+  end
+end

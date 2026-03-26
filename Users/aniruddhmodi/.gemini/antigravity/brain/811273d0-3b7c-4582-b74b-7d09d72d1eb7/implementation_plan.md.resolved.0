@@ -1,0 +1,26 @@
+# YogaBuddy Landing Page Setup
+
+The goal is to create a modern, high-conversion landing page for YogaBuddy and deploy it to GitHub Pages. This page will serve as the first impression for users, showcasing the app's real-time pose detection, AI feedback, and meditation features.
+
+## Proposed Changes
+
+### Assets
+#### [NEW] [hero_image.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/hero_image.png)
+- A high-quality, AI-generated image of a person practicing yoga in a serene environment with subtle tech overlays.
+
+### Core Landing Page
+#### [NEW] [index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/index.html)
+- Main landing page with a sleek, glassmorphic design.
+- Features sections: Hero, Features (real-time feedback, pose detection), Meditation, and Call to Action.
+#### [NEW] [index.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/index.css)
+- Custom CSS using modern design tokens, gradients, and animations.
+
+## Verification Plan
+
+### Manual Verification
+- View the [index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/index.html) file in a browser to ensure all animations, layouts, and assets load correctly.
+- Test responsiveness across different screen sizes (mobile/tablet/desktop).
+- Verify that links correctly point to the app and GitHub.
+
+### Automated Tests
+- N/A for static landing page, but I'll check for accessibility (alt tags, semantic HTML).

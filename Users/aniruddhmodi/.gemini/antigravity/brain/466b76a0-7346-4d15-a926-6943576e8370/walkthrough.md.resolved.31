@@ -1,0 +1,20 @@
+# Streamlit App Walkthrough (Camera Scanner)
+
+## Summary
+Trouble finding your camera? Use the **Scan** feature.
+
+## Finding Your Camera
+1. Click **"Scan for Cameras"** in the sidebar.
+2. Wait a moment while it checks slots 0-9.
+3. The dropdown will update with discovered cameras (e.g., "Camera 2").
+4. Select the new camera and click **"Start Camera"**.
+
+## Configuration
+- **Threshold**: `0.10`.
+- **Smoothing**: Active.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

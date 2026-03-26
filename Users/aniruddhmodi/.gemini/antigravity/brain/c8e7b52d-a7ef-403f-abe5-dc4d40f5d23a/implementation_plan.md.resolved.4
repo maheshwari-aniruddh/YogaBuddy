@@ -1,0 +1,50 @@
+# Implementation Plan - SuperThanks Feature (Expanded)
+
+This plan covers the full implementation of the "SuperThanks" feature, enabling users to send gratitude messages to other users, and receivers to see a confetti celebration.
+
+## User Review Required
+> [!NOTE]
+> Database indexes might be required for efficient queries on `super_thanks`.
+> This feature relies on the user being logged in via Google.
+
+## Proposed Changes
+
+### Data Layer
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+-   Add [sendSuperThanks({required String toEmail, required String message})](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart#51-65).
+-   Add `Stream<List<SuperThanks>> listenForSuperThanks()`.
+-   Add `markSuperThanksAsRead(String id)`.
+-   Update [_saveUserToFirestore](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#61-72) to include `allowSuperThanks` (default true).
+
+### UI Layer
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+-   **Sender**: Add "Feeling extra grateful?" prompt in the Gratitude section.
+-   **Receiver**: Listen to specific SuperThanks stream. On data:
+    -   Show `OverlayEntry` with Confetti + Dialog.
+    -   Mark message as read after checking/closing.
+
+#### [MODIFY] [super_thanks_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart)
+-   Add a **Message** text field.
+-   Logic: If search returns exactly 1 user, **Auto-Select** and show message field immediately.
+-   Action: "Send" button calls `authService.sendSuperThanks`.
+
+#### [MODIFY] [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+-   Add "Allow SuperThanks" toggle.
+-   Update Firestore user preference on change.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Sender Flow**:
+    -   Search for a user (e.g., self or test account).
+    -   Verify auto-select if unique match.
+    -   Type message and Send.
+2.  **Receiver Flow**:
+    -   (If testing on same device) Send to self.
+    -   Verify the popup appears with Confetti.
+    -   Verify the message content is correct ("_____ SuperThanked you").
+3.  **Opt-Out**:
+    -   Go to Settings, disable SuperThanks.
+    -   Try to search for this user from another account (should ideally not show up, or show as "not accepting messages" - *Simplification: Just don't return them in search or block send*).

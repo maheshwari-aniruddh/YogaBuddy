@@ -1,0 +1,12 @@
+# Walkthrough - Adjust Haptic Feedback Timing
+
+I have updated the [SwipeToSaveWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#5-18) to trigger haptic feedback earlier in the swipe gesture.
+
+## Changes
+### [lib/widgets/swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart)
+- Changed the threshold for triggering `HapticFeedback.lightImpact()` from `0.8` (80% of slide) to `0.5` (50% of slide).
+
+## Verification Results
+### Manual Verification
+- The code change relies on the standard `DragUpdateDetails` and `HapticFeedback` API.
+- Setting the threshold to `0.5` ensures that as soon as the user drags the slider past the midpoint, the haptic feedback will trigger.

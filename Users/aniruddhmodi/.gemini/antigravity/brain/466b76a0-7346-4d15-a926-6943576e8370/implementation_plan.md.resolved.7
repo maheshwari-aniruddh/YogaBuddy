@@ -1,0 +1,33 @@
+# Multi-Finger Piano Plan
+
+## Goal Description
+Expand the key detection logic to monitor all 5 fingers (Thumb, Index, Middle, Ring, Pinky) simultaneously. "Clicks" will be determined by the bending angle of each finger's specific joints.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Landmark Definitions**:
+    - Thumb: Tip 4, IP 3, MCP 2 (Angle at 3).
+    - Index: Tip 8, PIP 6, MCP 5 (Angle at 6).
+    - Middle: Tip 12, PIP 10, MCP 9 (Angle at 10).
+    - Ring: Tip 16, PIP 14, MCP 13 (Angle at 14).
+    - Pinky: Tip 20, PIP 18, MCP 17 (Angle at 18).
+- **Loop**: Iterate over these 5 definitions for each hand.
+- **Logic**:
+    - For each finger:
+        - Check if Tip Y is in piano region.
+        - Calculate angle.
+        - If `angle < THRESHOLD`: Register press.
+    - **Thumb Exception**: Thumb mechanics are different. The angle at landmark 3 might need a different threshold or logic, but I'll start with the same logic and see.
+- **Visuals**:
+    - Draw rectangles for ALL active keys (supporting chords).
+    - Print which finger pressed which key? Or just the key.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Try pressing keys with Index, Middle, Ring, Pinky.
+- Try a chord (two fingers at once).

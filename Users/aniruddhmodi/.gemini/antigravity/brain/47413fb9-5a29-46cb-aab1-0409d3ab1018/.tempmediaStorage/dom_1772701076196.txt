@@ -1,0 +1,108 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+error
+You can't publish apps from this developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-yht-0' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-yht-0' role='button' />
+[4] (842,87)<div  />
+	[5] (842,87)<button aria-label='Notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-yht-21 mdc-button--outlined' />
+		notifications
+		Notifications
+[6] (930,86)<div  />
+	[7] (930,86)<div aria-label='Rozze' class='active-app-button _ngcontent-yht-1' role='button' />
+		Rozze
+		[8] (930,86)<material-ripple  />
+[9] (976,87)<div  />
+	[10] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-yht-4' />
+		[11] (976,86)<div  />
+[12] (101,148)<a class='back-button mdc-button mdc-button--text mdc-button--icon-text _ngcontent-yht-14' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[13] (26,148)<material-icon  />
+		[14] (26,148)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>keyboard_backspace />
+	[15] (67,148)<span >All apps />
+[16] (96,227)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/app-dashboard' role='button' />
+	[17] (26,227)<console-icon  />
+		[18] (26,227)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[19] (26,227)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>dashboard />
+	[20] (69,227)<span >Dashboard />
+[21] (96,276)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/statistics' role='button' />
+	[22] (26,276)<console-icon  />
+		[23] (26,276)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[24] (26,276)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>bar_chart />
+	[25] (65,276)<span >Statistics />
+[26] (96,324)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/publishing' role='button' />
+	[27] (26,324)<console-icon  />
+		[28] (26,324)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[29] (26,324)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>overview />
+	[30] (89,324)<span >Publishing overview />
+[31] (99,401)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/test-and-release' role='button' />
+	[32] (26,401)<console-icon  />
+		[33] (26,401)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[34] (26,401)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>rocket_launch />
+	[35] (81,401)<span >Test and release />
+[36] (99,474)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/monitor' role='button' />
+	[37] (26,474)<console-icon  />
+		[38] (26,474)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[39] (26,474)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>vital_signs />
+	[40] (91,474)<span >Monitor and improve />
+[41] (99,547)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/grow-overview' role='button' />
+	[42] (26,547)<console-icon  />
+		[43] (26,547)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[44] (26,547)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>finance_mode />
+	[45] (70,547)<span >Grow users />
+Store presence
+expand_more
+[46] (99,610)<a class='item-link _ngcontent-yht-23' role='button' />
+	[47] (63,610)<span >Store performance />
+	[48] (171,610)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>expand_more />
+[49] (99,673)<a class='item-link _ngcontent-yht-23' role='button' />
+	[50] (48,673)<span >Translations />
+	[51] (171,673)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>expand_more />
+[52] (99,736)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/deeplinks' role='button' />
+	[53] (44,736)<span >Deep links />
+[54] (99,813)<a class='item-link _ngcontent-yht-23' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/monetize' role='button' />
+	[55] (26,813)<console-icon  />
+		[56] (26,813)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[57] (26,813)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>sell />
+	[58] (87,813)<span >Monetize with Play />
+Grow users
+Finish setting up your app on the dashboard
+Once you've finished setting up your app, come back here to explore tools for engaging and retaining users on Play
+[59] (590,411)<a class='mdc-button mdc-button--unelevated mdc-button--icon-text mdc-button--icon-trailing' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/app-dashboard' />
+	[60] (584,411)<span >Go to Dashboard />
+	[61] (633,411)<console-icon  />
+		[62] (630,411)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[63] (630,411)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>arrow_right_alt />
+Store listings
+[64] (411,551)<a aria-label='Get started View store listings' class='mdc-button mdc-button--text _ngcontent-yht-69 mdc-button--icon-text' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/store-listings' />
+	[65] (404,551)<span >Get started />
+	[66] (440,551)<console-icon  />
+		[67] (440,551)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[68] (440,551)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>arrow_right_alt />
+Manage your Play store listing, and create custom store listings for specific audiences
+Store listing experiments
+[69] (660,551)<a aria-label='Get started View store listing experiments' class='mdc-button mdc-button--text _ngcontent-yht-69 mdc-button--icon-text' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/store-listing-experiments/overview' />
+	[70] (652,551)<span >Get started />
+	[71] (689,551)<console-icon  />
+		[72] (689,551)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[73] (689,551)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>arrow_right_alt />
+Run A/B tests on your store listing assets and descriptions to increase installs and retention
+Pre-registration
+[74] (908,551)<a aria-label='Get started Go to Pre-registration' class='mdc-button mdc-button--text _ngcontent-yht-69 mdc-button--icon-text' href='/console/u/0/developers/6928342875691261065/app/4974422816844460064/pre-registration' />
+	[75] (901,551)<span >Get started />
+	[76] (938,551)<console-icon  />
+		[77] (938,551)<material-icon class='_ngcontent-yht-18 _nghost-yht-11' />
+			[78] (938,551)<i class='material-icon-i material-icons-extended _ngcontent-yht-11' role='img'>arrow_right_alt />
+Let users pre-register for your app to build awareness and excitement before you launch
+[79] (278,959)<a class='footer-item grey-link _ngcontent-yht-2' href='https://play.google.com/console/about/whats-new/'>Product updates />
+[80] (375,959)<a class='footer-item grey-link _ngcontent-yht-2' href='https://status.play.google.com/'>Status dashboard />
+Help
+© 2026 Google
+[81] (689,959)<a class='footer-item grey-link _ngcontent-yht-2' href='https://www.google.com/policies/privacy/'>Privacy />
+[82] (793,959)<a class='footer-item grey-link _ngcontent-yht-2' href='https://play.google.com/about/developer-distribution-agreement.html'>Developer Distribution Agreement />
+[83] (918,959)<a class='footer-item grey-link _ngcontent-yht-2' href='https://play.google.com/about/console/terms-of-service/'>Terms of Service />
+
+</current_dom>

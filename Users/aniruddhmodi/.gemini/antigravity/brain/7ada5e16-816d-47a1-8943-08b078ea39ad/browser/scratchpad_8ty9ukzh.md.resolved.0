@@ -1,0 +1,12 @@
+# Task: Verify `bass.html` layout
+
+## Progress
+- [ ] Navigate to `http://localhost:8502/bass.html`
+- [ ] Take screenshot of the loaded page
+- [ ] Verify controls bar is at the top
+- [ ] Verify bass info bar is below controls bar and horizontal
+- [ ] Verify camera iframe is below info bar and full width
+- [ ] Report findings
+
+## Findings
+- 

@@ -1,0 +1,58 @@
+# Apple JournalingSuggestions Integration Plan
+
+## Background
+
+The current custom location system has issues detecting home vs business addresses. Apple's **JournalingSuggestions** framework (iOS 17.2+) is what Apple Journal itself uses — it provides curated suggestions about places visited, workouts, photos, contacts, and music.
+
+## Key Constraint
+
+> [!IMPORTANT]
+> Apple's API **requires user interaction with a picker** — you cannot access suggestions programmatically in the background. The user must tap a button, see Apple's native picker sheet, and explicitly select a suggestion. This is a privacy-by-design decision.
+
+This means it's a **different UX** from the current automatic chips. Here's how both approaches compare:
+
+| | Current Custom Approach | Apple JournalingSuggestions |
+|---|---|---|
+| **Automatic?** | ✅ Chips appear on load | ❌ User must tap → pick |
+| **Home detection** | ⚠️ Heuristic-based | ✅ Apple handles it perfectly |
+| **Data richness** | Location only | Location, workouts, photos, music, contacts |
+| **iOS version** | Any | 17.2+ only |
+| **Privacy** | We process location | Apple handles everything |
+| **Android** | Works with fallback | ❌ iOS only |
+
+## Recommended Approach: Hybrid
+
+Keep the current automatic prompt chips **and** add a "✨ Suggestions" button that opens Apple's native picker for richer content.
+
+### Proposed Changes
+
+#### [NEW] `JournalingSuggestionsPlugin.swift`
+Native Swift plugin that:
+- Hosts a `JournalingSuggestionsPicker` via SwiftUI
+- Sends selected suggestion data back to Flutter via MethodChannel
+- Returns: place name, city, coordinates, date, workout details, photo URLs
+
+#### [MODIFY] [AppDelegate.swift](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/AppDelegate.swift)
+Register the new plugin
+
+#### [MODIFY] Xcode Project
+- Add "Journaling Suggestions" capability (entitlement)
+- Set deployment target note: iOS 17.2+ required for this feature
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- Add a "✨ Journaling Suggestions" button below the text field
+- On tap, invoke the native picker via platform channel
+- On result, insert the suggestion text into the journal field
+
+#### [MODIFY] [location_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/location_service.dart)
+- Keep existing automatic prompts as fallback (for Android + older iOS)
+- Home detection fix already applied continues to work
+
+## User Review Required
+
+> [!WARNING]
+> The Apple picker shows a **native iOS sheet** that we can't customize. It will look like Apple's UI, not your app's rose/dark theme. Is this acceptable, or would you prefer to stick with the improved custom approach only?
+
+1. **Do you want the hybrid approach** (automatic chips + Apple picker button)?
+2. Or **just improve the current custom approach** (which now properly detects home addresses)?
+3. Your app's deployment target is currently iOS 13 — the Apple API requires **iOS 17.2+**. Should I make it conditionally available (button only shows on iOS 17.2+)?

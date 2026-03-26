@@ -1,0 +1,23 @@
+# App Store Rejection Fixes
+
+## Fix 1: Sign in with Apple (Guideline 4.8)
+- [x] Add `sign_in_with_apple` package to [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- [x] Add Sign in with Apple entitlement to [Runner.entitlements](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Runner.entitlements)
+- [x] Add [signInWithApple()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#116-174) method to [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- [x] Add Apple sign-in button to [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart)
+- [x] Update [auth_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart) to handle Apple sign-in users
+
+## Fix 2: iPad Export Data Bug (Guideline 2.1a)
+- [x] Fix [_getSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#946-950) in [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) to use `GlobalKey`-based positioning
+
+## Fix 3: Account Deletion (Guideline 5.1.1v)
+- [x] Add [deleteAccount()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#175-220) method to [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- [x] Add [clearAllData()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#390-413) method to [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+- [x] Add "Delete Account" UI section in [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) with confirmation dialog
+
+## Verification
+- [x] Run `flutter pub get` — dependencies resolved
+- [x] Run `flutter analyze` — 0 errors, 0 warnings
+
+## Bonus: App Launch Checklist
+- [x] Create filled out app launch checklist

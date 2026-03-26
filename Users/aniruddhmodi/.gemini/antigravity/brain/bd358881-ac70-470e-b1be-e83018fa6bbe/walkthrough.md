@@ -1,0 +1,64 @@
+# App Updates Walkthrough
+
+I have completed all the requested updates. Here is a summary of the changes and how to verify them.
+
+## 1. Demo Login (App Review)
+**Change**: Added a "Reviewer Login" button on the Login Screen.
+**User**: `user01`
+**Password**: `appleBest`
+**Verify**:
+1.  Tap "Reviewer Login" at the bottom of the Login Screen.
+2.  Enter the credentials above.
+3.  **Verify**: You are logged in efficiently.
+4.  **Verify**: Data entered here is saved locally (restart app to check persistence) and **does NOT** sync to Google Drive.
+
+## 2. FaceID Loop Fix
+**Change**: Removed the aggressive authentication check that ran every time the app resumed. Authentication now only happens on startup (via `AuthWrapper`) or when you manually toggle the setting.
+**Verify**:
+1.  Enable FaceID in Settings.
+2.  Close app completely and reopen. Verify it asks for FaceID.
+3.  Minimize the app and open it again. **Verify it does NOT ask again repeatedly.**
+
+## 3. UI & Interaction Improvements
+### Swipe to Save
+**Change**: Added padding to the bottom of the widget to prevent it from being cut off.
+**Verify**: Go to `TodayScreen` and check the bottom slider. It should sit slightly higher.
+
+### Microphone
+**Change**: Updated the widget to have a more distinct "Recording" state (Stop icon, red pulse effect) and clearer toggle behavior.
+**Verify**: Tap the mic icon. It should turn red with a Stop icon. Tap again to stop.
+
+### Formatting Buttons
+**Change**: Added a toolbar above the text fields in the daily entry flow.
+**Verify**:
+1.  Tap "Good" or "Challenge".
+2.  Tap the **List Icon** to insert a bullet point (`• `).
+3.  Tap the **Return Icon** to insert a new line.
+
+### Camera Integration
+**Change**: Split the media actions into **Camera**, **Gallery**, and **Video**.
+**Verify**: Tap the "Camera" button. It should open the camera directly to take a photo.
+
+## 4. Bug Fixes
+### Audio Duration
+**Change**: Fixed an issue where audio duration would show as 0:00 until played.
+**Verify**: Record a clip. The duration should appear correctly (e.g., `0:05`).
+
+### Future Dates
+**Change**: Disabled selection of future dates in the Calendar.
+**Verify**: Go to Calendar. Try to tap tomorrow's date. It should be unselectable.
+
+## 5. Privacy Note
+**Change**: Added a privacy note to the "Safe & Secure" onboarding page.
+**Verify**: (Optional) Re-run onboarding or check code. It now states data is stored in *your* Google Drive.
+
+## Code Changes Summary
+- `login_screen.dart`: Added Demo Login dialog.
+- `store.dart`: Added Demo Mode logic (Local JSON persistence).
+- `main_screen.dart`: Updated to accept nullable user.
+- `main.dart`: Removed lifecycle observer loop.
+- `today_screen.dart`: Added formatting toolbar, camera button, helper methods.
+- `audio_recorder_widget.dart`: Updated UI visuals.
+- `swipe_to_save_widget.dart`: Added padding.
+- `calendar_screen.dart`: Added future date restriction.
+- `onboarding_screen.dart`: Updated privacy text.

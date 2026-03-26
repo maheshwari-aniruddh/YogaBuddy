@@ -1,0 +1,31 @@
+# Implementation Plan - SimpleCalc Bug Fixes
+
+The goal is to ensure [SimpleCalc](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#11-187) correctly evaluates arithmetic expressions with standard operator precedence and associativity (+, -, *, /, %, ^).
+
+## Proposed Changes
+
+### [SimpleCalc Component](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java)
+
+#### [MODIFY] [SimpleCalc.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java)
+- Adjust [hasPrecedence](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#162-185) logic to correctly handle left-associative operators (+, -, *, /, %).
+- Ensure `^` remains right-associative if that is the intended behavior (standard in math).
+- Add error handling for empty stacks to prevent crashes on malformed input (though user says they won't give unformatted input, a little safety is good).
+
+### [Testing]
+
+#### [NEW] [SimpleCalcTester.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalcTester.java)
+- Create a simple CLI-based or automated tester to run expressions like `10 - 5 - 2`, `2 ^ 3 ^ 2`, [(3 + 5) * 2](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#28-33), etc.
+
+## Verification Plan
+
+### Automated Tests
+- Run `SimpleCalcTester` to verify all test cases pass.
+- Focus on:
+    - Left-associativity: `10 - 5 - 2` should be `3`, not `7`.
+    - Precedence: `2 + 3 * 4` should be `14`.
+    - Parentheses: [(2 + 3) * 4](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#28-33) should be `20`.
+    - Exponents: `2 ^ 3 ^ 2` should be `2^(3^2) = 512`.
+    - Modulus: `10 % 3` should be `1`.
+
+### Manual Verification
+- Run `SimpleCalc.main` and manually input a few complex expressions.

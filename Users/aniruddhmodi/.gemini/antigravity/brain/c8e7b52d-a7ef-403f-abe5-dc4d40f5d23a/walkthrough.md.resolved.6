@@ -1,0 +1,23 @@
+# Walkthrough - Smart Reminders, SuperThanks & UX Refinements
+
+I have implemented major upgrades to the core experience, focusing on engagement, searchability, and tactile feedback.
+
+## Smart Reminder System 🧠
+A sophisticated notification system that adapts to your journaling habits.
+-   **Adaptive Frequency**: Sends 4-5 reminders/week based on your activity tracking in [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#12-325).
+-   **Smart Timing**: Reminders arrive organically between **7:00 PM and 10:00 PM**.
+-   **Prompt Rotation**: A library of **30+ unique prompts** keeps reflection fresh.
+
+## SuperThanks Feature ✨
+-   **Smart Search**: Find friends by **Name** or **Keyword**. The system now queries both email and display names, merging results for the best match.
+-   **Send Gratitude**: Send confetti-filled appreciation messages.
+-   **Security**: Secured by strict Firestore rules allowing only authenticated search.
+
+## UX Improvements 💎
+-   **Slide-to-Save**: Now features **graduated haptics**. As you slide, the feedback intensifies (Light → Medium → Heavy) to give a satisfying tactile confirmation of your action.
+-   **Authentication**: Fixed login caching issues to ensure seamless sign-in with Google & Firebase.
+
+## How to Verify
+1.  **Test Haptics**: Open a journal entry and slowly drag the "Slide to Save" button. Feel the vibration intensity increase as you get closer to the end.
+2.  **Test Search**: Go to **SuperThanks** and search for a friend's name (e.g., "Aniruddh").
+3.  **Check Reminders**: Toggle "Daily Reminders" in Settings and watch the debug console for the scheduled plan.

@@ -1,0 +1,28 @@
+# Stabilization Plan
+
+## Goal Description
+Reduce the "jittery" movement of the hand landmarks and tune the sensitivity.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Parameters**:
+    - `VELOCITY_THRESHOLD = 0.1`.
+    - `SMOOTHING_ALPHA = 0.7` (New constant).
+- **State**:
+    - Add `st.session_state.smoothed_landmarks = {}`.
+- **Logic**:
+    - Before using `tip.y`:
+        - `smoothed_y = (current_y * alpha) + (prev_smoothed_y * (1-alpha))`.
+        - Use `smoothed_y` for BOTH velocity calculation and visual drawing.
+    - Note: This affects response time slightly but makes the input much cleaner.
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Hold hand still.
+- Verify points don't "vibrate" as much.
+- Verify striking a key still works reliably.

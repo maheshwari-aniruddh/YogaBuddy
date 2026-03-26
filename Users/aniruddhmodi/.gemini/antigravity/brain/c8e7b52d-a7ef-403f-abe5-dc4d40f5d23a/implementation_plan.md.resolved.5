@@ -1,0 +1,50 @@
+# Implementation Plan - Smart Reminder System
+
+The goal is to implement a high-frequency, non-annoying reminder system that adapts to user engagement and rotates prompts to prevent fatigue.
+
+## User Review Required
+> [!NOTE]
+> The system relies on `flutter_local_notifications` for local scheduling.
+> Logic is deterministic based on the last 7 days of journal history.
+
+## Proposed Changes
+
+### Data Layer
+
+#### [MODIFY] [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+-   Add `int get entriesInLast7Days` getter to calculate engagement.
+
+#### [NEW] [prompt_library.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/data/prompt_library.dart)
+-   Create a static class `PromptLibrary` containing:
+    -   `static const List<String> prompts`: 30+ varied, low-pressure prompts.
+
+### Service Layer
+
+#### [MODIFY] [notification_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart)
+-   **Dependencies**: Integrate with `SharedPreferences` to track:
+    -   `last_reminder_schedule_date` (to avoid rescheduling too often).
+    -   `recent_prompt_indices` (list of ints) for rotation history.
+    -   `reminder_option` (enum: Smart, Daily, Off).
+-   **New Method**: `scheduleSmartReminders(int weeklyCount)`
+    -   **Logic**:
+        -   Count 5-7: Schedule 4-5 times/week.
+        -   Count 2-4: Schedule 5-6 times/week.
+        -   Count 0-1: Schedule 3-4 times/week.
+    -   **Timing**: Random between 7:00 PM and 10:00 PM.
+    -   **Content**: Pick from `PromptLibrary`, ensuring no repeats from `recent_prompt_indices`.
+
+#### [MODIFY] [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+-   Update "Daily Reminders" toggle to a "Notification Mode" selector or keep it simple with "Smart Reminders" toggle.
+-   Add options: "Smart (Recommended)", "Daily", "Off".
+
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+-   Call `scheduleSmartReminders` on app startup (if enabled), passing the current [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#11-315) count.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Check Schedule**: Use debug prints to verify upcoming notification times and bodies.
+2.  **Verify Logic**:
+    -   Manually change `weeklyCount` inputs to verify different schedule densities (3/week vs 6/week).
+    -   Verify prompt rotation (no duplicates in sequence).
+3.  **Settings**: Toggle between modes and ensure scheduling updates accordingly.

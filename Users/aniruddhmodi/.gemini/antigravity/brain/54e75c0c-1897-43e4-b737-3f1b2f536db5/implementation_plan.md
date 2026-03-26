@@ -1,0 +1,55 @@
+# Implementation Plan: YogaBuddy Major Upgrade
+
+## Goal Description
+Transform YogaBuddy into a highly premium, modern, and feature-rich Web App by completely redesigning the frontend theme (Champagne `#c7e7ce` and Deep Forest `#1a3c34`), moving the core MediaPipe processing to the browser to eliminate server-side video bottlenecks, and implementing a suite of premium features requested by the user.
+
+## Proposed Changes
+
+### 1. UI Redesign & Theming
+- **Tailwind Config & CSS**: Set up custom Champagne (`#c7e7ce`) and Deep Forest (`#1a3c34`) color utility classes. Apply custom fonts (e.g. `Outfit` or `Inter`) for a premium look.
+- **Component Overhaul**: Ensure all critical components (Navbar, buttons, containers) adopt the Deep Forest background with Champagne text/accents, or vice versa, creating a stunning high-contrast dynamic interface.
+
+### 2. Browser-Side MediaPipe (Architecture Shift)
+- **Frontend**: Introduce `@mediapipe/tasks-vision` to `one-breath-app`.
+- **Component `PoseCamera.tsx`**: A new React component that hooks into the webcam, runs `PoseLandmarker`, and draws to a `<canvas>`. It will emit the 3D keypoints via WebSocket or API to the backend.
+- **Backend (`yoga_api_server.py`)**: Remove OpenCV video capture loops entirely. It will now only listen for `keypoints` WebSocket events, run classification, and return feedback.
+
+### 3. Better Classifier & 3D Pose
+- **`pose_classifier.py`**: Upgrade the KNN classifier to a Multi-Layer Perceptron (MLP) using Scikit-Learn (`MLPClassifier`) for higher accuracy (`Better UX`).
+- **`utils/angles.py` & `form_corrector.py`**: Update angle calculations to utilize the Z-coordinate (depth) from the MediaPipe landmarks to improve the accuracy of form correction.
+
+### 4. Advanced UX Features
+- **Ghost/AR Pose Overlay**: In `PoseCamera.tsx`, draw an idealized skeleton of the current target pose directly over the user's video feed.
+- **Voice Commands**: Add Web Speech API integration in the React app so the user can say "start session", "next pose", or "pause".
+- **LLM Coach**: Expand `llm_coach.py` to generate an end-of-session summary of performance and provide audio/TTS-friendly, highly motivational feedback.
+- **Breathing Detection**: In `yoga_api_server.py`, add a rolling volume metric using shoulder and hip landmarks (X/Z expansion) to detect and provide feedback on breathing cadence.
+
+### 5. Gamification, Analytics, & Adaptive Programs
+- **Gamification**: Update `database.py` (assuming it exists) or React local storage to track User XP, Session Streaks, and Badges per session.
+- **Analytics Dashboard**: Add a new Dashboard page in React tracking past sessions, average form scores, and XP timeline. Store actual pose traces if a "replay" is needed.
+- **Adaptive Programs (`yoga_program.py`)**: Update the backend logic to check recent poor-scoring poses and automatically build a custom "adaptive program" that targets weaknesses.
+
+***
+
+## Expected Execution Flow
+Due to the sheer size of these tasks, we will execute them in logical chunks:
+1. **Apply Theming & Redesign Frontend** (Fast visual impact)
+2. **Move MediaPipe to Browser & Refactor Backend API** (Core architecture change)
+3. **Upgrade Classifier & Add 3D Z-Axis calculations** (ML improvements)
+4. **Build Ghost Overlay & Voice Commands** (UX Features)
+5. **Add Analytics, Gamification, and LLM Coaching** (Data & Final Polish)
+
+## Verification Plan
+
+### Automated/Local Tests
+- **Frontend Build**: Run `npm run dev` and ensure Vite builds cleanly.
+- **Backend Setup**: Restart the Python servers with `./start_all_servers.sh` and ensure the WebSocket layer doesn't crash when receiving keypoints instead of frames.
+- **Web App Rendering**: Browse to `http://localhost:5003` to visually confirm Champagne/Deep Forest palette, typography, and layout.
+
+### Manual Verification
+- **Webcam MediaPipe Test**: Grant webcam access in browser to confirm MediaPipe tracking is responsive (>30 FPS) without sending video to the server.
+- **Voice Commands**: Speak "Next" and verify the app advances the pose.
+- **Classification & Form**: Perform a known pose (e.g., Tree pose) and verify the AR ghost overlay matches the target, and that the Z-axis form corrector correctly changes the progress ring to green.
+- **Session End**: Upon quitting the session, navigate to the Dashboard and verify XP was awarded and the adaptive LLM coach summary matches your performance. 
+
+Does this look like the right direction before we begin coding?

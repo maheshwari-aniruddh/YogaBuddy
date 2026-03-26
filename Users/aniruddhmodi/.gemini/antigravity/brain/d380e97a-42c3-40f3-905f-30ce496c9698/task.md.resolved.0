@@ -1,0 +1,9 @@
+# Task: Restore Missing Hybrid Training Script
+
+- [x] Search for existing training script with LBP <!-- id: 0 -->
+- [ ] Create implementation plan for `cnn_hog_lbp.py` <!-- id: 1 -->
+- [ ] Implement `cnn_hog_lbp.py` <!-- id: 2 -->
+    - [ ] Import LBP feature extraction from [prediction.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/prediction.py)
+    - [ ] Modify model architecture to accept 3 inputs (Image, HOG, LBP)
+    - [ ] Update data loading to compute LBP features
+- [ ] Verify the new training script runs <!-- id: 3 -->

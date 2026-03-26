@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Mark script update tasks as completed, update retraining task as in-progress.",
+  "updatedAt": "2026-03-12T05:24:14.410867Z",
+  "version": "1"
+}

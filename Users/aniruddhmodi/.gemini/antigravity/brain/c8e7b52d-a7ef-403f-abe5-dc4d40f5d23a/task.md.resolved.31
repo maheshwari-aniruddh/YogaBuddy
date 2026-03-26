@@ -1,0 +1,5 @@
+# Task: Lock Orientation to Portrait
+
+- [ ] locks orientation in [lib/main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) <!-- id: 0 -->
+- [ ] remove landscape support from [ios/Runner/Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 1 -->
+- [ ] (Optional) Lock orientation in AndroidManifest.xml <!-- id: 2 -->

@@ -1,0 +1,6 @@
+# Task: Clean Up Project Workspace
+
+- [x] Stop background generator
+- [x] Delete `timie_waste` directory
+- [x] Delete `nlm_hog_glcm_analysis.py`
+- [x] Cleanup artifacts

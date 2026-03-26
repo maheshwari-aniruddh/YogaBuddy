@@ -1,0 +1,25 @@
+# Full Project Deployment Strategies
+
+To "ship" the entire PoseFlow project so it works without a local backend, we have two primary paths:
+
+## Option 1: Cloud-Hosted Backend (VPS)
+Deploy the current Python backend to a Virtual Private Server (VPS).
+- **Service**: DigitalOcean, AWS EC2, or Render.
+- **Complexity**: Medium.
+- **Pros**: Keeps existing code; handles heavy ML processing.
+- **Cons**: Ongoing monthly costs; latency depends on server location.
+
+## Option 2: Browser-Based ML (Serverless) [RECOMMENDED]
+Migrate the pose detection and classification logic entirely into the browser using the MediaPipe JavaScript SDK and TensorFlow.js.
+- **Service**: GitHub Pages (already set up).
+- **Complexity**: High (requires code migration).
+- **Pros**: **Zero cost**; no server required; better privacy (video never leaves the device); lower latency.
+- **Cons**: Requires porting Python logic (KNN classifier and joint angle math) to JavaScript.
+
+## Proposed Next Steps
+I can help with either:
+1. **Option 1**: Creating a Dockerfile and guide for VPS deployment.
+2. **Option 2**: Starting the migration of `pose_detector.py` and `pose_classifier` to a React-friendly JavaScript implementation.
+
+> [!NOTE]
+> Option 2 is the most powerful "ship" as it makes your website a fully standalone application that anyone can use just by opening the URL.

@@ -1,0 +1,20 @@
+# Task: Fine-Tune Combined Model
+
+## Status
+- [x] Create [research3_finetune.py](file:///Users/aniruddhmodi/Downloads/Research/research3_finetune.py) <!-- id: 12 -->
+    - [x] Copy [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py).
+    - [x] Set `base_model.trainable = True`.
+    - [x] Set Learning Rate to `1e-5`.
+- [x] Enhance LBP Features (Multi-Scale) <!-- id: 16 -->
+    - [x] Implement Multi-Scale LBP (Radii: 3, 8, 12).
+    - [x] Increase LBP Bottleneck to 128 units.
+- [x] Implement Fixed Data Split (200/50 per class) <!-- id: 17 -->
+    - [x] Modify script to skip CV and train once.
+    - [x] Monitoring `val_accuracy`.
+- [x] Run Fine-Tuning Training (Completed - Val Acc 91%) <!-- id: 13 -->
+- [/] Validate Fine-Tuned Model on `brd` (Running) <!-- id: 14 -->
+- [ ] Compare Results (Frozen vs Fine-Tuned) <!-- id: 15 -->
+
+<!-- Completed Tasks -->
+- [x] Fix Overfitting (Regularization) <!-- id: 9 -->
+- [x] External Validation (Frozen Model) - Result: 52% (Poor) <!-- id: 10 -->

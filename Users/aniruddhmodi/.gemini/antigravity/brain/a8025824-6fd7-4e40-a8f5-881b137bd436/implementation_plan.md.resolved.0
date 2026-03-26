@@ -1,0 +1,44 @@
+# Implementation Plan - Light Mode & Aesthetic Overhaul
+
+The goal is to strictly enforce light mode and significantly improve the application's visual aesthetics to be "premium" and "rich", avoiding generic looks.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This change will PERMANENTLY remove Dark Mode support. The app will be Light Mode only.
+
+## Proposed Changes
+
+### Theme & Colors
+#### [MODIFY] [app_colors.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart)
+- Remove `isDark` toggle (or force false).
+- meaningful update to the Light Color Palette:
+    - **Background**: `0xFFFAFAFA` (Clean Off-White) -> `0xFFFDFCF8` (Warm Premium Paper)
+    - **Surface**: `0xFFFFFFFF` (White) -> `0xFFFFFFFF` (Pure White with shadow) or `0xFFFFF0F5` (Very subtle rose tint if applicable)
+    - **Primary**: Refine rose color to be more elegant.
+    - **Typography**: Ensure high contrast but softer than pure black (`0xFF2D2D35`).
+
+### Main Entry Point
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+- Remove [toggleTheme](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart#43-48).
+- Set `themeMode: ThemeMode.light`.
+- Update `ThemeData` to use the new [AppColors](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart#3-25).
+
+### Components
+#### [MODIFY] [dark_card.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/dark_card.dart)
+- Rename to `AppCard`.
+- Update shadows to be softer and more diffuse (glassmorphism or soft elevation).
+- increasing padding and border radius for a modern feel.
+
+#### [MODIFY] [dark_text_field.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/dark_text_field.dart)
+- Rename to `AppTextField`.
+- Improve input decoration (remove heavy borders, use soft fill).
+
+## Verification Plan
+
+### Automated Tests
+- Run `flutter analyze` to check for any broken references due to renaming.
+
+### Manual Verification
+- Since I cannot see the running app, I will rely on code correctness and user feedback.
+- I will ensure no `isDark` checks exist in the code.

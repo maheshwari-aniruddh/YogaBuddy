@@ -1,0 +1,26 @@
+# Walkthrough - Phase 3 Improvements
+
+## Overview
+This update introduces significant visual enhancements and functional improvements to the Roze journal app, focusing on user experience and code stability.
+
+## Changes
+
+### Visual Updates
+- **Swipe to Save**: Replaced the standard "Save Entry" button with an interactive "Slide to Save" widget.
+  - **Location**: `TodayScreen`
+  - **Feature**: Haptic feedback that increases intensity as you slide.
+- **Microphone Alignment**: Fixed the overlapping issue in `TodayScreen` by wrapping the audio recorder in a dedicated, centered container.
+- **Star Button**: Restored the "Star Day" button functionality.
+
+### Functional Improvements
+- **Microphone Toggle**: Recorded usage changed from "Hold to Record" to "Tap to Start/Stop" for better usability.
+- **Feedback System**: The Feedback screen now launches your default email app with a pre-filled subject and body, directing feedback to `aniruddhm.modi@gmail.com`.
+- **Saving Reliability**: Removed legacy Firebase code to resolve the "no object exists" error, ensuring entries are saved purely to Google Drive.
+
+## Verification Checklist
+1. **Swipe to Save**: Slide the button to the right. You should feel haptic feedback and see a success message.
+2. **Recording**: Tap the microphone icon once to start recording (red border), tap again to stop.
+3. **Feedback**: Go to Settings/Tabs > Feedback > Submit. Verify it opens your email app.
+
+## Notes
+- The app now requires the "Mail" app or a configured email client to send feedback.

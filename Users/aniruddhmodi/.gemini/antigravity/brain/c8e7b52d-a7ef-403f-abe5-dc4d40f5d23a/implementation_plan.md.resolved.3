@@ -1,0 +1,35 @@
+# Implementation Plan - SuperThanks Feature
+
+The goal is to allow users to "send a SuperThanks" by searching for other users via email. This involves a new search UI and an entry point in the Gratitude journal section.
+
+## User Review Required
+> [!NOTE]
+> Search will use **Prefix Matching** on email addresses. This means searching "john" will find "john.doe@gmail.com" but not "elton.john@gmail.com". This is a limitation of standard Firestore queries without external search engines.
+
+## Proposed Changes
+
+### UI Layer
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+-   In [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#448-644) (specifically for the Gratitude index), add a call-to-action link/button: "Feeling extra grateful? Use SuperThanks".
+-   Clicking this navigates to `SuperThanksScreen`.
+
+#### [NEW] [super_thanks_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart)
+-   Search bar for entering email.
+-   ListView to display matching users (Email + Display Name).
+-   "Send" button acting as a placeholder for the actual "SuperThanks" action (likely just visually verifying for now).
+
+### Data Layer
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+-   Add `searchUsers(String query)` method.
+-   Implementation: Firestore query on `users` collection using startAt/endAt or range filters for prefix matching on `email`.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Build App**: Run on device/simulator.
+2.  **Navigate**: Go to "Today" -> "Gratitude" page.
+3.  **Check Prompt**: Verify "Feeling extra grateful? Use SuperThanks" exists.
+4.  **Search**: Click it, enter a partial email (e.g., matching your own logged-in email).
+5.  **Verify Results**: Ensure your user profile appears in the list.

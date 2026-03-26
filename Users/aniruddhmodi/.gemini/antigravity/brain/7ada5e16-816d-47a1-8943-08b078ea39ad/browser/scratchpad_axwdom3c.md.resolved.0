@@ -1,0 +1,10 @@
+# Task: Verify bass.html functionality and appearance
+
+## Plan
+- [ ] Navigate to http://localhost:8502/bass.html?t=<timestamp>
+- [ ] Wait 5 seconds for load
+- [ ] Capture screenshot
+- [ ] Verify controls bar (top)
+- [ ] Verify info bar (middle)
+- [ ] Verify camera iframe (bottom)
+- [ ] Report findings

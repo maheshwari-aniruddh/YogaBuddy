@@ -1,0 +1,21 @@
+# AR Instrument Studio Walkthrough (Fixed & Safe)
+
+## Summary
+The "Machine Gun" effect is gone. You must **LIFT** to play again.
+
+## Triggers
+-   **Strike**: Swift Downward Motion (`> 0.15`).
+-   **Reset**: You must physically **LIFT** your finger (`Upward Motion`).
+    -   *Resting your hand (doing nothing) will NO LONGER re-arm the trigger.*
+
+## Dead Zones (Drums)
+-   The **Grey Cross** in the middle is safe. Rest hands there.
+
+## Camera
+-   **Indices 0 & 1** available by default.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

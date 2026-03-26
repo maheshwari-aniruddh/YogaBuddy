@@ -1,0 +1,42 @@
+# Jam Session Fix — Walkthrough
+
+## Root Causes Found & Fixed
+
+### Bug 1: WebSocket Route Hidden by Static Mount
+The `@app.websocket("/ws/{room_id}/{player_id}")` decorator was originally `@app.get(...)`, which is **not** a valid WebSocket endpoint. FastAPI silently rejected WebSocket upgrade requests with HTTP 404, meaning **no browser could ever connect** to the jam session.
+
+### Bug 2: `KeyError` Crash in `ConnectionManager.add()`
+When the first player connected: [add()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py#34-41) created the room set → called [broadcast_to_others()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py#72-91) → that method found an empty room → **deleted the room dict entry** → [add()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py#34-41) then tried `self.rooms[room_id].add(...)` → **`KeyError` crash** → connection silently dropped.
+
+### Bug 3: Wrong WebSocket Port in Player Pages  
+Both [piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html) and [drums-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/drums-player.html) had hardcoded `window.JAM_SESSION_WS_URL = 'ws://localhost:8765/ws'`, overriding the correct URL set by [jam-core.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/jam-core.js). This was **a different port entirely** from the running server (8502).
+
+## Verified End-to-End
+
+```
+Created room: RZZZDY
+Player A connected
+Player B connected
+Player A received: {"type":"player_joined","player_id":"player_B"}
+Player B sent note: C4
+Player A received: {"type":"note","instrument":"piano","note":"C4"}
+Player A sent note: kick
+Player B received: {"type":"note","instrument":"drums","note":"kick"}
+```
+
+All 5 checks pass:
+- ✅ Both players connect successfully
+- ✅ Join notification received by existing player
+- ✅ Piano notes broadcast from B → A
+- ✅ Drum notes broadcast from A → B
+- ✅ Static pages and API endpoints remain accessible
+
+## Files Changed
+
+| File | Change |
+|------|--------|
+| [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py) | Fixed WebSocket decorator, KeyError crash, added dual static mount |
+| [jam-core.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/jam-core.js) | Added popup, toast, debug console, ngrok detection |
+| [piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html) | Removed wrong port override, added drum playback for remote notes |
+| [drums-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/drums-player.html) | Removed wrong port override, added piano synth for remote notes |
+| [app.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js) | Updated jam redirect paths to `/static/` |

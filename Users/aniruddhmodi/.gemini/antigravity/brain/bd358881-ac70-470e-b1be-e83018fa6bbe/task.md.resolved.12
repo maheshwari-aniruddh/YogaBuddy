@@ -1,0 +1,25 @@
+# App Updates Checklist
+
+## UI & UX Improvements
+- [x] **Swipe to Save**: Fix layout cut-off and move widget up. <!-- id: 0 -->
+- [x] **Microphone Widget**:
+    - [x] Change to specific toggle behavior (Tap to Start / Tap to Stop). <!-- id: 1 -->
+    - [x] Add distinct active state color. <!-- id: 2 -->
+- [x] **Formatting Options**: Add Bullet Point and New Line buttons to text inputs (Good/Gratitude). <!-- id: 3 -->
+- [x] **Camera Integration**: Add "Take Photo" option in addition to Library picker. <!-- id: 4 -->
+
+## Bug Fixes
+- [x] **Audio Playback**: Fix incorrect seconds/duration display. <!-- id: 5 -->
+- [x] **FaceID**:
+    - [x] Debug "repeated asking" loop. <!-- id: 6 -->
+    - [x] Fix functionality when enabled (ensure it actually allows entry). <!-- id: 7 -->
+- [x] **Future Dates**: Disable journaling/calendar selection for future dates. <!-- id: 8 -->
+
+## Content
+- [x] **Onboarding**: Add Google Drive privacy/security note (User-owned data). <!-- id: 9 -->
+
+## App Review Compliance
+- [x] **Demo Login**: Add "Sign in with Demo Account" (User: user01, Pass: appleBest). <!-- id: 10 -->
+    - Button on Login Screen.
+    - Handle credentials check.
+    - Enable local-only storage for demo user.

@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Tuned)
+
+## Summary
+The piano has been tuned for better accuracy and easier aiming.
+
+## Improvements
+- **Reduced Sensitivity**: The "Cobra Strike" threshold is higher (0.08). You must tap sharply.
+- **Visual Guides**: Vertical black lines show exactly where each key starts and ends, helping you aim.
+- **3D Layout**: Keys are at the bottom for "key cap" interaction.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

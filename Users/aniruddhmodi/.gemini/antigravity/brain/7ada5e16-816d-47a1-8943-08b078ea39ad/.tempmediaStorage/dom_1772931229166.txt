@@ -1,0 +1,20 @@
+[0] (153,54)<a class='back-btn' href='piano.html' />
+	[1] (139,54)<span >← />
+	[2] (162,54)<span >Back />
+🎹 Piano - Player Mode
+AR Active
+[3] (253,153)<select class='song-select' id='songSelect' />
+[4] (450,153)<button class='start-btn' id='startBtn'>▶ Start Song />
+[5] (538,153)<label >Sensitivity: />
+[6] (599,153)<input id='sensitivitySlider' />
+0.50
+[7] (696,153)<label >BPM: />
+[8] (738,153)<input id='bpmSlider' />
+100
+[9] (842,153)<button id='midiUploadBtn'>Upload
+                MIDI />
+Sheet Music
+[10] (945,265)<label >Upload PDF />
+[11] (821,312)<select id='pdfSelect' />
+Select sheet music above
+or upload your own PDF.

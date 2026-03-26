@@ -1,0 +1,52 @@
+# SimpleCalc Walkthrough
+
+## Part 1 — Bug Fix
+
+Fixed left-associativity bug in `evaluateExpression` while-loop (line 98). `hasPrecedence` was not modified.
+
+| Expression | Before | After |
+|---|---|---|
+| `10 - 5 - 2` | `7.0` ❌ | `3.0` ✅ |
+| `20 / 4 / 5` | `25.0` ❌ | `1.0` ✅ |
+
+## Part 2 — Variables & Identifiers
+
+### Files Changed
+
+- **[NEW]** [Identifier.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/Identifier.java) — name/value class with constructor, getters, setter
+- **[MODIFIED]** [SimpleCalc.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java):
+  - `ArrayList<Identifier>` database with `e`/`pi` initialized
+  - Assignment statements (`a = 3`)
+  - Variable lookup in expressions
+  - Unassigned variables return `0.0`
+  - `l` command to list identifiers
+
+### Test Results (matches PDF sample run)
+
+```
+-> a = 3
+a = 3.0
+-> b = 4
+b = 4.0
+-> c = a ^ 2 + b ^ 2
+c = 25.0
+-> c
+25.0
+-> pi
+3.141592653589793
+-> r = 0.5
+r = 0.5
+-> area = pi * r ^ 2
+area = 0.7853981633974483
+-> l
+Identifiers:
+  e                    = 2.718281828459045
+  pi                   = 3.141592653589793
+  a                    = 3.0
+  b                    = 4.0
+  c                    = 25.0
+  r                    = 0.5
+  area                 = 0.7853981633974483
+-> eddy
+0.0
+```

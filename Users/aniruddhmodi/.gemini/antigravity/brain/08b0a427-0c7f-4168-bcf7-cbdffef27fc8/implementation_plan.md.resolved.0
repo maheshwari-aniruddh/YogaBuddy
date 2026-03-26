@@ -1,0 +1,24 @@
+# Plan to fix DataLoader ValueError
+
+The user is encountering a `ValueError` because `prefetch_factor` is specified in `DataLoader` while `num_workers` is set to 0. PyTorch requires `num_workers > 0` for `prefetch_factor` and `persistent_workers` to be used.
+
+## Proposed Changes
+
+### [Component Name] ML Pipeline
+
+#### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+- Modify `DataLoader` instantiation to only include `prefetch_factor` and `persistent_workers` if `NUM_WORKERS > 0`.
+
+#### [MODIFY] [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+
+- Modify `DataLoader` instantiation to only include `prefetch_factor` and `persistent_workers` if `NUM_WORKERS > 0` (for robustness).
+
+## Verification Plan
+
+### Automated Tests
+- Run [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) with `NUM_WORKERS=0` (the current default) to ensure it doesn't crash on start.
+- Run [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py) with `NUM_WORKERS=0` (temprorarily modified) to ensure it doesn't crash.
+
+### Manual Verification
+- Verify that training starts correctly and the progress bar appears.

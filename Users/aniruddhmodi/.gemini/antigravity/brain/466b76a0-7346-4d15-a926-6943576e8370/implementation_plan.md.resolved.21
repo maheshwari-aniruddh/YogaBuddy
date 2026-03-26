@@ -1,0 +1,27 @@
+# Camera Debugging Plan
+
+## Goal Description
+Help the user find the index of their USB-C camera.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **UI**:
+    - Add `st.sidebar.button("Scan for Cameras")`.
+- **Logic**:
+    - If clicked:
+        - Loop `idx` from 0 to 9.
+        - `cap = cv2.VideoCapture(idx)`.
+        - `if cap.isOpened(): active_cameras.append(idx)`.
+        - Display results: "Found cameras at indices: [0, 1, ...]".
+    - Update `cam_options` to be dynamic or just larger (0-5).
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Click "Scan for Cameras".
+- See which numbers pop up.
+- Select the new number.

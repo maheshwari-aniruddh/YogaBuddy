@@ -1,0 +1,49 @@
+# SimpleCalc Bug Fix Walkthrough
+
+## Bug Found
+
+**Left-associative operators (`-`, `/`) were evaluated right-to-left**, giving wrong results:
+
+| Expression | Before (wrong) | After (correct) |
+|---|---|---|
+| `10 - 5 - 2` | `7.0` | `3.0` |
+| `20 / 4 / 5` | `25.0` | `1.0` |
+
+**Root cause**: The while-loop in [evaluateExpression](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#73-114) only popped operators with *strictly higher* precedence. It didn't pop same-precedence operators, so `10 - 5 - 2` was evaluated as `10 - (5 - 2)` instead of [(10 - 5) - 2](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/ArrayStack.java#42-51).
+
+## Fix Applied
+
+#### [MODIFY] [SimpleCalc.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java)
+
+Changed one line — the while-loop condition on line 98:
+
+```diff
+-while (!operatorStack.isEmpty() && !hasPrecedence(operatorStack.peek(), tokens.get(i))) {
++while (!operatorStack.isEmpty()
++        && (!hasPrecedence(operatorStack.peek(), tokens.get(i))
++        || hasPrecedence(tokens.get(i), operatorStack.peek()))) {
+```
+
+The added condition [hasPrecedence(tokens.get(i), operatorStack.peek())](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#149-172) catches same-precedence operators and pops them too, ensuring left-to-right evaluation. [hasPrecedence](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#149-172) was **not modified**.
+
+## Test Results — 17/17 passing
+
+```
+PASS: 2 + 3 = 5.0
+PASS: 10 - 3 = 7.0
+PASS: 4 * 5 = 20.0
+PASS: 20 / 4 = 5.0
+PASS: 10 % 3 = 1.0
+PASS: 2 ^ 3 = 8.0
+PASS: 10 - 5 - 2 = 3.0
+PASS: 20 / 4 / 5 = 1.0
+PASS: 2 + 3 - 1 = 4.0
+PASS: 2 + 3 * 4 = 14.0
+PASS: 10 - 2 * 3 = 4.0
+PASS: 2 + 6 / 3 = 4.0
+PASS: (2 + 3) * 4 = 20.0
+PASS: (10 - 2) * (3 + 1) = 32.0
+PASS: ((2 + 3)) = 5.0
+PASS: 2 ^ 3 ^ 2 = 64.0
+PASS: 3 + 4 * 2 / (1 - 5) ^ 2 = 3.5
+```

@@ -1,0 +1,52 @@
+# Task: Install MediaPipe and Hand Landmarker
+
+- [ ] Check project structure and existing dependencies <!-- id: 0 -->
+- [x] Install `mediapipe` python package <!-- id: 1 -->
+- [x] Download MediaPipe Hand Landmarker model file ([hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task)) <!-- id: 2 -->
+- [x] Verify installation and model presence <!-- id: 3 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Create Streamlit app for Hand Landmark detection <!-- id: 4 -->
+    - [x] Install `streamlit` <!-- id: 5 -->
+    - [x] Create [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) with Image and Live Video modes <!-- id: 6 -->
+- [x] Verify Streamlit app functionality <!-- id: 7 -->
+- [x] Refactor app to default/focus on Live Video feed <!-- id: 8 -->
+- [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Optimize Performance <!-- id: 9 -->
+    - [x] Investigate/Enable MPS (GPU) acceleration <!-- id: 10 -->
+    - [x] Switch to `detect_for_video` API <!-- id: 11 -->
+    - [x] Implement frame skipping or resizing <!-- id: 12 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+- [x] Add Piano Interface <!-- id: 13 -->
+    - [x] Overlay keyboard image on video feed <!-- id: 14 -->
+    - [x] Implement key detection logic (mapping coordinates) <!-- id: 15 -->
+    - [x] Implement "click" detection using hand angles <!-- id: 16 -->
+    - [x] Print detected key to terminal <!-- id: 17 -->
+- [x] Refine Piano Interface <!-- id: 18 -->
+    - [x] Switch to new image `keyboard_one_octave (1).jpg` <!-- id: 19 -->
+    - [x] Remove angle debug prints <!-- id: 20 -->
+    - [x] Tune accuracy (adjust threshold/mapping) <!-- id: 21 -->
+    - [x] Make overlay translucent (alpha blending) <!-- id: 22 -->
+    - [x] Adjust overlay position/height <!-- id: 23 -->
+- [x] Implement Multi-Finger Support <!-- id: 24 -->
+    - [x] Define landmarks for all 5 fingers <!-- id: 25 -->
+    - [x] Loop through fingers to detect clicks separately <!-- id: 26 -->
+    - [x] Support chords (multiple keys pressed) <!-- id: 27 -->
+- [x] Add Key History to UI <!-- id: 28 -->
+    - [x] Create UI placeholder for history <!-- id: 29 -->
+    - [x] Update history list on key press <!-- id: 30 -->
+    - [x] Display recent keys in placeholder <!-- id: 31 -->
+- [x] Improve Detection Accuracy <!-- id: 32 -->
+    - [x] Implement "Cooldown" (debounce) to prevent key spam <!-- id: 33 -->
+    - [x] Tune Angle Threshold (Experiment with 155-160) <!-- id: 34 -->
+    - [x] Add Angle Debug Display (to help user learn the motion) <!-- id: 35 -->
+- [x] Implement Audio Feedback <!-- id: 39 -->
+    - [x] Install `pygame` for audio playback <!-- id: 40 -->
+    - [x] Load .wav files from `sounds/` directory <!-- id: 41 -->
+    - [x] Map keys to sounds and play on detection <!-- id: 42 -->

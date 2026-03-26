@@ -1,0 +1,32 @@
+# AR Instrument Studio - Final Walkthrough
+
+## Integration Complete ✅
+
+### What Changed
+1.  **Dark Neon Theme**: Gradient backgrounds, green accents, styled sidebar.
+2.  **Auto-Thresholds**:
+    - Piano: **0.5** (Less sensitive)
+    - Drums: **0.15** (More sensitive)
+3.  **Console Logs**: Clear prefixes - `[CONFIG]`, `[AUDIO]`.
+4.  **Audio Engine**: Switched to `simpleaudio` (lower latency).
+
+### Files Cleaned Up
+- ~~[app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)~~ (Deleted - deprecated)
+- ~~[hand_landmarker.ipynb](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.ipynb)~~ (Deleted)
+- ~~[piano_keys.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/piano_keys.png)~~ (Deleted)
+
+### Current Structure
+```
+AirPlay/
+├── ar_studio.py          # Main app
+├── hand_landmarker.task  # Model
+├── sounds/               # Piano wav files
+├── drum_sounds/          # Drum wav files
+└── keyboard_one_octave (1).jpg
+```
+
+### How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open http://localhost:8501 (or 8502 if 8501 is busy)

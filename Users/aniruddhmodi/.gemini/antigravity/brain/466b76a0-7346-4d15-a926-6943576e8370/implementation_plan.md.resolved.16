@@ -1,0 +1,33 @@
+# Finger Mapping Plan
+
+## Goal Description
+Switch from a "virtual spatial piano" to a "data glove" style interaction where each finger plays a specific note regardless of position.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Data Structures**:
+    - `NOTE_MAP`: Nested dict `{'Left': {'Pinky': {'Natural': 'C', 'Sharp': 'C#'}, ...}, ...}`.
+- **Logic**:
+    - Remove `piano_resized`, `piano_overlay`, `KEY_WIDTH_RATIO`.
+    - Loop logic:
+        - Get Handedness (`Left` or `Right`).
+        - For each finger:
+            - Calculate Velocity -> Check `VELOCITY_THRESHOLD`.
+            - If Trigger:
+                - Calculate Angle ([calculate_angle](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#51-64)).
+                - If Angle < 150 (Curled) -> Play Sharp.
+                - Else (Straight) -> Play Natural.
+- **Visuals**:
+    - Floating text at fingertip: "C#!" or "C!".
+    - No bottom bar.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Tap Left Pinky -> Hear C.
+- Curl Left Pinky and Tap -> Hear C#.
+- Check all 10 fingers.

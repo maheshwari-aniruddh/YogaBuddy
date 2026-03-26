@@ -1,0 +1,20 @@
+# AR Instrument Studio Walkthrough (Final Stable)
+
+## Summary
+The Ultimate Air Instrument Experience.
+**Stable**, **Fast (GPU)**, and **Precise**.
+
+## Features
+-   **Stability**: Fixed crashes with strict timestamp logic.
+-   **Speed**: Powered by Metal Performance Shaders (MPS).
+-   **Drums**: Circular Pads + Dead Zones.
+-   **Piano**: 10 distinct notes + Sharps (Curl).
+-   **Control**: 
+    -   Sensitivity: **0.02** (Max).
+    -   Reset: Strict **LIFT** required.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

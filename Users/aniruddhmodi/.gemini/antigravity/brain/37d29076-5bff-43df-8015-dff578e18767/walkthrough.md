@@ -1,0 +1,20 @@
+# Refactoring and HTML Creation Walkthrough
+
+I have completed the refactoring of `HTMLRender.java` and the creation of `example8.html`.
+
+## Changes
+
+### [MODIFY] [HTMLRender.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java)
+- **Refactoring**: Renamed all variables to be full words, camelCase, and descriptive (e.g., `tokens` -> `htmlTokens`).
+- **Formatting**: Applied 4-space indentation, max 80 characters per line, and blank lines between logical blocks.
+- **Commenting**: Added Javadoc headers for the class and all methods (`@param`, `@return`), and rewrote internal comments to be more professional and descriptive.
+- **Importing**: Switched to explicit imports (e.g., `import java.util.Scanner;`).
+
+### [NEW] [example8.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example8.html)
+- Created a new HTML file combining content from `example1.html` through `example6.html` with randomized body content.
+
+## Verification Results
+
+### Automated Tests
+- **Compilation**: `HTMLRender.java` compiled successfully with `javac`.
+- **Syntax Check**: `example8.html` contains valid HTML structure.

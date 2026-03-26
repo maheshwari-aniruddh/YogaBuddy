@@ -1,0 +1,12 @@
+# Verification Task: Bass Guitar Integration
+
+## Checklist
+- [ ] Navigate to http://localhost:8502/instruments.html
+- [ ] Locate and click "Bass Guitar" card
+- [ ] Verify navigation to bass.html
+- [ ] Verify iframe src: port 8768 with mode=bass
+- [ ] Check for console errors
+- [ ] Verify page layout loads
+
+## Notes
+- Webcam input cannot be simulated, but layout and iframe config can be verified.

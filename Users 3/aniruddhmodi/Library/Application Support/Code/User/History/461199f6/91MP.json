@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "redhat.telemetry.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "dart.flutterSdkPath": "/Users/aniruddhmodi/Desktop/flutter",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "files.autoSave": "afterDelay",
+    "chat.tools.terminal.autoApprove": {
+        "flutter": true
+    },
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
+}

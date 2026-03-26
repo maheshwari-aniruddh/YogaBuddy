@@ -1,0 +1,31 @@
+# YogaBuddy Landing Page Setup
+
+The goal is to create a modern, high-conversion landing page for YogaBuddy and deploy it to GitHub Pages. This page will serve as the first impression for users, showcasing the app's real-time pose detection, AI feedback, and meditation features.
+
+## Proposed Changes
+
+### Renaming to PoseFlow
+- Update all occurrences of "YogaBuddy" and "OneBreath" to "PoseFlow" in the web application.
+
+#### [MODIFY] [index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/index.html)
+- Change title and meta tags.
+#### [MODIFY] [StartupAnimation.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/StartupAnimation.tsx)
+- Change display title.
+#### [MODIFY] [OnboardingPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/OnboardingPage.tsx)
+- Change welcome text.
+
+### GitHub Pages Deployment
+#### [MODIFY] [vite.config.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/vite.config.ts)
+- Set `base` to `/YogaBuddy/` for correct asset loading on GitHub Pages.
+#### [NEW] [deploy.yml](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/.github/workflows/deploy.yml)
+- Create a GitHub Actions workflow to automatically build and deploy the app to GitHub Pages on every push to `main`.
+
+## Verification Plan
+
+### Manual Verification
+- View the [index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/index.html) file in a browser to ensure all animations, layouts, and assets load correctly.
+- Test responsiveness across different screen sizes (mobile/tablet/desktop).
+- Verify that links correctly point to the app and GitHub.
+
+### Automated Tests
+- N/A for static landing page, but I'll check for accessibility (alt tags, semantic HTML).

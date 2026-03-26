@@ -1,0 +1,5 @@
+# Task: Debug Firestore Permission Error
+
+- [x] Check [firestore.rules](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/firestore.rules) for `users` collection access <!-- id: 0 -->
+- [x] Verify [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#5-140) query structure matches rules <!-- id: 1 -->
+- [x] (Optional) Create [firestore.rules](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/firestore.rules) if missing <!-- id: 2 -->

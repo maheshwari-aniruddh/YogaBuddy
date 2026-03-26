@@ -1,0 +1,106 @@
+# GridWorld Class Notes
+
+Here are detailed notes on the core GridWorld classes, plus the custom [Jumper](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#20-200) and [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) classes. The classes follow an inheritance hierarchy where [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197) is the base class for everything that appears in the grid.
+
+## 1. [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197) (The Base Class)
+[Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197) is the fundamental class in GridWorld. Everything that can be placed in a grid (Bugs, Rocks, Flowers, Critters) extends [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197).
+
+**Key State/Properties:**
+- `color`: The visual color of the actor (default: `Color.BLUE`).
+- `direction`: An integer representing the angle the actor is facing (0-359 degrees, default: `Location.NORTH` or 0).
+- `location`: The current [Location](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#97-106) (row, col) in the grid.
+- `grid`: The `Grid<Actor>` that currently contains the actor.
+
+**Key Methods:**
+- [getColor() / setColor(Color c)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#47-55): Gets/sets the actor's color.
+- [getDirection() / setDirection(int dir)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#65-73): Gets/sets the facing direction (automatically wraps angles to 0-359).
+- [getLocation()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#97-106): Returns the actor's current location in the grid.
+- [getGrid()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#87-96): Returns the grid containing the actor (or `null` if it's not in a grid).
+- [putSelfInGrid(Grid<Actor> gr, Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#107-128): Places the actor into the specified grid at the specified location. Also removes any existing actor at that location.
+- [removeSelfFromGrid()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#129-147): Removes the actor from its grid (leaving the location empty).
+- [moveTo(Location newLocation)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#148-176): Moves the actor from its current location to a new one within the same grid. If an actor is already there, it is removed.
+- [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44): The default behavior for an Actor. By default, it simply turns 180 degrees ([setDirection(getDirection() + Location.HALF_CIRCLE)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#74-86)). Subclasses usually override this.
+
+---
+
+## 2. [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#29-106) (extends [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197))
+A [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#29-106) is a specific type of actor that moves straight forward and drops a [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) in its previous location. When blocked, it turns right.
+
+**Default Behavior ([act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44)):**
+- Checks if it can move forward ([canMove()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#86-105)).
+- If yes, it moves a step forward ([move()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#67-85)).
+- If no, it turns 45 degrees to the right ([turn()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#59-66)).
+
+**Key Methods:**
+- [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44): Moves if it can; otherwise, it turns.
+- [turn()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#59-66): Changes direction 45 degrees to the right (`Location.HALF_RIGHT`).
+- [move()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#67-85): Moves to the adjacent cell in its current direction. Drops a new [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) of the same color in the location it just left.
+- [canMove()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#86-105): Checks if the cell directly in front is valid (inside the grid) and either empty or containing a [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) (Bugs can trample flowers, but not rocks or other bugs).
+
+---
+
+## 3. [Critter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#31-133) (extends [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197))
+A [Critter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#31-133) is a more complex actor that follows a specific 5-step behavioral pattern every time it acts.
+
+**The 5-Step [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44) Cycle (DO NOT OVERRIDE [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44) IN SUBCLASSES):**
+1. [getActors()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#49-60): Finds the actors it interacts with (default: gets all immediately adjacent neighbors).
+2. [processActors(ArrayList<Actor> actors)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#61-79): Does something to those actors. The default Critter "eats" (removes from grid) any actor that is not a `Rock` and not another [Critter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#31-133).
+3. [getMoveLocations()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#80-92): Finds possible places it can move to (default: gets all empty adjacent locations).
+4. [selectMoveLocation(ArrayList<Location> locs)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#93-112): Chooses one of those locations (default: picks one randomly).
+5. [makeMove(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#113-132): Moves to the chosen location. If the location is `null`, the critter removes itself from the grid.
+
+*Note: When making custom Critters (like ChameleonCritter or CrabCritter), you override these 5 individual methods (usually [getActors](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#49-60), [processActors](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#61-79), or [getMoveLocations](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Critter.java#80-92)), never the [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44) method itself.*
+
+---
+
+## 4. [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) (extends [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197))
+A [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) is an actor dropped by a [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#29-106). Its only behavior is that its color darkens over time.
+
+**Key Features:**
+- `DEFAULT_COLOR`: Pink.
+- [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44): Every step, it darkens its color by 5% (`DARKENING_FACTOR = 0.05`). This gives a visual history of where a bug has been (freshly dropped flowers are bright, old ones are dark).
+
+---
+
+## 5. [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) (extends [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64))
+[Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) is a custom subclass of [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64) designed to have a limited lifespan before automatically removing itself from the grid.
+
+**Key Additions:**
+- `lifeTime`: How many steps the Blossom exists before dying.
+- `steps`: A counter tracking how long the Blossom has been alive.
+- [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44): Calls `super.act()` to darken like a normal flower, then increments its `steps` counter. If `steps` >= `lifeTime`, it calls [removeSelfFromGrid()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#129-147).
+
+---
+
+## 6. [Jumper](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#20-200) (extends [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#29-106))
+[Jumper](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#20-200) is a custom subclass of Bug with advanced movement logic.
+
+**Defined Behaviors ([act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44)):**
+- **Straight Line Limit**: If it moves straight without obstacles for a set number of steps (`maxStraight`), it forces a 90-degree turn to prevent getting stuck in infinite loops.
+- **2-Cell Jump**: Tries to jump to the cell exactly 2 spaces ahead, ignoring whatever is in the middle adjacent cell.
+- **Direction Rotation**: If it can't jump straight, it checks the other 7 directions (rotating 45 degrees at a time) to find a valid 2-cell jump.
+- **1-Cell Fallback**: If *no* 2-cell jump is possible in *any* direction, it falls back to a normal [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#29-106) move (1 cell forward).
+- **Blossom Dropping**: When it jumps or moves, it leaves a [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) behind (with a random lifespan) instead of a standard [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64).
+
+**Key Custom Methods:**
+- [canJump(int direction)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#97-127): Checks if the cell 2 spaces away in the given direction is valid and empty (or contains a regular [Flower](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Flower.java#27-64)). Explicitly returns `false` if the target contains a [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45), preventing Jumpers from trampling Blossoms.
+- [jump(int direction)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#128-155): Moves the Jumper to the target location 2 cells away and places a [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) at the old location.
+- Overridden [move()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#67-85) and [canMove()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Bug.java#86-105): Used for the 1-cell fallback. Overridden specifically to drop [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45)s instead of Flowers, and to respect the "do not step on Blossoms" rule.
+
+---
+
+## 7. `Grid<E>` (Interface)
+The [Grid](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#29-131) interface defines how objects (usually [Actor](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/actor/Actor.java#29-197)s) are stored and tracked in a 2D environment. It is typically implemented by `BoundedGrid` (fixed size walls) or `UnboundedGrid` (infinite size).
+
+**Key Methods:**
+- [getNumRows() / getNumCols()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#31-36): Dimensions of the grid (-1 if unbounded).
+- [isValid(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#43-51): Checks if a location actually exists within the grid boundaries.
+- [put(Location loc, E obj)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#52-62): Adds an object to a specific location.
+- [remove(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#63-71): Removes and returns whatever is at that location.
+- [get(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#72-80): Returns the object at that location (or `null` if empty).
+- [getOccupiedLocations()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#81-86): Returns a list of all locations currently holding an object.
+- **Neighbor Methods**: Used heavily by actors (like Critters) to survey their surroundings:
+  - [getValidAdjacentLocations(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#87-97): Returns up to 8 surrounding valid locations.
+  - [getEmptyAdjacentLocations(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#98-108): Returns surrounding locations that have nothing in them.
+  - [getOccupiedAdjacentLocations(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#109-119): Returns surrounding locations that have something in them.
+  - [getNeighbors(Location loc)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/framework/info/gridworld/grid/Grid.java#120-130): Returns a list of the actual *objects* in the adjacent occupied locations.

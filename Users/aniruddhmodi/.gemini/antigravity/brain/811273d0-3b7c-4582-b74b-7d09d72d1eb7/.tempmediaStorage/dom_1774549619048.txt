@@ -1,0 +1,66 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,44)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,44)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,44)<span >Pricing />
+[8] (734,44)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,44)<div  />
+	[10] (733,44)<span >Search or jump to... />
+	[11] (831,44)<div  />
+[12] (870,44)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow%2Fdeployments'>Sign in />
+Sign in to GitHub
+[13] (783,173)<label >Username or email address />
+[14] (804,210)<input class='form-control input-block js-login-field' id='login_field' />
+[15] (743,261)<label >Password />
+[16] (804,299)<input class='form-control input-block js-password-field' id='password' />
+[17] (849,262)<a class='label-link position-absolute top-0 right-0' href='/password_reset' id='forgot-password'>Forgot password? />
+[18] (804,357)<input class='btn btn-primary btn-block js-sign-in-button' />
+[19] (804,408)<a class='Button--link Button--medium Button' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow%2Fdeployments' />
+	[20] (804,408)<span  />
+		[21] (804,408)<span >or continue with other methods />
+[22] (925,44)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fmaheshwari-aniruddh%2FPoseFlow%2Fdeployments&source=header'>Sign up />
+[23] (968,44)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-10727754-0819-41a0-9852-affa18ff2c45' />
+[24] (500,588)<label class='d-block text-normal color-fg-muted mb-1 f4'>Find code, projects, and people on GitHub: />
+[25] (471,626)<input class='flex-auto input-lg form-control mr-2' id='not-found-search' />
+[26] (797,626)<button class='btn'>Search />
+[27] (427,697)<a class='Link--secondary' href='https://support.github.com?tags=dotcom-404'>Contact Support />
+—
+[28] (505,697)<a class='Link--secondary' href='https://githubstatus.com'>GitHub Status />
+—
+[29] (578,697)<a class='Link--secondary' href='https://x.com/githubstatus'>@githubstatus />
+Site-wide Links
+[30] (130,815)<a aria-label='Go to GitHub homepage' class='color-fg-default d-inline-block' href='/' />
+Subscribe to our developer newsletter
+Get tips, technical guides, and best practices. Twice a month.
+[31] (130,995)<a class='btn-mktg tmp-mb-4 btn-muted-mktg' href='https://github.com/newsletter'>Subscribe />
+Platform
+[32] (397,852)<a class='Link--secondary' href='/features'>Features />
+[33] (400,893)<a class='Link--secondary' href='/enterprise'>Enterprise />
+[34] (394,933)<a class='Link--secondary' href='/features/copilot'>Copilot />
+[35] (383,974)<a class='Link--secondary' href='/features/ai'>AI />
+Ecosystem
+[36] (546,852)<a class='Link--secondary' href='https://docs.github.com/get-started/exploring-integrations/about-building-integrations'>Developer API />
+[37] (534,893)<a class='Link--secondary' href='https://partner.github.com'>Partners />
+[38] (537,933)<a class='Link--secondary' href='https://github.com/edu'>Education />
+GitHub CLI
+Support
+[39] (664,852)<a class='Link--secondary' href='https://docs.github.com'>Docs />
+[40] (693,893)<a class='Link--secondary' href='https://github.community'>Community Forum />
+[41] (699,933)<a class='Link--secondary' href='https://services.github.com'>Professional Services />
+[42] (691,974)<a class='Link--secondary' href='/enterprise/premium-support'>Premium Support />
+Company
+[43] (804,852)<a class='Link--secondary' href='https://github.com/about'>About />
+[44] (817,893)<a class='Link--secondary' href='https://github.com/why-github'>Why GitHub />
+[45] (828,933)<a class='Link--secondary' href='/customer-stories?type=enterprise'>Customer stories />
+[46] (801,974)<a class='Link--secondary' href='https://github.blog'>Blog />
+
+</current_dom>

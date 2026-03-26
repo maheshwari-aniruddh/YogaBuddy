@@ -1,0 +1,43 @@
+# Walkthrough: Fixing Compilation Errors and Running GridWorld Programs
+
+I fixed the errors in the [BoxBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java#25-58) compilation and started the [CircleBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBug.java#25-57) program as requested.
+
+## Changes Made
+
+### 1. Identified Syntax Errors
+The common errors when moving from Windows to Mac (or Linux) are:
+- **Quotes**: Using "curly quotes" (`“`, `”`) instead of standard straight quotes (`"`).
+- **Classpath Separator**: Windows uses `;`, while Mac uses `:`.
+- **Package Paths**: Running classes requires pointing to the root of the source directory.
+
+### 2. Compiled and Ran BoxBug
+The correct commands for your Mac environment are:
+```bash
+# Compile from project root
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/*.java
+
+# Run from project root (note the : instead of ;)
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.BoxBugRunner
+```
+
+### 4. Increased Grid Size
+I updated [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java) to use a **20x20 BoundedGrid**. This was done by:
+- Importing `info.gridworld.actor.Actor` and `info.gridworld.grid.BoundedGrid`.
+- Changing the `ActorWorld` constructor to `new ActorWorld(new BoundedGrid<Actor>(20, 20))`.
+
+### 5. Implemented SpiralBug
+I created the [SpiralBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBug.java#9-43) and [SpiralBugRunner](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBugRunner.java#14-28) as requested:
+- **SpiralBug**: Traces an expanding square spiral. I implemented this by adding `sideLength++` after each 90-degree turn (two `turn()` calls).
+- **SpiralBugRunner**: Uses an `UnboundedGrid` to allow the spiral to grow indefinitely without hitting walls.
+
+### 6. Created ZBugRunner
+I created the [ZBugRunner](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBugRunner.java#11-22) as requested, without modifying your [ZBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBug.java) file. 
+- **ZBugRunner**: Located at [ZBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBugRunner.java).
+- **Execution**: I've compiled and started the runner for you. The bug now starts at **(1, 4)**.
+
+## Verification Results
+
+- **BoxBug**: Verified.
+- **CircleBug**: Verified.
+- **SpiralBug**: Verified.
+- **ZBug**: Verified runner creation and execution.

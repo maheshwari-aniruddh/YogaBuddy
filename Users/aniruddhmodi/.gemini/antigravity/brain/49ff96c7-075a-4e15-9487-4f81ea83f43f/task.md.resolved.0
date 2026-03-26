@@ -1,0 +1,10 @@
+# GridWorld Bug Running Task
+
+- [/] Locate all bug and runner classes
+    - [x] CircleBug and CircleBugRunner
+    - [ ] ZBug and ZBugRunner
+    - [ ] SpiralBug and SpiralBugRunner
+    - [ ] DancingBug and DancingBugRunner
+    - [x] Jumper and JumperRunner
+- [ ] Verify package structures
+- [ ] Provide compilation and execution commands

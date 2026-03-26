@@ -1,0 +1,14 @@
+# Streamlit App Walkthrough (Labels & Fixes)
+
+## Summary
+The piano now includes visible key labels on the keys themselves.
+
+## New Features
+- **Key Labels**: The note names (C, D, E, F, G, A, B) are drawn directly on the corresponding keys.
+- **Improved Visibility**: Labels are in high-contrast red for easy reading.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

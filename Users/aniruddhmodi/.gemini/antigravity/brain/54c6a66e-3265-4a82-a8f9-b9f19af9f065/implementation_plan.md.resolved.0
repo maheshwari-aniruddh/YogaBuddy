@@ -1,0 +1,25 @@
+# Implementation Plan - Fix iOS Build & Dart Compilation
+
+The goal is to resolve the iOS build crashing due to missing build number and the Dart compilation error regarding `authenticatedClient`.
+
+## User Review Required
+> [!IMPORTANT]
+> I will be Modifying [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) to include a build number (e.g., `1.0.0+1`) to fix the Xcode "empty build number" error.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- Update `version: 1.0.0` to `version: 1.0.0+1` to ensure `$(FLUTTER_BUILD_NUMBER)` is valid.
+
+### Code
+#### [MODIFY] [drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart)
+- The method `authenticatedClient()` seems undefined for `GoogleSignInAccount` in the current context.
+- I will verify dependencies and attempt to fix the usage.
+- If `authenticatedClient` provided by the extension is not working, I will implement a fallback using `google_sign_in` headers to construct an authenticated HTTP client.
+
+## Verification Plan
+
+### Automated Tests
+- Run `flutter analyze lib/services/drive_service.dart` to verify Dart fix.
+- Run `flutter build ios --no-codesign --config-only` (if possible) or just build to verify.

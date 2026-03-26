@@ -1,0 +1,7 @@
+# Debug Google Sign-In "cancelled" error
+
+- [ ] Explore codebase for Google Sign-In implementation <!-- id: 0 -->
+- [ ] Check configuration (Info.plist, GoogleService-Info.plist) <!-- id: 1 -->
+- [ ] Reproduce/Analyze the error flow <!-- id: 2 -->
+- [ ] Fix the issue <!-- id: 3 -->
+- [ ] Verify fix <!-- id: 4 -->

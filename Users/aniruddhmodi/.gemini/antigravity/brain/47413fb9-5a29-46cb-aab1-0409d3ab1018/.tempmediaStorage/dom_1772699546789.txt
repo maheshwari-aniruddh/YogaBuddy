@@ -1,0 +1,37 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+R
+Rozze
+[0] (407,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#features'>Features />
+[1] (474,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#how-it-works'>How It Works />
+[2] (537,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#privacy'>Privacy />
+[3] (590,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#science'>Science />
+[4] (871,59)<button class='justify-center whitespace-nowrap transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-foreground text-background py-4 hover:scale-[1.02] shadow-elevated hover:shadow-glow font-semibold tracking-wide h-9 rounded-lg px-3 text-xs hidden sm:flex items-center gap-2' />
+	[5] (879,59)<span >Download />
+Real talk
+Why people
+actually stick
+with Rozze
+It's not about features. It's about removing every excuse not to reflect on your day.
+30 sec
+You already don't have time
+That's the point. Rozze takes 30 seconds. Less time than checking Instagram. You'll actually do it — and that's what makes the difference.
+Voice-first
+Writing feels like homework. Talking doesn't.
+Most journaling apps give you a blank page and hope for the best. Rozze just asks you to talk. No editing. No pressure. Just say what's on your mind.
+Mood insights
+You'll notice patterns you never saw
+After a few weeks, Rozze shows you when you're happiest, what stresses you out, and how your mood shifts over time. It's like a fitness tracker for your mind.
+Private
+Your thoughts stay yours
+FaceID protection. No cloud servers reading your entries. No ads. No data mining. Your journal is encrypted and stored on your terms.
+Multilingual
+Works in 5 languages
+English, Spanish, French, Hindi, and Chinese. Journal in whatever language you think in. Most apps don't even try.
+Habit engine
+Built for the habit, not the homepage
+Smart reminders that adapt to your schedule. Streak tracking. A home screen widget that nudges you daily. Everything is designed to keep the habit alive.
+
+</current_dom>

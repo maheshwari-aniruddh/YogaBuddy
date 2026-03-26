@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to integrate airplay 2 frontend with ar_studio.py backend.\n- Replace <video> elements in Practice Mode with iframe pointing to Streamlit.\n- Modify ar_studio.py to run without sidebar for embedding.\n- Create start script for easy launch.\n- Auto-thresholds already in backend.",
+  "updatedAt": "2025-12-06T23:01:45.783867Z",
+  "version": "33"
+}

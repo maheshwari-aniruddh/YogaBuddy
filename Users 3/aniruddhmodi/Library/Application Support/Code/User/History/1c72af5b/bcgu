@@ -1,0 +1,12 @@
+
+
+
+public class App {
+
+    Person person1 = new Person();
+    public static void main(String[] args) {
+        person1.name = "Joe Bloggs";
+        person1.age = 37;
+        System.out.println(person1.name);
+    }
+}

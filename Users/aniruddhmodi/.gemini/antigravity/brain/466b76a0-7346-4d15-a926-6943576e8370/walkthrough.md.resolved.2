@@ -1,0 +1,18 @@
+# Streamlit App Walkthrough
+
+## Summary
+The Streamlit application [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) has been updated to focus exclusively on "Live Video" hand landmark detection.
+
+## Verification Results
+- [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) has been refactored to remove image upload and default to webcam input.
+- `python -m py_compile app.py` passed, confirming no syntax errors.
+
+## How to Run
+To start the app, run:
+
+```bash
+./.venv/bin/streamlit run app.py
+```
+
+If the app is already running, you may need to stop it (Ctrl+C) and run it again to see the changes if they don't hot-reload correctly. 
+Once running, click the **"Start Camera"** checkbox to begin tracking.

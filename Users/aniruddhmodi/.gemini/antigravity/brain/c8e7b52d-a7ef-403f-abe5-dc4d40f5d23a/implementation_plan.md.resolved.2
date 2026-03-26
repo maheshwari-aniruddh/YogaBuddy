@@ -1,0 +1,27 @@
+# Implementation Plan - Firebase Email Tracking
+
+The goal is to track every user's email address that logs into the app by storing it in a Firebase Firestore database.
+
+## Proposed Changes
+
+### Services
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+-   Import `package:cloud_firestore/cloud_firestore.dart`.
+-   Implement a private method `_saveUserToFirestore(GoogleSignInAccount user)`.
+    -   This method will upsert a document in the `users` collection.
+    -   Document ID: `user.email`.
+    -   Fields: `email`, `displayName`, `photoUrl`, `lastLogin` (server timestamp).
+-   Call `_saveUserToFirestore` within [signIn()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#19-32) after a successful login.
+-   Call `_saveUserToFirestore` within [signInSilently()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#34-42) if it returns a valid user.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Build App**: Run the app on a simulator or device.
+2.  **Login**: Perform a Google Sign-In.
+3.  **Verify Logs**: Check the debug console for success messages ("User email tracked in Firestore").
+4.  **Verify Database**: (If possible) Check the Firebase Console to ensure the `users` collection is populated with the email.
+
+> [!NOTE]
+> This implementation assumes Firestore rules are configured to allow writes. If the app is not using Firebase Auth, the rules must allow unauthenticated writes or this will fail.

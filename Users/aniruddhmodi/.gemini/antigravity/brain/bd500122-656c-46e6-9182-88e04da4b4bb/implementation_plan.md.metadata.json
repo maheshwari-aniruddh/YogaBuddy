@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Enhanced plan to fix dSYM issues by adding more build flags.",
+  "updatedAt":  "2026-01-03T07:36:55.215754Z",
+  "version":  "3"
+}

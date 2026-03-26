@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Max Threshold)
+
+## Summary
+The piano is configured for **Maximum** precision.
+
+## Configuration
+- **Threshold**: 0.15 (Very High).
+- **Difficulty**: Hard. Requires very fast strikes.
+- **Safety**: Near-zero chance of accidental clicks.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

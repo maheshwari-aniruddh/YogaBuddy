@@ -1,0 +1,10 @@
+# Task: Remove All Comments from Codebase
+
+- [ ] Python Files <!-- id: 0 -->
+    - [ ] Strip `#` comments and docstrings from root [.py](file:///tmp/export_knn.py) files <!-- id: 1 -->
+- [ ] Web Application (TS/TSX/CSS) <!-- id: 2 -->
+    - [ ] Strip `//` and `/* */` comments from `one-breath-app/src` <!-- id: 3 -->
+    - [ ] Strip CSS comments from `one-breath-app/src/index.css` <!-- id: 4 -->
+- [ ] Verification and Push <!-- id: 5 -->
+    - [ ] Verify code still builds and runs <!-- id: 6 -->
+    - [ ] Push clean code to GitHub <!-- id: 7 -->

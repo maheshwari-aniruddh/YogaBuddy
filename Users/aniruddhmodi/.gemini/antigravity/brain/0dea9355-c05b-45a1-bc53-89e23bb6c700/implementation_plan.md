@@ -1,0 +1,44 @@
+# Feedback Feature & TestFlight Preparation Plan
+
+## Goal Description
+The user wants to distribute the app via TestFlight and allow beta testers to submit feedback directly from the app. Additionally, they need instructions on how to run the app on their physical device.
+This plan covers:
+1.  Implementing a **Feedback Screen** accessible from the main navigation.
+2.  Using **Cloud Firestore** to store feedback so the developer can read it centrally.
+3.  Re-enabling **Firebase Initialization** (which was previously removed) to support Firestore.
+4.  Preparing the app for **TestFlight** distribution (updating Bundle ID).
+
+## User Review Required
+> [!IMPORTANT]
+> **Re-enabling Firebase**: We are re-enabling `Firebase.initializeApp()` in `main.dart`. Although you moved to Google Drive for journal storage, Firestore is the best way to collect *developer-facing* feedback unless you prefer email.
+> **Bundle Identifier**: The current Bundle ID is `com.example.the30secJournal`. You MUST change this to a unique domain you own (e.g., `com.aniruddh.roze`) for TestFlight and App Store.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+- Uncomment/Add `await Firebase.initializeApp(...)` to ensure Firestore works.
+
+#### [MODIFY] [project.pbxproj](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner.xcodeproj/project.pbxproj)
+- Update `PRODUCT_BUNDLE_IDENTIFIER` to a valid unique ID (placeholder `com.aniruddh.roze` will be used, user to confirm).
+
+### Features
+#### [NEW] [feedback_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart)
+- Create a UI with a text field and "Submit" button.
+- Logic to save feedback to `feedback` collection in Firestore with timestamp and (optional) user info.
+
+#### [MODIFY] [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart)
+- Add a 5th tab for Feedback in `CurvedNavigationBar`.
+- Add `FeedbackScreen` to the `IndexedStack`.
+
+## Verification Plan
+
+### Automated Tests
+- Run `flutter test` to ensure no regressions.
+- (New tests specific to feedback are not feasible without mocking Firebase, will rely on manual)
+
+### Manual Verification
+1.  **Run on Simulator**: `flutter run`.
+2.  **Test Feedback**: Navigate to the new Feedback tab, enter text, and submit.
+3.  **Verify Firestore**: Check Firebase Console to see if the new document appears in `feedback` collection.
+4.  **Build**: Run `flutter build ios --release --no-codesign` to ensure the build succeeds with new changes.

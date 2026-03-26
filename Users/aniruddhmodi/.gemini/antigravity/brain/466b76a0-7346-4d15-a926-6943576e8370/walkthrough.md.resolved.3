@@ -1,0 +1,19 @@
+# Streamlit App Walkthrough (Optimized)
+
+## Summary
+The Streamlit application [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py) is now optimized for performance on macOS.
+
+## Optimizations Implemented
+1.  **MPS (GPU) Acceleration**: Enabled via `BaseOptions.Delegate.GPU`.
+2.  **Video API**: Switched to `detect_for_video` for temporally consistent tracking (faster than image mode).
+3.  **Frame Resizing**: Input frames are resized to 640x480 to reduce inference load.
+
+## Verification Results
+- `python -m py_compile app.py` passed.
+- The app should now run more smoothly with higher FPS.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+If you see any errors in the terminal regarding "MPS" or "Gradient," the app might automatically fall back to CPU or print a warning, but it should still function.

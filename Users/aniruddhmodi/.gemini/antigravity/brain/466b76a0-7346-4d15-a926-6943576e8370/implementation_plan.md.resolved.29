@@ -1,0 +1,29 @@
+# Keyboard Overlay & Zone Safety Plan
+
+## Goal Description
+1.  **Visual**: Display the user's "keyboard_one_octave (1).jpg" at the bottom.
+2.  **Safety**: Prevent accidental clicks when moving between octave zones.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Image Loading**:
+    - Load `keyboard.jpg` once at startup.
+    - Resize to match window width (dynamic if possible, or fixed 1280).
+- **Zone Monitor**:
+    - Helper `get_octave_zone(y)` -> Int (0, 1, 2).
+- **Physics Update**:
+    - Calculate `v_y`.
+    - Check `zone_changed = (get_octave_zone(current_y) != get_octave_zone(prev_y))`.
+    - `if zone_changed: is_hit = False`.
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- See keyboard image.
+- Move hand from Top to Bottom fast.
+    - **Expected**: No sound (Zone change suppression).
+- Tap within Bottom zone.
+    - **Expected**: Low pitch sound.

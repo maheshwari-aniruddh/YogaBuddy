@@ -1,0 +1,65 @@
+# Implementation Plan - Mood & Calendar Enhancements
+
+## Goal
+Improve mood selection UX (no default), visualize moods on the calendar, and fix text input layout issues.
+
+## Proposed Changes
+
+### 1. Mood Selection (Remove Auto-Default)
+
+#### [MODIFY] [app_colors.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart)
+- Update `MoodColors.getColor(int mood)` to safely handle `mood <= 0` (return a neutral/grey color).
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- Initialize `_mood = 0` (instead of 3).
+- Update [_loadEntryFor](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#238-263): If no entry, set `_mood = 0`.
+- Update [_buildMoodPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#324-452):
+    - Handle `_mood == 0` case (show placeholder or prompt).
+    - Update [_emojiForMood](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#264-265) to handle 0.
+    - Update [_moodLabel](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#265-267) to handle 0.
+- Update [_autoSave](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#87-132): Save entry even if mood is 0 (user might just want to journal text), but ensure we don't default to 3.
+
+### 2. Stats & Data Handling
+
+#### [MODIFY] [stats_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/stats_screen.dart)
+- Update stats calculations (average, best/worst day, distribution) to filter out entries where `mood == 0`.
+
+#### [MODIFY] [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+- Ensure chart data methods handle/ignore `mood == 0`.
+
+### 3. Calendar Visualization
+
+#### [MODIFY] [calendar_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart)
+- Implement `calendarBuilders` in `TableCalendar`.
+- `defaultBuilder` & `selectedBuilder` & `todayBuilder`:
+    - Check if `store.forDay(day)` exists.
+    - If yes and `mood > 0`, return a container with the mood color.
+    - If yes and `mood == 0`, maybe show a neutral dot.
+    - If no entry, preserve default layout.
+
+### 4. Textbox Formatting
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- In [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-649):
+    - Adjust `Padding` logic. Use `EdgeInsets.only` with a calculation that accounts for viewInsets simply or uses a spacer.
+    - ensure `SingleChildScrollView` allows scrolling to the field when keyboard is up.
+    - Add `keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag`? No, maybe `manual`.
+
+## Verification Plan
+
+### Manual Verification
+1. **Mood Selection**:
+    - Open app (fresh day). Verify "How are you feeling?" shows no selection.
+    - Type in text box. Verify entry saves.
+    - Go to Calendar. Verify entry exists.
+    - Go back to Today. Verify mood is still unselected.
+    - Select mood. Verify it updates.
+2. **Calendar**:
+    - Check past days with entries. Verify they have colored backgrounds matching the mood.
+    - Check days without entries. Verify they look normal (text only).
+3. **Textbox**:
+    - Go to "What went well?".
+    - Tap text field. Keyboard opens.
+    - Verify layout adjusts smoothly and doesn't "mess up" (header/content shouldn't overlap awkwardly).
+4. **Stats**:
+    - Verify stats don't crash with mood 0 entries.

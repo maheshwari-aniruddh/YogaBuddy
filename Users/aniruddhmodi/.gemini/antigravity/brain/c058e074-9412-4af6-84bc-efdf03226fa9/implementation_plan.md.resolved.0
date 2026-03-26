@@ -1,0 +1,81 @@
+# Location-Based Dynamic Journal Prompts — Full Audit & Plan
+
+The feature should use native iOS Core Location APIs for standard location updates, significant location changes, and region monitoring, with dynamic context-aware prompt generation based on place category, time of day, duration, and visit frequency. The feature should be **opt-out** (enabled by default).
+
+## Audit Results
+
+### ✅ Complete — All Layers Verified
+
+| Layer | File | Status |
+|-------|------|--------|
+| **Native iOS Plugin** | [CoreLocationPlugin.swift](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/CoreLocationPlugin.swift) | ✅ `CLLocationManager` with standard updates, significant changes, region monitoring |
+| **App Registration** | [AppDelegate.swift](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/AppDelegate.swift) | ✅ Plugin registered in `didFinishLaunchingWithOptions` |
+| **iOS Permissions** | [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) | ✅ All 3 keys: `WhenInUse`, `AlwaysAndWhenInUse`, `Always` |
+| **Android Permissions** | [AndroidManifest.xml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/android/app/src/main/AndroidManifest.xml) | ✅ `FINE_LOCATION` + `COARSE_LOCATION` |
+| **Dart Service** | [location_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/location_service.dart) | ✅ Platform channels, region monitoring, 13 place categories, Haversine distance, dynamic prompts |
+| **UI Integration** | [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart) | ✅ Fetches on init, renders chips, passes to Good + Challenge fields |
+| **Opt-Out Toggle** | [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) | ✅ Default `true`, clears cache on disable |
+| **Dependencies** | [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) | ✅ `geocoding` kept, `geolocator` removed |
+| **Static Analysis** | `flutter analyze` | ✅ Zero errors/warnings from our code |
+
+### Data Flow
+
+```mermaid
+graph LR
+    A["CLLocationManager<br/>(Native Swift)"] -->|"MethodChannel +<br/>EventChannel"| B["LocationService<br/>(Dart)"]
+    B -->|"Reverse geocode"| C["geocoding<br/>package"]
+    B -->|"Categorize +<br/>Generate prompts"| D["today_screen.dart"]
+    D -->|"Render chips"| E["User sees<br/>location prompts"]
+    F["Settings toggle"] -->|"SharedPrefs"| D
+```
+
+### Dynamic Prompt Engine
+
+The prompt engine generates **contextual questions** based on:
+- **Place category** (13 categories: restaurant, café, park, gym, office, school, etc.)
+- **Time of day** (early morning → night)
+- **Duration** (quick stop → most of the day)
+- **Visit frequency** (3+ visits triggers "what keeps you coming back?")
+- **Multi-place visits** ("Busy day visiting X, Y, Z — what was the highlight?")
+
+Prompts are generated for both **"What went well?"** and **"What was challenging?"** fields.
+
+---
+
+## Proposed Changes
+
+**No code changes needed.** The audit confirms the feature is fully implemented and wired end-to-end.
+
+> [!NOTE]
+> The Android side currently has location permissions declared but no native plugin for Fused Location Provider. The Dart [LocationService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/location_service.dart#247-1005) uses platform channels that will gracefully fail on Android (caught by `try/catch`). If you need Android native support in the future, a `CoreLocationPlugin` equivalent in Kotlin would need to be written.
+
+---
+
+## Verification Plan
+
+### Manual Verification (iOS Device)
+
+Since there are no existing automated tests in this project, verification must be done on-device:
+
+1. **Build and run** on your physical iPhone:
+   ```
+   flutter run
+   ```
+
+2. **First launch (opt-out behavior)**:
+   - Open the app → you should see a location permission prompt (since the feature is **enabled by default**)
+   - Grant "While Using App" permission
+   - Navigate to the Today screen → after ~2 seconds, location-based suggestion chips should appear under "What went well?" and "What was challenging?"
+
+3. **Verify dynamic prompts**:
+   - The chips should show prompts mentioning your current location name
+   - Tapping a chip should insert the prompt text into the journal field
+
+4. **Settings toggle (opt-out)**:
+   - Go to Settings → find "Location Suggestions" under Preferences
+   - Toggle **OFF** → cached location data should be cleared
+   - Go back to Today screen → no location chips should appear
+   - Toggle back **ON** → permission should be re-requested, chips should appear again after granting
+
+5. **Verify console logs**:
+   - In the terminal running `flutter run`, look for `📍` prefixed debug prints showing region enter/exit events

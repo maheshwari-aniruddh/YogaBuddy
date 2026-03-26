@@ -1,0 +1,72 @@
+# Bass Guitar Implementation & Jam Session Fixes — Walkthrough
+
+## 🎸 Bass Guitar Mode Added
+
+I have successfully built and integrated the complete Bass Guitar mode you requested, matching your exact specifications.
+
+### How to Play the Bass Guitar
+
+1. **Plucking (Right Hand)**: Hold your right index finger up so the camera sees it. Move it up and down across the four strings (`E2`, `A2`, `D2`, `G2`). A rapid downward or upward motion (a "flick") simulating a pluck will trigger the bass sound.
+2. **Fretting (Left Hand)**: Hold your left wrist/hand up to the camera. The position of your left hand horizontally across the screen determines the "fret" you are holding.
+   - Far left: Open String (0 semitones)
+   - Moving right: 1st fret (+2 semitones)
+   - Further right: 2nd fret (+4 semitones)
+   - And so on up to the 4th fret (+7 semitones).
+3. **Audio Feedback**: The application now loads the actual [.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/Bass%20sounds/d-bass.wav) files from your `bass sounds/` folder ([e2-bass.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/Bass%20sounds/e2-bass.wav), [a2-bass.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/Bass%20sounds/a2-bass.wav), [d-bass.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/Bass%20sounds/d-bass.wav), [g-bass.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/Bass%20sounds/g-bass.wav)), and pitches them up dynamically in Python based on your left hand's fret position!
+4. **Visual Feedback**:
+   - When you pluck, the specific string will flash white and visually "wobble" like a real string vibrating.
+   - The desktop UI string status panel on the left will highlight which string was plucked and track how long ago it happened.
+   - The fret control panel on the right will smoothly animate a bar to show exactly which fret the camera thinks your left hand is holding.
+
+### Files Modified for Bass Guitar
+- [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py): Added [load_bass_samples()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/ar_studio.py#409-430), exact OpenCV string colors (`#ff4444`, `#44ff44`, etc), wrist cyan circles, gray pickup zones, and sine wave wobble math.
+- [instruments.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/instruments.html): Added the Bass Guitar instrument card linking to the new mode.
+- [bass.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/bass.html): Created this entirely new file to house the 3-panel UI specified in your SOP (String Status, Camera Embed, Fret Control).
+- [styles.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/styles.css): Added specific layout CSS for the Bass instrument card.
+
+![Bass Guitar Final Layout](/Users/aniruddhmodi/.gemini/antigravity/brain/7ada5e16-816d-47a1-8943-08b078ea39ad/.system_generated/click_feedback/click_feedback_1772928933771.png)
+
+---
+
+# Jam Session Fixes
+
+## Root Causes Found & Fixed
+
+### Bug 1: WebSocket Route Hidden by Static Mount
+The `@app.websocket("/ws/{room_id}/{player_id}")` decorator was originally `@app.get(...)`, which is **not** a valid WebSocket endpoint. FastAPI silently rejected WebSocket upgrade requests with HTTP 404, meaning **no browser could ever connect** to the jam session.
+
+### Bug 2: `KeyError` Crash in `ConnectionManager.add()`
+When the first player connected: [add()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py#36-43) created the room set → called [broadcast_to_others()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py#72-91) → that method found an empty room → **deleted the room dict entry** → [add()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py#36-43) then tried `self.rooms[room_id].add(...)` → **`KeyError` crash** → connection silently dropped.
+
+### Bug 3: Wrong WebSocket Port in Player Pages  
+Both [piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html) and [drums-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/drums-player.html) had hardcoded `window.JAM_SESSION_WS_URL = 'ws://localhost:8765/ws'`, overriding the correct URL set by [jam-core.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/jam-core.js). This was **a different port entirely** from the running server (8502).
+
+## Verified End-to-End
+
+```
+Created room: RZZZDY
+Player A connected
+Player B connected
+Player A received: {"type":"player_joined","player_id":"player_B"}
+Player B sent note: C4
+Player A received: {"type":"note","instrument":"piano","note":"C4"}
+Player A sent note: kick
+Player B received: {"type":"note","instrument":"drums","note":"kick"}
+```
+
+All 5 checks pass:
+- ✅ Both players connect successfully
+- ✅ Join notification received by existing player
+- ✅ Piano notes broadcast from B → A
+- ✅ Drum notes broadcast from A → B
+- ✅ Static pages and API endpoints remain accessible
+
+## Files Changed
+
+| File | Change |
+|------|--------|
+| [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py) | Fixed WebSocket decorator, KeyError crash, added dual static mount |
+| [jam-core.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/jam-core.js) | Added popup, toast, debug console, ngrok detection |
+| [piano-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-player.html) | Removed wrong port override, added drum playback for remote notes |
+| [drums-player.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/drums-player.html) | Removed wrong port override, added piano synth for remote notes |
+| [app.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js) | Updated jam redirect paths to `/static/` |

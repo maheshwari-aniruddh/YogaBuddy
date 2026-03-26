@@ -1,0 +1,24 @@
+## Proposed Changes: Robust Training with Augmentations
+
+The user noticed that the model performs poorly on Noisy and Motion Blurred datasets, even with NLM preprocessing. To fix this, we need to artificially degrade the training images so the model becomes inherently robust. We will also switch to `efficientnet_b3` as requested.
+
+### [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+- **Backbone**: Change `timm.create_model` in [HybridModel](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_experiment.py#128-144) to use `efficientnet_b3`.
+- **IMG_SIZE**: Change `IMG_SIZE` to 300 to match B3's optimal resolution.
+- **Custom Augmentations**:
+    - Implement a custom [AddGaussianNoise](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#197-209) transform class.
+    - Implement a custom [AddMRIMotionArtifact](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#210-245) class (using TorchIO `RandomMotion` for realistic k-space corruption).
+    - Insert these new transforms into the `train_transforms` pipeline with a reasonable probability.
+
+### [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+- **Backbone / Config**: Ensure [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py) is configured to evaluate the newly trained `efficientnet_b3_super` model with `IMG_SIZE=300`.
+
+## Verification Plan
+
+### Automated Tests
+- Run `.venv/bin/python main.py` to verify that the training loop starts successfully with the new specific augmentations and the B3 backbone.
+
+### Manual Verification
+- N/A
+

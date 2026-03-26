@@ -1,0 +1,264 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,12)<label class='line-wrap-control'>Line wrap />
+	[1] (54,11)<input aria-label='Line wrap' />
+<!DOCTYPE html>
+<html
+lang
+="
+en
+">
+<head>
+<meta
+charset
+="
+UTF-8
+">
+<meta
+name
+="
+viewport
+"
+content
+="
+width=device-width, initial-scale=1.0
+">
+<title>
+Choose Your Instrument - AirJam
+</title>
+<link
+rel
+="
+stylesheet
+"
+href
+="
+[2] (221,160)<a class='html-attribute-value html-resource-link' href='styles.css'>styles.css />
+">
+<link
+rel
+="
+preconnect
+"
+href
+="
+[3] (267,178)<a class='html-attribute-value html-resource-link' href='https://fonts.googleapis.com'>https://fonts.googleapis.com />
+">
+<link
+rel
+="
+preconnect
+"
+href
+="
+[4] (259,196)<a class='html-attribute-value html-resource-link' href='https://fonts.gstatic.com'>https://fonts.gstatic.com />
+"
+crossorigin
+>
+<link
+href
+="
+[5] (435,233)<a class='html-attribute-value html-resource-link' href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap'>https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap />
+"
+rel
+="
+stylesheet
+">
+</head>
+<body>
+<!-- Animated Background -->
+<div
+class
+="
+animated-bg
+">
+</div>
+<canvas
+id
+="
+particles-canvas
+">
+</canvas>
+<!-- Geometric Shapes -->
+<div
+class
+="
+geometric-shapes
+">
+<div
+class
+="
+geo-shape geo-circle-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-circle-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-circle-3
+">
+</div>
+<div
+class
+="
+geo-shape geo-triangle-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-triangle-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-hexagon-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-hexagon-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-square-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-square-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-pentagon-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-pentagon-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-octagon-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-diamond-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-diamond-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-line-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-line-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-line-3
+">
+</div>
+<div
+class
+="
+geo-shape geo-line-4
+">
+</div>
+<div
+class
+="
+geo-grid geo-grid-1
+">
+</div>
+<div
+class
+="
+geo-grid geo-grid-2
+">
+</div>
+<div
+class
+="
+geo-shape geo-spiral-1
+">
+</div>
+<div
+class
+="
+geo-shape geo-spiral-2
+">
+</div>
+</div>
+<!-- Instruments Selection Page -->
+<div
+id
+="
+instruments-page
+"
+class
+="
+page active
+">
+<div
+class
+="
+landing-container
+">
+<div
+class
+="
+instruments-header
+">
+<a
+href
+="
+[6] (179,940)<a class='html-attribute-value html-external-link' href='index.html'>index.html />
+"
+class
+="
+back-btn
+">
+<span
+class
+="
+back-arrow
+">
+←
+</span>
+<span>
+Back
+</span>
+</a>
+
+</current_dom>

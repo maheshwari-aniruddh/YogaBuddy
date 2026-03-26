@@ -1,0 +1,12 @@
+# Location-Based Dynamic Journal Prompts — Full Audit
+
+- [ ] Verify native iOS Core Location plugin ([CoreLocationPlugin.swift](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/CoreLocationPlugin.swift))
+- [ ] Verify AppDelegate registration
+- [ ] Verify Info.plist permissions
+- [ ] Verify AndroidManifest.xml permissions
+- [ ] Verify Dart [LocationService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/location_service.dart#247-1005) (platform channels, region monitoring, dynamic prompts)
+- [ ] Verify [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart) integration (fetching, displaying chips, opt-out check)
+- [ ] Verify [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) toggle (opt-out default)
+- [ ] Verify [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) dependencies
+- [ ] Run `flutter analyze` to confirm zero errors
+- [ ] Create implementation plan with any gaps found

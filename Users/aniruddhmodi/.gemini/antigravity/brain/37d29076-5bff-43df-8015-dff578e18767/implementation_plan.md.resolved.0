@@ -1,0 +1,17 @@
+# Combine HTML Files Plan
+
+## Goal Description
+Combine [example1.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example1.html) through [example6.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example6.html) into a single HTML file. The content within the `<body>` tags of the source files will be extracted and interleaved/shuffled to "mess up the order a little bit" while ensuring the resulting HTML is still syntactically correct (valid tags, proper nesting).
+
+## User Review Required
+- None.
+
+## Proposed Changes
+### Project Root
+#### [NEW] [example7.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example7.html)
+- Will contain the combined and shuffled content.
+
+## Verification Plan
+### Manual Verification
+- Open the file and check if it parses correctly as HTML.
+- Verify elements from all examples are present but mixed.

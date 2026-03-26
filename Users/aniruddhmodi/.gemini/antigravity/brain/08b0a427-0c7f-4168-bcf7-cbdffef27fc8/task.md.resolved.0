@@ -1,0 +1,6 @@
+# Task: Fix DataLoader ValueError
+
+- [x] Investigate error in `main.py` <!-- id: 0 -->
+- [ ] Fix `DataLoader` initialization in `main.py` <!-- id: 1 -->
+- [ ] Check for similar issues in other files (`eval.py`, `eval_new_dataset.py`, etc.) <!-- id: 2 -->
+- [ ] Verify the fix <!-- id: 3 -->

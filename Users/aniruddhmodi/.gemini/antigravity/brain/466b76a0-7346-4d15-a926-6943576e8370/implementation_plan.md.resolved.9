@@ -1,0 +1,32 @@
+# Accuracy and History Plan
+
+## Goal Description
+1.  **History**: Display played notes on screen.
+2.  **Accuracy**: Fix "not accurate at all" complaints. The current system likely spams keys or triggers on hover.
+    *   **Debounce**: A key must be "released" (angle > threshold + margin) before it can be pressed again.
+    *   **Cooldown**: Minimum time between presses for the same finger.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **State**:
+    - `key_history`: List of strings.
+    - `finger_state`: Dict tracking each finger's status (`{'Thumb': 'UP', 'Index': 'DOWN', ...}`).
+- **Logic**:
+    - **Debounce**:
+        - Limit detection: Only trigger "PRESS" if previous state was "UP" and current angle < Threshold.
+        - Reset state to "UP" only when angle > (Threshold + Hysteresis, e.g., 10 degrees).
+    - **History Update**: Only append to `key_history` on the *rising edge* (when state changes UP -> DOWN).
+- **UI**:
+    - `st.empty()` for history.
+    - Show [angle](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#25-38) value near the finger tip again to help the user correlate motion with numbers.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Check if detected keys appear in the history list.
+- Check if pressing a key *once* results in *one* entry (debounce working).
+- Verify that "hovering" doesn't trigger random notes.

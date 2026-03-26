@@ -1,0 +1,4 @@
+- [ ] Analyze `research3.py` to understand training and saving logic <!-- id: 0 -->
+- [ ] Modify `research3.py` to enable GPU usage (MPS for Mac) <!-- id: 1 -->
+- [ ] Modify `research3.py` to save model with today's date in filename <!-- id: 2 -->
+- [ ] Run `research3.py` and verify output <!-- id: 3 -->

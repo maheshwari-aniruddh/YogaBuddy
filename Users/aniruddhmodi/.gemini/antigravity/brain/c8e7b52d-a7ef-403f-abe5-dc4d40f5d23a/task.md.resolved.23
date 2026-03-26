@@ -1,0 +1,6 @@
+# Task: Refine Core UX
+
+- [ ] Fix [SwipeToSaveWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#5-18) functionality <!-- id: 0 -->
+    - [ ] Diagnose why it "isn't working" (check sensitivity/logic) <!-- id: 1 -->
+    - [ ] Implement increasing haptic intensity logic <!-- id: 2 -->
+- [ ] Verify [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#15-20) changes <!-- id: 3 -->

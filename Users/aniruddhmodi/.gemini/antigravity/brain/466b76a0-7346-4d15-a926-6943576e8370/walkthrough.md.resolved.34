@@ -1,0 +1,19 @@
+# AR Instrument Studio Walkthrough (Camera Fix)
+
+## Summary
+Updated Camera Selection to be more robust for FaceTime HD cameras.
+
+## Camera Selection
+- **Default**: Indices **0** and **1** are now pre-loaded.
+- **FaceTime HD**: Usually **Index 0**.
+- **External Cam**: Usually **Index 1**.
+- **Scan**: Still available if neither works.
+
+## Triggers
+- **Strict Logic**: You must stop/lift your finger to play again.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

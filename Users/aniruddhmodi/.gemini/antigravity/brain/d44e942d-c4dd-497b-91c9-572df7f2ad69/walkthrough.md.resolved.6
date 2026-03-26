@@ -1,0 +1,19 @@
+# Walkthrough - Deep Clean & Fix iOS Build
+
+I have performed a "Deep Clean" which is often necessary when Xcode gets stuck with persistent module errors like "No such module 'Flutter'".
+
+## Actions Taken
+1.  **Cleared Derived Data**: Attempted to remove Xcode's cached build data (`~/Library/Developer/Xcode/DerivedData`). This forces Xcode to rebuild all module maps from scratch.
+2.  **Full Reinstall**: Ran `flutter clean`, `flutter pub get`, and `pod install` again to ensure all dependencies are fresh.
+3.  **Patched gRPC**: The [Podfile](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Podfile) already contains a patch for `gRPC-Core` issues on Xcode 16. The reinstall ensures this patch is applied to the fresh files.
+
+## Next Steps for You
+1.  **Restart Xcode**: Fully quit Xcode (Cmd+Q) if it's open.
+2.  **Open Workspace**: Open `ios/Runner.xcworkspace`.
+3.  **Wait for Indexing**: Let Xcode finish "Indexing..." and "Processing Files" before hitting run.
+4.  **Build**: Run the app.
+
+## If "No such module Flutter" persists during build:
+-   Go to **Product > Clean Build Folder** (Cmd+Shift+K) in Xcode.
+-   Ensure you are building the "Runner" scheme.
+-   Verify that you opened the **white** `.xcworkspace` file, not the blue `.xcodeproj`.

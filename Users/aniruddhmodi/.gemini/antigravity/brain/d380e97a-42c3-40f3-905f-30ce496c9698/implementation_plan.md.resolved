@@ -1,0 +1,26 @@
+# Restore Missing Hybrid Training Script
+
+## Goal
+Recreate the missing training script (`cnn_hog_lbp.py`) that trains a ResNet50 + HOG + LBP model, which corresponds to the logic found in [prediction.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/prediction.py).
+
+## Proposed Changes
+
+### Research Folder
+#### [NEW] [cnn_hog_lbp.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/cnn_hog_lbp.py)
+- Clone logic from [cnn_hog.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/cnn_hog.py).
+- **Add LBP Extraction**: Incorporate [extract_lbp](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/prediction.py#52-58) function from [prediction.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/prediction.py) (24 points, radius 8, uniform).
+- **Update Data Loading**: Compute LBP features for all images in [load_data](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/cnn_hog.py#30-54) and return `X_lbp`.
+- **Update Model Architecture**:
+    - Add a third input branch for LBP (shape [(26,)](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/cnn_hog.py#30-54)).
+    - Process LBP input through Dense layers (e.g., Dense(16, relu)).
+    - Concatenate ResNet (RGB), HOG, and LBP streams.
+- **Update Training Loop**: Pass `X_lbp` to `model.fit`.
+
+## Verification Plan
+
+### Automated Tests
+- **Run Training (Dry Run)**: Execute the new script for 1 epoch with a small subset or full dataset to verify it runs without errors.
+    ```bash
+    python cnn_hog_lbp.py
+    ```
+- **Check Dimensions**: Verify that the input shapes for HOG and LBP match those expected by [prediction.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Research/prediction.py) (HOG: ~34596, LBP: 26).

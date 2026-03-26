@@ -1,0 +1,27 @@
+# Keyboard UI Fixes - Revised
+
+## Goal Description
+Fix "cutoff" or "encroaching" issues when the keyboard is open by ensuring the UI resizes appropriately (standard Flutter behavior) and the content becomes scrollable when constrained. Continue to support "Return" to close keyboard.
+
+## Proposed Changes
+
+### Screens
+
+#### [MODIFY] [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart)
+- Revert the addition of `resizeToAvoidBottomInset: false`. Let the Scaffold resize (default `true`) to ensure the focused widget is kept in view by the system.
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Scroll Physics**: Update logic to enable `BouncingScrollPhysics` when the view height is significantly reduced (indicating keyboard is open), ensuring the user can scroll to see all content in the smaller viewport.
+- **Padding**: Revert the manual `viewInsets.bottom` addition since the Scaffold resize handles the safe area for us.
+- **Return Key**: Keep `TextInputAction.done`.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Run App**: Launch on Simulator/Device.
+2.  **Open Keyboard**: Tap "What went well?".
+3.  **Check Layout**:
+    - Ensure keyboard pushes UI up (doesn't cover/encroach).
+    - ensure UI is not "cut off" in a broken way (it will be smaller, but scrollable).
+    - Swipe up/down to scroll the list.
+4.  **Return Key**: Verify tapping Return closes keyboard.

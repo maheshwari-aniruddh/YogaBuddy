@@ -1,0 +1,14 @@
+# Walkthrough - Fix Logout Freeze
+
+I have fixed the issue where the app would get stuck on the splash screen after logging out.
+
+## Changes
+
+### 1. Logout Transition Logic ([lib/screens/auth_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart))
+- **Change**: Updated the `StreamBuilder` in [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#14-19).
+- **Logic**: When the authentication stream is in a `waiting` state, we now check if we have a valid logged-in user. If not (which is the case after logout), we immediately show the `LoginScreen` instead of default to the `SplashScreen`.
+- **Why**: The stream can sometimes stay in a waiting state even after initialization is complete. By falling back to the `LoginScreen` when we know there is no user, we ensure the user is not left staring at a loading indicator.
+
+## Verification Results
+### Functional Verification
+- **Logout Flow**: When you press "Log Out" in Settings, the app clears the session and re-navigates to the wrapper. The wrapper now correctly identifies that no user is logged in and displays the login page options.

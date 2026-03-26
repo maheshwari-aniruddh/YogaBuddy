@@ -1,0 +1,30 @@
+# Fix Double Triggers Plan
+
+## Goal Description
+Prevent the "machine gun" effect where one key press triggers the sound multiple times.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Parameters**:
+    - `VELOCITY_THRESHOLD = 0.15` (Keep high).
+    - `RESET_THRESHOLD = 0.05` (New: Must stop moving to reset).
+    - `STRIKE_COOLDOWN = 0.3` (Increase from 0.15).
+- **State**:
+    - Add `st.session_state.finger_ready = {name: True}`.
+- **Logic**:
+    - **Trigger**: `if speed > VELOCITY and is_ready`:
+        - Play Sound.
+        - `is_ready = False`.
+    - **Reset**: `if speed < RESET_THRESHOLD`:
+        - `is_ready = True`.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Strike a key once.
+- Ensure only ONE sound plays.
+- Ensure you have to "stop" (or pull up) before playing again.

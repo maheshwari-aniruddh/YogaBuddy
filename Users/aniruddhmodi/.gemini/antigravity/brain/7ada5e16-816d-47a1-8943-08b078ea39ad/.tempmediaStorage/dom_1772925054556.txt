@@ -1,0 +1,7 @@
+[0] (500,500)<div class='landing-container scroll-container' scrollable='true' />
+	Harmonic
+	Instruments
+	Play music with your hands. No instruments needed.
+	[1] (500,608)<a class='get-started-btn' href='instruments.html' />
+		[2] (489,608)<span >Get Started />
+		[3] (539,608)<span >→ />

@@ -1,0 +1,27 @@
+# Walkthrough - Refine UI and Swipe Behavior
+
+I have successfully updated the app to improve UI contrast and adjust the specific swipe behavior.
+
+## Changes
+
+### 1. Swipe Widget Behavior ([lib/widgets/swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart))
+- **Change**: Removed the code block that automatically reset the swipe button after 2 seconds.
+- **Result**: When the user swipes to save, the checkmark remains in the "completed" state until they navigate away or manually reset it (if applicable).
+
+### 2. UI Contrast Improvements
+- **Background Color ([lib/theme/app_colors.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart))**:
+    -   Changed `AppColors.background` from `0xFFFDFCF8` (Off-white) to `0xFFF5F2F0` (Warm Grey).
+- **Background Wrapper ([lib/widgets/background_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/background_wrapper.dart))**:
+    -   Updated to use the new `AppColors.background`.
+- **App Bar Clarity ([lib/screens/main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart))**:
+    -   Increased shadow opacity (`0.1` -> `0.2`) for better depth.
+    -   Increased gradient intensity of the rose tint (`0.3` -> `0.5`) to distinctively separate the header from the body content.
+
+## Verification Results
+### Visual Verification
+- The **Top App Bar** and **Bottom Navigation Bar** are white (`AppColors.surface`).
+- The **Content Area** is now a visibly distinct warm grey (`0xFFF5F2F0`).
+- This creates the requested "sandwich" effect where the top and bottom UI elements pop out against the middle section.
+
+### Functional Verification
+- "Slide to Save" provides haptic feedback at 50% and locks into the saved state without bouncing back.

@@ -1,0 +1,37 @@
+# Trash Detection Walkthrough
+
+## Overview
+We successfully trained a YOLOv8 classification model on the "Sing Garbage Dataset" using a MacBook Pro M2 (MPS).
+
+## Steps Completed
+1. **Data Organization**:
+   - Split `garbage-dataset` into [train](file:///Users/aniruddhmodi/Documents/PycharmProjects/trash_detect/train.py#3-27) (70%), `val` (20%), and `test` (10%) sets.
+   - Script: [split_data.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/trash_detect/split_data.py)
+
+2. **Model Training**:
+   - Trained `yolov8n-cls` (Nano model) for 10 epochs.
+   - Initialized with **MPS (Metal Performance Shaders)** for GPU acceleration on M2 Pro.
+   - Script: [train.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/trash_detect/train.py)
+
+3. **Inference / Validation**:
+   - Created an inference script.
+   - Validated on a test image ([battery_10.jpg](file:///Users/aniruddhmodi/Documents/PycharmProjects/trash_detect/garbage-dataset/battery/battery_10.jpg)).
+   - Script: [inference.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/trash_detect/inference.py)
+
+## Validation Results
+Ran inference on a test battery image:
+```bash
+python3 inference.py dataset_split/test/battery/battery_10.jpg
+```
+
+**Output:**
+```
+PREDICTION: BATTERY
+CONFIDENCE: 100.00%
+```
+
+## How to Run
+To predict on new images:
+```bash
+python3 inference.py /path/to/your/image.jpg
+```

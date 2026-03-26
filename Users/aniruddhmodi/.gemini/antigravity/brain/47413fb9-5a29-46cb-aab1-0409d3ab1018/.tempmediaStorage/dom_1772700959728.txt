@@ -1,0 +1,89 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+error
+You can't publish apps from this developer account
+[0] (85,87)<a class='navigation-menu-logo _ngcontent-imi-0' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[1] (85,87)<img alt='Google Play Console logo' class='_ngcontent-imi-0' role='button' />
+[2] (907,87)<div  />
+	[3] (907,87)<button aria-label='Notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-imi-25 mdc-button--outlined' />
+		notifications
+		Notifications
+[4] (976,87)<div  />
+	[5] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-imi-4' />
+		[6] (976,86)<div  />
+[7] (96,169)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/app-list' role='button' />
+	[8] (26,169)<console-icon  />
+		[9] (26,169)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[10] (26,169)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>features />
+	[11] (58,169)<span >Home />
+[12] (96,218)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/policy-center' role='button' />
+	[13] (26,218)<console-icon  />
+		[14] (26,218)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[15] (26,218)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>android_security_privacy_safe />
+	[16] (73,218)<span >Policy status />
+[17] (96,266)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/users-and-permissions' role='button' />
+	[18] (26,266)<console-icon  />
+		[19] (26,266)<material-icon class='_ngcontent-imi-18 _nghost-imi-11 filled' />
+			[20] (26,266)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>user_attributes />
+	[21] (95,266)<span >Users and permissions />
+[22] (96,314)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/orders' role='button' />
+	[23] (26,314)<console-icon  />
+		[24] (26,314)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[25] (26,314)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>credit_card />
+	[26] (89,314)<span >Order management />
+[27] (96,363)<a class='item-link _ngcontent-imi-27' role='button' />
+	[28] (11,363)<material-icon  />
+		[29] (11,363)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>arrow_right />
+	[30] (26,363)<console-icon  />
+		[31] (26,363)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[32] (26,363)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>download />
+	[33] (85,363)<span >Download reports />
+[34] (96,411)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/account' role='button' />
+	[35] (26,411)<console-icon  />
+		[36] (26,411)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[37] (26,411)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>badge />
+	[38] (87,411)<span >Developer account />
+[39] (96,459)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/activity-log' role='button' />
+	[40] (26,459)<console-icon  />
+		[41] (26,459)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[42] (26,459)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>description />
+	[43] (70,459)<span >Activity log />
+[44] (96,508)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/settings' role='button' />
+	[45] (26,508)<console-icon  />
+		[46] (26,508)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[47] (26,508)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>settings />
+	[48] (63,508)<span >Settings />
+[49] (96,556)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/help-and-support' role='button' />
+	[50] (26,556)<console-icon  />
+		[51] (26,556)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[52] (26,556)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>contact_support />
+	[53] (55,556)<span >Help />
+[54] (96,635)<a class='item-link _ngcontent-imi-27 use-adi-colors' href='/console/u/0/developers/6928342875691261065/android-developer-verification' role='button' />
+	[55] (26,635)<console-icon  />
+		[56] (26,635)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[57] (26,635)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>app_promotion />
+	[58] (109,635)<span >Android developer verification />
+[59] (598,563)<div class='main-content _ngcontent-imi-0' id='main-content' scrollable='true' />
+	Aniruddh Maheshwari
+	Personal account
+	brightness_1
+	Account ID: 6928342875691261065
+	You can't publish apps from this developer account
+	To help keep users safe, Google will restrict your developer account if issues are found with your account or the information you've provided.
+	The following issues mean that you can't publish apps from this developer account.
+	error
+	Google couldn't verify your identity
+	Appeal reply sent
+	brightness_1
+	Verify your identity
+	[60] (794,515)<a aria-label='View more details about this issue.' class='mdc-button mdc-button--unelevated pc-text-inverted' href='/console/u/0/developers/6928342875691261065/account/issues/4989235432983694750/details' />
+		[61] (794,515)<span >View details />
+	error
+	You haven't verified your contact phone number
+	[62] (794,595)<a aria-label='View more details about this issue.' class='mdc-button mdc-button--unelevated pc-text-inverted' href='/console/u/0/developers/6928342875691261065/account/issues/4985873678467902419/details' />
+		[63] (794,595)<span >View details />
+	Create your first app
+
+</current_dom>

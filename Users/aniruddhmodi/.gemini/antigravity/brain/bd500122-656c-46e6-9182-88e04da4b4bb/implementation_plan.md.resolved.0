@@ -1,0 +1,25 @@
+# Update App Icon
+
+## User Review Required
+> [!IMPORTANT]
+> I found [flutter_01.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/flutter_01.png) in the root directory and will use it as the new app icon. If this is not the correct image, please let me know.
+
+## Proposed Changes
+### Assets
+#### [NEW] [assets/images/flutter_01.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/assets/images/flutter_01.png)
+- Move [/flutter_01.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/flutter_01.png) to `assets/images/flutter_01.png`.
+
+### Configuration
+#### [MODIFY] [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- Update `flutter_launcher_icons.image_path` to `assets/images/flutter_01.png`.
+
+### Icon Generation
+- Run `dart run flutter_launcher_icons` to generate the new icons for iOS and Android.
+
+## Verification Plan
+### Automated Tests
+- None.
+
+### Manual Verification
+- Run the app on the simulator/device and verify the icon has changed.
+- Inspect `ios/Runner/Assets.xcassets/AppIcon.appiconset` to see updated images.

@@ -1,0 +1,29 @@
+# Fix Gesture Crash & Navigation Logic
+
+## Goal Description
+Resolve `RenderEditable` null check crash by stabilizing `ScrollPhysics` (removing dynamic switching). Maintain "Swipe to Switch Page" functionality using `NotificationListener` on overscrolls.
+
+## Proposed Changes
+
+### Screens
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Physics**: Change `SingleChildScrollView` physics to constant `BouncingScrollPhysics`.
+- **Navigation**: Remove outer `GestureDetector` handling vertical drags.
+- **Logic**: Wrap `SingleChildScrollView` in `NotificationListener<UserScrollNotification>` (or `ScrollNotification`).
+    - Detect pure swipe capability via overscroll.
+    - If user scrolls past edge significantly (e.g. into overscroll), trigger page switch.
+    - *Note*: Use `UserScrollNotification` to detect start/end of drag, or `OverscrollNotification`.
+    - Simpler approach: Keep `GestureDetector` but maybe use `AlwaysScrollableScrollPhysics` so it eats gestures? No.
+    - Reliable approach: Use `NotificationListener<OverscrollNotification>`.
+      - `overscroll < 0` (Top) -> Prev Page.
+      - `overscroll > 0` (Bottom) -> Next Page.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Crash Check**: Long press text field (causing focus/keyboard). Ensure no crash.
+2.  **Navigation Check**:
+    - Swipe Down at top of page -> Should go to Mood page.
+    - Swipe Up at bottom of page -> Should go to next page.
+    - Scrolling content normally -> Should scroll.

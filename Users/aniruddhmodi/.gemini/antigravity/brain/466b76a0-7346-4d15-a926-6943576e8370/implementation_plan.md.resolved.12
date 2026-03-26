@@ -1,0 +1,29 @@
+# Z-Axis Depth Detection Plan
+
+## Goal Description
+Switch the "click" mechanism from detecting finger curl (angle) to detecting a "poke" motion (Z-axis depth) where the fingertip moves significantly in front of the wrist.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Parameters**:
+    - Add `DEPTH_THRESHOLD = 0.15` (Start value, may need tuning).
+    - Add `DEPTH_RELEASE_THRESHOLD` (for debounce/hysteresis, maybe 0.10).
+- **Logic**:
+    - Get `wrist` landmark (index 0).
+    - Calculate `z_diff = wrist.z - tip.z` for each finger.
+    - **State Machine**:
+        - `UP` -> `DOWN`: if `z_diff > DEPTH_THRESHOLD`.
+        - `DOWN` -> `UP`: if `z_diff < DEPTH_RELEASE_THRESHOLD`.
+- **Debug**:
+    - Display `z_diff` (formatted, e.g., `0.12`) near the finger instead of the angle.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Poke towards the camera.
+- Verify "Pressed" state triggers when pushing forward.
+- Verify "Released" state triggers when pulling back.

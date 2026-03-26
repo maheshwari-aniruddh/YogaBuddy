@@ -1,0 +1,510 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (21,41)<button class='prc-Button-ButtonBase-9n-Xk position-relative ExpandFileTreeButton-module__expandButton__hDOcv fgColor-muted prc-Button-IconButton-fyge7' />
+Files
+[1] (93,103)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk react-repos-tree-pane-ref-selector width-full ref-selector-class RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[2] (93,103)<span  />
+		[3] (85,103)<span  />
+			[4] (85,103)<div  />
+				[5] (24,103)<div  />
+				[6] (44,103)<div  />
+					[7] (44,103)<span >main />
+[8] (190,103)<button class='prc-Button-ButtonBase-9n-Xk SearchButton-module__IconButton__SBlqu prc-Button-IconButton-fyge7' />
+[9] (106,155)<span  />
+	[10] (22,155)<span  />
+	[11] (111,155)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+[12] (106,596)<div class='ReposFileTreePane-module__Box_5__Zy_o6' scrollable='true' />
+	.github
+	[13] (106,215)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='models-item' role='treeitem' />
+		[14] (106,215)<div  />
+			[15] (16,215)<div  />
+			[16] (111,215)<div  />
+				[17] (32,215)<div  />
+					[18] (32,215)<div  />
+				[19] (119,215)<span  />
+					[20] (58,215)<span >models />
+	[21] (106,984)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app-item' role='treeitem' />
+		[22] (106,257)<div  />
+			[23] (16,257)<div  />
+			[24] (111,257)<div  />
+				[25] (32,257)<div  />
+					[26] (32,257)<div  />
+				[27] (119,257)<span  />
+					[28] (76,256)<span >one-breath-app />
+		[29] (106,298)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/public-item' role='treeitem' />
+			[30] (106,298)<div  />
+				[31] (13,298)<div  />
+					[32] (13,298)<div  />
+						[33] (13,298)<div  />
+				[34] (21,298)<div  />
+				[35] (114,298)<div  />
+					[36] (37,298)<div  />
+						[37] (37,298)<div  />
+					[38] (122,298)<span  />
+						[39] (61,298)<span >public />
+		[40] (106,714)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src-item' role='treeitem' />
+			[41] (106,340)<div  />
+				[42] (13,340)<div  />
+					[43] (13,340)<div  />
+						[44] (13,340)<div  />
+				[45] (21,340)<div  />
+				[46] (114,340)<div  />
+					[47] (37,340)<div  />
+						[48] (37,340)<div  />
+					[49] (122,340)<span  />
+						[50] (54,339)<span >src />
+			[51] (106,381)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/assets-item' role='treeitem' />
+				[52] (106,381)<div  />
+					[53] (16,381)<div  />
+						[54] (16,381)<div  />
+							[55] (13,381)<div  />
+							[56] (19,381)<div  />
+					[57] (26,381)<div  />
+					[58] (116,381)<div  />
+						[59] (42,381)<div  />
+							[60] (42,381)<div  />
+						[61] (124,381)<span  />
+							[62] (67,381)<span >assets />
+			[63] (106,651)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components-item' role='treeitem' />
+				[64] (106,423)<div  />
+					[65] (16,423)<div  />
+						[66] (16,423)<div  />
+							[67] (13,423)<div  />
+							[68] (19,423)<div  />
+					[69] (26,423)<div  />
+					[70] (116,423)<div  />
+						[71] (42,423)<div  />
+							[72] (42,423)<div  />
+						[73] (124,423)<span  />
+							[74] (79,423)<span >components />
+				[75] (106,464)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/ui-item' role='treeitem' />
+					[76] (106,464)<div  />
+						[77] (19,464)<div  />
+							[78] (19,464)<div  />
+								[79] (13,464)<div  />
+								[80] (19,464)<div  />
+								[81] (24,464)<div  />
+						[82] (32,464)<div  />
+						[83] (119,464)<div  />
+							[84] (48,464)<div  />
+								[85] (48,464)<div  />
+							[86] (127,464)<span  />
+								[87] (62,464)<span >ui />
+				[88] (106,506)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/CommunityPage.tsx-item' role='treeitem' />
+					[89] (106,506)<div  />
+						[90] (19,506)<div  />
+							[91] (19,506)<div  />
+								[92] (13,506)<div  />
+								[93] (19,506)<div  />
+								[94] (24,506)<div  />
+						[95] (119,506)<div  />
+							[96] (48,506)<div  />
+							[97] (127,506)<span  />
+								[98] (101,506)<span >CommunityPage.tsx />
+				[99] (106,547)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/HUDOverlay.tsx-item' role='treeitem' />
+					[100] (106,547)<div  />
+						[101] (19,547)<div  />
+							[102] (19,547)<div  />
+								[103] (13,547)<div  />
+								[104] (19,547)<div  />
+								[105] (24,547)<div  />
+						[106] (119,547)<div  />
+							[107] (48,547)<div  />
+							[108] (127,547)<span  />
+								[109] (92,547)<span >HUDOverlay.tsx />
+				[110] (106,589)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/OnboardingPage.tsx-item' role='treeitem' />
+					[111] (106,589)<div  />
+						[112] (19,589)<div  />
+							[113] (19,589)<div  />
+								[114] (13,589)<div  />
+								[115] (19,589)<div  />
+								[116] (24,589)<div  />
+						[117] (119,589)<div  />
+							[118] (48,589)<div  />
+							[119] (127,589)<span  />
+								[120] (102,589)<span >OnboardingPage.tsx />
+				[121] (106,631)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/PeacefulTabs.tsx-item' role='treeitem' />
+					[122] (106,631)<div  />
+						[123] (19,631)<div  />
+							[124] (19,631)<div  />
+								[125] (13,631)<div  />
+								[126] (19,631)<div  />
+								[127] (24,631)<div  />
+						[128] (119,631)<div  />
+							[129] (48,630)<div  />
+							[130] (127,631)<span  />
+								[131] (94,630)<span >PeacefulTabs.tsx />
+				[132] (106,672)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/PracticePage.tsx-item' role='treeitem' />
+					[133] (106,672)<div  />
+						[134] (19,672)<div  />
+							[135] (19,672)<div  />
+								[136] (13,672)<div  />
+								[137] (19,672)<div  />
+								[138] (24,672)<div  />
+						[139] (119,672)<div  />
+							[140] (48,672)<div  />
+							[141] (127,672)<span  />
+								[142] (94,672)<span >PracticePage.tsx />
+				[143] (106,714)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/ProgressPage.tsx-item' role='treeitem' />
+					[144] (106,714)<div  />
+						[145] (19,714)<div  />
+							[146] (19,714)<div  />
+								[147] (13,714)<div  />
+								[148] (19,714)<div  />
+								[149] (24,714)<div  />
+						[150] (119,714)<div  />
+							[151] (48,713)<div  />
+							[152] (127,714)<span  />
+								[153] (95,713)<span >ProgressPage.tsx />
+				[154] (106,755)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/QuoteOfTheDay.tsx-item' role='treeitem' />
+					[155] (106,755)<div  />
+						[156] (19,755)<div  />
+							[157] (19,755)<div  />
+								[158] (13,755)<div  />
+								[159] (19,755)<div  />
+								[160] (24,755)<div  />
+						[161] (119,755)<div  />
+							[162] (48,755)<div  />
+							[163] (127,755)<span  />
+								[164] (100,755)<span >QuoteOfTheDay.tsx />
+				[165] (106,797)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/StartupAnimation.tsx-item' role='treeitem' />
+					[166] (106,797)<div  />
+						[167] (19,797)<div  />
+							[168] (19,797)<div  />
+								[169] (13,797)<div  />
+								[170] (19,797)<div  />
+								[171] (24,797)<div  />
+						[172] (119,797)<div  />
+							[173] (48,797)<div  />
+							[174] (127,797)<span  />
+								[175] (103,796)<span >StartupAnimation.tsx />
+				[176] (106,838)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/YogaPage.tsx-item' role='treeitem' />
+					[177] (106,838)<div  />
+						[178] (19,838)<div  />
+							[179] (19,838)<div  />
+								[180] (13,838)<div  />
+								[181] (19,838)<div  />
+								[182] (24,838)<div  />
+						[183] (119,838)<div  />
+							[184] (48,838)<div  />
+							[185] (127,838)<span  />
+								[186] (87,838)<span >YogaPage.tsx />
+				[187] (106,880)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/components/YogaSessionPage.tsx-item' role='treeitem' />
+					[188] (106,880)<div  />
+						[189] (19,880)<div  />
+							[190] (19,880)<div  />
+								[191] (13,880)<div  />
+								[192] (19,880)<div  />
+								[193] (24,880)<div  />
+						[194] (119,880)<div  />
+							[195] (48,880)<div  />
+							[196] (127,880)<span  />
+								[197] (104,879)<span >YogaSessionPage.tsx />
+			[198] (106,921)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/data-item' role='treeitem' />
+				[199] (106,921)<div  />
+					[200] (16,921)<div  />
+						[201] (16,921)<div  />
+							[202] (13,921)<div  />
+							[203] (19,921)<div  />
+					[204] (26,921)<div  />
+					[205] (116,921)<div  />
+						[206] (42,921)<div  />
+							[207] (42,921)<div  />
+						[208] (124,921)<span  />
+							[209] (62,921)<span >data />
+			[210] (106,963)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src/App.tsx-item' role='treeitem' />
+				[211] (106,963)<div  />
+					[212] (16,963)<div  />
+						[213] (16,963)<div  />
+							[214] (13,963)<div  />
+							[215] (19,963)<div  />
+					[216] (116,963)<div  />
+						[217] (42,963)<div  />
+						[218] (124,963)<span  />
+							[219] (69,962)<span >App.tsx />
+			index.css
+[220] (212,500)<div aria-label='Draggable pane splitter' class='prc-PageLayout-DraggableHandle-9s6B4' role='slider' />
+Breadcrumbs
+[221] (255,28)<a class='Breadcrumb-module__repoLink__O2Nbs prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main'>PoseFlow />
+/
+[222] (324,28)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app'>one-breath-app />
+/
+[223] (378,28)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app/src'>src />
+/
+[224] (424,28)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app/src/components'>components />
+/
+OnboardingPage.tsx
+[225] (964,28)<button class='prc-Button-ButtonBase-9n-Xk FileNameStickyHeader-module__Button__LSEU_ FileNameStickyHeader-module__GoToTopButton__nxAFn' />
+	[226] (964,28)<span  />
+		[227] (970,28)<span >Top />
+File metadata and controls
+[228] (249,86)<button class='prc-SegmentedControl-Button-E48xz' />
+	[229] (249,86)<span  />
+		[230] (249,86)<div >Code />
+[231] (293,86)<button class='prc-SegmentedControl-Button-E48xz' />
+	[232] (293,86)<span  />
+		[233] (293,86)<div >Blame />
+342 lines (314 loc) · 12.2 KB
+[234] (870,86)<a class='prc-Button-ButtonBase-9n-Xk LinkButton-module__linkButton__nFnov BlobViewHeader-module__LinkButton__X9kx2' href='https://github.com/maheshwari-aniruddh/PoseFlow/raw/refs/heads/main/one-breath-app/src/components/OnboardingPage.tsx' />
+	[235] (870,86)<span  />
+		[236] (870,86)<span >Raw />
+[237] (892,86)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' />
+[238] (910,86)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__downloadButton__ef459 prc-Button-IconButton-fyge7' />
+[239] (951,86)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' id='_r_7b_' />
+[240] (974,86)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__IconButton_2__RyjZg prc-Button-IconButton-fyge7' id='symbols-button' />
+[241] (257,129)<div >34 />
+[242] (631,129)<div  />
+	interface
+	UserProfile
+	{
+[243] (606,3587)<textarea aria-label='file content' class='react-blob-textarea react-blob-print-hide' id='read-only-cursor-text-area' scrollable='true' />
+[244] (606,3577)<div class='react-code-line-container CodeLines-module__scrollContainerHidden__g7TeZ' scrollable='true' />
+	33
+	34
+	35
+	36
+	37
+	[245] (256,145)<div >38 />
+	[246] (256,170)<div >39 />
+	[247] (256,196)<div >40 />
+		[248] (271,197)<div aria-label='Collapse code section' class='LineNumber-module__codeFoldingChevron__sY2Yt' role='button' />
+	[249] (256,222)<div >41 />
+	[250] (256,248)<div >42 />
+	[251] (256,274)<div >43 />
+	[252] (256,299)<div >44 />
+	[253] (256,325)<div >45 />
+	[254] (256,351)<div >46 />
+		[255] (271,352)<div aria-label='Collapse code section' class='LineNumber-module__codeFoldingChevron__sY2Yt' role='button' />
+	[256] (256,377)<div >47 />
+	[257] (256,403)<div >48 />
+	[258] (256,428)<div >49 />
+	[259] (256,454)<div >50 />
+	[260] (256,480)<div >51 />
+	[261] (256,506)<div >52 />
+	[262] (256,532)<div >53 />
+	[263] (256,557)<div >54 />
+		[264] (271,559)<div aria-label='Collapse code section' class='LineNumber-module__codeFoldingChevron__sY2Yt' role='button' />
+	[265] (256,583)<div >55 />
+	[266] (256,609)<div >56 />
+	[267] (256,635)<div >57 />
+	[268] (256,661)<div >58 />
+	[269] (256,686)<div >59 />
+	[270] (256,712)<div >60 />
+	[271] (256,738)<div >61 />
+	[272] (256,764)<div >62 />
+	[273] (256,790)<div >63 />
+	[274] (256,815)<div >64 />
+	[275] (256,841)<div >65 />
+	[276] (256,867)<div >66 />
+	[277] (256,893)<div >67 />
+	[278] (256,919)<div >68 />
+	[279] (256,945)<div >69 />
+	[280] (256,970)<div >70 />
+	71
+	interface
+	UserProfile
+	{
+	healthLevel
+	:
+	string
+	;
+	age
+	:
+	number
+	;
+	weight
+	:
+	number
+	;
+	}
+	interface
+	YogaPlan
+	{
+	name
+	:
+	string
+	;
+	poses
+	:
+	string
+	[
+	]
+	;
+	hold_times
+	:
+	number
+	[
+	]
+	;
+	}
+	const
+	OnboardingPage
+	=
+	(
+	)
+	=>
+	{
+	const
+	navigate
+	=
+	useNavigate
+	(
+	)
+	;
+	const
+	[
+	step
+	,
+	setStep
+	]
+	=
+	useState
+	(
+	1
+	)
+	;
+	const
+	[
+	healthLevel
+	,
+	setHealthLevel
+	]
+	=
+	useState
+	(
+	""
+	)
+	;
+	const
+	[
+	age
+	,
+	setAge
+	]
+	=
+	useState
+	(
+	""
+	)
+	;
+	const
+	[
+	weight
+	,
+	setWeight
+	]
+	=
+	useState
+	(
+	""
+	)
+	;
+	const
+	[
+	yogaPlan
+	,
+	setYogaPlan
+	]
+	=
+	useState
+	<
+	YogaPlan
+	|
+	null
+	>
+	(
+	null
+	)
+	;
+	const
+	generateYogaPlan
+	=
+	(
+	profile
+	:
+	UserProfile
+	)
+	:
+	YogaPlan
+	=>
+	{
+	const
+	userAge
+	=
+	profile
+	.
+	age
+	;
+	const
+	userWeight
+	=
+	profile
+	.
+	weight
+	;
+	const
+	health
+	=
+	profile
+	.
+	healthLevel
+	.
+	toLowerCase
+	(
+	)
+	;
+	// Determine difficulty and pose selection based on inputs
+	let
+	selectedPoses
+	:
+	string
+	[
+	]
+	=
+	[
+	]
+	;
+	let
+	holdTimes
+	:
+	number
+	[
+	]
+	=
+	[
+	]
+	;
+	// Always start with Tree Pose
+	const
+	treePose
+	=
+	"Tree_Pose_or_Vrksasana_"
+	;
+	selectedPoses
+	.
+	push
+	(
+	treePose
+	)
+	;
+	holdTimes
+	.
+	push
+	(
+	20
+	)
+	;
+	// Easy poses for beginners/older users (from the 24 available)
+	const
+	easyPoses
+	=
+	[
+	"Warrior_I_Pose_or_Virabhadrasana_I_"
+	,
+	"Warrior_II_Pose_or_Virabhadrasana_II_"
+	,
+[281] (606,989)<div class='CodeLines-module__scrollBarContainer__fsxaw' scrollable='true' />
+
+</current_dom>

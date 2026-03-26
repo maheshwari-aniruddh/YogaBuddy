@@ -1,0 +1,61 @@
+---
+description: How to publish the app to the iOS App Store
+---
+
+# Publishing to the iOS App Store
+
+This guide outlines the steps to build and release your Flutter app to the iOS App Store.
+
+## Prerequisites
+1.  **Apple Developer Program Membership**: You must be enrolled ($99/year).
+2.  **App Store Connect**: You need an app entry created in [App Store Connect](https://appstoreconnect.apple.com/).
+3.  **Xcode**: Installed and configured.
+
+## Step 1: Configure App in Xcode
+1.  Open `ios/Runner.xcworkspace` in Xcode.
+2.  Select the **Runner** project in the navigator.
+3.  Select the **Runner** target.
+4.  In the **General** tab:
+    -   **Display Name**: Ensure it's correct (e.g., "Roze").
+    -   **Bundle Identifier**: Must match the one in App Store Connect (e.g., `com.yourname.roze`).
+    -   **Version**: e.g., `1.0.0`.
+    -   **Build**: e.g., `1`.
+5.  In the **Signing & Capabilities** tab:
+    -   Select your **Team**.
+    -   Ensure "Automatically manage signing" is checked.
+
+## Step 2: Build the Archive
+1.  In your terminal (root of the project), run:
+    ```bash
+    flutter build ipa
+    ```
+    *Note: This command builds the iOS archive (.xcarchive) and generates an .ipa file.*
+
+## Step 3: Upload to App Store Connect
+There are two main ways to upload:
+
+### Option A: Using Transporter (Recommended)
+1.  Install **Transporter** from the Mac App Store.
+2.  Open Transporter and sign in with your Apple ID.
+3.  Locate the `.ipa` file generated in Step 2 (usually in `build/ios/ipa`).
+4.  Drag and drop the `.ipa` file into Transporter.
+5.  Click **Deliver**.
+
+### Option B: Using Xcode
+1.  Open `ios/Runner.xcworkspace` in Xcode.
+2.  Select **Product** > **Archive** from the menu (Make sure `Any iOS Device (arm64)` is selected as the destination).
+3.  Once the archive finishes, the **Organizer** window will open.
+4.  Select the archive and click **Distribute App**.
+5.  Select **App Store Connect** > **Upload** > **Next**.
+6.  Follow the signing prompts and upload.
+
+## Step 4: Submit for Review
+1.  Go to [App Store Connect](https://appstoreconnect.apple.com/).
+2.  Go to **My Apps** > Select your app.
+3.  In the **TestFlight** tab, you should see your uploaded build (it may take a few minutes to process).
+4.  To release to the public:
+    -   Go to the **App Store** tab.
+    -   Scroll down to the **Build** section.
+    -   Click **Select Build** and choose the build you just uploaded.
+    -   Fill out all required metadata (screenshots, description, keywords, etc.).
+    -   Click **Add for Review**.

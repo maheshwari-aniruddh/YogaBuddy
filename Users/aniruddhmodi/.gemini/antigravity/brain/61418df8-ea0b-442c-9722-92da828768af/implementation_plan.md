@@ -1,0 +1,19 @@
+# Fine-Tuning Combined Model
+
+The user has rejected the proposal to drop HOG/LBP features. To make the Combined Model work better than the individual baselines (current Acc: 52% vs LBP 66%), we need to improve the quality of the "Image" features.
+Currently, the ResNet50 backbone is **frozen** and pre-trained on ImageNet (dogs, cats, cars). These generic features may overlap too much with HOG (edges), causing the "poisoning" effect or simply not adding value.
+
+## Proposed Strategy: Fine-Tuning
+Unfreezing the ResNet backbone allows it to learn **X-ray specific features** (e.g., bone texture anomalies, micro-fractures) that are distinct from simple edge detection. This should make the Image branch strictly more powerful and arguably orthogonal to HOG/LBP.
+
+### `research3_finetune.py` (New Script)
+Instead of modifying `research3.py` in place (preserving the distinct "Frozen" experiment), I will create `research3_finetune.py`.
+1.  **Unfreeze Backbone:** Set `base_model.trainable = True`.
+2.  **Low Learning Rate:** Use `Adam(learning_rate=1e-5)` to prevent destroying pre-trained weights.
+3.  **Architecture:** Keep the Regularized Bottlenecks (HOG/LBP) we just added, as they are good practice.
+4.  **Training:** Run for 30-50 epochs with Early Stopping.
+
+## Verification Plan
+1.  **Train:** Run `research3_finetune.py`.
+2.  **Validate:** Run `validate_external.py` (targeting the new model path).
+3.  **Expectation:** Validation Accuracy on `brd` should exceed the LBP baseline (>66%).

@@ -1,0 +1,11 @@
+# Task: B4 v2 Training (Phase 1)
+
+- [x] Head-to-head B3 vs B4 evaluation <!-- id: 17 -->
+- [x] Analyze results and draft strategy <!-- id: 18 -->
+- [/] Implement B4 v2 changes in [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) <!-- id: 19 -->
+  - [ ] Reduce regularization (drop_rate, dropout, weight_decay)
+  - [ ] Add `RandomMotionBlur` augmentation
+  - [ ] Soften noise augmentation
+  - [ ] Add gradient accumulation
+  - [ ] Update learning rate and epochs
+- [ ] Push updated kernel to Kaggle <!-- id: 20 -->

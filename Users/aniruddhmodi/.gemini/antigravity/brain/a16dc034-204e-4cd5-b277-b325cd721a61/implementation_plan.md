@@ -1,0 +1,26 @@
+# Implementation Plan - Image Analysis Script (NLM, HOG, GLCM)
+
+Create a standalone Python script `nlm_hog_glcm_analysis.py` that processes a single image and displays the results of NLM denoising, HOG visualization, and GLCM texture features side-by-side.
+
+## Proposed Changes
+
+### [New Script]
+#### [NEW] [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py)
+ - Load an image (default: `image.png`).
+ - Apply NLM denoising using `skimage.restoration.denoise_nl_means`.
+ - Compute HOG features and get the visualization image using `skimage.feature.hog`.
+ - Compute GLCM using `skimage.feature.graycomatrix` and calculate properties (Contrast, Correlation, Energy, Homogeneity) with `skimage.feature.graycoprops`.
+ - Use `matplotlib` to display:
+    1. Original Image.
+    2. NLM Denoised Image.
+    3. HOG Visualization.
+    4. GLCM Heatmap (cropped/downsampled if needed) and properties as text.
+
+## Verification Plan
+
+### Automated Tests
+ - Run `python nlm_hog_glcm_analysis.py` and check for any errors.
+ - Verify that the output plot `analysis_result.png` is generated and contains all four visualizations.
+
+### Manual Verification
+ - View the generated plot to ensure the side-by-side comparison is clear and accurate.

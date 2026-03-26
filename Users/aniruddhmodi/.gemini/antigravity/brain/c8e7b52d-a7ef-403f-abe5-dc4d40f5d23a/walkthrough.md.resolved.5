@@ -1,0 +1,37 @@
+# Walkthrough - Smart Reminders & SuperThanks
+
+I have implemented two major features to improve engagement and user connection: Smart Journaling Reminders and the SuperThanks gratitude system.
+
+## Smart Reminder System
+A sophisticated notification system that adapts to your journaling habits.
+
+### 🧠 How It Works
+-   **Adaptive Frequency**:
+    -   **High Engagement (5-7 days)**: Sends 4 reminders/week (Maintenance mode).
+    -   **Medium Engagement (2-4 days)**: Sends 5 reminders/week (Habit building).
+    -   **Low Engagement (0-1 days)**: Sends 3 reminders/week (Gentle nudge).
+-   **Smart Timing**: Reminders are scheduled randomly between **7:00 PM and 10:00 PM** to feel organic and less robotic.
+-   **Prompt Rotation**: A library of **30+ unique prompts** ensures you rarely see the same message twice.
+-   **Fatigue Prevention**: The system tracks history to avoid repeating recent prompts.
+
+### 🛠️ Changes
+-   [NotificationService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart#10-273): Completely overhauled to support logic-based scheduling.
+-   [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#12-325): Added `entriesInLast7Days` to track engagement.
+-   [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#18-25): Toggling reminders now activates the smart scheduler.
+
+---
+
+## SuperThanks Feature
+-   **Enhanced Search**: You can now search for friends by **Name** OR **Email**. The system merges results to help you find the right person even if you don't know their exact email.
+-   **Send Gratitude**: Search for users and send confetti-filled messages.
+-   **Receive Love**: Get a popup celebration when someone thanks you.
+-   **Opt-Out**: Privacy control in Settings.
+
+## How to Verify
+1.  **Reminders**:
+    -   Go to **Settings** and toggle "Daily Reminders" off and on.
+    -   Check the debug console for "Scheduled for..." logs to see the randomized times and prompts for the next week.
+2.  **SuperThanks**:
+    -   Go to **Today -> Gratitude -> SuperThanks**.
+    -   Type your **Name** (e.g., "Aniruddh") -> You should appear in the list.
+    -   Type your **Email** -> You should also appear.

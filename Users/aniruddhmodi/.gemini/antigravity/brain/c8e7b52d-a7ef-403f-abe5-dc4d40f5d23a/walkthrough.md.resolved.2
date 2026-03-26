@@ -1,0 +1,19 @@
+# Walkthrough - Firebase Email Tracking
+
+I have implemented a feature to automatically save the logged-in user's email address and name to a Firebase Firestore database.
+
+## Changes
+
+### Services
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+-   **Method**: [_saveUserToFirestore(GoogleSignInAccount user)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#61-72)
+-   **Data Stored**:
+    -   `email`: User's email address (Document ID)
+    -   `displayName`: User's full name
+
+## How to Verify
+1.  **Run the App**: Launch the application.
+2.  **Sign In**: Login or restart the app.
+3.  **Check Logs**: Look for `AuthService: User email tracked in Firestore: <email>`.
+4.  **Check Firestore**: In the Firebase Console, check the `users` collection. The document should now ONLY contain `email` and `displayName`.

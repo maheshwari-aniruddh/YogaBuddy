@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Task checklist for the ablation study. Implementation is complete; awaiting user to run training.",
+  "updatedAt":  "2026-03-02T19:53:20.684196Z",
+  "version":  "1"
+}

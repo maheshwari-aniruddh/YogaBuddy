@@ -1,0 +1,18 @@
+[0] (59,57)<a class='back-btn' href='instruments.html' />
+	[1] (68,57)<span >Back />
+🎸 Bass Guitar
+Status
+AR Active
+Camera Active
+[2] (45,128)<div >🎵 E2 />
+	[3] (59,128)<span >IDLE />
+[4] (114,128)<div >🎵 A2 />
+	[5] (128,128)<span >IDLE />
+[6] (184,128)<div >🎵 D2 />
+	[7] (198,128)<span >IDLE />
+[8] (253,128)<div >🎵 G2 />
+	[9] (267,128)<span >IDLE />
+Pitch
+1.0x
+Last:
+None

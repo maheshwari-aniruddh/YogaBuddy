@@ -1,0 +1,24 @@
+# AR Instrument Studio Walkthrough (Optimized CPU)
+
+## Summary
+Stable & Fast AR Experience.
+-   **Engine**: CPU (Optimized).
+-   **Resolution**: 640x480 (High Performance).
+-   **Latency**: Low (512 Audio Buffer).
+
+## Features
+1.  **Safety**: 8-Finger Gesture Guard (Mutes sound on hand move).
+2.  **Visuals**:
+    -   **Synthesia Style**: Dark background, Neon fallback.
+    -   **Dotted Lines**: 3-Zone Octave indicator.
+3.  **Keyboard**: Visual overlay at bottom.
+
+## Controls
+-   **Strike**: Downward Motion.
+-   **Octaves**: High (Top), Mid, Low (Bottom).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

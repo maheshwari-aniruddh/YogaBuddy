@@ -1,0 +1,18 @@
+# Streamlit App Walkthrough (Stable Piano)
+
+## Summary
+The MediaPipe Hand Tracking app is now stable and features a fully interactive virtual piano.
+
+## Features
+- **Robust Tracking**: Fixed timestamp and event loop errors for a smooth experience.
+- **Transparent Piano**: 60% opaque overlay at the bottom of the screen.
+- **Interactive Feedback**:
+    - **HOVER**: Yellow highlight when finger is over a key.
+    - **PRESS**: Red highlight and text when finger is "clicked" (curled).
+- **Console Output**: Logs key presses to terminal for debugging.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

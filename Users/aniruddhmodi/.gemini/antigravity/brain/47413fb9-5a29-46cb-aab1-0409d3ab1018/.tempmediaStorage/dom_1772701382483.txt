@@ -1,0 +1,120 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+To publish apps, finish setting up your developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-mpi-0' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-mpi-0' role='button' />
+[4] (826,87)<div  />
+	[5] (826,87)<button aria-label='Unread notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-mpi-24 mdc-button--tonal' />
+		notifications_unread
+		Unread notifications
+[6] (930,86)<div  />
+	[7] (930,86)<div aria-label='Rozze' class='active-app-button _ngcontent-mpi-1' role='button' />
+		Rozze
+		[8] (930,86)<material-ripple  />
+[9] (976,87)<div  />
+	[10] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-mpi-4' />
+		[11] (976,86)<div  />
+[12] (771,155)<button aria-label='Collapse side panel' class='mdc-icon-button _ngcontent-mpi-13' />
+	[13] (771,155)<div  />
+	chevron_right
+[14] (984,155)<button aria-label='Close side panel' class='mdc-icon-button _ngcontent-mpi-13' />
+	[15] (984,155)<div  />
+	close
+image
+Add assets to your library from Drive, or upload from your device
+[16] (829,886)<button class='mdc-button mdc-button--text mdc-button--icon-text upload-button _ngcontent-mpi-103'>Upload />
+	upload
+	Upload
+[17] (908,886)<button class='mdc-button mdc-button--text mdc-button--icon-text'>Add from Drive />
+	drive
+	Add from Drive
+[18] (101,148)<a class='back-button mdc-button mdc-button--text mdc-button--icon-text _ngcontent-mpi-14' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[19] (26,148)<material-icon  />
+		[20] (26,148)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>keyboard_backspace />
+	[21] (67,148)<span >All apps />
+[22] (96,227)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/app-dashboard' role='button' />
+	[23] (26,227)<console-icon  />
+		[24] (26,227)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[25] (26,227)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>dashboard />
+	[26] (69,227)<span >Dashboard />
+[27] (96,276)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/statistics' role='button' />
+	[28] (26,276)<console-icon  />
+		[29] (26,276)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[30] (26,276)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>bar_chart />
+	[31] (65,276)<span >Statistics />
+[32] (96,324)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/publishing' role='button' />
+	[33] (26,324)<console-icon  />
+		[34] (26,324)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[35] (26,324)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>overview />
+	[36] (89,324)<span >Publishing overview />
+[37] (99,401)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/test-and-release' role='button' />
+	[38] (26,401)<console-icon  />
+		[39] (26,401)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[40] (26,401)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>rocket_launch />
+	[41] (81,401)<span >Test and release />
+[42] (99,474)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/monitor' role='button' />
+	[43] (26,474)<console-icon  />
+		[44] (26,474)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[45] (26,474)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>vital_signs />
+	[46] (91,474)<span >Monitor and improve />
+[47] (99,547)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/grow-overview' role='button' />
+	[48] (26,547)<console-icon  />
+		[49] (26,547)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[50] (26,547)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>finance_mode />
+	[51] (70,547)<span >Grow users />
+[52] (99,608)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[53] (55,609)<span >Store presence />
+	[54] (171,609)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_less />
+[55] (99,669)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/store-listings' role='button' />
+	[56] (60,669)<span >Store listings />
+[57] (99,712)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/store-listing-experiments/overview' role='button' />
+	[58] (87,712)<span >Store listing experiments />
+[59] (99,756)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/store-settings' role='button' />
+	[60] (63,756)<span >Store settings />
+[61] (99,819)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[62] (63,819)<span >Store performance />
+	[63] (171,819)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_more />
+[64] (99,881)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[65] (48,881)<span >Translations />
+	[66] (171,881)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_more />
+Deep links
+[67] (476,563)<div class='main-content _ngcontent-mpi-0' id='main-content' scrollable='true' />
+	Default – English (United States) – en-US
+	[68] (458,215)<button-wrapper  />
+		[69] (458,215)<button aria-label='Manage translations' class='mdc-button text-button mdc-button--icon-text _ngcontent-mpi-99 pc-text-tertiary mdc-button--text' role='button' />
+			[70] (450,215)<span >Manage translations />
+			[71] (502,215)<material-icon  />
+				[72] (502,215)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>arrow_drop_down />
+	If you're eligible to
+	provide advance notice
+	to the app review team, contact us before publishing your store listing.
+	App name
+	*
+	This is how your app will appear on Google Play
+	5 / 30
+	Text is 5 characters out of 30
+	Short description
+	*
+	Must be 80 characters or fewer
+	232 / 80
+	Text is 232 characters out of 80
+	[73] (300,314)<label class='_ngcontent-mpi-62' id='aBF54F5E4-6934-4D4E-9B19-9BB0BB334351--78'>Full description />
+		Full description
+		*
+	[74] (550,415)<label class='mdc-text-field mdc-text-field--outlined mdc-text-field--textarea _ngcontent-mpi-85 mdc-text-field--no-label' />
+		[75] (550,415)<textarea aria-label='Full description of the app' class='mdc-text-field__input _ngcontent-mpi-85' scrollable='true' />
+	1344 / 4000
+	Text is 1344 characters out of 4000
+	Graphics
+	Manage your app icon, screenshots, and videos to promote your app on Google Play. Review the
+	[76] (674,716)<a href='https://support.google.com/googleplay/android-developer/answer/9866151#zippy=%2Capp-icon'>content guidelines />
+	before uploading new graphics. If you add translations for your store listing without localized graphics, we will use the graphics from your default language.
+	[77] (300,833)<label class='_ngcontent-mpi-62' id='aBF54F5E4-6934-4D4E-9B19-9BB0BB334351--72'>App icon />
+		App icon
+		*
+
+</current_dom>

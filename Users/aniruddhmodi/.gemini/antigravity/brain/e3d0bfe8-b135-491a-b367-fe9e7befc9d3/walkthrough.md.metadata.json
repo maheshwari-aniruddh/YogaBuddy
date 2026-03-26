@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary":  "Walkthrough documenting the yoga pose detection pipeline: what was built, key design decisions, how to run, and verification results.",
+  "updatedAt":  "2026-03-07T16:35:25.773532Z"
+}

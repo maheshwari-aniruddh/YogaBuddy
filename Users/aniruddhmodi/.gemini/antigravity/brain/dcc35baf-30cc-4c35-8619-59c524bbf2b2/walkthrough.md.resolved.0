@@ -1,0 +1,34 @@
+# Work Completed
+
+## 1. Fixed Google Drive Data Loading (Critical Fix)
+**The Issue:** The app was only loading the first 100 journal entries from Google Drive. Users with more entries were seeing incomplete history.
+**The Fix:** Updated `DriveService.getJournalEntries` in [lib/services/drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) to implement **pagination**.
+- Added a `do-while` loop using `nextPageToken`.
+- The app now iteratively fetches *all* pages of files until every single entry is downloaded.
+- Also added robustness to `JournalEntry.fromJson` to prevent crashes if `good`/`bad`/`gratitude` fields are missing in older data.
+
+## 2. Updated Website Redirect
+**The Request:** Change the Lovable URL to the new Vercel deployment.
+**The Fix:** Updated [lib/screens/login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart) and [lib/screens/settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart).
+- Old: `https://roze-whisper-glass.lovable.app`
+- New: `https://rozze.vercel.app/`
+
+## 3. Added iPad Multitasking Support
+**The Issue:** App Store validation failed because not all iPad orientations were supported.
+**The Fix:** Updated [ios/Runner/Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist).
+- Added `UIInterfaceOrientationLandscapeLeft` and `UIInterfaceOrientationLandscapeRight` to `UISupportedInterfaceOrientations~ipad`.
+
+## 4. Updated App Icon
+**The Request:** Use [assets/images/app_icon.png](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/assets/images/app_icon.png) as the new logo.
+**The Fix:**
+- Configured `flutter_launcher_icons` in [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml).
+- Ran generation command to replace iOS and Android launcher icons.
+
+## Verification
+- **Drive Fix:** The code now explicitly loops through all pages of results.
+- **Website:** The code now points to the Vercel URL.
+- **Icons:** The generation tool reported "Successfully generated launcher icons".
+
+## Next Steps
+1. **Rebuild your app** to see the new icon and test the Drive fix.
+2. **Submit to App Store:** The validation error regarding iPad orientations should now be resolved.

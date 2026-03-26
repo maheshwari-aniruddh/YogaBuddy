@@ -1,0 +1,391 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,44)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,44)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,44)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,44)<span >Pricing />
+[8] (734,44)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,44)<div  />
+	[10] (733,44)<span >Search or jump to... />
+	[11] (831,44)<div  />
+[12] (870,44)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow%2Fblob%2Fmain%2Fone-breath-app%2Fpackage.json'>Sign in />
+[13] (925,44)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=maheshwari-aniruddh%2FPoseFlow'>Sign up />
+[14] (968,44)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-9889bb11-14bd-4f3f-b5fb-e504cd3c5fe6' />
+[15] (100,124)<a class='url fn' href='/maheshwari-aniruddh'>maheshwari-aniruddh />
+/
+[16] (202,124)<a href='/maheshwari-aniruddh/PoseFlow'>PoseFlow />
+Public
+[17] (790,123)<a aria-label='You must be signed in to change notification settings' class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='repository-details-watch-button'>Notifications />
+[18] (871,123)<a class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='fork-button'>Fork />
+	[19] (889,123)<span >0 />
+[20] (944,123)<a aria-label='You must be signed in to star a repository' class='tooltipped tooltipped-sw btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' />
+	[21] (944,123)<span >Star />
+	[22] (963,123)<span >0 />
+[23] (46,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected' href='/maheshwari-aniruddh/PoseFlow' id='code-tab' />
+	[24] (54,191)<span >Code />
+[25] (104,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/issues' id='issues-tab' />
+	[26] (112,191)<span >Issues />
+[27] (179,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulls' id='pull-requests-tab' />
+	[28] (187,191)<span >Pull requests />
+[29] (257,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/actions' id='actions-tab' />
+	[30] (265,191)<span >Actions />
+[31] (324,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/projects' id='projects-tab' />
+	[32] (332,191)<span >Projects />
+[33] (393,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/security' id='security-tab' />
+	[34] (400,191)<span >Security />
+[35] (461,191)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulse' id='insights-tab' />
+	[36] (469,191)<span >Insights />
+[37] (21,259)<button class='prc-Button-ButtonBase-9n-Xk position-relative ExpandFileTreeButton-module__expandButton__hDOcv fgColor-muted prc-Button-IconButton-fyge7' />
+Files
+[38] (93,317)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk react-repos-tree-pane-ref-selector width-full ref-selector-class RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[39] (93,317)<span  />
+		[40] (85,317)<span  />
+			[41] (85,317)<div  />
+				[42] (24,317)<div  />
+				[43] (44,317)<div  />
+					[44] (44,317)<span >main />
+[45] (190,317)<button class='prc-Button-ButtonBase-9n-Xk SearchButton-module__IconButton__SBlqu prc-Button-IconButton-fyge7' />
+[46] (106,365)<span  />
+	[47] (22,365)<span  />
+	[48] (111,365)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+[49] (106,810)<div class='ReposFileTreePane-module__Box_5__Zy_o6' scrollable='true' />
+	.github
+	[50] (106,414)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='models-item' role='treeitem' />
+		[51] (106,414)<div  />
+			[52] (16,414)<div  />
+			[53] (111,414)<div  />
+				[54] (32,414)<div  />
+					[55] (32,414)<div  />
+				[56] (119,414)<span  />
+					[57] (58,414)<span >models />
+	[58] (106,784)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app-item' role='treeitem' />
+		[59] (106,453)<div  />
+			[60] (16,453)<div  />
+			[61] (111,453)<div  />
+				[62] (32,453)<div  />
+					[63] (32,453)<div  />
+				[64] (119,453)<span  />
+					[65] (76,453)<span >one-breath-app />
+		[66] (106,492)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/public-item' role='treeitem' />
+			[67] (106,492)<div  />
+				[68] (13,492)<div  />
+					[69] (13,492)<div  />
+						[70] (13,492)<div  />
+				[71] (21,492)<div  />
+				[72] (114,492)<div  />
+					[73] (37,492)<div  />
+						[74] (37,492)<div  />
+					[75] (122,492)<span  />
+						[76] (61,492)<span >public />
+		[77] (106,531)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/src-item' role='treeitem' />
+			[78] (106,531)<div  />
+				[79] (13,531)<div  />
+					[80] (13,531)<div  />
+						[81] (13,531)<div  />
+				[82] (21,531)<div  />
+				[83] (114,531)<div  />
+					[84] (37,531)<div  />
+						[85] (37,531)<div  />
+					[86] (122,531)<span  />
+						[87] (54,531)<span >src />
+		[88] (106,570)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/.gitignore-item' role='treeitem' />
+			[89] (106,570)<div  />
+				[90] (13,570)<div  />
+					[91] (13,570)<div  />
+						[92] (13,570)<div  />
+				[93] (114,570)<div  />
+					[94] (37,570)<div  />
+					[95] (122,570)<span  />
+						[96] (68,570)<span >.gitignore />
+		[97] (106,609)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/README.md-item' role='treeitem' />
+			[98] (106,609)<div  />
+				[99] (13,609)<div  />
+					[100] (13,609)<div  />
+						[101] (13,609)<div  />
+				[102] (114,609)<div  />
+					[103] (37,609)<div  />
+					[104] (122,609)<span  />
+						[105] (74,609)<span >README.md />
+		[106] (106,648)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/eslint.config.js-item' role='treeitem' />
+			[107] (106,648)<div  />
+				[108] (13,648)<div  />
+					[109] (13,648)<div  />
+						[110] (13,648)<div  />
+				[111] (114,648)<div  />
+					[112] (37,648)<div  />
+					[113] (122,648)<span  />
+						[114] (78,648)<span >eslint.config.js />
+		[115] (106,687)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/index.html-item' role='treeitem' />
+			[116] (106,687)<div  />
+				[117] (13,687)<div  />
+					[118] (13,687)<div  />
+						[119] (13,687)<div  />
+				[120] (114,687)<div  />
+					[121] (37,687)<div  />
+					[122] (122,687)<span  />
+						[123] (70,687)<span >index.html />
+		[124] (106,726)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/nginx.conf.example-item' role='treeitem' />
+			[125] (106,726)<div  />
+				[126] (13,726)<div  />
+					[127] (13,726)<div  />
+						[128] (13,726)<div  />
+				[129] (114,726)<div  />
+					[130] (37,726)<div  />
+					[131] (122,726)<span  />
+						[132] (89,726)<span >nginx.conf.example />
+		[133] (106,765)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/package-lock.json-item' role='treeitem' />
+			[134] (106,765)<div  />
+				[135] (13,765)<div  />
+					[136] (13,765)<div  />
+						[137] (13,765)<div  />
+				[138] (114,765)<div  />
+					[139] (37,765)<div  />
+					[140] (122,765)<span  />
+						[141] (87,764)<span >package-lock.json />
+		[142] (106,804)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/package.json-item' role='treeitem' />
+			[143] (106,804)<div  />
+				[144] (13,804)<div  />
+					[145] (13,804)<div  />
+						[146] (13,804)<div  />
+				[147] (114,804)<div  />
+					[148] (37,804)<div  />
+					[149] (122,804)<span  />
+						[150] (76,803)<span >package.json />
+		[151] (106,843)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/postcss.config.js-item' role='treeitem' />
+			[152] (106,843)<div  />
+				[153] (13,843)<div  />
+					[154] (13,843)<div  />
+						[155] (13,843)<div  />
+				[156] (114,843)<div  />
+					[157] (37,842)<div  />
+					[158] (122,843)<span  />
+						[159] (84,842)<span >postcss.config.js />
+		[160] (106,882)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/start.sh-item' role='treeitem' />
+			[161] (106,882)<div  />
+				[162] (13,882)<div  />
+					[163] (13,882)<div  />
+						[164] (13,882)<div  />
+				[165] (114,882)<div  />
+					[166] (37,881)<div  />
+					[167] (122,882)<span  />
+						[168] (64,881)<span >start.sh />
+		[169] (106,920)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/tailwind.config.ts-item' role='treeitem' />
+			[170] (106,920)<div  />
+				[171] (13,920)<div  />
+					[172] (13,920)<div  />
+						[173] (13,920)<div  />
+				[174] (114,920)<div  />
+					[175] (37,920)<div  />
+					[176] (122,920)<span  />
+						[177] (84,920)<span >tailwind.config.ts />
+		[178] (106,959)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/tsconfig.app.json-item' role='treeitem' />
+			[179] (106,959)<div  />
+				[180] (13,959)<div  />
+					[181] (13,959)<div  />
+						[182] (13,959)<div  />
+				[183] (114,959)<div  />
+					[184] (37,959)<div  />
+					[185] (122,959)<span  />
+						[186] (84,959)<span >tsconfig.app.json />
+		[187] (106,998)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='one-breath-app/tsconfig.json-item' role='treeitem' />
+			[188] (106,998)<div  />
+				[189] (13,998)<div  />
+					[190] (13,998)<div  />
+						[191] (13,998)<div  />
+				[192] (114,998)<div  />
+					[193] (37,998)<div  />
+					[194] (122,998)<span  />
+						[195] (75,998)<span >tsconfig.json />
+[196] (212,720)<div aria-label='Draggable pane splitter' class='prc-PageLayout-DraggableHandle-9s6B4' role='slider' />
+Breadcrumbs
+[197] (247,259)<a class='Breadcrumb-module__repoLink__O2Nbs prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main'>PoseFlow />
+/
+[198] (323,259)<a class='Breadcrumb-module__directoryLink__kQy_t prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/tree/main/one-breath-app'>one-breath-app />
+/
+package.json
+[199] (456,259)<button class='prc-Button-ButtonBase-9n-Xk ml-2 prc-Button-IconButton-fyge7' />
+[200] (979,259)<button class='prc-Button-ButtonBase-9n-Xk js-blob-dropdown-click NavigationMenu-module__IconButton__HpX3G prc-Button-IconButton-fyge7' id='_R_96dajal1d_' />
+Latest commit
+[201] (241,325)<a class='Link__StyledLink-sc-1syctfj-0 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh' />
+	[202] (239,326)<img  />
+[203] (300,325)<a aria-label='commits by maheshwari-aniruddh' class='Link__StyledLink-sc-1syctfj-0 iIGVMW AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commits?author=maheshwari-aniruddh'>maheshwari-aniruddh />
+[204] (505,325)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>Initialize full project with PoseFlow web app and GH Pages deployment />
+[205] (858,325)<a aria-label='Commit 99cbbaf' class='Link--secondary prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commit/99cbbaf8ee680c4f17b3dbe2352e6966e4efa0a3'>99cbbaf />
+·
+History
+[206] (957,325)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/maheshwari-aniruddh/PoseFlow/commits/main/one-breath-app/package.json' />
+	[207] (957,325)<span  />
+		[208] (964,325)<span  />
+			[209] (964,325)<span >History />
+File metadata and controls
+[210] (249,400)<button class='prc-SegmentedControl-Button-E48xz' />
+	[211] (249,400)<span  />
+		[212] (249,400)<div >Code />
+[213] (293,400)<button class='prc-SegmentedControl-Button-E48xz' />
+	[214] (293,400)<span  />
+		[215] (293,400)<div >Blame />
+48 lines (48 loc) · 1.4 KB
+[216] (870,400)<a class='prc-Button-ButtonBase-9n-Xk LinkButton-module__linkButton__nFnov BlobViewHeader-module__LinkButton__X9kx2' href='https://github.com/maheshwari-aniruddh/PoseFlow/raw/refs/heads/main/one-breath-app/package.json' />
+	[217] (870,400)<span  />
+		[218] (870,400)<span >Raw />
+[219] (892,400)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' />
+[220] (910,400)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__downloadButton__ef459 prc-Button-IconButton-fyge7' />
+[221] (951,400)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' id='_r_67_' />
+[222] (974,400)<button class='prc-Button-ButtonBase-9n-Xk BlobViewHeader-module__IconButton_2__RyjZg prc-Button-IconButton-fyge7' id='symbols-button' />
+[223] (258,450)<div >1 />
+[224] (258,474)<div >2 />
+[225] (258,498)<div >3 />
+[226] (258,522)<div >4 />
+[227] (258,547)<div >5 />
+[228] (258,571)<div >6 />
+[229] (258,595)<div >7 />
+[230] (258,619)<div >8 />
+[231] (258,643)<div >9 />
+[232] (256,667)<div >10 />
+[233] (256,692)<div >11 />
+[234] (256,716)<div >12 />
+[235] (256,740)<div >13 />
+[236] (256,764)<div >14 />
+[237] (256,788)<div >15 />
+[238] (256,813)<div >16 />
+[239] (256,837)<div >17 />
+[240] (256,861)<div >18 />
+[241] (256,885)<div >19 />
+[242] (256,909)<div >20 />
+[243] (256,933)<div >21 />
+[244] (256,958)<div >22 />
+[245] (256,982)<div >23 />
+24
+{
+"name"
+:
+"
+vite_react_shadcn_ts
+"
+,
+"private"
+:
+true
+,
+"version"
+:
+"
+0.0.0
+"
+,
+"type"
+:
+"
+module
+"
+,
+"scripts"
+: {
+"dev"
+:
+"
+vite
+"
+,
+"build"
+:
+"
+vite build --mode production
+"
+,
+"build:dev"
+:
+"
+vite build --mode development
+"
+,
+"lint"
+:
+"
+eslint .
+"
+,
+"preview"
+:
+"
+vite preview
+"
+,
+"deploy"
+:
+"
+npm run build && echo '✅ Build complete! Deploy the dist/ folder to your hosting provider.'
+"
+},
+"dependencies"
+: {
+"@radix-ui/react-slot"
+:
+"
+^1.2.3
+"
+,
+"@radix-ui/react-toast"
+:
+"
+^1.2.14
+"
+,
+"@radix-ui/react-tooltip"
+:
+"
+^1.2.7
+"
+,
+"class-variance-authority"
+:
+"
+^0.7.1
+"
+,
+"clsx"
+:
+"
+^2.1.1
+"
+,
+"lucide-react"
+:
+"
+^0.462.0
+"
+,
+"react"
+:
+"
+^18.3.1
+"
+,
+"react-dom"
+:
+"
+^18.3.1
+"
+,
+"react-router-dom"
+:
+"
+^6.30.1
+"
+,
+"socket.io-client"
+:
+"
+^4.8.1
+"
+,
+
+</current_dom>

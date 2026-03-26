@@ -1,0 +1,15 @@
+# Task: Smart Reminder System
+
+- [ ] Analyze existing notification and storage logic <!-- id: 0 -->
+    - [ ] Read [lib/services/notification_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart) <!-- id: 1 -->
+    - [ ] Read [lib/services/store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart) <!-- id: 2 -->
+    - [ ] Read [lib/services/preferences_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/preferences_service.dart) (if exists) <!-- id: 3 -->
+- [x] Create Implementation Plan <!-- id: 4 -->
+- [/] Implement `NotificationLogic` <!-- id: 5 -->
+    - [x] Create Prompt Library (30+ prompts) <!-- id: 6 -->
+    - [x] Implement Frequency Calculation Logic <!-- id: 7 -->
+    - [x] Implement Scheduling Algorithm (Randomized 7pm-10pm) <!-- id: 8 -->
+    - [x] Implement Prompt Rotation & History Tracking <!-- id: 9 -->
+- [x] Integrate with [NotificationService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart#8-228) <!-- id: 10 -->
+- [x] Update [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#18-25) for user controls <!-- id: 11 -->
+- [ ] Verify scheduling logic <!-- id: 12 -->

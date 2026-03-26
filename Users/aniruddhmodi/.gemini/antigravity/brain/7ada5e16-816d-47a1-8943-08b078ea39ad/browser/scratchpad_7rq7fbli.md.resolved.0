@@ -1,0 +1,12 @@
+# Task: Verify Headphones Emoji Size on Jam Session Button
+
+## Plan
+1. Navigate to `http://localhost:8502/instruments.html`.
+2. Take a screenshot of the page.
+3. Verify the "Jam Session" button's headphones emoji (🎧) is significantly larger.
+4. Report findings and provide the screenshot.
+
+## Progress
+- [ ] Navigate and Screenshot
+- [ ] Verify Size
+- [ ] Report back

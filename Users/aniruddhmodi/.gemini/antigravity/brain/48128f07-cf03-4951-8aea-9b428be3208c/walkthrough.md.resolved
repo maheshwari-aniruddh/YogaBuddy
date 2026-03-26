@@ -1,0 +1,3230 @@
+# App Store Review Fixes — Walkthrough
+
+## Changes Made
+
+### 1. Sign in with Apple (Guideline 4.8) ✅
+**File:** [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart)
+
+- Moved Apple Sign-In button **above** Google Sign-In so it's the primary CTA (per Apple HIG)
+- Both buttons are now hidden during loading state
+- `Platform.isIOS` guard retained so the Apple button only shows on iOS
+
+```diff:login_screen.dart
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../services/auth_service.dart';
+import '../services/store.dart';
+import 'main_screen.dart';
+import 'package:roze/l10n/app_localizations.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen>
+    with TickerProviderStateMixin {
+  bool _loading = false;
+  String? _error;
+  final AuthService _authService = AuthService();
+
+  late final AnimationController _fadeController;
+  late final Animation<double> _fadeAnim;
+  late final AnimationController _slideController;
+  late final Animation<Offset> _slideAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _fadeController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1200));
+    _fadeAnim = CurvedAnimation(parent: _fadeController, curve: Curves.easeOut);
+
+    _slideController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1000));
+    _slideAnim = Tween<Offset>(
+      begin: const Offset(0, 0.15),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _slideController, curve: Curves.easeOut));
+
+    _fadeController.forward();
+    Future.delayed(const Duration(milliseconds: 200), () {
+      _slideController.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _fadeController.dispose();
+    _slideController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _signInWithGoogle() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final GoogleSignInAccount? googleUser = await _authService.signIn();
+      if (googleUser == null) {
+        setState(() => _error = 'Sign-in cancelled');
+        return;
+      }
+      if (mounted) {
+        await Provider.of<Store>(context, listen: false).initialize(googleUser);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => MainScreen(user: googleUser)),
+        );
+      }
+    } catch (e) {
+      setState(() => _error = 'Sign-in failed. Please try again.');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  Future<void> _signInWithApple() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final firebaseUser = await _authService.signInWithApple();
+      if (firebaseUser == null) {
+        setState(() => _error = 'Sign-in cancelled');
+        return;
+      }
+      if (mounted) {
+        await Provider.of<Store>(context, listen: false).initialize(null);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const MainScreen(user: null)),
+        );
+      }
+    } catch (e) {
+      setState(() => _error = 'Sign-in failed. Please try again.');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  Future<void> _launchWebsite() async {
+    final Uri url = Uri.parse('https://rozze.vercel.app/');
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      }
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          // Soft cream gradient matching the website
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFDFBF7), // Cream top
+              Color(0xFFFAF5F0), // Warmer cream bottom
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: FadeTransition(
+            opacity: _fadeAnim,
+            child: SlideTransition(
+              position: _slideAnim,
+              child: Center(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 36),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Pill badge — "30-Second Audio Journaling"
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.8),
+                          borderRadius: BorderRadius.circular(24),
+                          border: Border.all(
+                              color: const Color(0xFFE8E2DA), width: 1),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF9BB09D),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            const Text(
+                              '30-Second Audio Journaling',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF6B5E62),
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+
+                      // App icon
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFFC48B8B)
+                                  .withValues(alpha: 0.2),
+                              blurRadius: 30,
+                              offset: const Offset(0, 10),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/images/app_icon.png',
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => Container(
+                              color: const Color(0xFFE8A5A5),
+                              child: const Icon(Icons.auto_stories_rounded,
+                                  color: Colors.white, size: 40),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 36),
+
+                      // Hero heading — serif style
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Capture your\n',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF2D2326),
+                                height: 1.2,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'moments',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFC48B8B), // Dusty rose accent
+                                height: 1.2,
+                                fontStyle: FontStyle.italic,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ',\neffortlessly.',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF2D2326),
+                                height: 1.2,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+
+                      // Subtitle
+                      const Text(
+                        'Your private audio journal with mood tracking.\nSecured with biometrics. Beautiful daily mindfulness.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF8A7D80),
+                          height: 1.5,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      const SizedBox(height: 36),
+
+                      // Error message
+                      if (_error != null)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFC48B8B)
+                                  .withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(_error!,
+                                style: const TextStyle(
+                                    color: Color(0xFFC48B8B), fontSize: 13)),
+                          ),
+                        ),
+
+                      // Sign in with Google — Primary CTA (dark pill)
+                      if (_loading)
+                        const SizedBox(
+                          height: 54,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: Color(0xFFC48B8B),
+                              strokeWidth: 2.5,
+                            ),
+                          ),
+                        )
+                      else
+                        SizedBox(
+                          width: double.infinity,
+                          height: 54,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF2D2326),
+                              foregroundColor: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(27),
+                              ),
+                              shadowColor: const Color(0xFF2D2326)
+                                  .withValues(alpha: 0.3),
+                            ),
+                            icon: Image.asset(
+                              'assets/images/google_logo.png',
+                              width: 20,
+                              height: 20,
+                              color: Colors.white,
+                              colorBlendMode: BlendMode.srcIn,
+                              errorBuilder: (_, __, ___) => const Icon(
+                                  Icons.login,
+                                  size: 18,
+                                  color: Colors.white),
+                            ),
+                            label: Text(
+                              l10n.signInGoogle,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                            onPressed: _signInWithGoogle,
+                          ),
+                        ),
+                      const SizedBox(height: 14),
+
+                      // Sign in with Apple — iOS only
+                      if (!_loading && Platform.isIOS)
+                        SizedBox(
+                          width: double.infinity,
+                          height: 54,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              foregroundColor: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(27),
+                              ),
+                            ),
+                            icon: const Icon(Icons.apple, size: 22),
+                            label: const Text(
+                              'Sign in with Apple',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                            onPressed: _signInWithApple,
+                          ),
+                        ),
+                      if (!_loading && Platform.isIOS)
+                        const SizedBox(height: 14),
+
+                      // Learn more — Secondary CTA (outlined pill)
+                      SizedBox(
+                        width: double.infinity,
+                        height: 54,
+                        child: OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: const Color(0xFF5C4A4F),
+                            side: const BorderSide(
+                                color: Color(0xFFE0D8D2), width: 1.2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(27),
+                            ),
+                          ),
+                          icon: const Icon(Icons.language, size: 18),
+                          label: const Text(
+                            'Learn More',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          onPressed: _launchWebsite,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      // Reviewer login — subtle link
+                      TextButton(
+                        onPressed: _showDemoLoginDialog,
+                        child: Text(
+                          l10n.reviewerLogin,
+                          style: const TextStyle(
+                            color: Color(0xFFBDB3AE),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showDemoLoginDialog() {
+    final userController = TextEditingController();
+    final passController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFFFDFBF7),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text('Demo Login',
+            style: TextStyle(
+              color: Color(0xFF2D2326),
+              fontWeight: FontWeight.w700,
+            )),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: userController,
+              decoration: InputDecoration(
+                  labelText: 'Username',
+                  labelStyle: const TextStyle(color: Color(0xFF8A7D80)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Color(0xFFC48B8B)),
+                  )),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: passController,
+              decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: const TextStyle(color: Color(0xFF8A7D80)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Color(0xFFC48B8B)),
+                  )),
+              obscureText: true,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel',
+                style: TextStyle(color: Color(0xFF8A7D80))),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF2D2326),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+            onPressed: () async {
+              if (userController.text == 'user01' &&
+                  passController.text == 'appleBest') {
+                Navigator.pop(context);
+                setState(() => _loading = true);
+                try {
+                  if (mounted) {
+                    await Provider.of<Store>(context, listen: false)
+                        .initialize(null);
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (_) => const MainScreen(user: null)),
+                    );
+                  }
+                } finally {
+                  if (mounted) setState(() => _loading = false);
+                }
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('Invalid credentials'),
+                      backgroundColor: Color(0xFFC48B8B)),
+                );
+              }
+            },
+            child: const Text('Login'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+===
+import 'dart:io' show Platform;
+import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../services/auth_service.dart';
+import '../services/store.dart';
+import 'main_screen.dart';
+import 'package:roze/l10n/app_localizations.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen>
+    with TickerProviderStateMixin {
+  bool _loading = false;
+  String? _error;
+  final AuthService _authService = AuthService();
+
+  late final AnimationController _fadeController;
+  late final Animation<double> _fadeAnim;
+  late final AnimationController _slideController;
+  late final Animation<Offset> _slideAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _fadeController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1200));
+    _fadeAnim = CurvedAnimation(parent: _fadeController, curve: Curves.easeOut);
+
+    _slideController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1000));
+    _slideAnim = Tween<Offset>(
+      begin: const Offset(0, 0.15),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _slideController, curve: Curves.easeOut));
+
+    _fadeController.forward();
+    Future.delayed(const Duration(milliseconds: 200), () {
+      _slideController.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _fadeController.dispose();
+    _slideController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _signInWithGoogle() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final GoogleSignInAccount? googleUser = await _authService.signIn();
+      if (googleUser == null) {
+        setState(() => _error = 'Sign-in cancelled');
+        return;
+      }
+      if (mounted) {
+        await Provider.of<Store>(context, listen: false).initialize(googleUser);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => MainScreen(user: googleUser)),
+        );
+      }
+    } catch (e) {
+      setState(() => _error = 'Sign-in failed. Please try again.');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  Future<void> _signInWithApple() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final firebaseUser = await _authService.signInWithApple();
+      if (firebaseUser == null) {
+        setState(() => _error = 'Sign-in cancelled');
+        return;
+      }
+      if (mounted) {
+        await Provider.of<Store>(context, listen: false).initialize(null);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const MainScreen(user: null)),
+        );
+      }
+    } catch (e) {
+      setState(() => _error = 'Sign-in failed. Please try again.');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  Future<void> _launchWebsite() async {
+    final Uri url = Uri.parse('https://rozze.vercel.app/');
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      }
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          // Soft cream gradient matching the website
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFDFBF7), // Cream top
+              Color(0xFFFAF5F0), // Warmer cream bottom
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: FadeTransition(
+            opacity: _fadeAnim,
+            child: SlideTransition(
+              position: _slideAnim,
+              child: Center(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 36),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Pill badge — "30-Second Audio Journaling"
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.8),
+                          borderRadius: BorderRadius.circular(24),
+                          border: Border.all(
+                              color: const Color(0xFFE8E2DA), width: 1),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF9BB09D),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            const Text(
+                              '30-Second Audio Journaling',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF6B5E62),
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+
+                      // App icon
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFFC48B8B)
+                                  .withValues(alpha: 0.2),
+                              blurRadius: 30,
+                              offset: const Offset(0, 10),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/images/app_icon.png',
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => Container(
+                              color: const Color(0xFFE8A5A5),
+                              child: const Icon(Icons.auto_stories_rounded,
+                                  color: Colors.white, size: 40),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 36),
+
+                      // Hero heading — serif style
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Capture your\n',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF2D2326),
+                                height: 1.2,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'moments',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFC48B8B), // Dusty rose accent
+                                height: 1.2,
+                                fontStyle: FontStyle.italic,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ',\neffortlessly.',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF2D2326),
+                                height: 1.2,
+                                letterSpacing: -0.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+
+                      // Subtitle
+                      const Text(
+                        'Your private audio journal with mood tracking.\nSecured with biometrics. Beautiful daily mindfulness.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF8A7D80),
+                          height: 1.5,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      const SizedBox(height: 36),
+
+                      // Error message
+                      if (_error != null)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFC48B8B)
+                                  .withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(_error!,
+                                style: const TextStyle(
+                                    color: Color(0xFFC48B8B), fontSize: 13)),
+                          ),
+                        ),
+
+                      // Loading state
+                      if (_loading)
+                        const SizedBox(
+                          height: 54,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: Color(0xFFC48B8B),
+                              strokeWidth: 2.5,
+                            ),
+                          ),
+                        )
+                      else ...[
+                        // Sign in with Apple — Primary CTA (shown first per Apple HIG)
+                        if (Platform.isIOS)
+                          SizedBox(
+                            width: double.infinity,
+                            height: 54,
+                            child: ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.black,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(27),
+                                ),
+                              ),
+                              icon: const Icon(Icons.apple, size: 22),
+                              label: const Text(
+                                'Sign in with Apple',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 0.3,
+                                ),
+                              ),
+                              onPressed: _signInWithApple,
+                            ),
+                          ),
+                        if (Platform.isIOS)
+                          const SizedBox(height: 14),
+
+                        // Sign in with Google — Secondary CTA
+                        SizedBox(
+                          width: double.infinity,
+                          height: 54,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF2D2326),
+                              foregroundColor: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(27),
+                              ),
+                              shadowColor: const Color(0xFF2D2326)
+                                  .withValues(alpha: 0.3),
+                            ),
+                            icon: Image.asset(
+                              'assets/images/google_logo.png',
+                              width: 20,
+                              height: 20,
+                              color: Colors.white,
+                              colorBlendMode: BlendMode.srcIn,
+                              errorBuilder: (_, __, ___) => const Icon(
+                                  Icons.login,
+                                  size: 18,
+                                  color: Colors.white),
+                            ),
+                            label: Text(
+                              l10n.signInGoogle,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                            onPressed: _signInWithGoogle,
+                          ),
+                        ),
+                      ],
+                      const SizedBox(height: 14),
+
+                      // Learn more — Tertiary CTA (outlined pill)
+                      SizedBox(
+                        width: double.infinity,
+                        height: 54,
+                        child: OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: const Color(0xFF5C4A4F),
+                            side: const BorderSide(
+                                color: Color(0xFFE0D8D2), width: 1.2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(27),
+                            ),
+                          ),
+                          icon: const Icon(Icons.language, size: 18),
+                          label: const Text(
+                            'Learn More',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          onPressed: _launchWebsite,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      // Reviewer login — subtle link
+                      TextButton(
+                        onPressed: _showDemoLoginDialog,
+                        child: Text(
+                          l10n.reviewerLogin,
+                          style: const TextStyle(
+                            color: Color(0xFFBDB3AE),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showDemoLoginDialog() {
+    final userController = TextEditingController();
+    final passController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFFFDFBF7),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text('Demo Login',
+            style: TextStyle(
+              color: Color(0xFF2D2326),
+              fontWeight: FontWeight.w700,
+            )),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: userController,
+              decoration: InputDecoration(
+                  labelText: 'Username',
+                  labelStyle: const TextStyle(color: Color(0xFF8A7D80)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Color(0xFFC48B8B)),
+                  )),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: passController,
+              decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: const TextStyle(color: Color(0xFF8A7D80)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Color(0xFFC48B8B)),
+                  )),
+              obscureText: true,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel',
+                style: TextStyle(color: Color(0xFF8A7D80))),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF2D2326),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+            onPressed: () async {
+              if (userController.text == 'user01' &&
+                  passController.text == 'appleBest') {
+                Navigator.pop(context);
+                setState(() => _loading = true);
+                try {
+                  if (mounted) {
+                    await Provider.of<Store>(context, listen: false)
+                        .initialize(null);
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (_) => const MainScreen(user: null)),
+                    );
+                  }
+                } finally {
+                  if (mounted) setState(() => _loading = false);
+                }
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('Invalid credentials'),
+                      backgroundColor: Color(0xFFC48B8B)),
+                );
+              }
+            },
+            child: const Text('Login'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+### 2. Export Data iPad Bug (Guideline 2.1a) ✅
+**File:** [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+
+- Renamed `_getSharePositionFromKey` → [_getSafeSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#946-960) 
+- Now returns a **non-null `Rect`** with a fallback to screen center when the GlobalKey's render object is unavailable
+- This prevents the iPad share sheet popover from appearing at an invalid position and getting cut off
+
+```diff:settings_screen.dart
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io';
+
+import '../theme/app_colors.dart';
+import '../services/store.dart';
+import '../services/notification_service.dart';
+import '../services/pdf_export_service.dart';
+import '../services/biometric_service.dart';
+import '../services/auth_service.dart';
+import '../services/location_service.dart';
+import 'package:roze/l10n/app_localizations.dart';
+import '../widgets/dark_card.dart';
+import 'package:provider/provider.dart';
+import '../services/locale_provider.dart';
+import 'auth_wrapper.dart';
+
+class SettingsScreen extends StatefulWidget {
+  final Store store;
+  const SettingsScreen({required this.store, super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  final NotificationService _notificationService = NotificationService();
+  final BiometricService _biometricService = BiometricService();
+
+  // GlobalKeys for export buttons — needed for iPad share sheet anchoring
+  final GlobalKey _exportDataKey = GlobalKey();
+  final GlobalKey _exportPdfKey = GlobalKey();
+
+  bool _notificationsEnabled = true;
+  bool _hapticFeedbackEnabled = true;
+  bool _autoSaveEnabled = true;
+  bool _biometricEnabled = false;
+  bool _allowSuperThanks = true; // Default true
+  bool _locationSuggestionsEnabled = true; // Opt-out: enabled by default
+
+  String _selectedTheme = 'Rose';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _biometricEnabled = prefs.getBool('biometric_enabled') ?? false;
+      _allowSuperThanks = prefs.getBool('allow_super_thanks') ?? true;
+      _locationSuggestionsEnabled =
+          prefs.getBool('location_suggestions_enabled') ?? true;
+      // Load other prefs if needed, mostly handled by local state in this demo
+      // In a real app, load all prefs here.
+    });
+  }
+
+  Future<void> _toggleBiometrics(bool value) async {
+    if (value) {
+      final authenticated = await _biometricService.authenticate();
+      if (authenticated) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('biometric_enabled', true);
+        setState(() => _biometricEnabled = true);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication failed')),
+          );
+        }
+        setState(() => _biometricEnabled = false);
+      }
+    } else {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('biometric_enabled', false);
+      setState(() => _biometricEnabled = false);
+    }
+  }
+
+  Future<void> _logout(BuildContext context) async {
+    await AuthService().signOut();
+    if (context.mounted) {
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const AuthWrapper()),
+        (route) => false,
+      );
+    }
+  }
+
+  Future<void> _launchWebsite(BuildContext context) async {
+    final Uri url = Uri.parse('https://rozze.vercel.app/');
+    if (!await launchUrl(url)) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not launch website')),
+        );
+      }
+    }
+  }
+
+  Future<void> _updateTheme(String themeName) async {
+    setState(() {
+      _selectedTheme = themeName;
+    });
+  }
+
+  Future<void> _exportData() async {
+    final sharePos = _getSharePositionFromKey(_exportDataKey);
+    try {
+      final jsonString = widget.store.exportJson();
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/roze_journal_backup.json');
+      await file.writeAsString(jsonString);
+
+      await Share.shareXFiles(
+        [XFile(file.path, mimeType: 'application/json')],
+        text: 'My Rozze Journal Backup',
+        sharePositionOrigin: sharePos,
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Export failed: $e')));
+      }
+    }
+  }
+
+  Future<void> _exportPdf() async {
+    final sharePos = _getSharePositionFromKey(_exportPdfKey);
+    try {
+      final pdfService = PdfExportService();
+      final file = await pdfService.generatePdf(widget.store.all);
+      await Share.shareXFiles(
+        [XFile(file.path, mimeType: 'application/pdf')],
+        text: 'My Rozze Journal PDF',
+        sharePositionOrigin: sharePos,
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('PDF Export failed: $e')));
+      }
+    }
+  }
+
+  void _showLanguageSelector(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Consumer<LocaleProvider>(
+          builder: (context, provider, child) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text("Select Language",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 10),
+                  _buildLanguageOption(context, provider, 'English', 'en'),
+                  _buildLanguageOption(context, provider, 'हिंदी', 'hi'),
+                  _buildLanguageOption(context, provider, 'Español', 'es'),
+                  _buildLanguageOption(context, provider, 'Français', 'fr'),
+                  _buildLanguageOption(context, provider, '中文', 'zh'),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildLanguageOption(
+      BuildContext context, LocaleProvider provider, String name, String code) {
+    final isSelected = provider.locale?.languageCode == code ||
+        (provider.locale == null && code == 'en');
+    return ListTile(
+      title: Text(name,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: isSelected ? AppColors.primary : AppColors.textPrimary,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          )),
+      onTap: () {
+        provider.setLocale(Locale(code));
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 80),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DarkCard(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Text(
+                  l10n.settings,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textPrimary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildSectionTitle(l10n.preferences, Icons.tune),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                _buildSettingsTile(
+                  icon: Icons.language,
+                  iconColor: Colors.blueAccent,
+                  title: l10n.language,
+                  onTap: () => _showLanguageSelector(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.notifications_outlined,
+                  iconColor: AppColors.roseDeep,
+                  title: l10n.dailyReminders,
+                  subtitle: l10n.dailyRemindersSubtitle,
+                  value: _notificationsEnabled,
+                  onChanged: (val) {
+                    setState(() => _notificationsEnabled = val);
+                    if (val) {
+                      // Re-enable smart reminders
+                      NotificationService().scheduleSmartReminders(
+                          widget.store.entriesInLast7Days);
+                    } else {
+                      _notificationService.cancelAll();
+                    }
+                  },
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.vibration,
+                  iconColor: AppColors.sage,
+                  title: l10n.hapticFeedback,
+                  subtitle: l10n.hapticFeedbackSubtitle,
+                  value: _hapticFeedbackEnabled,
+                  onChanged: (val) =>
+                      setState(() => _hapticFeedbackEnabled = val),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.lock_outline,
+                  iconColor: AppColors.primaryDark,
+                  title: l10n.biometricLock,
+                  subtitle: l10n.biometricLockSubtitle,
+                  value: _biometricEnabled,
+                  onChanged: _toggleBiometrics,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.save_outlined,
+                  iconColor: AppColors.accent,
+                  title: l10n.autoSave,
+                  subtitle: l10n.autoSaveSubtitle,
+                  value: _autoSaveEnabled,
+                  onChanged: (val) => setState(() => _autoSaveEnabled = val),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                    icon: Icons.volunteer_activism,
+                    iconColor: Colors.amber,
+                    title: l10n.superThanks,
+                    subtitle: l10n.allowSuperThanksSubtitle,
+                    value: _allowSuperThanks,
+                    onChanged: (val) async {
+                      setState(() => _allowSuperThanks = val);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('allow_super_thanks', val);
+                      // Update Firestore user profile
+                      AuthService().updateSuperThanksPreference(val);
+                    }),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                    icon: Icons.location_on_rounded,
+                    iconColor: const Color(0xFF6BB5E8),
+                    title: 'Location Suggestions',
+                    subtitle: 'Prompts based on places you visit',
+                    value: _locationSuggestionsEnabled,
+                    onChanged: (val) async {
+                      if (val) {
+                        // Request location permission
+                        final granted =
+                            await LocationService().requestPermission();
+                        if (!granted) {
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Location permission is needed for this feature'),
+                                backgroundColor: AppColors.roseDeep,
+                              ),
+                            );
+                          }
+                          return;
+                        }
+                      } else {
+                        // Clear cached location data when disabled
+                        await LocationService().clearCache();
+                      }
+                      setState(() => _locationSuggestionsEnabled = val);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('location_suggestions_enabled', val);
+                    }),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle(l10n.appearance, Icons.palette_outlined),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.color_lens_outlined,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: Text(
+                    l10n.theme,
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text(
+                    _selectedTheme,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _showThemePicker(context),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle(l10n.dataPrivacy, Icons.security),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                _buildSettingsTile(
+                  key: _exportDataKey,
+                  icon: Icons.download_outlined,
+                  iconColor: AppColors.sage,
+                  title: l10n.exportData,
+                  onTap: _exportData,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSettingsTile(
+                  key: _exportPdfKey,
+                  icon: Icons.picture_as_pdf_outlined,
+                  iconColor: AppColors.roseDeep,
+                  title: l10n.exportPdf,
+                  onTap: _exportPdf,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryDark,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.notifications_active,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: Text(
+                    l10n.testNotification,
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text(
+                    l10n.testNotificationSubtitle,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () async {
+                    await _notificationService.showTestNotification();
+                    if (!context.mounted) return;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Test notification sent!'),
+                        backgroundColor: AppColors.sage,
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle('Support & Info', Icons.help_outline),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.accent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.open_in_new,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Learn More',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Visit our website',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _launchWebsite(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryDark,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.rate_review_outlined,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Rate Us',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Love Rozze? Leave a review',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Thank you for your support! 💖'),
+                        backgroundColor: AppColors.primary,
+                      ),
+                    );
+                  },
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.sage,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'About',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Version 1.0.0',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () {
+                    showAboutDialog(
+                      context: context,
+                      applicationName: 'Rozze',
+                      applicationVersion: '1.0.0',
+                      applicationIcon: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [AppColors.primary, AppColors.primaryDark],
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/app_icon.png',
+                            width: 32,
+                            height: 32,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => const Icon(
+                              Icons.auto_stories_rounded,
+                              color: Colors.white,
+                              size: 32,
+                            ),
+                          ),
+                        ),
+                      ),
+                      children: [
+                        const Text(
+                          'A beautiful journal app for daily reflections, mood tracking, and gratitude practice.',
+                          style: TextStyle(color: AppColors.textSecondary),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          // Account Actions
+          _buildSectionTitle('Account', Icons.person_outline),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.roseDeep,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Log Out',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Sign out of your account',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _logout(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade700,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.delete_forever,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Delete Account',
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Permanently delete your account and data',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: Colors.redAccent,
+                  ),
+                  onTap: () => _showDeleteAccountDialog(context),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Center(
+            child: Text(
+              'Made with 💖 by the Rozze team',
+              style: TextStyle(
+                color: AppColors.textSecondary.withValues(alpha: 0.6),
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 4),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: AppColors.primary),
+          const SizedBox(width: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: AppColors.textPrimary,
+              letterSpacing: 0.3,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingsTile({
+    Key? key,
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      key: key,
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: iconColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Colors.white, size: 20),
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      trailing: const Icon(
+        Icons.chevron_right,
+        color: AppColors.textSecondary,
+        size: 20,
+      ),
+      onTap: onTap,
+    );
+  }
+
+  Widget _buildSwitchTile({
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required String subtitle,
+    required bool value,
+    required Function(bool) onChanged,
+  }) {
+    return ListTile(
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: iconColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Colors.white, size: 20),
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
+      ),
+      trailing: Switch(
+        value: value,
+        onChanged: onChanged,
+        activeThumbColor: AppColors.primary,
+        activeTrackColor: AppColors.accent,
+      ),
+    );
+  }
+
+  void _showThemePicker(BuildContext context) {
+    HapticFeedback.mediumImpact();
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => ScaleTransition(
+        scale: CurvedAnimation(
+          parent: ModalRoute.of(context)!.animation!,
+          curve: Curves.easeOutBack,
+        ),
+        child: FadeTransition(
+          opacity: CurvedAnimation(
+            parent: ModalRoute.of(context)!.animation!,
+            curve: Curves.easeOut,
+          ),
+          child: AlertDialog(
+            backgroundColor: AppColors.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            title: const Text(
+              'Choose Theme',
+              style: TextStyle(color: AppColors.textPrimary),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _buildThemeOption(
+                  'Rose',
+                  AppColors.primary,
+                  Icons.local_florist,
+                ),
+                _buildThemeOption(
+                  'Lavender',
+                  const Color(0xFFB5A5E8),
+                  Icons.spa,
+                ),
+                _buildThemeOption(
+                  'Ocean',
+                  const Color(0xFFA5C9E8),
+                  Icons.water,
+                ),
+                _buildThemeOption(
+                  'Forest',
+                  const Color(0xFFA5E8B0),
+                  Icons.park,
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  HapticFeedback.lightImpact();
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: AppColors.textSecondary),
+                ),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () async {
+                  HapticFeedback.mediumImpact();
+                  await _updateTheme(_selectedTheme);
+                  if (context.mounted) {
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Theme changed to $_selectedTheme'),
+                        backgroundColor: AppColors.sage,
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Apply'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildThemeOption(String name, Color color, IconData icon) {
+    final isSelected = _selectedTheme == name;
+    return GestureDetector(
+      onTap: () => setState(() => _selectedTheme = name),
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: isSelected ? color.withValues(alpha: 0.2) : AppColors.cream,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isSelected ? color : AppColors.border,
+            width: isSelected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Icon(icon, color: Colors.white, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              name,
+              style: TextStyle(
+                color: isSelected ? color : AppColors.textPrimary,
+                fontSize: 16,
+                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            if (isSelected) Icon(Icons.check_circle, color: color, size: 24),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Rect? _getSharePositionFromKey(GlobalKey key) {
+    final RenderBox? box = key.currentContext?.findRenderObject() as RenderBox?;
+    return box != null ? box.localToGlobal(Offset.zero) & box.size : null;
+  }
+
+  void _showDeleteAccountDialog(BuildContext context) {
+    final confirmController = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) {
+          return AlertDialog(
+            backgroundColor: AppColors.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            title: const Row(
+              children: [
+                Icon(Icons.warning_amber_rounded,
+                    color: Colors.redAccent, size: 28),
+                SizedBox(width: 10),
+                Text('Delete Account',
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.w700,
+                    )),
+              ],
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'This will permanently delete your account and all associated data. This action cannot be undone.',
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontSize: 14,
+                    height: 1.5,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Type DELETE to confirm:',
+                  style: TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                TextField(
+                  controller: confirmController,
+                  onChanged: (_) => setDialogState(() {}),
+                  decoration: InputDecoration(
+                    hintText: 'DELETE',
+                    hintStyle: TextStyle(
+                        color: AppColors.textSecondary.withValues(alpha: 0.5)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: AppColors.border),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide:
+                          const BorderSide(color: Colors.redAccent, width: 2),
+                    ),
+                  ),
+                  style: const TextStyle(color: AppColors.textPrimary),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel',
+                    style: TextStyle(color: AppColors.textSecondary)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: confirmController.text == 'DELETE'
+                      ? Colors.red.shade700
+                      : Colors.grey,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: confirmController.text == 'DELETE'
+                    ? () async {
+                        Navigator.pop(context);
+                        await _performAccountDeletion(context);
+                      }
+                    : null,
+                child: const Text('Delete Account'),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _performAccountDeletion(BuildContext outerContext) async {
+    // Show loading
+    showDialog(
+      context: outerContext,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog(
+        backgroundColor: AppColors.surface,
+        content: Row(
+          children: [
+            CircularProgressIndicator(color: AppColors.primary),
+            SizedBox(width: 20),
+            Text('Deleting account...',
+                style: TextStyle(color: AppColors.textPrimary)),
+          ],
+        ),
+      ),
+    );
+
+    try {
+      // Clear local data
+      await widget.store.clearAllData();
+      // Delete account from Firebase
+      await AuthService().deleteAccount();
+
+      if (outerContext.mounted) {
+        Navigator.of(outerContext).pop(); // Dismiss loading
+        Navigator.of(outerContext).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const AuthWrapper()),
+          (route) => false,
+        );
+      }
+    } catch (e) {
+      if (outerContext.mounted) {
+        Navigator.of(outerContext).pop(); // Dismiss loading
+        ScaffoldMessenger.of(outerContext).showSnackBar(
+          SnackBar(
+            content: Text('Failed to delete account: $e'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
+  }
+}
+===
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io';
+
+import '../theme/app_colors.dart';
+import '../services/store.dart';
+import '../services/notification_service.dart';
+import '../services/pdf_export_service.dart';
+import '../services/biometric_service.dart';
+import '../services/auth_service.dart';
+import '../services/location_service.dart';
+import 'package:roze/l10n/app_localizations.dart';
+import '../widgets/dark_card.dart';
+import 'package:provider/provider.dart';
+import '../services/locale_provider.dart';
+import 'auth_wrapper.dart';
+
+class SettingsScreen extends StatefulWidget {
+  final Store store;
+  const SettingsScreen({required this.store, super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  final NotificationService _notificationService = NotificationService();
+  final BiometricService _biometricService = BiometricService();
+
+  // GlobalKeys for export buttons — needed for iPad share sheet anchoring
+  final GlobalKey _exportDataKey = GlobalKey();
+  final GlobalKey _exportPdfKey = GlobalKey();
+
+  bool _notificationsEnabled = true;
+  bool _hapticFeedbackEnabled = true;
+  bool _autoSaveEnabled = true;
+  bool _biometricEnabled = false;
+  bool _allowSuperThanks = true; // Default true
+  bool _locationSuggestionsEnabled = true; // Opt-out: enabled by default
+
+  String _selectedTheme = 'Rose';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _biometricEnabled = prefs.getBool('biometric_enabled') ?? false;
+      _allowSuperThanks = prefs.getBool('allow_super_thanks') ?? true;
+      _locationSuggestionsEnabled =
+          prefs.getBool('location_suggestions_enabled') ?? true;
+      // Load other prefs if needed, mostly handled by local state in this demo
+      // In a real app, load all prefs here.
+    });
+  }
+
+  Future<void> _toggleBiometrics(bool value) async {
+    if (value) {
+      final authenticated = await _biometricService.authenticate();
+      if (authenticated) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('biometric_enabled', true);
+        setState(() => _biometricEnabled = true);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Authentication failed')),
+          );
+        }
+        setState(() => _biometricEnabled = false);
+      }
+    } else {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('biometric_enabled', false);
+      setState(() => _biometricEnabled = false);
+    }
+  }
+
+  Future<void> _logout(BuildContext context) async {
+    await AuthService().signOut();
+    if (context.mounted) {
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const AuthWrapper()),
+        (route) => false,
+      );
+    }
+  }
+
+  Future<void> _launchWebsite(BuildContext context) async {
+    final Uri url = Uri.parse('https://rozze.vercel.app/');
+    if (!await launchUrl(url)) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not launch website')),
+        );
+      }
+    }
+  }
+
+  Future<void> _updateTheme(String themeName) async {
+    setState(() {
+      _selectedTheme = themeName;
+    });
+  }
+
+  Future<void> _exportData() async {
+    final sharePos = _getSafeSharePosition(_exportDataKey);
+    try {
+      final jsonString = widget.store.exportJson();
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/roze_journal_backup.json');
+      await file.writeAsString(jsonString);
+
+      await Share.shareXFiles(
+        [XFile(file.path, mimeType: 'application/json')],
+        text: 'My Rozze Journal Backup',
+        sharePositionOrigin: sharePos,
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Export failed: $e')));
+      }
+    }
+  }
+
+  Future<void> _exportPdf() async {
+    final sharePos = _getSafeSharePosition(_exportPdfKey);
+    try {
+      final pdfService = PdfExportService();
+      final file = await pdfService.generatePdf(widget.store.all);
+      await Share.shareXFiles(
+        [XFile(file.path, mimeType: 'application/pdf')],
+        text: 'My Rozze Journal PDF',
+        sharePositionOrigin: sharePos,
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('PDF Export failed: $e')));
+      }
+    }
+  }
+
+  void _showLanguageSelector(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Consumer<LocaleProvider>(
+          builder: (context, provider, child) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text("Select Language",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 10),
+                  _buildLanguageOption(context, provider, 'English', 'en'),
+                  _buildLanguageOption(context, provider, 'हिंदी', 'hi'),
+                  _buildLanguageOption(context, provider, 'Español', 'es'),
+                  _buildLanguageOption(context, provider, 'Français', 'fr'),
+                  _buildLanguageOption(context, provider, '中文', 'zh'),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildLanguageOption(
+      BuildContext context, LocaleProvider provider, String name, String code) {
+    final isSelected = provider.locale?.languageCode == code ||
+        (provider.locale == null && code == 'en');
+    return ListTile(
+      title: Text(name,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: isSelected ? AppColors.primary : AppColors.textPrimary,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          )),
+      onTap: () {
+        provider.setLocale(Locale(code));
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 80),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DarkCard(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Text(
+                  l10n.settings,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textPrimary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildSectionTitle(l10n.preferences, Icons.tune),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                _buildSettingsTile(
+                  icon: Icons.language,
+                  iconColor: Colors.blueAccent,
+                  title: l10n.language,
+                  onTap: () => _showLanguageSelector(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.notifications_outlined,
+                  iconColor: AppColors.roseDeep,
+                  title: l10n.dailyReminders,
+                  subtitle: l10n.dailyRemindersSubtitle,
+                  value: _notificationsEnabled,
+                  onChanged: (val) {
+                    setState(() => _notificationsEnabled = val);
+                    if (val) {
+                      // Re-enable smart reminders
+                      NotificationService().scheduleSmartReminders(
+                          widget.store.entriesInLast7Days);
+                    } else {
+                      _notificationService.cancelAll();
+                    }
+                  },
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.vibration,
+                  iconColor: AppColors.sage,
+                  title: l10n.hapticFeedback,
+                  subtitle: l10n.hapticFeedbackSubtitle,
+                  value: _hapticFeedbackEnabled,
+                  onChanged: (val) =>
+                      setState(() => _hapticFeedbackEnabled = val),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.lock_outline,
+                  iconColor: AppColors.primaryDark,
+                  title: l10n.biometricLock,
+                  subtitle: l10n.biometricLockSubtitle,
+                  value: _biometricEnabled,
+                  onChanged: _toggleBiometrics,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                  icon: Icons.save_outlined,
+                  iconColor: AppColors.accent,
+                  title: l10n.autoSave,
+                  subtitle: l10n.autoSaveSubtitle,
+                  value: _autoSaveEnabled,
+                  onChanged: (val) => setState(() => _autoSaveEnabled = val),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                    icon: Icons.volunteer_activism,
+                    iconColor: Colors.amber,
+                    title: l10n.superThanks,
+                    subtitle: l10n.allowSuperThanksSubtitle,
+                    value: _allowSuperThanks,
+                    onChanged: (val) async {
+                      setState(() => _allowSuperThanks = val);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('allow_super_thanks', val);
+                      // Update Firestore user profile
+                      AuthService().updateSuperThanksPreference(val);
+                    }),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSwitchTile(
+                    icon: Icons.location_on_rounded,
+                    iconColor: const Color(0xFF6BB5E8),
+                    title: 'Location Suggestions',
+                    subtitle: 'Prompts based on places you visit',
+                    value: _locationSuggestionsEnabled,
+                    onChanged: (val) async {
+                      if (val) {
+                        // Request location permission
+                        final granted =
+                            await LocationService().requestPermission();
+                        if (!granted) {
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Location permission is needed for this feature'),
+                                backgroundColor: AppColors.roseDeep,
+                              ),
+                            );
+                          }
+                          return;
+                        }
+                      } else {
+                        // Clear cached location data when disabled
+                        await LocationService().clearCache();
+                      }
+                      setState(() => _locationSuggestionsEnabled = val);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('location_suggestions_enabled', val);
+                    }),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle(l10n.appearance, Icons.palette_outlined),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.color_lens_outlined,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: Text(
+                    l10n.theme,
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text(
+                    _selectedTheme,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _showThemePicker(context),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle(l10n.dataPrivacy, Icons.security),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                _buildSettingsTile(
+                  key: _exportDataKey,
+                  icon: Icons.download_outlined,
+                  iconColor: AppColors.sage,
+                  title: l10n.exportData,
+                  onTap: _exportData,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                _buildSettingsTile(
+                  key: _exportPdfKey,
+                  icon: Icons.picture_as_pdf_outlined,
+                  iconColor: AppColors.roseDeep,
+                  title: l10n.exportPdf,
+                  onTap: _exportPdf,
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryDark,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.notifications_active,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: Text(
+                    l10n.testNotification,
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text(
+                    l10n.testNotificationSubtitle,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () async {
+                    await _notificationService.showTestNotification();
+                    if (!context.mounted) return;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Test notification sent!'),
+                        backgroundColor: AppColors.sage,
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _buildSectionTitle('Support & Info', Icons.help_outline),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.accent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.open_in_new,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Learn More',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Visit our website',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _launchWebsite(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryDark,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.rate_review_outlined,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Rate Us',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Love Rozze? Leave a review',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Thank you for your support! 💖'),
+                        backgroundColor: AppColors.primary,
+                      ),
+                    );
+                  },
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.sage,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'About',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Version 1.0.0',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () {
+                    showAboutDialog(
+                      context: context,
+                      applicationName: 'Rozze',
+                      applicationVersion: '1.0.0',
+                      applicationIcon: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [AppColors.primary, AppColors.primaryDark],
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/app_icon.png',
+                            width: 32,
+                            height: 32,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => const Icon(
+                              Icons.auto_stories_rounded,
+                              color: Colors.white,
+                              size: 32,
+                            ),
+                          ),
+                        ),
+                      ),
+                      children: [
+                        const Text(
+                          'A beautiful journal app for daily reflections, mood tracking, and gratitude practice.',
+                          style: TextStyle(color: AppColors.textSecondary),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          // Account Actions
+          _buildSectionTitle('Account', Icons.person_outline),
+          const SizedBox(height: 8),
+          DarkCard(
+            padding: EdgeInsets.zero,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: AppColors.roseDeep,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Log Out',
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Sign out of your account',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: AppColors.textSecondary,
+                  ),
+                  onTap: () => _logout(context),
+                ),
+                const Divider(color: AppColors.border, height: 1, indent: 60),
+                ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade700,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.delete_forever,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  title: const Text(
+                    'Delete Account',
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Permanently delete your account and data',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                    color: Colors.redAccent,
+                  ),
+                  onTap: () => _showDeleteAccountDialog(context),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Center(
+            child: Text(
+              'Made with 💖 by the Rozze team',
+              style: TextStyle(
+                color: AppColors.textSecondary.withValues(alpha: 0.6),
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 4),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: AppColors.primary),
+          const SizedBox(width: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: AppColors.textPrimary,
+              letterSpacing: 0.3,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingsTile({
+    Key? key,
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      key: key,
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: iconColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Colors.white, size: 20),
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      trailing: const Icon(
+        Icons.chevron_right,
+        color: AppColors.textSecondary,
+        size: 20,
+      ),
+      onTap: onTap,
+    );
+  }
+
+  Widget _buildSwitchTile({
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required String subtitle,
+    required bool value,
+    required Function(bool) onChanged,
+  }) {
+    return ListTile(
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: iconColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Colors.white, size: 20),
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
+      ),
+      trailing: Switch(
+        value: value,
+        onChanged: onChanged,
+        activeThumbColor: AppColors.primary,
+        activeTrackColor: AppColors.accent,
+      ),
+    );
+  }
+
+  void _showThemePicker(BuildContext context) {
+    HapticFeedback.mediumImpact();
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => ScaleTransition(
+        scale: CurvedAnimation(
+          parent: ModalRoute.of(context)!.animation!,
+          curve: Curves.easeOutBack,
+        ),
+        child: FadeTransition(
+          opacity: CurvedAnimation(
+            parent: ModalRoute.of(context)!.animation!,
+            curve: Curves.easeOut,
+          ),
+          child: AlertDialog(
+            backgroundColor: AppColors.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            title: const Text(
+              'Choose Theme',
+              style: TextStyle(color: AppColors.textPrimary),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _buildThemeOption(
+                  'Rose',
+                  AppColors.primary,
+                  Icons.local_florist,
+                ),
+                _buildThemeOption(
+                  'Lavender',
+                  const Color(0xFFB5A5E8),
+                  Icons.spa,
+                ),
+                _buildThemeOption(
+                  'Ocean',
+                  const Color(0xFFA5C9E8),
+                  Icons.water,
+                ),
+                _buildThemeOption(
+                  'Forest',
+                  const Color(0xFFA5E8B0),
+                  Icons.park,
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  HapticFeedback.lightImpact();
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: AppColors.textSecondary),
+                ),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () async {
+                  HapticFeedback.mediumImpact();
+                  await _updateTheme(_selectedTheme);
+                  if (context.mounted) {
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Theme changed to $_selectedTheme'),
+                        backgroundColor: AppColors.sage,
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Apply'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildThemeOption(String name, Color color, IconData icon) {
+    final isSelected = _selectedTheme == name;
+    return GestureDetector(
+      onTap: () => setState(() => _selectedTheme = name),
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: isSelected ? color.withValues(alpha: 0.2) : AppColors.cream,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isSelected ? color : AppColors.border,
+            width: isSelected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Icon(icon, color: Colors.white, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              name,
+              style: TextStyle(
+                color: isSelected ? color : AppColors.textPrimary,
+                fontSize: 16,
+                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            if (isSelected) Icon(Icons.check_circle, color: color, size: 24),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Rect _getSafeSharePosition(GlobalKey key) {
+    final RenderBox? box = key.currentContext?.findRenderObject() as RenderBox?;
+    if (box != null && box.hasSize) {
+      final position = box.localToGlobal(Offset.zero);
+      return position & box.size;
+    }
+    // Fallback: center of screen — prevents iPad share sheet from appearing cut off
+    final screenSize = MediaQuery.of(context).size;
+    return Rect.fromCenter(
+      center: Offset(screenSize.width / 2, screenSize.height / 2),
+      width: 1,
+      height: 1,
+    );
+  }
+
+  void _showDeleteAccountDialog(BuildContext context) {
+    final confirmController = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) {
+          return AlertDialog(
+            backgroundColor: AppColors.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            title: const Row(
+              children: [
+                Icon(Icons.warning_amber_rounded,
+                    color: Colors.redAccent, size: 28),
+                SizedBox(width: 10),
+                Text('Delete Account',
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.w700,
+                    )),
+              ],
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'This will permanently delete your account and all associated data. This action cannot be undone.',
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontSize: 14,
+                    height: 1.5,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Type DELETE to confirm:',
+                  style: TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                TextField(
+                  controller: confirmController,
+                  onChanged: (_) => setDialogState(() {}),
+                  decoration: InputDecoration(
+                    hintText: 'DELETE',
+                    hintStyle: TextStyle(
+                        color: AppColors.textSecondary.withValues(alpha: 0.5)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: AppColors.border),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide:
+                          const BorderSide(color: Colors.redAccent, width: 2),
+                    ),
+                  ),
+                  style: const TextStyle(color: AppColors.textPrimary),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel',
+                    style: TextStyle(color: AppColors.textSecondary)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: confirmController.text == 'DELETE'
+                      ? Colors.red.shade700
+                      : Colors.grey,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: confirmController.text == 'DELETE'
+                    ? () async {
+                        Navigator.pop(context);
+                        await _performAccountDeletion(context);
+                      }
+                    : null,
+                child: const Text('Delete Account'),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _performAccountDeletion(BuildContext outerContext) async {
+    // Show loading
+    showDialog(
+      context: outerContext,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog(
+        backgroundColor: AppColors.surface,
+        content: Row(
+          children: [
+            CircularProgressIndicator(color: AppColors.primary),
+            SizedBox(width: 20),
+            Text('Deleting account...',
+                style: TextStyle(color: AppColors.textPrimary)),
+          ],
+        ),
+      ),
+    );
+
+    try {
+      // Clear local data
+      await widget.store.clearAllData();
+      // Delete account from Firebase
+      await AuthService().deleteAccount();
+
+      if (outerContext.mounted) {
+        Navigator.of(outerContext).pop(); // Dismiss loading
+        Navigator.of(outerContext).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const AuthWrapper()),
+          (route) => false,
+        );
+      }
+    } catch (e) {
+      if (outerContext.mounted) {
+        Navigator.of(outerContext).pop(); // Dismiss loading
+        ScaffoldMessenger.of(outerContext).showSnackBar(
+          SnackBar(
+            content: Text('Failed to delete account: $e'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
+  }
+}
+```
+
+### 3. Account Deletion (Guideline 5.1.1v) ✅
+**Already implemented** — no changes needed. The feature exists at: **Settings → Account → Delete Account**, with a full confirmation dialog requiring the user to type \"DELETE\".
+
+## Verification
+- `dart analyze` passed on both modified files — 0 errors, only pre-existing info-level warnings
+
+## Before Resubmitting
+
+> [!IMPORTANT]
+> 1. Verify **Sign in with Apple** capability is enabled in [Apple Developer Portal](https://developer.apple.com/account/resources/identifiers) for your App ID
+> 2. Test the Export Data button on **iPad simulator** to confirm the share sheet appears correctly
+> 3. In your App Review reply, mention that account deletion is at **Settings → Account → Delete Account**

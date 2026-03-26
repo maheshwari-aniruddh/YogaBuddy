@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to recreate the training script by merging `cnn_hog.py` with LBP logic from `prediction.py`.",
+  "updatedAt": "2025-12-10T17:01:24.534126Z"
+}

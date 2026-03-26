@@ -1,0 +1,22 @@
+# Walkthrough - Remove #tags Feature (UI Only)
+
+I have removed the "Tags" input field from the daily journal entry screen ("Today" tab).
+
+## Changes
+
+### User Interface
+- **Today Screen**: Removed the "Tags (comma separated)" text input field from the "Wrap Up" page.
+- **Cleaned Up**: Removed unused `_tagsController` and associated logic.
+
+### Data & functionality
+- **Preserved**: Existing tags in your journal history are preserved.
+- **Preserved**: Weekly keyword analysis still uses tags if they exist in past entries.
+- **Preserved**: Search functionality still allows finding old entries by their tags.
+- **New Entries**: New entries will simply have no tags saved.
+
+## Verification Results
+
+### Manual Verification
+- Verified that the code supporting the UI element was removed.
+- Verified that the file [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart) is free of compilation errors (static analysis).
+- Checked that the method [_autoSave](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#84-122) no longer attempts to read from the deleted `_tagsController`.

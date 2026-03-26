@@ -1,0 +1,29 @@
+# Enable MPS (GPU) Acceleration Plan
+
+## Goal Description
+Use Metal Performance Shaders (MPS) via MediaPipe's GPU delegate to accelerate hand tracking, specifically for the Drums.
+
+## User Review Required
+- **Stability Risk**: MediaPipe Python GPU support on macOS can be experimental. If it crashes, we may need to revert or debug specific versions.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Imports**: Add `mediapipe.tasks` and `mediapipe.tasks.python`.
+- **Initialization**:
+    - Use `HandLandmarker.create_from_options(...)`.
+    - Set `delegate=BaseOptions.Delegate.GPU`.
+- **Loop**:
+    - Convert frame to `mp.Image`.
+    - Use `detect_for_video`.
+    - **Logic Update**:
+        - Old: `hand_landmarks.landmark[i]`
+        - New: `hand_landmarks[i]` (List of lists).
+        - Old: `results.multi_handedness[i].classification[0].label`
+        - New: `result.handedness[i][0].category_name`.
+
+## Verification Plan
+### Manual Verification
+- Run [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py).
+- Verify app starts without "Delegate Error".
+- Verify tracking works (MPS should be faster/smoother).
+- Check Terminal for "Created TensorFlow Lite XNNPACK delegate for CPU" (Should NOT appear, or should say Metal/GPU).

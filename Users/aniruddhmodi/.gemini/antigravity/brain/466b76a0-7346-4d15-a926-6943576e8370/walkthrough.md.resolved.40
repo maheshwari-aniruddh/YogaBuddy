@@ -1,0 +1,18 @@
+# AR Instrument Studio Walkthrough (Max Sensitivity)
+
+## Summary
+At **0.02** Sensitivity, this acts like a hair-trigger. Very responsive.
+
+## Controls
+-   **Strike**: Barely move down to play.
+-   **Reset**: Strict **LIFT** required to re-arm.
+
+## Modes
+1.  **Circular Drums**: Hit the pads.
+2.  **Piano**: 10 distinct notes.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

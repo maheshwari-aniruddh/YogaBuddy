@@ -1,0 +1,25 @@
+# Dead Zones Implementation Plan
+
+## Goal Description
+Stop accidental triggers when resting hands by creating "Grey Zones" (Dead Zones) between drum quadrants.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Configuration**:
+    - `DEAD_ZONE_ISLAND = 0.08` (8% margin from center).
+- **Visuals**:
+    - Draw filled grey rectangles in the center cross (Horizontal and Vertical bars).
+- **Logic**:
+    - Current: `if cx < 0.5: ...`
+    - New:
+        - `if 0.5 - margin < cx < 0.5 + margin: RETURN (Safe Zone)`
+        - `if 0.5 - margin < cy < 0.5 + margin: RETURN (Safe Zone)`
+
+## Verification Plan
+### Manual Verification
+- Run [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py) in Drum Mode.
+- Move hand in the center cross -> No Sound.
+- Hit corners -> Sound.

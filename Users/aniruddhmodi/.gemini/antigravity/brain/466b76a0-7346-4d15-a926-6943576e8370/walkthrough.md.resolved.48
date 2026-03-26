@@ -1,0 +1,27 @@
+# AR Instrument Studio Walkthrough (Final)
+
+## Summary
+Complete AR Studio with **Gesture Safety** and **Octave Protection**.
+
+## Safety Features
+-   **Zone Guard**: Moving across octave lines suppresses sound.
+-   **Gesture Guard**: Moving **8 or more fingers down** (shifting hands) mutes sound to prevent accidental slamming.
+
+## New Visuals
+-   **Keyboard**: Visual keys at the bottom.
+-   **Feedback**: Screen shows "OCTAVE SHIFT (MUTED)" when gesture detected.
+
+## Octave Zones
+-   **Top**: High Octave (2x speed).
+-   **Mid**: Normal.
+-   **Low**: Low Octave (0.5x speed).
+
+## Controls
+-   **Strike**: Downward Motion (>0.02).
+-   **Reset**: Lift finger up.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

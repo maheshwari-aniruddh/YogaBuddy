@@ -1,0 +1,22 @@
+# Streamlit App Walkthrough (Z-Axis Interaction)
+
+## Summary
+The piano now uses "Depth" (Z-Axis) detection instead of finger curl.
+
+## How it Works
+- **The "Poke"**: Instead of curling your finger, **poke forward** towards the screen.
+- **Logic**: The app calculates the distance between your fingertip and your wrist (Z-axis). If the tip is significantly in front of the wrist (`> 0.08`), it counts as a click.
+- **Visuals**: A blue number near your finger shows this Depth Value.
+    - **Idle**: usually -0.05 to 0.05.
+    - **Click**: > 0.08 (Try to hit 0.10 or higher for a solid press).
+
+## New Features
+- **Key Labels**: Notes (C, D, E...) on keys.
+- **Audio**: Real piano sounds on click.
+- **History**: Recent notes log.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

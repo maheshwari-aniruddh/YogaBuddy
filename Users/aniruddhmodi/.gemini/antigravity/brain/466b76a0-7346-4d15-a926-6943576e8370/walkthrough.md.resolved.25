@@ -1,0 +1,20 @@
+# Streamlit App Walkthrough (Camera Selection)
+
+## Summary
+You can now switch between cameras (e.g., FaceTime HD vs USB).
+
+## New Feature: Camera Selector
+1. **Look at the Sidebar** (Left side menu).
+2. **Select Camera**: Choose "Camera 0" or "Camera 1".
+3. **Start**: Click "Start Camera".
+   - If the wrong camera opens, uncheck "Start Camera", select the other one, and start again.
+
+## Configuration
+- **Threshold**: 0.25 (Precision Mode).
+- **Mode**: Finger Mapping (1 Finger = 1 Note).
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

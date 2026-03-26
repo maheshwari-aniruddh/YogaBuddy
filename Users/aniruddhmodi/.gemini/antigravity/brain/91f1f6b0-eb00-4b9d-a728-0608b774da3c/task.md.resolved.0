@@ -1,0 +1,6 @@
+# Task: Resolve iPhone Connection Issue
+
+- [ ] Diagnose and clear build cache <!-- id: 0 -->
+- [ ] Attempt to run on a simulator (optional, to verify build) <!-- id: 1 -->
+- [ ] Provide instructions for manual device reset <!-- id: 2 -->
+- [ ] Verify connection after reset <!-- id: 3 -->

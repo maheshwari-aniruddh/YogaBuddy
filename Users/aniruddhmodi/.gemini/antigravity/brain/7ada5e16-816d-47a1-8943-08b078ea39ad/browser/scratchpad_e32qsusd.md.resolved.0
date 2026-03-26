@@ -1,0 +1,11 @@
+# Task: Verify bass.html layout and interaction
+
+## Progress
+- [ ] Navigate to http://localhost:8502/bass.html
+- [ ] Capture initial screenshot
+- [ ] Click "🎵 E2" pill
+- [ ] Capture post-interaction screenshot
+- [ ] Observe and report if layout matches piano-composer style
+
+## Notes
+- Piano-composer style: Dark controls bar at top, full-screen camera iframe below.

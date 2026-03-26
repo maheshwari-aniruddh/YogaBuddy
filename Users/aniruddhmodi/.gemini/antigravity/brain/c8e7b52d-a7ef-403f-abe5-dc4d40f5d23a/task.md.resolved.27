@@ -1,0 +1,6 @@
+# Task: Fix Firebase Configuration
+
+- [ ] Retrieve Project ID from [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/GoogleService-Info.plist) <!-- id: 0 -->
+- [x] Create/Fix [.firebaserc](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/.firebaserc) and [firebase.json](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/firebase.json) <!-- id: 1 -->
+- [ ] Verify [ios/Runner/Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) URL Schemes <!-- id: 2 -->
+- [ ] Verify Firestore Persistence/Offline persistence (Optional) <!-- id: 3 -->

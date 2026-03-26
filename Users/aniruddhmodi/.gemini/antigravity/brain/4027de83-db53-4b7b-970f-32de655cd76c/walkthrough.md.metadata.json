@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Walkthrough of the Jumper implementation, including the fixed Blossom class, the new Jumper logic (2-cell jumping, obstacle avoidance, fallback behavior), and the integration with the user-provided runner.",
+  "updatedAt": "2026-03-20T13:47:18.423738Z"
+}

@@ -1,0 +1,29 @@
+# Fix Google Sign-In "Cancelled" Error
+
+## Goal
+Resolve the "cancelled" error during Google Sign-In by ensuring the correct scopes are requested. The application relies on Google Drive for storage (as seen in [DriveService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#10-247) and [LoginScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart#11-17) debug prints), but [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#5-51) currently initializes `GoogleSignIn` without any scopes. This mismatch often leads to authentication failures or subsequent permission errors.
+
+## User Review Required
+> [!IMPORTANT]
+> This change adds the `drive.driveFileScope` to the Google Sign-In request. Users will see a permission prompt asking for access to Google Drive files. This is expected and necessary for the app to function.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- Increment version to `1.0.2+11`.
+
+#### [MODIFY] [Podfile](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Podfile)
+- Added preprocesser definitions for `permission_handler` (Camera, Photos, Microphone, Notifications). This is essential for the package to compile and link correctly on iOS.
+
+### Auth Service
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- Added Google Drive scopes to ensure proper permissions during sign-in.
+
+## Verification Plan
+
+### Automated
+- `flutter build ipa --release` completes successfully.
+
+### Manual
+- Upload resulting IPA via Transporter app.

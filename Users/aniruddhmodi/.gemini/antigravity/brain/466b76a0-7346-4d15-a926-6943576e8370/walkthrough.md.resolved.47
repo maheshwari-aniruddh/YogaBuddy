@@ -1,0 +1,27 @@
+# AR Instrument Studio Walkthrough (Final)
+
+## Summary
+Complete AR Studio with **Keyboard Overlay**, **Octave Zones**, and **Safety Logic**.
+
+## New Features
+-   **Keyboard Overlay**: Visual piano keys at the bottom of the screen.
+-   **Zone Safety**: Moving between octave zones (Top/Mid/Bottom) **will not trigger a note**, preventing accidental sounds.
+
+## Octave Zones (Dotted Lines)
+-   **Top (High Octave)**: Plays notes 2x speed (Chipmunk pitch).
+-   **Middle**: Normal pitch.
+-   **Bottom (Low Octave)**: Plays notes 0.5x speed (Deep pitch).
+
+## Visuals
+-   **Waterfall**: Notes fall from top.
+-   **Zones**: Dotted lines show where to hold your hands.
+
+## Controls
+-   **Strike**: Downward Motion (>0.02).
+-   **Reset**: Lift finger up.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

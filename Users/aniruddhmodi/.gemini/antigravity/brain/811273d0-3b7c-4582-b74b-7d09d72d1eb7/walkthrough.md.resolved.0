@@ -1,0 +1,50 @@
+# PoseFlow Project Update
+
+I have successfully renamed the project from "YogaBuddy/OneBreath" to **PoseFlow** and set up the infrastructure for GitHub Pages deployment.
+
+## Changes Made
+
+### Renaming
+- Updated all occurrences of "YogaBuddy" and "OneBreath" to **PoseFlow** in:
+  - [one-breath-app/index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/index.html) (Title, Meta tags)
+  - [one-breath-app/src/components/StartupAnimation.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/StartupAnimation.tsx) (Hero title)
+  - [one-breath-app/src/components/OnboardingPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/OnboardingPage.tsx) (Welcome text)
+  - [one-breath-app/public/breathbox-meditation/index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/public/breathbox-meditation/index.html) (Meditation page title)
+  - [one-breath-app/start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/start.sh) and [one-breath-app/README.md](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/README.md) (Project documentation)
+
+### Deployment Setup
+- **Vite Configuration**: Updated [vite.config.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/vite.config.ts) with `base: "/YogaBuddy/"` to ensure assets load correctly on GitHub Pages under the `YogaBuddy` repository.
+- **GitHub Actions**: Created a deployment workflow at [.github/workflows/deploy.yml](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/.github/workflows/deploy.yml). This will automatically build and deploy your app to the `gh-pages` branch whenever you push to `main`.
+
+## Verification Results
+
+### Build Success
+I ran `npm run build` in the `one-breath-app` directory, and it completed successfully.
+
+```bash
+vite v5.4.19 building for production...
+✓ 1648 modules transformed.
+dist/index.html                                   1.30 kB │ gzip:   0.51 kB
+dist/assets/meditation-silhouette-CCL9Zkci.jpg   60.06 kB
+dist/assets/index-JRqPXFwa.css                   53.07 kB │ gzip:   9.11 kB
+dist/assets/index-BmZYXaD8.js                   391.37 kB │ gzip: 113.60 kB
+✓ built in 1.47s
+```
+
+## Next Steps for You
+1. **Push to GitHub**: Commit and push these changes to your `main` branch.
+   ```bash
+   git add .
+   git commit -m "Rename to PoseFlow and add GH Pages deployment"
+   git push origin main
+   ```
+2. **Enable GitHub Pages**:
+   - Go to your repository settings on GitHub.
+   - Select **Pages** from the sidebar.
+   - Under **Build and deployment > Branch**, ensure `gh-pages` and `/ (root)` are selected (this should happen automatically after the GitHub Action runs).
+3. **Wait for Deployment**: The GitHub Action will take about 1-2 minutes to build and deploy. Once finished, your site will be live at `https://maheshwari-aniruddh.github.io/YogaBuddy/`.
+
+### Sharing the Chat
+To share this chat with another computer:
+- **Copy & Paste**: Simply copy the conversation text into a shared document or note.
+- **Account Sync**: If you are using a platform that supports cloud-synced chats, just log in with the same account on the other machine.

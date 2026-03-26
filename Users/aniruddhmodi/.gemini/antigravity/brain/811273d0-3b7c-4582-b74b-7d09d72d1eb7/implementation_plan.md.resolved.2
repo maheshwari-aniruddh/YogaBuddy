@@ -1,0 +1,35 @@
+# PoseFlow Core ML Repository Setup
+
+The goal is to initialize the new PoseFlow repository (`https://github.com/maheshwari-aniruddh/PoseFlow`) with only the core machine learning and pose detection logic, excluding the full web app and other auxiliary files for now.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I will be pushing to `https://github.com/maheshwari-aniruddh/PoseFlow`. Please ensure you have the necessary permissions and that the repository is ready to receive pushes.
+
+## Proposed Core Files
+
+The following files are identified as the "core ML/MediaFlow" logic:
+- [config.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/config.py): Core settings and pose definitions.
+- [pose_detector.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/pose_detector.py): MediaPipe integration.
+- [pose_classifier.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/pose_classifier.py): KNN classification logic.
+- [form_corrector.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/form_corrector.py): Real-time feedback logic.
+- [session_tracker.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/session_tracker.py): Progress and scoring.
+- [nlg_engine.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/nlg_engine.py): Feedback generation.
+- [utils/angles.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/utils/angles.py): Joint angle calculations.
+- `models/`: Trained pose classification models.
+- [pose_landmarker_full.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/pose_landmarker_full.task): MediaPipe model file.
+- [requirements.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/requirements.txt): Necessary Python dependencies.
+
+## Repository Strategy
+
+1.  Add a new git remote: `poseflow-origin`.
+2.  Create a new orphan branch `core-ml` to ensure a clean history without the web app.
+3.  Add and commit only the specified files.
+4.  Push to the `main` branch of the new repository.
+
+## Verification Plan
+
+### Automated Verification
+- Run `git ls-tree` on the target branch to ensure only the intended files are present.
+- Run a basic pose detection test to ensure the core logic is still functional in isolation.

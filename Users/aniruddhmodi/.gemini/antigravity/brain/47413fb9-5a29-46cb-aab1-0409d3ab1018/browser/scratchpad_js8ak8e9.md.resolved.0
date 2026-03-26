@@ -1,0 +1,19 @@
+# Task Plan: Set up "Rozze" on Google Play Console
+
+## Checklist
+- [ ] Open Google Play Console
+- [ ] Click "Create app"
+- [ ] Fill in initial app details (App, Free, Declarations)
+- [ ] Click "Create"
+- [ ] Navigate to Main store listing
+- [ ] Fill in Main store listing details (Name, Short description, Full description)
+- [ ] Upload app icon (Icon-512.png)
+- [ ] Save draft
+- [ ] Final screenshot
+
+## Context
+- App Name: Rozze
+- Short Description: Journal your day in 30 seconds — just talk. Mood tracking included.
+- Full Description: (See user request)
+- Icon Path: /Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/web/icons/Icon-512.png
+- Do NOT upload app files, do NOT publish.

@@ -1,0 +1,41 @@
+# HTMLRender Refactor and Commenting Plan
+
+## Goal Description
+Refactor [HTMLRender.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java) by renaming all variables and rewording all comments, while applying the specific commenting standards provided (Javadoc, usage of `@author`, `@since`, etc.). The logic must remain unchanged.
+
+## User Review Required
+- **Variable Renaming Strategy**: Confirm the proposed renaming mapping below is acceptable.
+
+## Proposed Changes
+### Source Code
+#### [MODIFY] [HTMLRender.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java)
+- **Variable Renaming**:
+    - `tokens` -> `htmlTokens`
+    - `TOKENS_SIZE` -> `MAX_TOKENS`
+    - `render` -> `simpleRenderer`
+    - `browser` -> `htmlPrinter`
+    - [printMode](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java#372-380) (enum) -> `RenderStyle`
+    - `DEFAULT_CHAR_LIM` -> `LINE_CAPACITY`
+    - `elementCount` -> `tokenCount`
+    - `newLine` -> `isStartOfLine`
+    - `utility` -> `htmlUtils`
+    - `reader` -> `fileScanner`
+    - `hf` -> `rendererInstance`
+    - `fileName` -> `inputFileName`
+    - `lineTokens` -> `currentLineTokens`
+    - `finalTokens` -> `trimmedTokens`
+    - `charCount` -> `currentLineLength`
+    - `toPrint` -> `outputBuffer`
+    - `headerNum` -> `headerLevel`
+    - `prevCharCount` -> `initialLineLength`
+- **Comment Rewording & Formatting**:
+    - Rewrite the file header completely to match the example image (using `/** ... */`, `@author`, `@since`).
+    - Add Javadoc comments to all methods ([runBrowser](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java#69-104), [printToBrowser](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java#105-163), [printParagraph](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java#182-236), etc.) describing their purpose, params (`@param`), and return values (`@return`).
+    - Reword internal comments to be more descriptive and distinct from the original text (e.g., "Initialize token array" -> "Instantiate the array for holding parsed HTML tokens").
+    - Ensure no single-line comments are just obvious restatements, but rather explanations.
+
+## Verification Plan
+### Manual Verification
+- Verify all variables are renamed and code still compiles.
+- Check that all comments follow the style guide (stars aligned, specific tags used).
+- Run [HTMLRender](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/HTMLRender.java#30-427) with [example8.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example8.html) to ensure output behavior is identical to before (logic unchecked).

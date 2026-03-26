@@ -1,0 +1,11 @@
+# Task: Fix Batch Normalization Mismatch and Retrain
+
+## Status
+- [ ] Stop the currently running [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) process <!-- id: 0 -->
+- [ ] Fix [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) <!-- id: 1 -->
+    - [ ] Freeze ResNet50 base layers (or at least BN layers) to prevent running statistic corruption on small batches.
+    - [ ] Verify metric calculation.
+- [ ] Fix [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) <!-- id: 2 -->
+    - [ ] Apply the same fix for the Combined experiment.
+- [ ] Restart [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) <!-- id: 3 -->
+- [ ] Monitor for convergence (Training Acc should align better with Validation metrics) <!-- id: 4 -->

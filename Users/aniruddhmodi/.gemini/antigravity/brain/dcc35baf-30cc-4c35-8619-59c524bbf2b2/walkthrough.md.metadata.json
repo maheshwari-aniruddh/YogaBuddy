@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Implemented a robust 'local-first' data architecture. The app now maintains a `journal_cache.json` which is always saved immediately and loaded instantly on startup. Sync with Google Drive happens in the background, merging data instead of overwriting it, ensuring zero data loss even in offline/bad-network scenarios.",
+  "updatedAt": "2026-01-25T08:01:26.749511Z",
+  "version": "2"
+}

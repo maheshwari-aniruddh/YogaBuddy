@@ -1,0 +1,23 @@
+# Key History UI Plan
+
+## Goal Description
+Display a running log of the detected piano keys on the Streamlit web interface so the user can see what they have played.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **UI Element**: Add a `st.empty()` container below the video or in a sidebar to hold the history.
+- **State**: Initialize a `history` list (empty).
+- **Update Logic**:
+    - Inside the detection loop, when a key is pressed (and printed to console), append it to the `history` list.
+    - Keep only the last ~20 items to prevent it from growing indefinitely.
+    - Update the `st.empty()` container with the formatted string of keys (e.g., "C D E F G").
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Press keys.
+- Verify they appear in the UI list.

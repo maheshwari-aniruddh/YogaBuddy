@@ -1,0 +1,66 @@
+# Walkthrough - Image Analysis Script (NLM, HOG, GLCM)
+
+I have created a new Python script [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py) that provides a side-by-side analysis of a single image using three key techniques: **Non-Local Means (NLM) Denoising**, **Histogram of Oriented Gradients (HOG)**, and **Gray-Level Co-occurrence Matrix (GLCM)**.
+
+## Changes Made
+
+### [New Script]
+#### [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py)
+ - **NLM Denoising**: Smooths the image while preserving edges.
+ - **HOG Visualization**: Highlights the orientation of gradients, useful for identifying shapes and structures (like tumor boundaries).
+ - **GLCM Analysis**: Computes texture features (Contrast, Homogeneity, Energy, etc.) and provides a heatmap of the co-occurrence matrix.
+
+## Results
+
+I ran the script on [image.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/image.png), and it successfully generated the following analysis:
+
+![Image Analysis Result](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/analysis_result.png)
+
+### Features Extracted
+- **NLM**: Effectively reduced noise in the grayscale representation.
+- **HOG**: Visualized the primary edge orientations.
+- **GLCM**: Quantified the texture complexity.
+
+## How to Run
+To run the analysis on any image:
+```bash
+.venv/bin/python nlm_hog_glcm_analysis.py [path_to_image]
+```
+By default, it uses [image.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/image.png) in the root directory.
+
+## Intricate Tests (`timie waste`)
+
+I have also created a dedicated directory `timie waste` containing several specialized test scripts:
+
+- **hog_analysis.py**: Parameter sweep for HOG (orientations, pixels per cell).
+- **glcm_analysis.py**: Detailed plots of texture properties across multiple angles and distances.
+- **nlm_param_sweep.py**: Comparison of NLM denoising with different filter strengths.
+- **clahe_demo.py**: Comparison of CLAHE with different clip limits.
+- **edge_detection_tests.py**: Comparison of multiple edge detection algorithms.
+- **noise_reduction_comparison.py**: Gaussian vs Median vs NLM filtering.
+- **all_in_one_test.py**: Runner script for all of the above.
+
+### Sample Results from `timie waste`
+
+````carousel
+![HOG Analysis](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/hog_analysis_result.png)
+<!-- slide -->
+![GLCM Analysis](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/glcm_analysis_result.png)
+<!-- slide -->
+![NLM Sweep](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/nlm_sweep_result.png)
+<!-- slide -->
+![CLAHE Demo](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/clahe_demo_result.png)
+<!-- slide -->
+![Edge Detection](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/edge_detection_result.png)
+<!-- slide -->
+![Noise Reduction](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/noise_reduction_result.png)
+````
+
+## Continuous Generation
+
+As requested, I have started a background process that adds a new intricate test file to the `timie waste` directory every minute.
+
+- **background_generator.py**: This script runs in the background and generates unique, randomized image processing tests (e.g., [intricate_test_1.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/timie_waste/intricate_test_1.py), `intricate_test_2.py`, etc.).
+- **Log File**: You can monitor its progress in [timie_waste/generator.log](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/timie_waste/generator.log).
+
+Each generated file is a functional Python script that applies a random combination of filters to an image and saves the results.

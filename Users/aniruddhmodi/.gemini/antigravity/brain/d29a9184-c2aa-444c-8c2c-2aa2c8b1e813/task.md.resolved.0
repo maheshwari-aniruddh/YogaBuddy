@@ -1,0 +1,12 @@
+# Task: Test and Debug SimpleCalc
+
+- [/] Create a test script to verify identified bugs <!-- id: 0 -->
+    - [ ] Test same-precedence operators (e.g., `2 - 3 + 4`) <!-- id: 1 -->
+    - [ ] Test exponentiation associativity (`2 ^ 3 ^ 2`) <!-- id: 2 -->
+    - [ ] Test unary operators in different positions (e.g., `3 * -2`) <!-- id: 3 -->
+    - [ ] Test mismatched parentheses (e.g., [(2 + 3))](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/ExprUtils.java#168-197)) <!-- id: 4 -->
+- [ ] Fix identified bugs <!-- id: 5 -->
+    - [ ] Correct operator precedence and associativity in [hasPrecedence](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/SimpleCalc.java#162-185) <!-- id: 6 -->
+    - [ ] Improve unary operator handling in [ExprUtils](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/SimpleCalc/src/ExprUtils.java#11-198) <!-- id: 7 -->
+    - [ ] Add safety checks for empty stacks and mismatched parentheses <!-- id: 8 -->
+- [ ] Final verification with all test cases <!-- id: 9 -->

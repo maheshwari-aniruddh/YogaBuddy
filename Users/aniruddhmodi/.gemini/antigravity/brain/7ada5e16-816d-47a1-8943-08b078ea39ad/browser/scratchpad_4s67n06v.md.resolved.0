@@ -1,0 +1,12 @@
+# Task: Verify "Harmonic" title gradient on index.html
+
+## Checklist
+- [ ] Navigate to http://localhost:8502/index.html
+- [ ] Take a screenshot of the landing page
+- [ ] Verify the title "Harmonic" has a brown -> pink -> orange gradient
+- [ ] Report findings
+
+## Findings
+- URL: http://localhost:8502/index.html
+- Title: Harmonic
+- Gradient expected: Brown -> Pink -> Orange

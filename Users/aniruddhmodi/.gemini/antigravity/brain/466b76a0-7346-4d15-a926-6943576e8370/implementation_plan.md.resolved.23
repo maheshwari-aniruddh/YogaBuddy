@@ -1,0 +1,25 @@
+# Real Audio Integration
+
+## Goal Description
+Use the existing [.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/e1.wav) files for audio instead of synthetic sine waves.
+
+## User Review Required
+- **Missing Drums**: If no drum files are found, I will keep using synthetic drums.
+- **Piano Mapping**: Mapping [c1.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1.wav) to the `C3` virtual key (assuming user just wants *some* sound).
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **AudioEngine**:
+    - Load [c1.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1.wav), [d1.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/d1.wav) etc. from [sounds/](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#57-73).
+    - Map keys:
+        - `C3` -> [sounds/c1.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1.wav)
+        - `C#3` -> [sounds/c1s.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1s.wav)
+        - ...
+    - **Drums**:
+        - Use synthetic if no files.
+
+## Verification Plan
+### Manual Verification
+- Run [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py).
+- Play piano -> Hear recorded samples.
+- Play drums -> Hear synthetic/samples.

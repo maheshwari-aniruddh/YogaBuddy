@@ -1,0 +1,23 @@
+# TestFlight Upload Walkthrough
+
+The iOS archive has been successfully built. Since the build server process could not sign the IPA automatically (likely due to missing certificates in the terminal environment), you need to upload the archive manually using Xcode.
+
+## Archive Location
+`build/ios/archive/Runner.xcarchive`
+
+## Steps to Upload
+1. Open the archive in Xcode by running this command in your terminal:
+   ```bash
+   open build/ios/archive/Runner.xcarchive
+   ```
+   Or manually navigate to the file and double-click it.
+
+2. In the **Organizer** window that opens:
+   - Make sure your app is selected.
+   - Click the **"Distribute App"** button.
+   - Select **"TestFlight & App Store"**.
+   - Follow the prompts to sign and upload your app. You will need to select your development team and signing certificate.
+
+## Troubleshooting
+- If you see signing errors, ensure your Xcode account is logged in via **Xcode > Settings > Accounts**.
+- If valid certificates are missing, Xcode can usually "Manually manage signing" or "Automatically manage signing" during the distribution flow to fix this.

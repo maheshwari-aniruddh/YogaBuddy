@@ -1,0 +1,50 @@
+# Implementation Plan - Geometry Dash Premium
+
+## Goal Description
+Create a "AAA" quality clone of Geometry Dash using Python. The focus is on **visual excellence**: dynamic bloom, particles, shaders, and smooth animations, while maintaining 60+ FPS.
+
+## User Review Required
+> [!IMPORTANT]
+> **Tech Stack Selection**: We are using **Pygame** for windowing/input and **ModernGL** for rendering. This is necessary to achieve the "Premium Visual Quality" (Shaders, Bloom, Glow) requested. Standard Pygame rendering would not suffice for "Dynamic bloom", "Chromatic aberration", etc.
+
+## Proposed Changes
+
+### Project Structure
+- `main.py`: Entry point.
+- `requirements.txt`: Dependencies.
+- `src/`: Source code.
+  - `engine/`:
+    - `window.py`: Pygame setup with OpenGL.
+    - `renderer.py`: ModernGL context, FBOs (Framebuffers), Post-processing chain.
+    - `shader_loader.py`: Compiles GLSL shaders.
+    - `particles.py`: High-performance particle system.
+  - `game/`:
+    - `player.py`: Physics logic.
+    - `level.py`: Map handling.
+    - `objects.py`: Platforms, Spikes, etc.
+  - `utils/`: Math helpers, easing functions.
+- `assets/`:
+  - `shaders/`: `.glsl` files (vertex/fragment).
+  - `textures/`: Sprites.
+
+### Graphics Pipeline (The "Premium" Sauce)
+1. **Geometry Pass**: Render game scene (Player, Level, Backgrounds) to an off-screen Framebuffer (`scene_fbo`).
+2. **Post-Processing Pass**:
+   - **Bloom**: Extract bright areas -> Gaussian Blur (Ping-Pong) -> Add back to scene.
+   - **Distortion**: Apply Chromatic Aberration and Lens Distortion shaders.
+   - **Color Grading**: Apply LUTs or adjust gamma/contrast/saturation.
+3. **Final Draw**: Render the result to the screen.
+
+### Game Logic
+- **Physics**: AABB Collision detection, custom gravity/jump logic to match Geometry Dash feel (not Pymunk, too floaty).
+- **Audio**: Sync visual effects (pulse) to BPM.
+
+## Verification Plan
+### Automated Tests
+- None planned for visuals.
+
+### Manual Verification
+- Run `main.py`.
+- Verify the "Glow" effect is visible around the player.
+- Verify 60 FPS performance.
+- Check inputs (Jump) feel responsive.

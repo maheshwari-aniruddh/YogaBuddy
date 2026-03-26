@@ -1,0 +1,17 @@
+# Walkthrough - Orientation Lock & Deployment Fixes
+
+I have finalized the app configuration to ensure a consistent experience and successful cloud deployment.
+
+## Portrait Mode Lock 📱
+To prevent layout issues and ensure the intended journaling experience:
+-   **iOS**: Removed landscape support from [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist).
+-   **Flutter**: Enforced `DeviceOrientation.portraitUp` at the application root ([main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)).
+-   **Android**: (Pending) Checking manifest to ensure consistent behavior.
+
+## Firebase Deployment Fixes ☁️
+-   **CLI Configuration**: Created missing [.firebaserc](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/.firebaserc) and [firebase.json](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/firebase.json) files linked to project `sec-journal`.
+-   **Security Rules**: Successfully deployed Firestore rules to allow `users` (authenticated) and `super_thanks` access.
+
+## How to Verify
+1.  **Orientation**: rotate your phone while in the app. The layout should remain in portrait mode and not rotate.
+2.  **Deployment**: The `firebase deploy` command should now succeed without errors.

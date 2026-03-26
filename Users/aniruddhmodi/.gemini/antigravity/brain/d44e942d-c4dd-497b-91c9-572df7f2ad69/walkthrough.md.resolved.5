@@ -1,0 +1,16 @@
+# Walkthrough - Fix iOS Build Error
+
+I have resolved the "No such module 'Flutter'" error by resetting the iOS build environment.
+
+## Actions Taken
+1.  **Deep Clean**: Ran `flutter clean` to remove stale build artifacts.
+2.  **Dependency Reset**: Removed `ios/Pods` and `ios/Podfile.lock` to ensure a clean slate.
+3.  **Reinstall**: Ran `flutter pub get` and `pod install` to regenerate the necessary configuration files and re-link the Flutter framework.
+
+## Next Steps for You
+1.  **Close Xcode** completely.
+2.  **Open the Workspace**: Make sure to open **`Runner.xcworkspace`** (white icon), *not* `Runner.xcodeproj` (blue icon). Using the project file instead of the workspace is a common cause of this error.
+3.  **Build**: Try running the app again from your IDE or Xcode.
+
+## Verification
+The `pod install` command completed successfully, and the configuration files (`Release.xcconfig`, `Debug.xcconfig`) correctly reference the Pods configuration. The error should be resolved.

@@ -1,0 +1,146 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,46)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,46)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,46)<span >Pricing />
+[8] (734,46)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,46)<div  />
+	[10] (733,46)<span >Search or jump to... />
+	[11] (831,46)<div  />
+[12] (870,46)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow'>Sign in />
+[13] (925,46)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=maheshwari-aniruddh%2FPoseFlow'>Sign up />
+[14] (968,46)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-4f5d0b92-9c78-49a7-90a3-a749aa2b06d0' />
+[15] (100,133)<a class='url fn' href='/maheshwari-aniruddh'>maheshwari-aniruddh />
+/
+[16] (202,133)<a href='/maheshwari-aniruddh/PoseFlow'>PoseFlow />
+Public
+[17] (790,132)<a aria-label='You must be signed in to change notification settings' class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='repository-details-watch-button'>Notifications />
+[18] (871,132)<a class='btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' id='fork-button'>Fork />
+	[19] (889,132)<span >0 />
+[20] (944,132)<a aria-label='You must be signed in to star a repository' class='tooltipped tooltipped-sw btn-sm btn' href='/login?return_to=%2Fmaheshwari-aniruddh%2FPoseFlow' />
+	[21] (944,132)<span >Star />
+	[22] (963,132)<span >0 />
+[23] (46,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected' href='/maheshwari-aniruddh/PoseFlow' id='code-tab' />
+	[24] (54,204)<span >Code />
+[25] (104,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/issues' id='issues-tab' />
+	[26] (112,204)<span >Issues />
+[27] (179,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulls' id='pull-requests-tab' />
+	[28] (187,204)<span >Pull requests />
+[29] (257,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/actions' id='actions-tab' />
+	[30] (265,204)<span >Actions />
+[31] (324,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/projects' id='projects-tab' />
+	[32] (332,204)<span >Projects />
+[33] (393,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/security' id='security-tab' />
+	[34] (400,204)<span >Security />
+[35] (461,204)<a class='UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item' href='/maheshwari-aniruddh/PoseFlow/pulse' id='insights-tab' />
+	[36] (469,204)<span >Insights />
+maheshwari-aniruddh/PoseFlow
+[37] (133,286)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk overview-ref-selector width-full RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[38] (133,286)<span  />
+		[39] (125,286)<span  />
+			[40] (125,286)<div  />
+				[41] (112,286)<div  />
+				[42] (131,286)<div  />
+					[43] (131,286)<span >main />
+[44] (203,286)<a class='prc-Button-ButtonBase-9n-Xk OverviewContent-module__Button___Uotu' href='/maheshwari-aniruddh/PoseFlow/branches' />
+	[45] (203,286)<span  />
+		[46] (211,286)<span  />
+			[47] (211,286)<span >Branch />
+				[48] (196,286)<strong >1 />
+[49] (259,286)<a class='prc-Button-ButtonBase-9n-Xk OverviewContent-module__Button___Uotu' href='/maheshwari-aniruddh/PoseFlow/tags' />
+	[50] (259,286)<span  />
+		[51] (267,286)<span  />
+			[52] (267,286)<span >Tags />
+				[53] (257,286)<strong >0 />
+[54] (550,286)<span  />
+	[55] (493,286)<span  />
+	[56] (556,286)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+[57] (660,286)<button class='prc-Button-ButtonBase-9n-Xk' id='_R_3idajal1d_' />
+	[58] (660,286)<span  />
+		[59] (660,286)<span >Code />
+Folders and files
+Latest commit
+[60] (116,363)<a class='Link__StyledLink-sc-1syctfj-0 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh' />
+	[61] (114,363)<img  />
+[62] (175,363)<a aria-label='commits by maheshwari-aniruddh' class='Link__StyledLink-sc-1syctfj-0 iIGVMW AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commits?author=maheshwari-aniruddh'>maheshwari-aniruddh />
+[63] (356,362)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139'>Initialize PoseFlow Core ML with models and detection logic />
+[64] (559,363)<a aria-label='Commit a65a57d' class='Link--secondary prc-Link-Link-9ZwDx' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139'>a65a57d />
+·
+History
+[65] (657,363)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/maheshwari-aniruddh/PoseFlow/commits/main/' />
+	[66] (657,363)<span  />
+		[67] (663,363)<span  />
+			[68] (663,362)<span >1 Commit />
+[69] (397,423)<tr  />
+	[70] (142,423)<a aria-label='models, (Directory)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/tree/main/models' title='models'>models />
+	[71] (475,423)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[72] (397,475)<tr  />
+	[73] (135,476)<a aria-label='utils, (Directory)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/tree/main/utils' title='utils'>utils />
+	[74] (475,476)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[75] (397,528)<tr  />
+	[76] (146,529)<a aria-label='.gitignore, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/.gitignore' title='.gitignore'>.gitignore />
+	[77] (475,529)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[78] (397,581)<tr  />
+	[79] (153,582)<a aria-label='README.md, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/README.md' title='README.md'>README.md />
+	[80] (475,582)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[81] (397,634)<tr  />
+	[82] (146,635)<a aria-label='config.py, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/config.py' title='config.py'>config.py />
+	[83] (475,635)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[84] (397,687)<tr  />
+	[85] (165,687)<a aria-label='form_corrector.py, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/form_corrector.py' title='form_corrector.py'>form_corrector.py />
+	[86] (475,687)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[87] (397,740)<tr  />
+	[88] (156,740)<a aria-label='nlg_engine.py, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/nlg_engine.py' title='nlg_engine.py'>nlg_engine.py />
+	[89] (475,740)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[90] (397,793)<tr  />
+	[91] (164,793)<a aria-label='pose_classifier.py, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/pose_classifier.py' title='pose_classifier.py'>pose_classifier.py />
+	[92] (475,793)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[93] (397,846)<tr  />
+	[94] (164,846)<a aria-label='pose_detector.py, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/pose_detector.py' title='pose_detector.py'>pose_detector.py />
+	[95] (475,846)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[96] (397,899)<tr  />
+	[97] (182,899)<a aria-label='pose_landmarker_full.task, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/pose_landmarker_full.task' title='pose_landmarker_full.task'>pose_landmarker_full.task />
+	[98] (475,899)<a class='Link--secondary' href='/maheshwari-aniruddh/PoseFlow/commit/a65a57d850470f336ac9fcf17e461ae53a428139' title='Initialize PoseFlow Core ML with models and detection logic'>Initialize PoseFlow Core ML with models and detection logic />
+[99] (397,952)<tr  />
+	[100] (161,952)<a aria-label='requirements.txt, (File)' class='Link--primary' href='/maheshwari-aniruddh/PoseFlow/blob/main/requirements.txt' title='requirements.txt'>requirements.txt />
+	Initialize PoseFlow Core ML with models and detection logic
+session_tracker.py
+Initialize PoseFlow Core ML with models and detection logic
+About
+Flavortown
+Resources
+[101] (749,382)<a class='Link--muted' href='#readme-ov-file'>Readme />
+[102] (747,420)<a class='Link Link--muted' href='/maheshwari-aniruddh/PoseFlow/activity' />
+	[103] (756,420)<span >Activity />
+Stars
+[104] (746,457)<a class='Link Link--muted' href='/maheshwari-aniruddh/PoseFlow/stargazers'>stars />
+	[105] (744,457)<strong >0 />
+Watchers
+[106] (755,495)<a class='Link Link--muted' href='/maheshwari-aniruddh/PoseFlow/watchers'>watching />
+	[107] (744,495)<strong >0 />
+Forks
+[108] (746,532)<a class='Link Link--muted' href='/maheshwari-aniruddh/PoseFlow/forks'>forks />
+	[109] (744,532)<strong >0 />
+[110] (759,569)<a class='Link--muted' href='/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FPoseFlow&report=maheshwari-aniruddh+%28user%29'>Report repository />
+[111] (745,641)<a class='Link--primary no-underline Link' href='/maheshwari-aniruddh/PoseFlow/releases'>Releases />
+No releases published
+[112] (812,759)<a class='Link--primary no-underline Link d-flex flex-items-center' href='/users/maheshwari-aniruddh/packages?repo_name=PoseFlow'>Packages />
+No packages published
+[113] (812,876)<a class='Link--primary no-underline Link d-flex flex-items-center' href='/maheshwari-aniruddh/PoseFlow/graphs/contributors'>Contributors />
+	[114] (795,876)<span >1 />
+[115] (733,933)<a class='mr-2' href='https://github.com/maheshwari-aniruddh' />
+	[116] (733,933)<img  />
+[117] (845,933)<a class='Link--primary no-underline flex-self-center' href='https://github.com/maheshwari-aniruddh' />
+	[118] (798,933)<strong >maheshwari-aniruddh />
+	[119] (895,933)<span >Aniruddh Maheshwari />
+
+</current_dom>

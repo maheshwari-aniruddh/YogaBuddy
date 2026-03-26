@@ -1,0 +1,6 @@
+# Jumper Implementation
+
+- [ ] Fix [Blossom.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java) bugs (steps init, static lifeTime)
+- [ ] Create `Jumper.java`
+- [ ] Create `JumperRunner.java`
+- [ ] Verify compilation and run

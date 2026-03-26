@@ -1,0 +1,57 @@
+# Walkthrough - SuperThanks Feature
+
+## Prerequisites
+> [!IMPORTANT]
+> **Firebase Configuration Required**
+> You must run the following command in your terminal to generate the necessary `firebase_options.dart` file and configure your app for Android/iOS:
+> ```bash
+> flutterfire configure
+> ```
+> Follow the prompts to select your Firebase project. Without this, the app will crash or fail to send messages.
+
+## Changes Implemented
+
+### 1. Social Backend ([SocialService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/social_service.dart#6-101))
+- Created [lib/services/social_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/social_service.dart) to handle Firestore interactions.
+- Stores user data (`users` collection) upon login.
+- Sends messages to `super_messages` collection.
+- Listens for unread messages.
+
+### 2. Sending "Super Thanks"
+- Added "Feeling extra grateful towards somebody?" link in the Gratitude section of [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#19-27).
+- Created [SuperThanksSheet](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/super_thanks_sheet.dart#7-13) ([lib/widgets/super_thanks_sheet.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/super_thanks_sheet.dart)):
+    - Search for users by email.
+    - Write and send a grateful message.
+
+### 3. Receiving "Super Thanks"
+- Created [ConfettiOverlay](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/confetti_overlay.dart#6-21) ([lib/widgets/confetti_overlay.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/confetti_overlay.dart)) for the celebration animation.
+- Updated [MainScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart#20-27):
+    - Listens for unread messages on startup.
+    - Displays the overlay if a message is found.
+    - Marks message as read when dismissed.
+
+## Verification Steps
+
+### 1. Setup
+- Run `flutterfire configure`.
+- Run the app: `flutter run`.
+
+### 2. Syncing
+- Log in with Google.
+- Check Firestore Console -> `users` collection. You should see your document.
+
+### 3. Sending
+- Go to Today's Journal -> Gratitude -> "Feeling extra grateful...".
+- Search for a valid email (e.g., your own if testing solo, or a friend's).
+- Send a message.
+- Check Firestore Console -> `super_messages`. A new document should appear.
+
+### 4. Receiving
+- If you sent it to yourself: Close and Relaunch the app (or Hot Restart).
+- **Expectation**: A confetti explosion and the message card should appear over the home screen.
+- Dismiss it.
+- Check Firestore Console: The message document should now have `read: true`.
+
+## Troubleshooting
+- **App Crash on Start**: Likely missing `firebase_options.dart`.
+- **Search finds nothing**: Ensure the recipient has logged into the app at least once to sync their email to Firestore.

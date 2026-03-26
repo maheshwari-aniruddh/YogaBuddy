@@ -1,0 +1,18 @@
+# Walkthrough - Edit Past Entries & Keyboard Logic
+
+I have added the requested features to allow editing of past entries and improved the keyboard experience.
+
+## Changes
+
+### 1. Edit Button in Calendar ([lib/screens/calendar_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart))
+- **feature**: Added an "Edit" (pencil icon) button next to the delete button in the detailed view of a past entry.
+- **behavior**: Tapping this button opens the [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) loaded with the date of that entry, allowing the user to modify their mood, text, and media for that specific past day.
+
+### 2. Keyboard Dismissal ([lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart))
+- **change**: Changed `textInputAction` from `TextInputAction.none` to `TextInputAction.done` in the main text fields.
+- **behavior**: Pressing "Return" on the virtual keyboard now closes the keyboard instead of inserting a new line. Users can still insert new lines using the provided toolbar button if needed.
+
+## Verification Results
+### Functional Verification
+- **Edit FLow**: Verified that the Edit button appears only for valid entries and correctly navigates to the editing interface for that date.
+- **Keyboard**: Verified that focusing on a text field shows the "Done" (or "Return" acting as Done) key, which dismisses the keyboard when pressed.

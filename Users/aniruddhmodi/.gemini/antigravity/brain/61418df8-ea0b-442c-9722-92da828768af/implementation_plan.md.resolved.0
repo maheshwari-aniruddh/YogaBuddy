@@ -1,0 +1,29 @@
+# Fix Batch Normalization Mismatch in Ablation Study
+
+## Goal Description
+The HOG/LBP/Combined models show 100% training accuracy but poor validation performance (F1 ~0.44). This is caused by "Batch Normalization Mismatch" where the model overfits to batch statistics during training but fails when using running averages during inference. The goal is to fix this by freezing the ResNet50 backbone, converting it into a stable feature extractor.
+
+## Proposed Changes
+
+### Research Scripts
+
+#### [MODIFY] [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py)
+- Update [build_cnn_model](file:///Users/aniruddhmodi/Downloads/Research/research3.py#105-115) to freeze the `base_model` layers:
+  ```python
+  base_model = ResNet50(..., weights='imagenet', include_top=False)
+  base_model.trainable = False  # Freeze backbone
+  ```
+
+#### [MODIFY] [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py)
+- Update [build_cnn_model](file:///Users/aniruddhmodi/Downloads/Research/research3.py#105-115) to freeze the `base_model` layers:
+  ```python
+  base_model = ResNet50(..., weights='imagenet', include_top=False)
+  base_model.trainable = False  # Freeze backbone
+  ```
+
+## Verification Plan
+
+### Automated Tests
+- Run [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) again.
+- Monitor the first 5-10 epochs of Fold 1.
+- **Success Criteria:** Training Accuracy should NOT immediately jump to 1.0000. It should rise gradually. Validation F1 and Accuracy should track closer to Training metrics.

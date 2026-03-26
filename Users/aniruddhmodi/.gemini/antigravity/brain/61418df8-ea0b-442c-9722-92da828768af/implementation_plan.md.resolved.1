@@ -1,0 +1,21 @@
+# Fix Overfitting in Combined Model
+
+The SHAP analysis revealed that the HOG features (Shape) are dominating the decision process (76% importance) but causing poor generalization to the external dataset.
+This is caused by the model architecture: raw HOG vectors (high dimensionality) are concatenated directly with the CNN embeddings (256 dims), giving HOG a statistical advantage.
+
+## Proposed Changes
+
+### [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) (Combined Model)
+- Modify [build_combined_model](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py#159-191) to add **Bottleneck Layers** for HOG and LBP inputs.
+- **HOG Branch:** `Input` -> `Dense(256, activation='relu', kernel_regularizer=l2(0.01))` -> `Dropout(0.5)` -> `Concatenate`
+- **LBP Branch:** `Input` -> `Dense(64, activation='relu', kernel_regularizer=l2(0.01))` -> `Dropout(0.5)` -> `Concatenate`
+- This reduces the sheer number of HOG features entering the final classifier, forcing the model to learn more abstract shape representations.
+
+### [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) (Separate Models)
+- Similar updates should be applied to the HOG-only and LBP-only models to keep comparisons fair, but priority is the Combined model. We will focus on [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) first.
+
+## Verification Plan
+1.  **Retrain Combined Model:** Run [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) with the new architecture.
+2.  **Evaluate Stats:** Check Training Accuracy (should drop slightly from 100%, which is good).
+3.  **External Validation:** Run [validate_external.py](file:///Users/aniruddhmodi/Downloads/Research/validate_external.py) on `brd` dataset. We expect higher accuracy (>65%) and better balance in SHAP.
+4.  **SHAP Analysis:** Run [run_shap_final_v2.py](file:///Users/aniruddhmodi/Downloads/Research/run_shap_final_v2.py) to confirm HOG importance has decreased.

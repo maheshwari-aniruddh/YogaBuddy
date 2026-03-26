@@ -1,0 +1,38 @@
+# Walkthrough: Phase 2 - Core Features & UI Polish
+
+I have successfully implemented the requested core features and applied the Glassmorphism UI polish.
+
+## New Features Implemented
+
+### 1. Voice Entries 🎙️
+- **Recording**: Seamlessly record audio directly from the [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#16-24) using the new [AudioRecorderWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_recorder_widget.dart#8-16).
+- **Playback**: Play back previously recorded audio entries with the [AudioPlayerWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_player_widget.dart#6-25).
+- **Persistence**: Audio files are uploaded to Firebase Storage and linked to your journal entries.
+
+### 2. Analytics & Heatmap 📊
+- **Visuals**: A new optimized `AnalyticsScreen` (replacing the old stats view) features:
+    - **Heatmap Calendar**: Visualize your journaling consistency over time.
+    - **Mood Trends**: Track your emotional journey with interactive charts.
+    - **Deep Insights**: See "Best Day", "Tough Day", and other key metrics.
+
+### 3. Smart Reminders 🔔
+- **Intelligence**: The daily reminder logic now cancels the notification for the current day if you've already made an entry, preventing unnecessary pings.
+
+### 4. AI Summary (Week in 3 Words) 🤖
+- **Keyword Extraction**: A smart local algorithm analyzes your week's entries (Good, Bad, Gratitude, Tags) and extracts the top 3 prevailing themes.
+- **Display**: These are displayed prominently on the Analytics screen.
+
+## UI Polish: Glassmorphism ✨
+- **Components**: Replaced standard dark cards with [GlassContainer](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/glass_container.dart#4-71) widgets using `BackdropFilter` for a premium, modern feel.
+- **Screens**: 
+    - **TodayScreen**: Features glowing glass animations for mood selection.
+    - **CalendarScreen**: Updated with glass cards and integrated audio playback for past entries.
+    - **AnalyticsScreen**: Fully glassmorphic design.
+
+## Verification
+- **Functional Testing**: Verified audio recording permissions, file saving, and playback.
+- **UI Testing**: Confirmed glass effects render correctly and animations are smooth.
+- **Logic Testing**: Validated that reminders are cancelled upon saving an entry.
+
+## Next Steps
+- Run the app on a physical device to fully appreciate the haptics and glass effects!

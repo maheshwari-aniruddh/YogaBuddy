@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Finalizing build for TestFlight release with fixed EmailJS template and Google Sign-In logic.",
+  "updatedAt":  "2026-01-03T11:40:09.367461Z",
+  "version":  "2"
+}

@@ -1,0 +1,52 @@
+# Walkthrough: Fixing Compilation Errors and Running GridWorld Programs
+
+I fixed the errors in the [BoxBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java#25-58) compilation and started the [CircleBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBug.java#25-57) program as requested.
+
+## Changes Made
+
+### 1. Identified Syntax Errors
+The common errors when moving from Windows to Mac (or Linux) are:
+- **Quotes**: Using "curly quotes" (`“`, `”`) instead of standard straight quotes (`"`).
+- **Classpath Separator**: Windows uses `;`, while Mac uses `:`.
+- **Package Paths**: Running classes requires pointing to the root of the source directory.
+
+### 2. Compiled and Ran BoxBug
+The correct commands for your Mac environment are:
+```bash
+# Compile from project root
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/*.java
+
+# Run from project root (note the : instead of ;)
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.BoxBugRunner
+```
+
+### 4. Increased Grid Size
+I updated [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java) to use a **20x20 BoundedGrid**. This was done by:
+- Importing `info.gridworld.actor.Actor` and `info.gridworld.grid.BoundedGrid`.
+- Changing the `ActorWorld` constructor to `new ActorWorld(new BoundedGrid<Actor>(20, 20))`.
+
+### 5. Implemented SpiralBug
+I created the [SpiralBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBug.java#10-31) and [SpiralBugRunner](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBugRunner.java#11-21) as requested:
+- **SpiralBug**: Traces an expanding square spiral. I implemented this by adding `sideLength++` after each 90-degree turn (two `turn()` calls).
+- **SpiralBugRunner**: Uses an `UnboundedGrid` to allow the spiral to grow indefinitely without hitting walls.
+
+### 6. Cleaned ZBugRunner
+I removed the second bug from [ZBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBugRunner.java) so only **Alice** remains, as requested.
+
+### Activity 3: Jumper and Beyond
+- **Jumper Bug**: Implemented the [Jumper](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java#20-200) class which jumps two cells forward and leaves a [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45).
+- **Blossom Actor**: Added the [Blossom](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#7-45) class for the Jumper to drop, which decays over time.
+- **Custom Execution**: Provided a master command to launch 5 bugs (Circle, Spiral, Z, Dancing, Jumper) in parallel from the `boxBug` directory.
+- **Grid Calibration**: Standardized all bug runners to use a consistent 25x25 `BoundedGrid` for better visibility and movement range.
+- **ZBug Fixes**: Resolved logic errors and import conflicts in [ZBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBug.java).
+- **SpiralBug Recreation**: Re-created the missing [SpiralBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBug.java#10-31) files, extended [Bug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBug.java#26-75) directly (imitating [BoxBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java#25-58) as requested by Activity 2), and updated its starting position to [(15, 10)](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44) to start lower on the grid.
+
+### 8. Implemented DancingBug
+I fixed the [DancingBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/DancingBug.java#27-67) logic and created a new runner:
+- **DancingBug**: Fixed the [act()](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/activity3/Blossom.java#37-44) method to correctly loop through the turn counts before moving.
+- **DancingBugRunner**: Created a new runner with the dance array from the PDF: `{1, 0, 0, 0, 1, 0, 0, 3, 4, 4, 0, 0, 1, 0, 3, 2, 0, 7, 0, 0, 0, 3, 2, 1}`.
+
+## Verification Results
+
+- **ZBug**: Verified with 1 bug in the world.
+- **DancingBug**: Verified. The bug performs its custom dance steps in the world.

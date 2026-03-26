@@ -1,0 +1,15 @@
+# Task: Migrate ML to Browser (Serverless)
+
+- [ ] Environment and Dependencies <!-- id: 0 -->
+    - [ ] Install `@mediapipe/tasks-vision` <!-- id: 1 -->
+    - [ ] Export KNN model data from Python to JSON <!-- id: 2 -->
+- [ ] Core ML Porting (JS/TS) <!-- id: 3 -->
+    - [ ] Implement Pose Detection service (MediaPipe) <!-- id: 4 -->
+    - [ ] Implement Pose Classification service (KNN) <!-- id: 5 -->
+    - [ ] Port joint angle and form correction logic <!-- id: 6 -->
+- [ ] UI Integration <!-- id: 7 -->
+    - [ ] Refactor [YogaSessionPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/YogaSessionPage.tsx) for local processing <!-- id: 8 -->
+    - [ ] Remove local backend dependencies and disclaimers <!-- id: 9 -->
+- [ ] Verification and Deployment <!-- id: 10 -->
+    - [ ] Verify real-time performance in browser <!-- id: 11 -->
+    - [ ] Deploy updated standalone app to GitHub Pages <!-- id: 12 -->

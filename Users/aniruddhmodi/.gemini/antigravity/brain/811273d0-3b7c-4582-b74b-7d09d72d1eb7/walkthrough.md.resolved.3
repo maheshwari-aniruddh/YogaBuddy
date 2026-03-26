@@ -1,0 +1,52 @@
+# PoseFlow Project Update
+
+I have successfully renamed the project from "YogaBuddy/OneBreath" to **PoseFlow** and set up the infrastructure for GitHub Pages deployment.
+
+## Changes Made
+
+### Renaming
+- Updated all occurrences of "YogaBuddy" and "OneBreath" to **PoseFlow** in:
+  - [one-breath-app/index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/index.html) (Title, Meta tags)
+  - [one-breath-app/src/components/StartupAnimation.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/StartupAnimation.tsx) (Hero title)
+  - [one-breath-app/src/components/OnboardingPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/OnboardingPage.tsx) (Welcome text)
+  - [one-breath-app/public/breathbox-meditation/index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/public/breathbox-meditation/index.html) (Meditation page title)
+  - [one-breath-app/start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/start.sh) and [one-breath-app/README.md](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/README.md) (Project documentation)
+
+### Deployment Setup
+- **Vite Configuration**: Updated [vite.config.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/vite.config.ts) with `base: "/YogaBuddy/"` to ensure assets load correctly on GitHub Pages under the `YogaBuddy` repository.
+- **GitHub Actions**: Created a deployment workflow at [.github/workflows/deploy.yml](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/.github/workflows/deploy.yml). This will automatically build and deploy your app to the `gh-pages` branch whenever you push to `main`.
+
+## Full Project Deployment (PoseFlow)
+I have deployed the entire project to the **PoseFlow** repository, which now hosts the main website via GitHub Pages.
+
+### Live Site URL
+**[maheshwari-aniruddh.github.io/PoseFlow/](https://maheshwari-aniruddh.github.io/PoseFlow/)**
+
+### Local ML Disclaimer
+As requested, I've added a disclaimer to the following locations in the web app:
+- **Home Screen**: A small note under the "Get Started" button.
+- **Yoga Session Screen**: A prominent warning box explaining that real-time AI feedback requires the local backend server (running at `localhost:5002`).
+
+## Next Steps for You
+1. **GitHub Pages Activation**:
+   - Go to your repository settings on GitHub: **[PoseFlow Settings > Pages](https://github.com/maheshwari-aniruddh/PoseFlow/settings/pages)**.
+   - Under **Build and deployment > Branch**, select **`gh-pages`** and the folder **`/(root)`**.
+   - Click **Save**.
+2. **Local Development**:
+   - To use the AI features on the live site, simply run [./start_yoga_web.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/start_yoga_web.sh) on your local machine. The site will automatically connect to your local backend.
+
+### Repository Structure
+- **YogaBuddy (Main)**: Contains the full project (Website + Python Backend). Used for GitHub Pages hosting.
+- **PoseFlow (Core ML)**: Contains *only* the essential machine learning logic and models for a clean start.
+
+## Next Steps
+1. **GitHub Pages Activation**:
+   - The GitHub Action is currently building the site. Once finished, a `gh-pages` branch will be created automatically.
+   - Ensure the repository settings for **Pages** point to the `gh-pages` branch.
+2. **Local Development**:
+   - To use the AI features on the live site, simply run [./start_yoga_web.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/start_yoga_web.sh) on your local machine. The site will automatically connect to your local backend.
+
+### Sharing the Chat
+To share this chat with another computer:
+- **Copy & Paste**: Simply copy the conversation text into a shared document or note.
+- **Account Sync**: If you are using a platform that supports cloud-synced chats, just log in with the same account on the other machine.

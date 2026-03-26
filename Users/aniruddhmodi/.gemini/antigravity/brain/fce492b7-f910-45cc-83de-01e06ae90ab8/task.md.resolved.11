@@ -1,0 +1,20 @@
+- [x] Debug "0 cities found" issue <!-- id: 1 -->
+    - [x] Inspect usPopData2017.txt format
+    - [x] Verify delimiter logic in Population.java
+    - [x] Fix parsing if necessary
+    - [x] Verify fix with DebugTokens
+    - [x] Fix ignored return value in constructor
+- [x] Fix printf exception <!-- id: 2 -->
+    - [x] Locate incorrectly formatted printf calls
+    - [x] Fix format specifiers in all print methods
+- [x] Fix citiesOfAName logic <!-- id: 4 -->
+    - [x] Print matchingCities instead of all cities
+    - [x] Handle cases with < 50 results
+    - [x] Fix Scanner misuse in run()
+- [x] Fix mostPopulation logic <!-- id: 5 -->
+    - [x] Print mostPopulation instead of all cities
+    - [x] Fix sort order (descending)
+- [/] Refine Exit Logic <!-- id: 6 -->
+    - [x] Remove System.exit()
+    - [x] Remove "Thanks" message check
+- [ ] Run Population.java <!-- id: 0 -->

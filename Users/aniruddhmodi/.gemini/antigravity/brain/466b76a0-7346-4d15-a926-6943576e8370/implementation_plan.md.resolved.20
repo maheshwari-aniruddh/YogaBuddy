@@ -1,0 +1,28 @@
+# Positional Reset Plan
+
+## Goal Description
+Require the finger to lift "up" (physically higher, lower Y-value) to a certain threshold to reset the key for the next strike.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Constants**:
+    - `PIANO_HEIGHT_PX = 150` (Already exists as variable, make constant).
+    - `RESET_POS_RATIO`: Ratio of screen height.
+    - If `piano_top_y = height - 150`, then `RESET_Y = piano_top_y`.
+- **Logic**:
+    - Current: `if speed < RESET_THRESHOLD: ready = True`
+    - **New**: `if tip_y_px < (height - piano_h): ready = True`
+    - This means you are "Above the keys".
+    - Strike only happens if `ready` is True.
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Press down (strike).
+- Keep finger low (in the key area) and wiggle -> Should NOT strike.
+- Lift finger up -> "Ready".
+- Strike again -> "Strike".

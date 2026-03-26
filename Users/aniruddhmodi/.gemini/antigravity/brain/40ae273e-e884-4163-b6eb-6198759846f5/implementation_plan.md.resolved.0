@@ -1,0 +1,34 @@
+# Fix Google Sign-In "Cancelled" Error
+
+## Goal
+Resolve the "cancelled" error during Google Sign-In by ensuring the correct scopes are requested. The application relies on Google Drive for storage (as seen in [DriveService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#10-247) and [LoginScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart#11-17) debug prints), but [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#5-49) currently initializes `GoogleSignIn` without any scopes. This mismatch often leads to authentication failures or subsequent permission errors.
+
+## User Review Required
+> [!IMPORTANT]
+> This change adds the `drive.driveFileScope` to the Google Sign-In request. Users will see a permission prompt asking for access to Google Drive files. This is expected and necessary for the app to function.
+
+## Proposed Changes
+
+### Auth Service
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- Initialize `GoogleSignIn` with `scopes: [drive.DriveApi.driveFileScope]`.
+- This ensures the user is prompted for Drive access during sign-in.
+
+### Login Screen
+#### [MODIFY] [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart)
+- Improve error handling to print more details to the console if sign-in returns failure.
+
+## Verification Plan
+
+### Manual Verification
+1.  Run the app on the device (iOS).
+2.  Tap "Sign in with Google Drive".
+3.  **Expectation**: The system consent dialog appears ("'Rozze' wants to use google.com to sign in").
+4.  Tap Continue.
+5.  **Expectation**: The Google Sign-In sheet appears. Select an account.
+6.  **Expectation**: A new permission screen appears asking for access to Drive files.
+7.  Allow the permissions.
+8.  **Expectation**: Sign-in succeeds, and the app navigates to the main screen.
+
+### Automated Tests
+- None (Authentication flow requires user interaction).

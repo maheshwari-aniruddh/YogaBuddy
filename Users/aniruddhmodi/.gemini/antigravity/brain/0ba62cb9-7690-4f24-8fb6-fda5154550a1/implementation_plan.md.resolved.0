@@ -1,0 +1,27 @@
+# Implementation Plan: Optimize Ablation Experiments for M2 Pro
+
+This plan addresses the user requests to optimize the existing ablation study for M2 Pro (Apple Silicon), add comprehensive training/validation metrics, and enable SHAP analysis for feature importance comparison.
+
+## User Review Required
+> [!IMPORTANT]
+> I will be enabling the `COMBINED` mode in [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) to answer the user's specific question about "which of the two feature extraction methods... helps most". This will add execution time but is necessary for the comparative SHAP analysis.
+
+## Proposed Changes
+
+### Research Code
+#### [MODIFY] [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py)
+- **Metrics**: Add calculation and printing of Precision, Recall, and F1 score for the **Training** set (currently only Validator is calculated).
+- **Optimization**:
+    - Ensure `tf.config.experimental.set_memory_growth` is applied.
+    - Set `tf.config.threading` parameters (inter/intra op parallelism) optimized for M2 cores (optional/experimental, will stick to safe defaults or slight bumps).
+    - Ensure input numpy arrays are contiguous in memory.
+    - Use `workers` argument in `model.fit` to prevent data starvation, even though data is in memory.
+- **SHAP**: Ensure SHAP plots are generated and saved correctly for all modes.
+
+### Script Wrapper
+#### [MODIFY] [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh)
+- Uncomment the `COMBINED` experiment section to perform the HOG+LBP comparison.
+
+## Verification Plan
+1.  **Dry Run**: I cannot fully run the training (too slow), but I will check the syntax and ensure the script starts correctly.
+2.  **Code Review**: proper manual review of the diffs.

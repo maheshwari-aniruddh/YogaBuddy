@@ -1,0 +1,19 @@
+# AR Instrument Studio Walkthrough (High Sensitivity)
+
+## Summary
+Increased sensitivity for effortless playing.
+
+## Updates
+-   **Sensitivity**: Defaulted to `0.05` (Easier to hit).
+-   **Circles**: Precision hits required.
+-   **Reset**: Strict **LIFT** required to re-arm.
+
+## Controls
+-   **Strike**: Light touch works now.
+-   **Reset**: Lift finger up.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

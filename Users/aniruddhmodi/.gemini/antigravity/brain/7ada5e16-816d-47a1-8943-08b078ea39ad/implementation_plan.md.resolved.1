@@ -1,0 +1,58 @@
+# Live Band / Jam Session Feature Integration
+
+Integrate real-time multiplayer jam sessions from the [airjam-jam-export](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export) folder into the existing AirPlay project. Players can host/join rooms via 6-char codes and play piano or drums together over WebSocket.
+
+## Proposed Changes
+
+### Backend — Session Server
+#### [NEW] [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/session_server.py)
+- Copy [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py) directly to project root (it's standalone)
+- FastAPI app on **port 8502**: `POST /create_room` + `GET /ws/{room_id}/{player_id}`
+- Broadcasts note messages to all other clients in the same room
+
+---
+
+### Backend — start.sh
+#### [MODIFY] [start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/start.sh)
+- Add a line to launch [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py) on port 8502 alongside existing servers
+- Add port 8502 kill on startup cleanup
+
+---
+
+### Frontend — instruments.html
+#### [MODIFY] [instruments.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/instruments.html)
+- Add **Jam Session** button card to the instrument selector (alongside Piano/Drums)
+- Add 3 new page divs: `jam-setup`, `jam-piano`, `jam-drums` (copied from export)
+
+---
+
+### Frontend — app.js
+#### [MODIFY] [app.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js)
+- Add `JAM_HOST`, `JAM_SESSION_WS_URL`, `JAM_SESSION_HTTP_URL` constants
+- Add [JamSessionManager](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#278-346) class + [playRemoteNoteSound()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#347-376) function
+- Add `window.addEventListener('message', ...)` handler for forwarding AR iframe notes to jam WS
+- Add jam pages to `pages` object: `jam-setup`, `jam-piano`, `jam-drums`
+- Add functions: [flashJamKey](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#1901-1909), [flashJamDrum](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#1910-1920), [initJamSetup](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#1921-1994), [initJamPiano](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#1995-2008), [initJamDrums](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#2009-2021), [exitJamSession](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#2022-2029)
+- Add `jamRoomId` state variable
+
+---
+
+### Frontend — styles.css
+#### [MODIFY] [styles.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/styles.css)
+- Append jam-specific CSS classes: `.jam-btn`, `.jam-setup-container`, `.jam-role-selector`, `.jam-room-input`, `.jam-room-badge`, `.jam-host-success`, etc.
+
+---
+
+### Dependencies
+- `fastapi` and `uvicorn` (already installed in `.venv` based on existing server usage)
+
+## Verification Plan
+
+### Automated
+- Start all servers via [start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/start.sh), confirm port 8502 is listening
+- Open instruments page, verify Jam Session button appears
+
+### Manual
+- Host a session → get 6-char code
+- Join from second tab with the code
+- Both pick Piano → play notes → verify other tab hears/sees them

@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Add a local JSON backup system to ensuring data is never lost, even if Drive sync fails.",
+  "updatedAt": "2026-01-25T07:59:11.174289Z"
+}

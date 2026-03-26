@@ -1,0 +1,29 @@
+# Walkthrough - Image Analysis Script (NLM, HOG, GLCM)
+
+I have created a new Python script [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py) that provides a side-by-side analysis of a single image using three key techniques: **Non-Local Means (NLM) Denoising**, **Histogram of Oriented Gradients (HOG)**, and **Gray-Level Co-occurrence Matrix (GLCM)**.
+
+## Changes Made
+
+### [New Script]
+#### [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py)
+ - **NLM Denoising**: Smooths the image while preserving edges.
+ - **HOG Visualization**: Highlights the orientation of gradients, useful for identifying shapes and structures (like tumor boundaries).
+ - **GLCM Analysis**: Computes texture features (Contrast, Homogeneity, Energy, etc.) and provides a heatmap of the co-occurrence matrix.
+
+## Results
+
+I ran the script on [image.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/image.png), and it successfully generated the following analysis:
+
+![Image Analysis Result](/Users/aniruddhmodi/.gemini/antigravity/brain/a16dc034-204e-4cd5-b277-b325cd721a61/analysis_result.png)
+
+### Features Extracted
+- **NLM**: Effectively reduced noise in the grayscale representation.
+- **HOG**: Visualized the primary edge orientations.
+- **GLCM**: Quantified the texture complexity.
+
+## How to Run
+To run the analysis on any image:
+```bash
+.venv/bin/python nlm_hog_glcm_analysis.py [path_to_image]
+```
+By default, it uses [image.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/image.png) in the root directory.

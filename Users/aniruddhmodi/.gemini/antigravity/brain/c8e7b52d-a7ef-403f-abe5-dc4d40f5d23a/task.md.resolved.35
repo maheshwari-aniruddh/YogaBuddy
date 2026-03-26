@@ -1,0 +1,7 @@
+# Task: Fix Firebase
+
+- [x] Retrieve Project ID from [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/GoogleService-Info.plist) <!-- id: 0 -->
+- [x] Create/Fix [.firebaserc](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/.firebaserc) and [firebase.json](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/firebase.json) <!-- id: 1 -->
+- [x] Verify [ios/Runner/Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) URL Schemes <!-- id: 2 -->
+- [x] Deploy Firestore Rules <!-- id: 3 -->
+- [x] Configure and Deploy Firestore Indexes <!-- id: 4 -->

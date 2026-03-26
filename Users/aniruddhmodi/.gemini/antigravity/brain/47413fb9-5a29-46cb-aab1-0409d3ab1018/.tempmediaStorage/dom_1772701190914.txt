@@ -1,0 +1,85 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+To publish apps, finish setting up your developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-mpi-0' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-mpi-0' role='button' />
+[4] (826,87)<div  />
+	[5] (826,87)<button aria-label='Unread notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-mpi-24 mdc-button--tonal' />
+		notifications_unread
+		Unread notifications
+[6] (930,86)<div  />
+	[7] (930,86)<div aria-label='Rozze' class='active-app-button _ngcontent-mpi-1' role='button' />
+		Rozze
+		[8] (930,86)<material-ripple  />
+[9] (976,87)<div  />
+	[10] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-mpi-4' />
+		[11] (976,86)<div  />
+[12] (101,148)<a class='back-button mdc-button mdc-button--text mdc-button--icon-text _ngcontent-mpi-14' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[13] (26,148)<material-icon  />
+		[14] (26,148)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>keyboard_backspace />
+	[15] (67,148)<span >All apps />
+[16] (96,227)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/app-dashboard' role='button' />
+	[17] (26,227)<console-icon  />
+		[18] (26,227)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[19] (26,227)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>dashboard />
+	[20] (69,227)<span >Dashboard />
+[21] (96,276)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/statistics' role='button' />
+	[22] (26,276)<console-icon  />
+		[23] (26,276)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[24] (26,276)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>bar_chart />
+	[25] (65,276)<span >Statistics />
+[26] (96,324)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/publishing' role='button' />
+	[27] (26,324)<console-icon  />
+		[28] (26,324)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[29] (26,324)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>overview />
+	[30] (89,324)<span >Publishing overview />
+[31] (99,401)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/test-and-release' role='button' />
+	[32] (26,401)<console-icon  />
+		[33] (26,401)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[34] (26,401)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>rocket_launch />
+	[35] (81,401)<span >Test and release />
+[36] (99,474)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/monitor' role='button' />
+	[37] (26,474)<console-icon  />
+		[38] (26,474)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[39] (26,474)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>vital_signs />
+	[40] (91,474)<span >Monitor and improve />
+[41] (99,547)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/grow-overview' role='button' />
+	[42] (26,547)<console-icon  />
+		[43] (26,547)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[44] (26,547)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>finance_mode />
+	[45] (70,547)<span >Grow users />
+[46] (99,608)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[47] (55,609)<span >Store presence />
+	[48] (171,609)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_less />
+Store listings
+[49] (99,671)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/store-listing-experiments/overview' role='button' />
+	[50] (87,671)<span >Store listing experiments />
+[51] (99,715)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/store-settings' role='button' />
+	[52] (63,715)<span >Store settings />
+[53] (99,778)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[54] (63,778)<span >Store performance />
+	[55] (171,778)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_more />
+[56] (99,841)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[57] (48,841)<span >Translations />
+	[58] (171,841)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>expand_more />
+[59] (99,903)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/deeplinks' role='button' />
+	[60] (44,903)<span >Deep links />
+[61] (99,981)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/monetize' role='button' />
+	[62] (26,981)<console-icon  />
+		[63] (26,981)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[64] (26,981)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>sell />
+	[65] (87,981)<span >Monetize with Play />
+[66] (598,563)<div class='main-content _ngcontent-mpi-0' id='main-content' scrollable='true' />
+	Store listings
+	Manage how your app is presented to users on Play
+	Your store listing is the first thing that a user sees when they find your app on Play. Once you've created your default store listing, you can create custom store listings to target specific audiences with tailored content.
+	[67] (291,736)<button class='mdc-button mdc-button--unelevated primary'>Create default store listing />
+		Create default store listing
+	[68] (401,736)<a aria-label='Learn more about Store listings (opens in a new tab)' class='mdc-button mdc-button--text pc-text-tertiary' href='https://support.google.com/googleplay/android-developer/answer/9156429' />
+		[69] (401,736)<span >Learn more />
+
+</current_dom>

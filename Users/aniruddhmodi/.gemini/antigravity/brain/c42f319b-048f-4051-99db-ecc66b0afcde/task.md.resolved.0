@@ -1,0 +1,8 @@
+# Sudoku Solver Skeleton
+
+- [ ] Create `SudokuSolver.java` skeleton <!-- id: 0 -->
+    - [ ] Implement `main` method with sample board <!-- id: 1 -->
+    - [ ] Implement `printBoard` helper method <!-- id: 2 -->
+    - [ ] Implement `isValid` helper method <!-- id: 3 -->
+    - [ ] Create stub for `solve` method (recursive part for user) <!-- id: 4 -->
+- [ ] Verify compilation <!-- id: 5 -->

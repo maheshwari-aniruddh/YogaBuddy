@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to train YOLOv8 classifier on the Sing Garbage Dataset. Includes data splitting and training script.",
+  "updatedAt": "2025-12-06T06:54:05.563229Z"
+}

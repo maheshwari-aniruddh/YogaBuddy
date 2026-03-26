@@ -1,0 +1,42 @@
+# Music Recording Feature for Composer Mode
+
+Add the ability to record played notes and export as a WAV file.
+
+## Proposed Changes
+
+### Backend ([ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py))
+
+#### [MODIFY] [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+
+1. **Add MusicRecorder class** - Records note events with timestamps and mixes them into a WAV file:
+   - `start_recording()` - Begin capturing note events
+   - `record_note(note_name, timestamp)` - Log each played note
+   - `stop_recording()` - Stop and export to WAV file
+   - `export_wav(filename)` - Mix notes at correct timestamps and save
+
+2. **Add recording controls in embed mode** - Streamlit buttons for Record/Stop/Download
+
+3. **Modify AudioEngine.play()** - Call recorder when active to log notes
+
+---
+
+### Frontend ([piano-composer.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-composer.html))
+
+#### [MODIFY] [piano-composer.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/piano-composer.html)
+
+1. **Add Record button** to controls bar (red record icon)
+2. **Add Stop button** (appears when recording)
+3. **Show recording indicator** (pulsing red dot)
+
+---
+
+## Verification Plan
+
+### Manual Testing
+1. Open http://localhost:8080/piano-composer.html
+2. Click the Record button - should show recording indicator
+3. Play some notes on the AR piano
+4. Click Stop - file should download automatically
+5. Open the downloaded WAV file and verify it contains the recorded music
+
+**Note:** This feature involves audio file generation which requires manual verification.

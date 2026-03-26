@@ -1,0 +1,24 @@
+# Task: Compile and Fix BoxBug
+
+- [x] Analyze [BoxBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java) and [BoxBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBugRunner.java) for errors <!-- id: 0 -->
+- [x] Attempt to compile [BoxBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java) using Mac commands <!-- id: 1 -->
+- [x] Fix any identified errors <!-- id: 2 -->
+- [ ] Provide correct Mac commands to the user <!-- id: 3 -->
+- [x] Verify execution <!-- id: 4 -->
+- [x] Compile and run [CircleBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBug.java#25-57) <!-- id: 5 -->
+- [x] Increase grid size in [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java) <!-- id: 6 -->
+- [x] Verify grid size change <!-- id: 7 -->
+- [x] Analyze [CircleBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBug.java) against PDF requirements <!-- id: 8 -->
+- [x] Provide feedback on [CircleBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBug.java) <!-- id: 9 -->
+- [x] Implement [SpiralBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBug.java) <!-- id: 10 -->
+- [x] Implement [SpiralBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/SpiralBugRunner.java) with `UnboundedGrid` <!-- id: 11 -->
+- [x] Verify `SpiralBug` execution <!-- id: 12 -->
+- [x] Create [ZBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBugRunner.java) <!-- id: 13 -->
+- [x] Run [ZBugRunner](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBugRunner.java#13-24) <!-- id: 14 -->
+- [x] Fix syntax error in [ZBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBug.java) <!-- id: 15 -->
+- [x] Resolve duplicate class conflict in `activity2` folder <!-- id: 17 -->
+- [x] Create [DancingBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/DancingBugRunner.java) with 25x25 grid <!-- id: 19 -->
+- [x] Fix [DancingBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/DancingBug.java) act logic and imports <!-- id: 21 -->
+- [x] Analyze [Jumper.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/Jumper.java) and [JumperRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/JumperRunner.java) <!-- id: 22 -->
+- [x] Fix [ZBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/ZBug.java) imports and Javadoc <!-- id: 24 -->
+- [x] Run all 5 bugs (Circle, Spiral, Z, Dancing, Jumper) <!-- id: 25 -->

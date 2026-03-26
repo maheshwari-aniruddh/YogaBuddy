@@ -1,0 +1,7 @@
+# Task: Compile and Fix BoxBug
+
+- [ ] Analyze [BoxBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java) and [BoxBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBugRunner.java) for errors <!-- id: 0 -->
+- [ ] Attempt to compile [BoxBug.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java) using Mac commands <!-- id: 1 -->
+- [ ] Fix any identified errors <!-- id: 2 -->
+- [ ] Provide correct Mac commands to the user <!-- id: 3 -->
+- [ ] Verify execution <!-- id: 4 -->

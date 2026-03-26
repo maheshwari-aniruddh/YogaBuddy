@@ -1,0 +1,41 @@
+# Implementation Plan - Remove #tags Feature (UI Only)
+
+The goal is to remove the "Wrap Up" tags input from the [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25). The underlying data model and other features (search, export, analysis) will retain support for tags to preserve backward compatibility and support existing data.
+
+## Proposed Changes
+
+### UI Layer
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- Remove `_tagsController`.
+- Remove "Tags" text field from [_buildActionsPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#645-802).
+- Remove tag saving logic in [_autoSave](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#84-122) (new entries will have empty tags).
+
+### Data Layer
+- **SKIPPED**: [journal_entry.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart) will remain unchanged to support legacy data.
+- **SKIPPED**: [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart) will continue to use tags for keywords if present.
+- **SKIPPED**: [search_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/search_screen.dart) will continue to display tags for old entries.
+- **SKIPPED**: [pdf_export_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/pdf_export_service.dart) will continue to export tags if present.
+
+### Services
+
+#### [MODIFY] [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+- Update [search()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#109-119) to stop filtering by tags.
+- Update [getWeeklyKeywords()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#213-295) to stop including tags in the text analysis.
+
+#### [MODIFY] [pdf_export_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/pdf_export_service.dart)
+- Remove the tags section from the generated PDF.
+
+## Verification Plan
+
+### Automated Tests
+- Run `flutter test` (if available) to check for regressions.
+
+### Manual Verification
+1.  **Build App**: Run `flutter run` on the iOS simulator or device.
+2.  **Check UI**: Open the "Today" screen (Add Entry) and verify the "Tags" input field is gone.
+3.  **Save Entry**: Save a new entry without tags and ensure it saves successfully.
+4.  **Search**: Open the Search screen.
+    -   Verify that valid text searches still work.
+    -   Verify that previous entries load without crashing (backward compatibility test for [fromJson](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#44-57)).
+5.  **Export**: Trigger PDF export (if accessible) and verify no errors occur.

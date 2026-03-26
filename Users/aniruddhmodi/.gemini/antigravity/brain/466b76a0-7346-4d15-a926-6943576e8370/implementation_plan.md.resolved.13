@@ -1,0 +1,33 @@
+# Velocity Detection Plan ("Cobra Strike")
+
+## Goal Description
+Switch detection to trigger on fast downward motion (high velocity) rather than static position or geometry.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **State**:
+    - Add `st.session_state.prev_finger_y = {}` to store `{'Thumb': 0.5, ...}`.
+- **Parameters**:
+    - `VELOCITY_THRESHOLD`: Start around `0.02` (change in normalized Y per frame). Positive means moving DOWN.
+- **Logic**:
+    - For each finger:
+        - `current_y = tip.y`
+        - `delta_y = current_y - prev_y`
+        - `prev_y = current_y` (update state)
+        - **Check**:
+            - If `delta_y > VELOCITY_THRESHOLD` AND `tip_y > piano_top_y`:
+                - **PLAY NOTE**.
+- **Edge Case**:
+    - "Cooldown" is naturally handled because you have to stop moving down (speed drops) or move up (negative speed) to strike again. But we might need a small cooldown to prevent one strike registering as 3 frames of fast movement.
+    - I will add a `STRIKE_COOLDOWN` timestamp map.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- "Strike" keys like a drum.
+- Verify fast taps work.
+- Verify slow descent (hovering) does *not* trigger.

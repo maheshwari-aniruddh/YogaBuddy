@@ -1,0 +1,69 @@
+To publish apps, finish setting up your developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-mpi-0' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-mpi-0' role='button' />
+[4] (826,87)<div  />
+	[5] (826,87)<button aria-label='Unread notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-mpi-24 mdc-button--tonal' />
+		notifications_unread
+		Unread notifications
+[6] (930,86)<div  />
+	[7] (930,86)<div aria-label='Rozze' class='active-app-button _ngcontent-mpi-1' role='button' />
+		Rozze
+		[8] (930,86)<material-ripple  />
+[9] (976,87)<div  />
+	[10] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-mpi-4' />
+		[11] (976,86)<div  />
+[12] (101,148)<a class='back-button mdc-button mdc-button--text mdc-button--icon-text _ngcontent-mpi-14' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[13] (26,148)<material-icon  />
+		[14] (26,148)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>keyboard_backspace />
+	[15] (67,148)<span >All apps />
+[16] (96,227)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/app-dashboard' role='button' />
+	[17] (26,227)<console-icon  />
+		[18] (26,227)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[19] (26,227)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>dashboard />
+	[20] (69,227)<span >Dashboard />
+[21] (96,276)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/statistics' role='button' />
+	[22] (26,276)<console-icon  />
+		[23] (26,276)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[24] (26,276)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>bar_chart />
+	[25] (65,276)<span >Statistics />
+[26] (96,324)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/publishing' role='button' />
+	[27] (26,324)<console-icon  />
+		[28] (26,324)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[29] (26,324)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>overview />
+	[30] (89,324)<span >Publishing overview />
+[31] (99,401)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/test-and-release' role='button' />
+	[32] (26,401)<console-icon  />
+		[33] (26,401)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[34] (26,401)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>rocket_launch />
+	[35] (81,401)<span >Test and release />
+[36] (99,474)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/monitor' role='button' />
+	[37] (26,474)<console-icon  />
+		[38] (26,474)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[39] (26,474)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>vital_signs />
+	[40] (91,474)<span >Monitor and improve />
+[41] (99,547)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/grow-overview' role='button' />
+	[42] (26,547)<console-icon  />
+		[43] (26,547)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[44] (26,547)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>finance_mode />
+	[45] (70,547)<span >Grow users />
+[46] (99,619)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/monetize' role='button' />
+	[47] (26,619)<console-icon  />
+		[48] (26,619)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[49] (26,619)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>sell />
+	[50] (87,619)<span >Monetize with Play />
+[51] (598,563)<div class='main-content _ngcontent-mpi-0' id='main-content' scrollable='true' />
+	Dashboard
+	Get ready to publish your app
+	You've taken the first step towards making your app available to billions of users on Google Play. You can start testing your app right away using internal testing. To publish to everyone, you need to finish setting up your app, complete a closed test, and apply for production access.
+	[52] (258,551)<a aria-label='Learn more about Dashboard (opens in a new tab)' class='mdc-button mdc-button--unelevated' href='https://support.google.com/googleplay/android-developer/answer/14151465' />
+		[53] (258,551)<span >Learn more />
+	[54] (325,551)<button aria-label='Hide detailed description about Dashboard' class='mdc-button overflowable-button mdc-button--text pc-text-tertiary'>Hide />
+		Hide
+	Internal testing
+	Quickly share your app now for initial quality checks
+	Before you've finished setting up your app, you can quickly distribute builds to your own device, or to a small group of your own trusted users. Builds are normally available to users within seconds of being added in Play Console. This is optional, and you'll still need to run a closed test before publishing to everyone in production.
+	[55] (605,951)<a href='https://support.google.com/googleplay/android-developer/answer/9845334'>Learn more />
+	View tasks
+	expand_more

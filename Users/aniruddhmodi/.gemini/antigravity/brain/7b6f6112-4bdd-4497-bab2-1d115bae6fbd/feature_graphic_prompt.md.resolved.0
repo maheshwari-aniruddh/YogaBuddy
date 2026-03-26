@@ -1,0 +1,27 @@
+# 🎨 Google Play Store Feature Graphic Prompt (Rozze)
+
+**Dimensions Requirement for Google Play**: 1024 pixels wide by 500 pixels tall (1024x500).
+
+*Copy and paste the following prompt into Midjourney, DALL-E 3, or your preferred AI image generator. If using Midjourney, ensure you add `--ar 2:1` at the end of the prompt.*
+
+***
+
+### The Prompt
+
+```text
+A highly aesthetic, modern, and minimalist promotional feature graphic for a journaling app called "Rozze." The overall color palette should be soft, calming, and premium: warm cream (#FDFBF7), dusty rose (#C48B8B), and muted forest green (#9BB09D). 
+
+The composition is split or layered smoothly. On one side, sleek, floating 3D glassmorphic UI elements showing a daily mood tracker chart and an audio recording waveform (symbolizing a "30-second audio journal"). On the other side, a soft, out-of-focus background of a serene, cozy coffee shop desk bathed in warm morning sunlight, with a journal notebook and a matcha latte.
+
+The design must feel deeply calming, private, and frictionless (ADHD-friendly mindfulness). There should be a beautiful, clean negative space in the center/upper-left area where bold white or dark-rose typography can be overlaid later. High resolution, 8k, UI/UX conceptual art, soft studio lighting, ultra-detailed, highly aesthetic.
+```
+
+***
+
+### 🛠️ Post-Generation Instructions (How to use the result)
+Once the AI generates the image:
+1. Open it in **Figma** or **Canva**.
+2. Resize or crop the canvas exactly to **1024x500**.
+3. In the empty/negative space the AI left for you, add your app's name **"Rozze"** in a clean, modern Serif or Sans-Serif font (like *Playfair Display* or *Inter*).
+4. Below it, add your tagline in a smaller, lighter font: *"Capture your moments, effortlessly."*
+5. Export as a PNG or JPEG with a maximum file size of 1MB, and upload it to the Google Play Console!

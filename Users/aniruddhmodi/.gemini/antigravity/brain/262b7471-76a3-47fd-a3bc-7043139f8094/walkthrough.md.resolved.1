@@ -1,0 +1,38 @@
+# Walkthrough: Fixing Compilation Errors and Running GridWorld Programs
+
+I fixed the errors in the [BoxBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java#25-58) compilation and started the [CircleBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java#30-43) program as requested.
+
+## Changes Made
+
+### 1. Identified Syntax Errors
+The common errors when moving from Windows to Mac (or Linux) are:
+- **Quotes**: Using "curly quotes" (`“`, `”`) instead of standard straight quotes (`"`).
+- **Classpath Separator**: Windows uses `;`, while Mac uses `:`.
+- **Package Paths**: Running classes requires pointing to the root of the source directory.
+
+### 2. Compiled and Ran BoxBug
+The correct commands for your Mac environment are:
+```bash
+# Compile from project root
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/*.java
+
+# Run from project root (note the : instead of ;)
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.BoxBugRunner
+```
+
+### 4. Increased Grid Size
+I updated [CircleBugRunner.java](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/CircleBugRunner.java) to use a **20x20 BoundedGrid**. This was done by:
+- Importing `info.gridworld.actor.Actor` and `info.gridworld.grid.BoundedGrid`.
+- Changing the `ActorWorld` constructor to `new ActorWorld(new BoundedGrid<Actor>(20, 20))`.
+
+### 3. Compiled and Ran CircleBug
+I have already executed these for you:
+```bash
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/CircleBug*.java
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.CircleBugRunner
+```
+
+## Verification Results
+
+- **BoxBug**: Verified compilation and execution.
+- **CircleBug (Larger Grid)**: Re-compiled and verified. You should now see a 20x20 grid on your screen.

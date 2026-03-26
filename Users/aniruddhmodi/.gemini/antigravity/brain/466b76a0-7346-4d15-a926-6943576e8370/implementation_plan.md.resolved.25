@@ -1,0 +1,25 @@
+# Circular Drums Plan
+
+## Goal Description
+Change Air Drums from 4 full quadrants to 4 specific circular "pads".
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Configuration**:
+    - `DRUM_ZONES`: List of dicts `{'name': 'SNARE', 'pos': (0.25, 0.35), 'radius': 0.15, 'color': ...}`
+- **Visuals**:
+    - Loop through `DRUM_ZONES` and draw `cv2.circle` (outline).
+    - If hit, draw filled circle.
+- **Logic**:
+    - Iterate `DRUM_ZONES`.
+    - Check `distance(finger_tip, zone_center) < zone_radius`.
+    - If True, set `sound_to_play` and flash.
+
+## Verification Plan
+### Manual Verification
+- Run [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py).
+- Hit the air *between* drums -> No sound.
+- Hit the specific circle -> Sound.

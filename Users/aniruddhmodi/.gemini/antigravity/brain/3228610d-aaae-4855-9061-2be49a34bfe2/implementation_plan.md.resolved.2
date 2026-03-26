@@ -1,0 +1,63 @@
+# Robust Data Augmentation Plan
+
+## Goal
+Improve the EfficientNet-B0 Hybrid model's generalization to unseen MRI sequences (T1C+, T2) from the 17-class dataset without directly training on it. This will be achieved by introducing heavy data augmentations to the original dataset to simulate sequence variance.
+
+## 17-Class Accuracies to Improve Upon
+Here are the current baseline accuracies per class on the new 17-class dataset:
+
+**Known Classes (Classification Accuracy):**
+*   Glioma T1: 1.9%
+*   Glioma T1C+: 21.7%
+*   Glioma T2: 1.2%
+*   Meningioma T1: 7.5%
+*   Meningioma T1C+: 63.5%
+*   Meningioma T2: 31.3%
+*   NORMAL T1: 88.2%
+*   NORMAL T2: 98.3%
+
+**OOD Detection Rate (Should be 100%):**
+*   Neurocitoma T1: 5.9%
+*   Neurocitoma T1C+: 21.1%
+*   Neurocitoma T2: 50.9%
+*   Outros Lesões T1: 5.9%
+*   Outros Lesões T1C+: 54.2%
+*   Outros Lesões T2: 22.8%
+*   Schwannoma T1: 67.3%
+*   Schwannoma T1C+: 92.8%
+*   Schwannoma T2: 72.4%
+
+## Proposed Changes
+
+### Train with Heavy Augmentation & Normalization
+Modify [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) to include a strong augmentation pipeline and CLAHE using torchvision/skimage:
+
+#### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+1.  **Add CLAHE Preprocessing:** Create a custom `ApplyCLAHE` transform using `skimage.exposure.equalize_adapthist` to ensure all incoming MRIs have standardized lighting/contrast distributions regardless of the source hospital.
+2.  **Update Transforms:** Replace the current simple `transforms.Resize` and `transforms.ToTensor()` with a robust augmentation pipeline for the training set:
+    *   `ApplyCLAHE`: Add as the very first step to raw images.
+    *   `ColorJitter`: Randomly change brightness, contrast, saturation, and hue to simulate different MRI exposure/contrast settings (like T1C+).
+    *   `RandomAffine`: Add random rotations (±15 degrees), translations (±10%), and scaling (±10%) to simulate different head positions.
+    *   `RandomErasing`: (Optional) Randomly mask out portions of the image to force the model to look at the whole tumor instead of relying on specific localized features.
+    *   `GaussianBlur`: Add random blurring to simulate lower quality/T2 scans.
+3.  **Separate Train/Val Transforms:** Keep validation/testing transforms clean (only resize, strict normalize, and CLAHE) so evaluations remain consistent.
+4.  **Model Saving:** Save the newly trained model as [models_full/efficientnet_b1_hog_glcm_aug.pth](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/models_full/efficientnet_b1_hog_glcm_aug.pth) to compare against the baseline.
+
+#### [MODIFY] [predict.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict.py), [eval_ood.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_ood.py), [eval_new_dataset.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_new_dataset.py), [compute_ood_stats.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/compute_ood_stats.py)
+1.  Add the identical `ApplyCLAHE` transform to the top of all inference and evaluation scripts.
+2.  Inject `ApplyCLAHE()` into `preprocess` and `raw_transform` so that all inference matches the exact lighting distribution the network sees during training.
+
+### Evaluation Updates
+We need to compute the new OOD statistics dynamically based on the newly trained, augmented model.
+
+#### [MODIFY] [compute_ood_stats.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/compute_ood_stats.py)
+1.  Add support for the new `_aug` model weight path.
+2.  Ensure it uses the clean, *unaugmented* `raw_transform` and `preprocess` when extracting features from the training set, so the distributions are stable.
+
+#### [MODIFY] [eval_ood.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_ood.py)
+1.  Update the script to load the `_aug` model and its corresponding `ood_stats_aug.pt` to test the new accuracies.
+
+## Verification Plan
+1.  **Train:** Run the updated [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) with 30 epochs and early stopping.
+2.  **Compute Stats:** Run [compute_ood_stats.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/compute_ood_stats.py) to generate the new Mahalanobis threshold.
+3.  **Evaluate:** Run [eval_ood.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_ood.py) and compare the new accuracies across all 17 classes against the baseline listed above. We expect significant improvements in Glioma T1C+/T2 and Meningioma T1/T2 accuracy.

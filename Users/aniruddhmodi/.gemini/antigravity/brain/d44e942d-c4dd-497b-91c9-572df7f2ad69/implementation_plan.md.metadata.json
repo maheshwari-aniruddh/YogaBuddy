@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Fix the logout freeze issue by ensuring `AuthWrapper` shows the `LoginScreen` instead of the `SplashScreen` when no user is detected after initialization.",
+  "updatedAt":  "2026-01-06T03:01:03.445254Z",
+  "version":  "4"
+}

@@ -1,0 +1,15 @@
+# Task: Implement Localization
+
+- [x] Add dependencies to [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) <!-- id: 0 -->
+    - [x] `flutter_localizations` <!-- id: 1 -->
+    - [x] `intl` <!-- id: 2 -->
+- [x] Create [l10n.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/l10n.yaml) and ARB files <!-- id: 3 -->
+    - [x] English (Template) <!-- id: 4 -->
+    - [x] Hindi <!-- id: 5 -->
+    - [x] Spanish <!-- id: 6 -->
+    - [x] French <!-- id: 7 -->
+    - [x] Chinese <!-- id: 8 -->
+- [x] Configure [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) for Localization <!-- id: 9 -->
+- [x] Create `LocalesProvider` / Language State management <!-- id: 10 -->
+- [x] Add Language Selector in [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#20-27) <!-- id: 11 -->
+- [x] Refactor UI strings (Partial/Key screens) <!-- id: 12 -->

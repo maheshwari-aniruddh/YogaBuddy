@@ -1,0 +1,46 @@
+R
+Roze
+[0] (404,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#features'>Features />
+[1] (471,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#how-it-works'>How It Works />
+[2] (535,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#privacy'>Privacy />
+[3] (588,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#science'>Science />
+[4] (871,59)<button class='justify-center whitespace-nowrap transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-foreground text-background py-4 hover:scale-[1.02] shadow-elevated hover:shadow-glow font-semibold tracking-wide h-9 rounded-lg px-3 text-xs hidden sm:flex items-center gap-2' />
+	[5] (879,59)<span >Download />
+30-Second Audio Journaling
+Capture your
+moments
+,
+effortlessly.
+Your private audio journal with mood tracking. Record how you feel in 30 seconds, secured with biometrics. Beautiful daily mindfulness.
+[6] (203,733)<button class='inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-foreground text-background py-4 hover:scale-[1.02] shadow-elevated hover:shadow-glow font-semibold tracking-wide h-14 rounded-2xl px-8 text-base group' />
+	[7] (211,733)<div  />
+		[8] (211,722)<span >Download on the />
+		[9] (201,742)<span >App Store />
+[10] (342,733)<button class='inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-[hsl(var(--cream)/0.85)] backdrop-blur-xl border border-[hsl(var(--border)/0.5)] text-foreground hover:shadow-elevated hover:scale-[1.02] h-14 rounded-2xl px-8 text-base group' />
+	[11] (309,733)<div  />
+	[12] (356,733)<span >Watch Demo />
+10K+ users
+4.9
+9:41
+Today
+How are you feeling?
+😊
+😌
+😔
+😤
+Mood
+History
+9:41
+Your Week
+M
+T
+W
+T
+F
+S
+S
+Entries
+42
+Streak
+7 days
+Scroll

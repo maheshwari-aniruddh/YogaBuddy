@@ -1,0 +1,7 @@
+# Task Checklist
+- [ ] Open http://localhost:8502/piano-player.html
+- [ ] Check console logs for "[DEBUG] Loading piano samples..." and "[DEBUG] Loaded sample for ..."
+- [ ] Select "Twinkle Twinkle Little Star"
+- [ ] Click "Start Song"
+- [ ] Check for "playNote" logs and AudioContext status
+- [ ] Report findings

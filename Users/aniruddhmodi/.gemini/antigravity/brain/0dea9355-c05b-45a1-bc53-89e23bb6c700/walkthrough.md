@@ -1,0 +1,64 @@
+# Feedback Feature & TestFlight Guide
+
+## Changes Implemented
+1.  **Feedback Screen**: Added a new tab "Feedback" (next to Settings) where users can submit text feedback.
+2.  **Firestore Integration**: Feedback is saved to the `feedback` collection in your Firebase project.
+3.  **Bundle Identifier**: Updated to `com.aniruddh.roze` to prepare for TestFlight.
+
+## How to Check Feedback
+1.  Go to the [Firebase Console](https://console.firebase.google.com/).
+2.  Select your project ("the-30sec-journal" or similar).
+3.  Navigate to **Firestore Database** > **Data**.
+4.  Look for the `feedback` collection. You will see documents submitted by users there.
+
+## How to Run on Physical iPhone
+1.  Connect your iPhone to your Mac via cable.
+2.  Open the project in Xcode:
+    ```bash
+    open ios/Runner.xcworkspace
+    ```
+3.  In Xcode, select your **Team** in the **Signing & Capabilities** tab of the Runner target.
+4.  Select your iPhone from the device list in the top toolbar.
+5.  Click the **Run** (Play) button.
+    *   *Note: On your iPhone, you may need to go to Settings > General > VPN & Device Management to trust your developer certificate.*
+
+## How to Distribute to TestFlight
+1.  **Create App ID**: Go to [Apple Developer Portal](https://developer.apple.com/account/resources/identifiers/list) and create an App ID for `com.aniruddh.roze`.
+2.  **Create App**: Go to [App Store Connect](https://appstoreconnect.apple.com/) and create a new App with that Bundle ID.
+3.  **Archive**:
+    *   In Xcode, select "Any iOS Device (arm64)" as the target.
+    *   Go to **Product** > **Archive**.
+4.  **Upload**:
+    *   Once the archive finishes, the Organizer window opens.
+    *   Click **Distribute App** > **TestFlight & App Store** > **Distribute**.
+5.  **Beta Testing**:
+    *   In App Store Connect, go to the **TestFlight** tab.
+    *   Add yourself or others to "Internal Testing" to get the invite email.
+
+> [!IMPORTANT]
+
+## How to Publish to the App Store (Production)
+Once you are happy with the feedback from TestFlight, here is how to release to the public:
+
+1.  **Prepare Final Build**:
+    *   In `pubspec.yaml`, update the version to your release version (e.g., `1.0.0+1`).
+    *   Run `flutter build ios --release` and Archive in Xcode just like you did for TestFlight.
+    *   Upload the build to App Store Connect.
+
+2.  **Create Store Listing**:
+    *   Log in to [App Store Connect](https://appstoreconnect.apple.com/).
+    *   Go to **My Apps** > Select your app.
+    *   In the sidebar, under **App Store**, click the **(+)** button to create a new Version (e.g., "1.0 Ready for Sale").
+    *   **Screenshots**: Upload screenshots for required iPhone sizes (6.5" and 5.5").
+    *   **App Info**: Fill in Description, Keywords, Support URL, and Marketing URL.
+    *   **Build**: Scroll down to the "Build" section and click (+) to select the build you just uploaded.
+
+3.  **Submit for Review**:
+    *   Click **Save** and then **Add for Review**.
+    *   Answer the compliance questions (Encryption, IDFA, etc.).
+    *   Submit. Apple usually reviews apps within 24–48 hours.
+
+4.  **Release**:
+    *   Once approved, the status changes to "Pending Developer Release" (if you chose manual release) or "Ready for Sale" (automatic).
+    *   If manual, click **Release This Version** to make it live on the App Store!
+

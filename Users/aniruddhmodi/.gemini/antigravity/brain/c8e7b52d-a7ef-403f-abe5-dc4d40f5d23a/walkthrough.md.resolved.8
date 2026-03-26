@@ -1,0 +1,18 @@
+# Walkthrough - SuperThanks Overhaul & Fixes
+
+I've transformed the SuperThanks experience into something truly celebratory and fixed the layout issues.
+
+## SuperThanks Redesign 🎉
+-   **Receipt Overlay**: Replaced the standard dialog with a **fun, animated overlay** that slides down from the top.
+-   **Super-Sized**: The "SUPERTHANKS!" header is now big, bold, and energetic.
+-   **More Confetti**: Increased the confetti amount and duration for a proper celebration.
+-   **Smart Messages**: The message bubble only appears if the sender actually wrote something special. No more generic "Sent you a SuperThanks!" text.
+
+## Bug Fixes 🐛
+-   **RenderFlex Overflow**: Wrapped the [SuperThanksScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart#6-12) content in a scrollable view. You can now use the keyboard without the layout breaking or showing striped patterns.
+-   **Layout Locked**: To prevent weird stretching, the app is now locked to Portrait mode.
+
+## How to Verify
+1.  **Send a SuperThanks**: Send one to yourself (search for your name).
+2.  **Watch the Magic**: An overlay should slide down from the top with confetti.
+3.  **Check Layout**: Open the keyboard on the "Send Gratitude" screen—it should now scroll smoothly instead of crashing/overflowing.

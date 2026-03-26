@@ -1,0 +1,10 @@
+# Task: Refine SuperThanks UX & Fix Overflows
+
+- [x] Fix RenderFlex overflow in [SuperThanksScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart#6-12) (add ScrollView) <!-- id: 0 -->
+- [x] Remove default "Sent you a SuperThanks" message logic <!-- id: 1 -->
+- [x] Redesign SuperThanks Receipt in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#21-29) <!-- id: 2 -->
+    - [x] Replace Dialog with Top-of-page Overlay <!-- id: 3 -->
+    - [x] Make design "Bigger and Fun" <!-- id: 4 -->
+    - [x] Increase Confetti <!-- id: 5 -->
+    - [x] Only show message bubble if content exists <!-- id: 6 -->
+- [x] Update [walkthrough.md](file:///Users/aniruddhmodi/.gemini/antigravity/brain/c8e7b52d-a7ef-403f-abe5-dc4d40f5d23a/walkthrough.md) <!-- id: 7 -->

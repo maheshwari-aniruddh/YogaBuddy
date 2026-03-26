@@ -1,0 +1,29 @@
+# Fix Firebase Initialization & Xcode Deployment
+
+## Goal
+1. Resolve the `[core/no-app]` error by initializing Firebase correctly in [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart).
+2. Refactor [SocialService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/social_service.dart#6-122) to prevent premature access to Firestore.
+3. Provide instructions for App Store submission via Xcode UI, as requested by the user.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+- Import `firebase_core`.
+- Call `await Firebase.initializeApp()` in [main()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart#11-31).
+
+### Services
+#### [MODIFY] [social_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/social_service.dart)
+- Change `_firestore` to a getter or initialize it lazily to ensure it is only accessed after Firebase is ready.
+
+## Xcode Deployment Instructions
+To push to the App Store using Xcode (as requested):
+1. Open the workspace in Xcode (I have already opened it for you).
+2. Select **Product > Archive** from the top menu.
+3. Once the archive is complete, the **Organizer** window will open.
+4. Click **Distribute App** and follow the prompts to upload to App Store Connect.
+
+## Verification Plan
+1. Run the app on the device.
+2. Sign in with Google.
+3. **Expectation**: Firebase initialization succeeds, and user data is synced to Firestore without errors.

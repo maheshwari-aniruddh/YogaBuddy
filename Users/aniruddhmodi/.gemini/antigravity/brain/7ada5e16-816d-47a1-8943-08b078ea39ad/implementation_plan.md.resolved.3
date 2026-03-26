@@ -1,0 +1,57 @@
+# Integrate Jam Sessions Into Existing Piano/Drums UI
+
+Instead of separate jam-piano/jam-drums pages, reuse the full existing UI (AR studio, camera, falling notes) with WebSocket broadcasting layered on top.
+
+## Proposed Changes
+
+### app.js — Jam Setup Redirect
+
+After host/join + instrument selection, navigate to the **existing** pages:
+- Piano → [initPianoComposer(); showPage('piano-composer');](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js#1113-1138)
+- Drums → [initDrumsComposer(); showPage('drums-composer');](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#1801-1833)
+
+Modify `pickPianoBtn` and `pickDrumsBtn` click handlers in [initJamSetup()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js#2104-2184) (lines 2221-2248).
+
+---
+
+### app.js — Send Notes Over WebSocket
+
+The existing `window.addEventListener('message')` handler (line 2113) already forwards notes to `jamSessionManager` when connected. For direct key clicks, add a global hook to [createPianoKeys()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#766-785) and drum pad click handlers that also calls `jamSessionManager.sendNote()` if connected.
+
+---
+
+### app.js — Receive Remote Notes  
+
+Update `jamSessionManager.onRemoteNote` callback to:
+- Call [playRemoteNoteSound()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#347-376) (already exists) for audio
+- Call `pianoNoteManager.triggerKeyPress()` for piano visual feedback on the existing UI
+- Flash drum pads on the existing drums UI
+
+---
+
+### app.js — Jam Status Badge
+
+When jam is active, inject a floating badge showing "Room: XXXXXX" + "Leave Jam" button into the current page header. Remove it in [exitJamSession()](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#2022-2029).
+
+---
+
+### session_server.py — Player Join Notification
+
+When a new player connects to a room, broadcast `{"type": "player_joined", "player_id": "..."}` to existing room members. Handle this in `JamSessionManager.onmessage` to show a toast.
+
+---
+
+### instruments.html — Toast Container
+
+Add a simple `<div id="jam-toast">` for showing join notifications.
+
+---
+
+### jam-core.js — Ngrok / Public URL Support
+
+Update the global `JAM_SESSION_WS_URL` and `JAM_SESSION_HTTP_URL` to use a provided ngrok public URL instead of `localhost:8502`. This allows remote users to connect without being on the same local network.
+
+## Verification
+- Host a session, pick Piano → should see the full existing piano UI with room badge
+- Friend joins → host sees "Player joined!" toast
+- Play keys on one side → sound + visual on both sides

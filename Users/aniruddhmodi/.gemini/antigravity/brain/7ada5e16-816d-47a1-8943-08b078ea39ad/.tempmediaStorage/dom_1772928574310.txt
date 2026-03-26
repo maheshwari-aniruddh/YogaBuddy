@@ -1,0 +1,30 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div class='landing-container' scrollable='true' />
+	Piano
+	[1] (348,49)<div >Classical elegance meets modern technology />
+	[2] (341,87)<div  />
+	Drums
+	[3] (652,49)<div >Rhythmic power at your fingertips />
+	[4] (646,87)<div  />
+	[5] (374,493)<a class='instrument-btn bass-btn' href='bass.html' />
+		[6] (374,493)<div  />
+			[7] (363,412)<div >🎸 />
+				🎸
+			[8] (374,540)<div >Bass Guitar />
+			[9] (374,591)<div >4 strings - Real plucks - Zero gear />
+			[10] (368,629)<div  />
+	[11] (652,493)<a class='instrument-btn jam-btn' href='#' id='jam-session-btn' />
+		[12] (652,422)<div  />
+			[13] (630,352)<div >🎧 />
+				🎧
+			[14] (652,479)<div >Jam Session />
+			[15] (652,520)<div >Host or join – play together in real time />
+			[16] (646,548)<div  />
+	Real-time camera tracking
+	Precision detection
+	Immersive visuals
+
+</current_dom>

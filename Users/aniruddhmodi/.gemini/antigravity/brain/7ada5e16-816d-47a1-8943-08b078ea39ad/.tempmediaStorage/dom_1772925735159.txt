@@ -1,0 +1,21 @@
+[0] (500,500)<div class='landing-container' scrollable='true' />
+	[1] (58,69)<a class='back-btn' href='index.html' />
+		[2] (44,69)<span >← />
+		[3] (67,69)<span >Back />
+	Choose Your Instrument
+	[4] (348,543)<a class='instrument-btn piano-btn' href='piano.html' />
+		[5] (348,543)<div  />
+			[6] (337,462)<div  />
+				[7] (346,441)<div  />
+				[8] (362,443)<div  />
+			[9] (348,589)<div >Piano />
+			[10] (348,641)<div >Classical elegance meets modern technology />
+			[11] (341,679)<div  />
+	[12] (652,543)<a class='instrument-btn drums-btn' href='drums.html' />
+		[13] (652,543)<div  />
+			[14] (641,462)<div  />
+			[15] (652,589)<div >Drums />
+			[16] (652,641)<div >Rhythmic power at your fingertips />
+			[17] (646,679)<div  />
+	[18] (478,944)<div >🎧 />
+		🎧

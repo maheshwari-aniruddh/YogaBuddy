@@ -1,0 +1,7 @@
+# App Store Review Fixes
+
+## Issues from Apple Review (March 3, 2026)
+
+- [ ] **Guideline 4.8 — Sign in with Apple**: Add Sign in with Apple as an equivalent login option alongside Google Sign-in
+- [ ] **Guideline 2.1(a) — Export Data iPad Bug**: Fix the Export Data button that shows a cut-off screen on iPad
+- [ ] **Guideline 5.1.1(v) — Account Deletion**: Add account deletion functionality to the app

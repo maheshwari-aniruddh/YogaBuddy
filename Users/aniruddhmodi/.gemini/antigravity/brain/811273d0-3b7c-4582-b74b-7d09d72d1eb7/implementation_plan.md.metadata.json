@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Stable implementation plan for PoseFlow, utilizing a hosted frontend on GitHub Pages with a local Python backend for ML processing.",
+  "updatedAt": "2026-03-26T18:21:46.911863Z",
+  "version": "5"
+}

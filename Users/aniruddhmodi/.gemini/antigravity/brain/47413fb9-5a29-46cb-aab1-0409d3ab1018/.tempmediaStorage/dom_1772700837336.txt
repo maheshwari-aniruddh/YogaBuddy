@@ -1,0 +1,113 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+To publish apps, finish setting up your developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-xru-0' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-xru-0' role='button' />
+[4] (892,87)<div  />
+	[5] (892,87)<button aria-label='Unread notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-xru-24 mdc-button--tonal' />
+		notifications_unread
+		Unread notifications
+[6] (976,87)<div  />
+	[7] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-xru-4' />
+		[8] (976,86)<div  />
+[9] (96,169)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/app-list' role='button' />
+	[10] (26,169)<console-icon  />
+		[11] (26,169)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[12] (26,169)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>features />
+	[13] (58,169)<span >Home />
+[14] (96,218)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/policy-center' role='button' />
+	[15] (26,218)<console-icon  />
+		[16] (26,218)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[17] (26,218)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>android_security_privacy_safe />
+	[18] (73,218)<span >Policy status />
+[19] (96,266)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/users-and-permissions' role='button' />
+	[20] (26,266)<console-icon  />
+		[21] (26,266)<material-icon class='_ngcontent-xru-27 _nghost-xru-11 filled' />
+			[22] (26,266)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>user_attributes />
+	[23] (95,266)<span >Users and permissions />
+[24] (96,314)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/orders' role='button' />
+	[25] (26,314)<console-icon  />
+		[26] (26,314)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[27] (26,314)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>credit_card />
+	[28] (89,314)<span >Order management />
+[29] (96,363)<a class='item-link _ngcontent-xru-26' role='button' />
+	[30] (11,363)<material-icon  />
+		[31] (11,363)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>arrow_right />
+	[32] (26,363)<console-icon  />
+		[33] (26,363)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[34] (26,363)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>download />
+	[35] (85,363)<span >Download reports />
+[36] (96,411)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/account' role='button' />
+	[37] (26,411)<console-icon  />
+		[38] (26,411)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[39] (26,411)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>badge />
+	[40] (87,411)<span >Developer account />
+[41] (96,459)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/activity-log' role='button' />
+	[42] (26,459)<console-icon  />
+		[43] (26,459)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[44] (26,459)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>description />
+	[45] (70,459)<span >Activity log />
+[46] (96,508)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/settings' role='button' />
+	[47] (26,508)<console-icon  />
+		[48] (26,508)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[49] (26,508)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>settings />
+	[50] (63,508)<span >Settings />
+[51] (96,556)<a class='item-link _ngcontent-xru-26' href='/console/u/2/developers/5950107568016089621/help-and-support' role='button' />
+	[52] (26,556)<console-icon  />
+		[53] (26,556)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[54] (26,556)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>contact_support />
+	[55] (55,556)<span >Help />
+[56] (96,635)<a class='item-link _ngcontent-xru-26 use-adi-colors' href='/console/u/2/developers/5950107568016089621/android-developer-verification' role='button' />
+	[57] (26,635)<console-icon  />
+		[58] (26,635)<material-icon class='_ngcontent-xru-27 _nghost-xru-11' />
+			[59] (26,635)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>app_promotion />
+	[60] (109,635)<span >Android developer verification />
+[61] (598,563)<div class='main-content _ngcontent-xru-0' id='main-content' scrollable='true' />
+	Create app
+	App details
+	[62] (315,311)<label class='_ngcontent-xru-62' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--19'>App name />
+		App name
+	[63] (613,319)<label class='mdc-text-field mdc-text-field--upgraded _ngcontent-xru-35 mdc-text-field--outlined mdc-text-field--no-label' />
+		[64] (613,319)<input aria-label='App name' class='mdc-text-field__input _ngcontent-xru-35' />
+	This is how your app will appear on Google Play
+	0 / 30
+	Text is 0 characters out of 30
+	[65] (315,419)<label class='_ngcontent-xru-62' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--20'>Default language />
+		Default language
+	[66] (549,428)<div aria-label='Default language: English (United States) – en-US' class='button _ngcontent-xru-41 border' id='a80F85D2F-F3DB-4A41-B913-F507AA2D1367--0' role='button' />
+		[67] (541,428)<span >English (United States) – en-US />
+		[68] (665,428)<material-icon  />
+			[69] (665,428)<i class='material-icon-i material-icons-extended _ngcontent-xru-11' role='img'>arrow_drop_down />
+	[70] (315,525)<label class='_ngcontent-xru-62' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--27'>App or game />
+		App or game
+	You can change this later in Store settings
+	[71] (613,593)<material-radio  />
+		[72] (420,593)<div  />
+			[73] (420,593)<input class='mdc-radio__native-control _ngcontent-xru-75' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--28' role='radio' />
+		[74] (449,593)<div  />
+			[75] (449,592)<label >App />
+	[76] (613,651)<material-radio  />
+		[77] (420,651)<div  />
+			[78] (420,651)<input class='mdc-radio__native-control _ngcontent-xru-75' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--29' role='radio' />
+		[79] (452,651)<div  />
+			[80] (452,650)<label >Game />
+	[81] (315,729)<label class='_ngcontent-xru-62' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--30'>Free or paid />
+		Free or paid
+	You can edit this on the App pricing page up until you publish your app. Once you've published, you can't change a free app to paid.
+	[82] (613,820)<material-radio  />
+		[83] (420,820)<div  />
+			[84] (420,820)<input class='mdc-radio__native-control _ngcontent-xru-75' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--31' role='radio' />
+		[85] (449,820)<div  />
+			[86] (449,820)<label >Free />
+	[87] (613,878)<material-radio  />
+		[88] (420,878)<div  />
+			[89] (420,878)<input class='mdc-radio__native-control _ngcontent-xru-75' id='aD1180FFD-2D4C-42C0-A8F8-858810EACE16--32' role='radio' />
+		[90] (449,878)<div  />
+			[91] (449,878)<label >Paid />
+	Declarations
+
+</current_dom>

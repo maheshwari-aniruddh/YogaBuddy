@@ -1,0 +1,30 @@
+# App Store & TestFlight Publication Checklist
+
+- [x] **Preparation**
+    - [x] **[CRITICAL]** Verify Bundle Identifier (Set to `com.aniruddh.roze`)
+    - [ ] Update Version and Build Number in `pubspec.yaml`
+    - [x] Verify App Icons are generated and linked (Verified existing assets)
+    - [ ] `Info.plist` checks (NS permissions)
+- [ ] **Apple Developer Account (User Action)**
+    - [ ] Ensure valid Apple Developer Program membership
+    - [ ] Create App ID in Apple Developer Console (Identifier: `com.aniruddh.roze`)
+    - [ ] Create/Update Provisioning Profiles
+- [ ] **App Store Connect (User Action)**
+    - [ ] Create New App in App Store Connect
+    - [ ] Set up Internal Testing group in TestFlight
+- [x] **Features**
+    - [x] Implement Feedback Screen (Firestore)
+    - [x] Add Feedback tab to Main Screen
+- [ ] **Bug Fixes**
+    - [x] Fix Audio Player Overflow (Corrected logic, awaiting build)
+    - [x] Remove legacy StorageService (suspected cause of saving error)
+    - [x] Improve Audio Recorder/Player UI separation
+    - [ ] **[CRITICAL]** Resolve Launch Error (Requires User Signing Update)
+    - [ ] Verify Saving Logic (Waiting for successful launch)
+- [ ] **Build & Release**
+    - [ ] `flutter build ios --release` (Run locally to verify)
+    - [ ] **(User Action)** Open `ios/Runner.xcworkspace` in Xcode
+    - [ ] **(User Action)** Configure Signing & Capabilities (Team: Aniruddh Modi)
+    - [ ] **(User Action)** Product -> Archive
+    - [ ] **(User Action)** Distribute App -> TestFlight & App Store
+    - [ ] **(User Action)** Manage Testers in App Store Connect

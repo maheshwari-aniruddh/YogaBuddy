@@ -1,0 +1,21 @@
+# Fix Google Sign-In Verification
+
+## Changes Implemented
+- **Updated [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#5-51)**: Initialized `GoogleSignIn` with `scopes: [drive.DriveApi.driveFileScope]`. This ensures the app explicitly requests permission to access Google Drive files, which is required for the [DriveService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#10-247) to function.
+- **Updated [LoginScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart#11-17)**: Added more detailed error logging to the console to help debug any future issues.
+
+## Verification Steps
+Since the Google Sign-In flow involves a secure native UI that requires your personal credentials, **you must verify this manually on your device.**
+
+1.  **Rebuild and Run**: Run the app on your physical iPhone.
+2.  **Sign In**: Tap the "Sign in with Google Drive" button.
+3.  **Consent**:
+    - You should see a system prompt: "'Rozze' wants to use google.com to sign in". Tap **Continue**.
+    - Select your Google account.
+    - **CRITICAL**: You should see a new permission screen from Google asking to "See, edit, create, and delete only the specific Google Drive files you use with this app".
+    - Tap **Allow**.
+4.  **Success**: The app should successfully log you in and navigate to the main journal screen.
+
+## Troubleshooting
+- If you still see "cancelled", check the debug console logs.
+- Ensure your internet connection is stable.

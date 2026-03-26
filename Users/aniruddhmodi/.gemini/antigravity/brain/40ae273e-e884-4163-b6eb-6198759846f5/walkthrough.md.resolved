@@ -1,0 +1,27 @@
+# Verification & Deployment Walkthrough
+
+## 1. Verify the Fix (Google Sign-In)
+The `[core/no-app]` error was caused by Firebase being accessed before initialization. I have fixed this in [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) and [social_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/social_service.dart).
+
+1. **Re-run the app** via VS Code or terminal (`flutter run`).
+2. **Sign in with Google**.
+3. **Check logs**: You should see `SocialService: User synced - [your-email]` without crashes.
+4. **App Behavior**: The app should successfully transition to the `MainScreen`.
+
+## 2. Deploy to App Store via Xcode
+Since you prefer using the Xcode UI:
+
+1. **Open Xcode**: I have already opened [Runner.xcworkspace](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner.xcworkspace) for you.
+2. **Select Target**: Ensure "Runner" and "iOS Device" (or "Any iOS Device") are selected in the scheme selector at the top.
+3. **Archive**: Select **Product > Archive** from the top menu.
+4. **Distribute**: In the **Organizer** window that appears after archiving, click **Distribute App**.
+5. **Upload**: Select **App Store Connect** and follow the prompts (select **Upload**, and keep the default options for strip/recompile).
+
+> [!TIP]
+> I have updated the **Marketing Version** to `1.0.2` and the **Build Number** to `11` in your Xcode project settings to match [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml), so it's ready for a new release.
+
+## Troubleshooting
+If you encounter a "Signing" error in Xcode:
+- Go to the **Runner** target in Xcode.
+- Open the **Signing & Capabilities** tab.
+- Ensure a valid **Development Team** is selected.

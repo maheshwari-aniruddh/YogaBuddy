@@ -1,0 +1,154 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Person",
+            "request": "launch",
+            "mainClass": "Person",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "<unnamed_class$Person>",
+            "request": "launch",
+            "mainClass": "<unnamed_class$Person>",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "App1",
+            "request": "launch",
+            "mainClass": "App1",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Array",
+            "request": "launch",
+            "mainClass": "Array",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Apppp",
+            "request": "launch",
+            "mainClass": "Apppp",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Simple_astrology",
+            "request": "launch",
+            "mainClass": "Simple_astrology",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "SimpleAstrology",
+            "request": "launch",
+            "mainClass": "SimpleAstrology",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "String_Array",
+            "request": "launch",
+            "mainClass": "String_Array",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Switch",
+            "request": "launch",
+            "mainClass": "Switch",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Do_While_loop",
+            "request": "launch",
+            "mainClass": "Do_While_loop",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "If_condition",
+            "request": "launch",
+            "mainClass": "If_condition",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Taking_Input",
+            "request": "launch",
+            "mainClass": "Taking_Input",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Ifcondition",
+            "request": "launch",
+            "mainClass": "Ifcondition",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Usecase1",
+            "request": "launch",
+            "mainClass": "Usecase1",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Loops",
+            "request": "launch",
+            "mainClass": "Loops",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Stringa",
+            "request": "launch",
+            "mainClass": "Stringa",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "First_Java",
+            "request": "launch",
+            "mainClass": "First_Java",
+            "projectName": "Java Programming_36a608b7"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "Java Programming_36a608b7"
+        }
+    ]
+}

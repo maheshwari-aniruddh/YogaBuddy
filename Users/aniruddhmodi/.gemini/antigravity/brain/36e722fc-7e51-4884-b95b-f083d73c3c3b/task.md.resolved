@@ -1,0 +1,19 @@
+# OneBreath App Enhancement
+
+- [x] Explore Frontend Codebase <!-- id: 0 -->
+    - [x] Check [package.json](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/package.json) for dependencies <!-- id: 1 -->
+    - [x] View [App.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/src/App.tsx) or main entry point <!-- id: 2 -->
+    - [x] Assess current UI components <!-- id: 3 -->
+- [x] Plan Enhancements <!-- id: 4 -->
+    - [x] UI/UX Redesign (Modern aesthetic, dark mode, animations) <!-- id: 5 -->
+    - [x] Functional Improvements (Real-time feedback, gamification) <!-- id: 6 -->
+- [ ] Implementation <!-- id: 7 -->
+    - [x] Create [HUDOverlay.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/src/components/HUDOverlay.tsx) component <!-- id: 11 -->
+    - [x] Add new animations to [index.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/src/index.css) <!-- id: 12 -->
+    - [x] Integrate HUD into [YogaSessionPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/src/components/YogaSessionPage.tsx) <!-- id: 13 -->
+    - [x] Implement dynamic background effects <!-- id: 14 -->
+    - [ ] **Smart Features** <!-- id: 15 -->
+        - [ ] Backend: Update [yoga_api_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/yoga_api_server.py) for granular errors <!-- id: 16 -->
+        - [ ] Frontend: Create `AICoach.tsx` for visual/audio feedback <!-- id: 17 -->
+        - [ ] Frontend: Implement AR skeletal overlay lines <!-- id: 18 -->
+

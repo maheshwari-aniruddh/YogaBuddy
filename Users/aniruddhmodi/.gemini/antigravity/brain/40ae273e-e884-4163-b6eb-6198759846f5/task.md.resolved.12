@@ -1,0 +1,10 @@
+- [x] Fix the issue <!-- id: 3 -->
+- [/] Verify fix <!-- id: 4 -->
+- [x] Initialize Firebase in main.dart <!-- id: 10 -->
+- [x] Refactor SocialService <!-- id: 11 -->
+- [x] Bump version number <!-- id: 5 -->
+- [x] Open Xcode workspace <!-- id: 8 -->
+- [x] Fix IPA build errors <!-- id: 9 -->
+- [ ] Fix Info.plist usage descriptions <!-- id: 13 -->
+- [ ] Build IPA for App Store <!-- id: 6 -->
+- [ ] Upload to App Store <!-- id: 7 -->

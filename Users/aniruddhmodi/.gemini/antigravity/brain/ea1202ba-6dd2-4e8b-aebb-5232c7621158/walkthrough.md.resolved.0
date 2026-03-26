@@ -1,0 +1,41 @@
+# Walkthrough - Mood Selection & Calendar Updates
+
+## Changes
+
+### 1. Mood Selection (No Auto-Default)
+- **File**: [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Change**: [_mood](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#269-273) now initializes to `0`. [_emojiForMood(0)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#264-268) returns '😶'. [_moodLabel(0)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#269-273) returns 'Unselected'.
+- **Effect**: Users must explicitly choose a mood. If they don't, it saves as 0.
+
+### 2. Calendar Visualization
+- **File**: [lib/screens/calendar_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart)
+- **Change**: Implemented `calendarBuilders`.
+- **Logic**:
+    - Days with `mood > 0` are colored with the corresponding mood color.
+    - Days with `mood == 0` (text only) get a subtle grey marker.
+    - Selected days highlight with the mood color (or sage default).
+    - Today marker persists.
+
+### 3. Text Box Layout Fix
+- **File**: [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Change**: Adjusted `padding` in [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#459-662) to react to `MediaQuery.of(context).viewInsets.bottom`.
+- **Effect**: When keyboard opens, the container padding reduces to ensure the text field isn't pushed off-screen or obscured, providing a stable typing experience.
+
+### 4. Stats Integrity
+- **File**: [lib/services/store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart), [lib/screens/stats_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/stats_screen.dart)
+- **Change**: Filtered out `mood == 0` entries from Average Mood, Best/Worst Day, and Charts.
+- **Effect**: Text-only entries don't drag down the average (which would happen if 0 was treated as "Terrible minus").
+
+## Verification Results
+
+### Automated Checks
+- **Code Logic**: Reviewed logic for [_buildDayMarker](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart#44-99) and [_autoSave](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#87-132).
+- **Null Safety**: Ensured `MoodColors.getColor` handles 0 safely.
+
+### Manual Verification Steps (User to Confirm)
+1. **Open App**: Confirm "How are you feeling?" shows '😶' and no selected circle.
+2. **Write Entry**: Type something, don't pick mood. Save.
+3. **Check Calendar**: Confirm today has a grey circle.
+4. **Edit Entry**: Select a mood (e.g., Happy). Save.
+5. **Check Calendar**: Confirm today now has a Green circle.
+6. **Typing**: Go to "What went well?", tap input. Confirm keyboard opens without layout jitter or hiding the text.

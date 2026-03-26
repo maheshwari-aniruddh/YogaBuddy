@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Track progress on fixing the Apple Sign-In bug where the user cannot proceed past the login screen.",
+  "updatedAt": "2026-03-21T05:56:10.323576Z"
+}

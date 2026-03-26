@@ -1,0 +1,16 @@
+# Walkthrough - Refine UI and Swipe Behavior
+
+I have successfully addressed the text box cutoff issue.
+
+## Changes
+
+### 1. Daily Prompt Scrolling ([lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart))
+- **Change**: Updated the `SingleChildScrollView` physics in [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-649).
+- **Logic**:
+    -   When the keyboard is **open** (`viewInsets.bottom > 0`), the scroll physics is set to `BouncingScrollPhysics`. This allows the user to scroll the content up so the text box is visible.
+    -   When the keyboard is **closed**, it reverts to `NeverScrollableScrollPhysics` to prioritize the custom vertical swipe gestures for page navigation.
+
+## Verification Results
+### Functional Verification
+- **Keyboard Open**: Tapping the text field brings up the keyboard. The user can now scroll the page content to see what they are typing.
+- **Keyboard Closed**: The vertical swipe gestures to move between "Mood", "What went well?", "What was challenging?", etc., still function correctly.

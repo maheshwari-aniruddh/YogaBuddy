@@ -1,0 +1,23 @@
+# Walkthrough - Firebase Email Tracking
+
+I have implemented a feature to automatically save the logged-in user's email address and basic profile information to a Firebase Firestore database.
+
+## Changes
+
+### Services
+
+#### [MODIFY] [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+-   **Added dependency**: Imported `cloud_firestore`.
+-   **New Method**: Added [_saveUserToFirestore(GoogleSignInAccount user)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#61-74) which writes to the `users` collection.
+-   **Integration**: Called this method automatically after successful [signIn()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#22-40) and [signInSilently()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#42-54).
+-   **Data Stored**:
+    -   `email`: User's email address (also used as Document ID)
+    -   `displayName`: User's full name
+    -   `photoUrl`: URL to user's profile picture
+    -   `lastLogin`: Server timestamp of the login event
+
+## How to Verify
+1.  **Run the App**: Launch the application on your device or simulator (`flutter run`).
+2.  **Sign In**: Log out and log back in, or simply restart the app if you are already logged in (silent sign-in will trigger it).
+3.  **Check Logs**: Look for the console output: `AuthService: User email tracked in Firestore: <email>`.
+4.  **Check Firestore**: In your Firebase Console, navigate to **Firestore Database** > **users** collection. You should see a document with your email address containing your profile data.

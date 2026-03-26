@@ -1,0 +1,9 @@
+# Music Recording Feature
+
+## Tasks
+- [/] Add MusicRecorder class to ar_studio.py
+- [ ] Modify AudioEngine.play() to log notes when recording
+- [ ] Add recording UI controls in Streamlit (embed mode)
+- [ ] Add download button for recorded file
+- [ ] Update piano-composer.html with recording indicator
+- [ ] Test recording workflow

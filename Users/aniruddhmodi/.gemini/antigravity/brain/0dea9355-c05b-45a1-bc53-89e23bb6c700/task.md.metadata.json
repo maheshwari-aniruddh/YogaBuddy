@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Updated task list to reflect current debugging state. Launch error is likely due to signing pending user action.",
+  "updatedAt":  "2026-01-02T12:49:07.061110Z",
+  "version":  "5"
+}

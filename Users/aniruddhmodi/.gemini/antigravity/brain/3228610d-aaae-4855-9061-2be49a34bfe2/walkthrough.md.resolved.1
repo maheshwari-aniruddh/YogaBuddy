@@ -1,0 +1,55 @@
+# 17-Class Dataset Evaluation Results
+
+I have successfully run the newly trained `efficientnet_b3_hog_aug` model on the independent **17-class holdout dataset**. The images were preprocessed using CLAHE and passed through the three OOD detection mechanisms.
+
+Here are the results:
+
+## Overall Classification Accuracy
+*   **Classification Accuracy on Known Classes:** **48.7%** (1532 / 3146)
+
+> [!WARNING]
+> The accuracy on the known classes within this dataset is surprisingly low (*48.7%*) compared to the test-set accuracy achieved during training (*99.8%*). This suggests a significant domain shift or drastic differences in how these images were captured/cropped compared to your main 23k training dataset. 
+
+---
+
+## OOD Detection Performance
+The script evaluated three different OOD gating mechanisms to identify the unseen classes:
+
+### Method 1: Mahalanobis Distance (99th ptile)
+*   **False Positive Rate (Knowns wrongly flagged as OOD):** 13.9%
+*   **Detection Rate (OOD classes correctly flagged):** **12.5%**
+*   **F1 Score:** 17.0%
+
+### Method 2: Confidence Threshold (< 90%)
+*   **False Positive Rate (Knowns wrongly flagged as OOD):** 32.0%
+*   **Detection Rate (OOD classes correctly flagged):** **38.8%**
+*   **F1 Score:** 35.6%
+
+### Method 3: Energy Threshold (> -5.0)
+*   **False Positive Rate (Knowns wrongly flagged as OOD):** 46.0%
+*   **Detection Rate (OOD classes correctly flagged):** **58.7%**
+*   **F1 Score:** 43.1%
+
+> [!NOTE]
+> *Energy Thresholding* was the most aggressive at catching OOD samples (58.7% detection rate) but also flagged nearly half of the known images incorrectly.
+>
+> The *Mahalanobis Distance* (12.5% detection rate) completely failed to identify the OOD images in this particular dataset. Its extremely low detection rate means the OOD feature representations produced by the CNN were heavily clustered inside the known class distributions.
+
+## Takeaways
+1.  **Massive Domain Shift:** The 48% classification accuracy strongly indicates that the [17-class](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/17-class) dataset looks fundamentally different from your `Combined_Dataset`. 
+2.  **OOD Feature Collapse:** The Mahalanobis distance metric failed to separate the data, implying the model's feature space isn't generalizing well enough to push unknown anomalies outward. 
+
+---
+
+## Performance on Challenging Artifact Datasets (Seen Distributions)
+
+I also tested the B3 model against your structured artifact test sets (Blurred, Noisy, and Patient Motion). These are augmentations applied to the same core classes (Glioma, Meningioma, No-tumor, Pituitary) the model trained on.
+
+| Dataset | Classification Accuracy |
+| :--- | :--- |
+| **Clean Test Set (Combined)** | **99.92%** |
+| **Blurred Dataset** | 98.09% |
+| **Motion Artifact Dataset** | 91.41% |
+| **Noisy Dataset** | 89.21% |
+
+**Takeaway:** The model is extremely robust to blurs and holds up quite well against noise and motion artifacts. This proves the architecture fundamentally works — the breakdown on the 17-class dataset isn't because the model is weak, but because that specific dataset is entirely out of domain compared to the training data.

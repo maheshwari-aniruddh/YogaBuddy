@@ -1,0 +1,4 @@
+[0] (64,47)<a class='back-btn' href='instruments.html' />
+	[1] (73,47)<span >Back />
+Bass Guitar Mode
+Camera Active

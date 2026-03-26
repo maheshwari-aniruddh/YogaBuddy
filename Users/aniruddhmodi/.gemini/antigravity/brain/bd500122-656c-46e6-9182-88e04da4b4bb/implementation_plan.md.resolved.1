@@ -1,0 +1,20 @@
+# Publish to TestFlight
+
+## User Review Required
+> [!NOTE]
+> I will generate the `.ipa` file. You will need to upload this file using the Apple **Transporter** app or via **Xcode**.
+
+## Proposed Changes
+### Build Process
+- Run `flutter clean` to remove cached build artifacts.
+- Run `flutter pub get` to fetch dependencies.
+- Run `pod install` in `ios/` directory to ensure native dependencies are linked.
+- Run `flutter build ipa --release` to generate the uploadable archive.
+
+## Verification Plan
+### Automated Tests
+- None.
+
+### Manual Verification
+- Verify the command completes successfully.
+- Locate `build/ios/archive/Runner.xcarchive` or the `.ipa` file.

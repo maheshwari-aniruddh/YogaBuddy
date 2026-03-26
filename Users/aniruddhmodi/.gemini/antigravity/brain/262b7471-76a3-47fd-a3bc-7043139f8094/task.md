@@ -1,0 +1,24 @@
+# Task: Compile and Fix BoxBug
+
+- [x] Analyze `BoxBug.java` and `BoxBugRunner.java` for errors <!-- id: 0 -->
+- [x] Attempt to compile `BoxBug.java` using Mac commands <!-- id: 1 -->
+- [x] Fix any identified errors <!-- id: 2 -->
+- [ ] Provide correct Mac commands to the user <!-- id: 3 -->
+- [x] Verify execution <!-- id: 4 -->
+- [x] Compile and run `CircleBug` <!-- id: 5 -->
+- [x] Increase grid size in `CircleBugRunner.java` <!-- id: 6 -->
+- [x] Verify grid size change <!-- id: 7 -->
+- [x] Analyze `CircleBug.java` against PDF requirements <!-- id: 8 -->
+- [x] Provide feedback on `CircleBug.java` <!-- id: 9 -->
+- [x] Implement `SpiralBug.java` <!-- id: 10 -->
+- [x] Implement `SpiralBugRunner.java` with `UnboundedGrid` <!-- id: 11 -->
+- [x] Verify `SpiralBug` execution <!-- id: 12 -->
+- [x] Create `ZBugRunner.java` <!-- id: 13 -->
+- [x] Run `ZBugRunner` <!-- id: 14 -->
+- [x] Fix syntax error in `ZBug.java` <!-- id: 15 -->
+- [x] Resolve duplicate class conflict in `activity2` folder <!-- id: 17 -->
+- [x] Create `DancingBugRunner.java` with 25x25 grid <!-- id: 19 -->
+- [x] Fix `DancingBug.java` act logic and imports <!-- id: 21 -->
+- [x] Analyze `Jumper.java` and `JumperRunner.java` <!-- id: 22 -->
+- [x] Fix `ZBug.java` imports and logic <!-- id: 24 -->
+- [/] Run all 5 bugs (Circle, Spiral, Z, Dancing, Jumper) <!-- id: 25 -->

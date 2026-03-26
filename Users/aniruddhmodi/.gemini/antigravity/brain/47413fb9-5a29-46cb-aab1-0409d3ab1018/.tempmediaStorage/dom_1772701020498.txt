@@ -1,0 +1,129 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+error
+You can't publish apps from this developer account
+[0] (963,24)<a aria-label='View details' class='mdc-button mdc-button--text pc-text-inverted' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[1] (963,24)<span >View details />
+[2] (85,87)<a class='navigation-menu-logo _ngcontent-imi-0' href='/console/u/0/developers/6928342875691261065/app-list' />
+	[3] (85,87)<img alt='Google Play Console logo' class='_ngcontent-imi-0' role='button' />
+[4] (907,87)<div  />
+	[5] (907,87)<button aria-label='Notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-imi-25 mdc-button--outlined' />
+		notifications
+		Notifications
+[6] (976,87)<div  />
+	[7] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-imi-4' />
+		[8] (976,86)<div  />
+[9] (96,169)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/app-list' role='button' />
+	[10] (26,169)<console-icon  />
+		[11] (26,169)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[12] (26,169)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>features />
+	[13] (58,169)<span >Home />
+[14] (96,218)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/policy-center' role='button' />
+	[15] (26,218)<console-icon  />
+		[16] (26,218)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[17] (26,218)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>android_security_privacy_safe />
+	[18] (73,218)<span >Policy status />
+[19] (96,266)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/users-and-permissions' role='button' />
+	[20] (26,266)<console-icon  />
+		[21] (26,266)<material-icon class='_ngcontent-imi-18 _nghost-imi-11 filled' />
+			[22] (26,266)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>user_attributes />
+	[23] (95,266)<span >Users and permissions />
+[24] (96,314)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/orders' role='button' />
+	[25] (26,314)<console-icon  />
+		[26] (26,314)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[27] (26,314)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>credit_card />
+	[28] (89,314)<span >Order management />
+[29] (96,363)<a class='item-link _ngcontent-imi-27' role='button' />
+	[30] (11,363)<material-icon  />
+		[31] (11,363)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>arrow_right />
+	[32] (26,363)<console-icon  />
+		[33] (26,363)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[34] (26,363)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>download />
+	[35] (85,363)<span >Download reports />
+[36] (96,411)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/account' role='button' />
+	[37] (26,411)<console-icon  />
+		[38] (26,411)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[39] (26,411)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>badge />
+	[40] (87,411)<span >Developer account />
+[41] (96,459)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/activity-log' role='button' />
+	[42] (26,459)<console-icon  />
+		[43] (26,459)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[44] (26,459)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>description />
+	[45] (70,459)<span >Activity log />
+[46] (96,508)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/settings' role='button' />
+	[47] (26,508)<console-icon  />
+		[48] (26,508)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[49] (26,508)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>settings />
+	[50] (63,508)<span >Settings />
+[51] (96,556)<a class='item-link _ngcontent-imi-27' href='/console/u/0/developers/6928342875691261065/help-and-support' role='button' />
+	[52] (26,556)<console-icon  />
+		[53] (26,556)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[54] (26,556)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>contact_support />
+	[55] (55,556)<span >Help />
+[56] (96,635)<a class='item-link _ngcontent-imi-27 use-adi-colors' href='/console/u/0/developers/6928342875691261065/android-developer-verification' role='button' />
+	[57] (26,635)<console-icon  />
+		[58] (26,635)<material-icon class='_ngcontent-imi-18 _nghost-imi-11' />
+			[59] (26,635)<i class='material-icon-i material-icons-extended _ngcontent-imi-11' role='img'>app_promotion />
+	[60] (109,635)<span >Android developer verification />
+[61] (598,563)<div class='main-content _ngcontent-imi-0' id='main-content' scrollable='true' />
+	Free or paid
+	You can edit this on the App pricing page up until you publish your app. Once you've published, you can't change a free app to paid.
+	Free
+	Paid
+	auto_awesome
+	You'll get automatic protection
+	[62] (794,237)<button aria-label='You'll get automatic protection, Expand for more information' class='mdc-icon-button expand-button google-material-icons _ngcontent-imi-43'>expand_more />
+		[63] (794,237)<div  />
+	Declarations
+	[64] (315,389)<label class='_ngcontent-imi-42' id='aB2655308-3B4D-4B00-B6F2-459989BF6C53--15'>Developer Program Policies />
+		Developer Program Policies
+	[65] (613,443)<material-checkbox  />
+		[66] (419,395)<div  />
+			[67] (419,395)<input class='mdc-checkbox__native-control _ngcontent-imi-55' role='checkbox' />
+		[68] (624,442)<div  />
+			[69] (546,394)<label >Confirm app meets the Developer Program Policies />
+			[70] (624,447)<div  />
+				[71] (620,447)<simple-html  />
+					[72] (620,447)<span >The application meets
+. Please check out
+to avoid some common reasons for app suspension. If your app or store listing is
+to the Google Play App Review team,
+prior to publishing. />
+						[73] (573,418)<a href='https://play.google.com/about/developer-content-policy.html'>Developer Program Policies />
+						[74] (618,428)<a href='https://play.google.com/about/developer-content-policy.html'>these tips on how to create policy compliant app descriptions />
+						[75] (551,457)<a href='https://support.google.com/googleplay/android-developer/answer/6320428'>eligible for advance notice />
+						[76] (764,457)<a href='https://support.google.com/googleplay/android-developer/answer/6320428'>contact us />
+	[77] (315,551)<label class='_ngcontent-imi-42' id='aB2655308-3B4D-4B00-B6F2-459989BF6C53--25'>Play App Signing />
+		Play App Signing
+	[78] (613,586)<material-checkbox  />
+		[79] (419,557)<div  />
+			[80] (419,557)<input class='mdc-checkbox__native-control _ngcontent-imi-55' role='checkbox' />
+		[81] (624,585)<div  />
+			[82] (534,556)<label >Accept the Play App Signing Terms of Service />
+			[83] (624,590)<div  />
+				[84] (621,590)<simple-html  />
+					[85] (621,590)<span >To publish
+on Google Play you need to accept the
+. You will be able to choose your app signing key when creating a release. />
+						[86] (516,580)<a href='https://developer.android.com/guide/app-bundle'>Android App Bundles />
+						[87] (621,590)<a href='https://play.google.com/about/play-app-signing-updated-terms/'>Play App Signing Terms of Service />
+				[88] (763,600)<help-learn-more-link  />
+					[89] (764,600)<a aria-label='Learn more about Play App Signing, Opens in a new tab' class='help-link _ngcontent-imi-56 default-label' href='https://support.google.com/googleplay/android-developer/answer/9842756?hl=en' role='link'>Learn more />
+	[90] (315,674)<label class='_ngcontent-imi-42' id='aB2655308-3B4D-4B00-B6F2-459989BF6C53--17'>US export laws />
+		US export laws
+	[91] (613,729)<material-checkbox  />
+		[92] (419,681)<div  />
+			[93] (419,681)<input class='mdc-checkbox__native-control _ngcontent-imi-55' role='checkbox' />
+		[94] (624,727)<div  />
+			[95] (484,679)<label >Accept US export laws />
+			[96] (624,733)<div >I acknowledge that my software application may be subject to United States export laws, regardless of my location or nationality. I agree that I have complied with all such laws, including any requirements for software with encryption functions. I hereby certify that my application is authorized for export from the United States under these laws. />
+				[97] (695,762)<help-learn-more-link  />
+					[98] (696,762)<a aria-label='Learn more about export compliance., Opens in a new tab' class='help-link _ngcontent-imi-56 default-label' href='https://support.google.com/googleplay/android-developer/answer/113770?hl=en' role='link'>Learn more />
+	[99] (949,959)<button class='_ngcontent-imi-58 mdc-button'>Create app />
+		Create app
+	[100] (882,959)<button class='_ngcontent-imi-58 mdc-button'>Cancel />
+		Cancel
+
+</current_dom>

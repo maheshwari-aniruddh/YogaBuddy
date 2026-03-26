@@ -1,0 +1,19 @@
+# Fix dSYM Upload Errors
+
+## User Review Required
+> [!NOTE]
+> I will modify the [Podfile](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Podfile) to force dSYM generation for all dependencies. This usually fixes "Upload Symbols Failed" errors.
+> You will need to rebuild the archive after this change.
+
+## Proposed Changes
+### Configuration
+#### [MODIFY] [ios/Podfile](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Podfile)
+- Add `config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf-with-dsym'` to the `post_install` hook for Release builds.
+
+## Verification Plan
+### Automated Tests
+- None.
+
+### Manual Verification
+- Rebuild the archive (`flutter build ipa --release`).
+- Verify that the new archive contains the necessary dSYMs (or at least that the upload succeeds).

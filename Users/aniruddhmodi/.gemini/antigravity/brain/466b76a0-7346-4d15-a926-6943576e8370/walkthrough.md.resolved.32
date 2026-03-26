@@ -1,0 +1,27 @@
+# AR Instrument Studio Walkthrough
+
+## Summary
+A full-featured AR Music Studio with **Piano** and **Drums**.
+It now uses **Real Audio Samples** (WAV files) for realistic sound.
+
+## Modes
+1.  **Air Drums (4-Zone)**:
+    -   **Snare**: Top-Left
+    -   **Hi-Hat**: Top-Right
+    -   **Tom**: Bottom-Left
+    -   **Kick**: Bottom-Right
+    -   *Trigger*: Move Index Finger FAST into the zone.
+
+2.  **Piano (10-Finger)**:
+    -   **Mapping**: Each finger triggers a specific note (C3 to E4).
+    -   **Sharp Notes**: Curl your finger to play sharps (e.g., C#).
+
+## Configuration
+-   **Sensitivity**: Adjust "Strike Threshold" in the sidebar.
+-   **Camera**: Use "Scan Cameras" if your external cam isn't listed.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

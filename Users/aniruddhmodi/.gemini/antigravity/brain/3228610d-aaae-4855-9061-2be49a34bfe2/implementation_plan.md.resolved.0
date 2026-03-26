@@ -1,0 +1,72 @@
+# EfficientNet-B0 Ablation Study — Implementation Plan
+
+Rewrite [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) to train and evaluate **4 ablation configurations** on the BT-MRI brain tumor dataset using only **20% of training images**, saving each model with a descriptive label.
+
+## Dataset
+
+- **Path**: `archive/BT-MRI Dataset/BT-MRI Dataset/` → `Training/` (5,712 images) and `Testing/` (1,311 images)
+- **Classes**: Glioma, Meningioma, No-tumor, Pituitary
+- **Subset**: Randomly sample **20%** of training data (~1,142 images) using `torch.utils.data.Subset`; test set used in full
+
+## Ablation Configurations
+
+| # | Config Label | CNN Backbone | Extra Features |
+|---|---|---|---|
+| 1 | `efficientnet_b0` | EfficientNet-B0 | — |
+| 2 | `efficientnet_b0_glcm` | EfficientNet-B0 | GLCM texture features |
+| 3 | `efficientnet_b0_hog` | EfficientNet-B0 | HOG features |
+| 4 | `efficientnet_b0_hog_glcm` | EfficientNet-B0 | HOG + GLCM features |
+
+## Architecture Design
+
+### Config 1 — B0 Only
+Standard EfficientNet-B0 with `num_classes=4`. Pretrained ImageNet weights, fine-tuned.
+
+### Configs 2–4 — B0 + Handcrafted Features
+A custom `HybridModel` class that:
+1. Uses EfficientNet-B0 as a feature extractor (removes the final classifier, outputs 1,280-dim feature vector)
+2. Extracts **GLCM** and/or **HOG** features from each image (computed on CPU from grayscale)
+3. Concatenates CNN features with handcrafted features
+4. Passes through a classifier head: `Linear → ReLU → Dropout → Linear(num_classes)`
+
+**GLCM features** (~24 dims): contrast, dissimilarity, homogeneity, energy, correlation, ASM — computed at 4 angles via `skimage.feature.graycomatrix` / `graycoprops`
+
+**HOG features** (~324 dims): from `skimage.feature.hog` with `pixels_per_cell=(32,32)`, `cells_per_block=(2,2)` on a 128×128 grayscale resize
+
+## Saved Models
+
+Each model saved as:
+- `models/efficientnet_b0.pth`
+- `models/efficientnet_b0_glcm.pth`
+- `models/efficientnet_b0_hog.pth`
+- `models/efficientnet_b0_hog_glcm.pth`
+
+## Output
+
+After all 4 configs finish:
+- Per-config: epoch-by-epoch train/test loss + accuracy printed to console
+- Per-config: sklearn `classification_report` on the test set
+- Final **ablation summary table** printed comparing all 4 configs (test accuracy, precision, recall, F1)
+- Plot saved to `ablation_results.png` with loss/accuracy curves + confusion matrices
+
+## Proposed Changes
+
+### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+Full rewrite with:
+- Helper functions: `extract_glcm_features()`, `extract_hog_features()`
+- `HybridModel(nn.Module)` class for CNN+handcrafted feature fusion
+- `train_one_epoch()` and `evaluate()` functions aware of hybrid vs pure-CNN mode
+- Main loop that iterates over the 4 configs, trains each, saves model, evaluates, and prints the ablation summary
+
+## Verification Plan
+
+### Automated
+- After implementation, run `.venv/bin/python main.py` (only with user's explicit permission)
+- Verify: models are saved in `models/` directory with correct names
+- Verify: ablation summary table is printed
+- Verify: `ablation_results.png` is generated
+
+### Manual
+- User reviews `main.py` before running
+- User runs training when ready

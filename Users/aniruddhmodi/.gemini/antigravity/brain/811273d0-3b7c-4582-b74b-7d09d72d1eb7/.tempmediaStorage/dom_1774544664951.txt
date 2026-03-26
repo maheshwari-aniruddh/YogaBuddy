@@ -1,0 +1,80 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,46)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (359,181)<a class='NavLink-module__link__EG3d4' href='https://github.com/sponsors' />
+	[6] (359,181)<div  />
+		[7] (372,168)<span  />
+		[8] (372,197)<span  />
+[9] (526,168)<a class='NavLink-module__link__EG3d4' href='https://securitylab.github.com' />
+	[10] (491,168)<span  />
+[11] (526,224)<a class='NavLink-module__link__EG3d4' href='https://maintainers.github.com' />
+	[12] (516,224)<span  />
+[13] (526,280)<a class='NavLink-module__link__EG3d4' href='https://github.com/accelerator' />
+	[14] (489,280)<span  />
+[15] (526,336)<a class='NavLink-module__link__EG3d4' href='https://stars.github.com' />
+	[16] (492,336)<span  />
+[17] (526,393)<a class='NavLink-module__link__EG3d4' href='https://archiveprogram.github.com' />
+	[18] (501,393)<span  />
+[19] (683,168)<a class='NavLink-module__link__EG3d4' href='https://github.com/topics' />
+	[20] (634,168)<span  />
+[21] (683,224)<a class='NavLink-module__link__EG3d4' href='https://github.com/trending' />
+	[22] (639,224)<span  />
+[23] (683,280)<a class='NavLink-module__link__EG3d4' href='https://github.com/collections' />
+	[24] (645,280)<span  />
+[25] (382,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[26] (441,46)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[27] (441,46)<span >Pricing />
+[28] (734,46)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[29] (639,46)<div  />
+	[30] (733,46)<span >Search or jump to... />
+	[31] (831,46)<div  />
+[32] (870,46)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fsettings%2Fpages'>Sign in />
+Sign in to GitHub
+[33] (783,185)<label >Username or email address />
+[34] (804,225)<input class='form-control input-block js-login-field focus-visible' id='login_field' />
+[35] (743,279)<label >Password />
+[36] (804,319)<input class='form-control input-block js-password-field' id='password' />
+[37] (849,279)<a class='label-link position-absolute top-0 right-0' href='/password_reset' id='forgot-password'>Forgot password? />
+[38] (804,381)<input class='btn btn-primary btn-block js-sign-in-button' />
+[39] (804,435)<a class='Button--link Button--medium Button' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fsettings%2Fpages' />
+	[40] (804,435)<span  />
+		[41] (804,435)<span >or continue with other methods />
+[42] (925,46)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fsettings%2Fpages&source=header'>Sign up />
+[43] (500,627)<label class='d-block text-normal color-fg-muted mb-1 f4'>Find code, projects, and people on GitHub: />
+[44] (471,668)<input class='flex-auto input-lg form-control mr-2' id='not-found-search' />
+[45] (797,668)<button class='btn'>Search />
+[46] (427,744)<a class='Link--secondary' href='https://support.github.com?tags=dotcom-404'>Contact Support />
+—
+[47] (505,744)<a class='Link--secondary' href='https://githubstatus.com'>GitHub Status />
+—
+[48] (578,744)<a class='Link--secondary' href='https://x.com/githubstatus'>@githubstatus />
+Site-wide Links
+[49] (130,870)<a aria-label='Go to GitHub homepage' class='color-fg-default d-inline-block' href='/' />
+Subscribe to our developer newsletter
+Get tips, technical guides, and best practices. Twice a month.
+Platform
+[50] (397,909)<a class='Link--secondary' href='/features'>Features />
+[51] (400,953)<a class='Link--secondary' href='/enterprise'>Enterprise />
+[52] (394,996)<a class='Link--secondary' href='/features/copilot'>Copilot />
+Ecosystem
+[53] (546,909)<a class='Link--secondary' href='https://docs.github.com/get-started/exploring-integrations/about-building-integrations'>Developer API />
+[54] (534,953)<a class='Link--secondary' href='https://partner.github.com'>Partners />
+[55] (537,996)<a class='Link--secondary' href='https://github.com/edu'>Education />
+Support
+[56] (664,909)<a class='Link--secondary' href='https://docs.github.com'>Docs />
+[57] (693,953)<a class='Link--secondary' href='https://github.community'>Community Forum />
+[58] (699,996)<a class='Link--secondary' href='https://services.github.com'>Professional Services />
+Company
+[59] (804,909)<a class='Link--secondary' href='https://github.com/about'>About />
+[60] (817,953)<a class='Link--secondary' href='https://github.com/why-github'>Why GitHub />
+[61] (828,996)<a class='Link--secondary' href='/customer-stories?type=enterprise'>Customer stories />
+
+</current_dom>

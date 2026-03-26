@@ -1,0 +1,23 @@
+# Plan to fix DataLoader, OneCycleLR, and Update eval.py
+
+I will fix the `DataLoader` configuration, address the `OneCycleLR` step error, and update [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py) for comprehensive evaluation with NLM preprocessing.
+
+## Proposed Changes
+
+### [Component Name] ML Pipeline
+
+#### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+- **DataLoader/OneCycleLR**: Fixed (already completed).
+
+#### [MODIFY] [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+- **NLM Preprocessing**: Ensure [ApplyNLM()](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_clean_noisy_model.py#60-71) is applied to all datasets and handcrafted feature extraction.
+- **Model Configurability**: Ensure it correctly loads the `efficientnet_b3_super` model with the appropriate backbone.
+- **Backbone Consistency**: Fix the non-hybrid fallback to also support B3 if needed, or ensure it's clear. (The user mainly wants the supermodel which is B3).
+
+## Verification Plan
+
+### Automated Tests
+- Run [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py) and verify it produces [eval_results.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_results.png) with correct evaluations for all datasets.
+
+### Manual Verification
+- Check the terminal output to ensure NLM processing is active during both feature pre-computation and image loading.

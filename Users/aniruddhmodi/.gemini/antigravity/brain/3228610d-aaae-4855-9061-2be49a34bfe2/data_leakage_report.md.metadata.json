@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Data leakage report documenting that the 17-class dataset was used both as a training source (in build_super_dataset.py) and as the independent evaluation set, causing 84.9% overlap. The 98.5% OOD detection rate is invalidated. Two remediation options are proposed: rebuilding the dataset without the 17-class source, or filtering evaluation to unseen images only.",
+  "updatedAt": "2026-03-11T03:33:23.915454Z"
+}

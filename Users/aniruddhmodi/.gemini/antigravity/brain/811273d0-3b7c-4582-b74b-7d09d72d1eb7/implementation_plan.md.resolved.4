@@ -1,0 +1,31 @@
+# Browser-Based ML Migration Plan
+
+The goal is to eliminate the need for a local Python backend by porting all pose detection, classification, and form correction logic directly into the browser.
+
+## Proposed Changes
+
+### Assets
+#### [NEW] [pose_classifier.json](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/public/models/pose_classifier.json)
+- Exported KNN training data and scaler parameters.
+#### [MOVE] [pose_landmarker_full.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/public/models/pose_landmarker_full.task)
+- MediaPipe model file moved to the web assets.
+
+### Services (TypeScript)
+#### [NEW] [poseDetection.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/services/poseDetection.ts)
+- Wrapper for MediaPipe Tasks Vision.
+#### [NEW] [poseClassification.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/services/poseClassification.ts)
+- Custom KNN implementation and feature scaling.
+#### [NEW] [formCorrection.ts](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/services/formCorrection.ts)
+- Port of Python angle math and feedback logic.
+
+### UI
+#### [MODIFY] [YogaSessionPage.tsx](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy-backup-original/one-breath-app/src/components/YogaSessionPage.tsx)
+- Replace WebSocket logic with local service calls.
+- Update camera loop to process frames locally.
+
+## Verification Plan
+
+### Manual Verification
+- Run the app locally and verify the "Start Session" successfully initializes the browser-based MediaPipe model.
+- Confirm pose classification works by performing a known pose (e.g., Warrior I).
+- Verify real-time feedback is displayed without needing the Python server.

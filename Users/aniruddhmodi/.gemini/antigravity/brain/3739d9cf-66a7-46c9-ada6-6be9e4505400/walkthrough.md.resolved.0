@@ -1,0 +1,22 @@
+# Walkthrough - Research Script Modifications
+
+## Changes Implemented
+I have modified [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py) to:
+1.  **Fix Path Issues**: Updated hardcoded paths to relative paths pointing to the local `thousand_image` directory.
+2.  **Enable MPS (Metal Performance Shaders)**: Added explicit TensorFlow configuration to detect and use Mac GPU (MPS) for training.
+3.  **Save Final Model**: Added logic to train a final model on the full dataset after cross-validation and save it as `model_YYYY-MM-DD.h5`.
+
+## Verification Results
+### Execution
+- The script was executed with `python3 research3.py`.
+- **MPS Detection**: Validated that the script correctly identifies and uses the GPU:
+  ```
+  🚀  MPS (Metal Performance Shaders) DETECTED on 1 DEVICE(S)  🚀
+  ```
+- **Training**: The model is currently training. The process includes:
+    1.  5-Fold Cross-Validation (Evaluating model performance).
+    2.  Final Model Training (Training on all available data).
+    3.  Saving the file (e.g., `model_2024-12-23.h5`).
+
+> [!NOTE]
+> The training process involves significant computation and is currently running in the background. It may take several hours to complete the full 5-fold validation and final training.

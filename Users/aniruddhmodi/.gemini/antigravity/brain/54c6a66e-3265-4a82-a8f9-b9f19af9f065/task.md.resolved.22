@@ -1,0 +1,26 @@
+# Tasks
+
+- [x] Fix Dart compilation error in [lib/services/drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) <!-- id: 0 -->
+    - [x] Analyze [drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) and [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) <!-- id: 1 -->
+    - [x] Correct `authenticatedClient` usage <!-- id: 2 -->
+- [x] Fix iOS Build Configuration <!-- id: 3 -->
+    - [x] Check and fix `CFBundleVersion` in [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 4 -->
+    - [x] Check Swift version configuration <!-- id: 5 -->
+- [x] Verify fix by running the build <!-- id: 6 -->
+    - [x] Check [journal_transition_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart) and [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart) mismatch <!-- id: 7 -->
+    - [x] Update [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) to accept `GoogleSignInAccount` <!-- id: 8 -->
+    - [x] Ensure call sites of [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) pass `GoogleSignInAccount` <!-- id: 9 -->
+    - [x] Verify [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#4-40) stream type <!-- id: 10 -->
+    - [x] Check [FeedbackScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart#6-13) signature <!-- id: 11 -->
+- [x] Resolve iOS Installation Limit <!-- id: 12 -->
+    - [x] Check current Bundle Identifier <!-- id: 13 -->
+    - [x] Confirm and Update Team ID <!-- id: 15 -->
+    - [x] App requires Paid Account to be added to Xcode <!-- id: 17 -->
+    - [x] Select correct Team in Xcode to generate certificates <!-- id: 18 -->
+    - [x] Change Bundle ID to `com.aniruddhmodi.roze` to fix uniqueness error <!-- id: 19 -->
+    - [x] Add iOS App to Firebase with new Bundle ID <!-- id: 20 -->
+    - [x] Update [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/GoogleService-Info.plist) and [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 21 -->
+    - [x] Enable Google Drive API in Cloud Console (Required) <!-- id: 22 -->
+- [/] Debug JSON Serialization Error <!-- id: 23 -->
+    - [ ] Check [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#172-203) for `Timestamp` usage <!-- id: 24 -->
+    - [ ] Fix `toJson` to handle `Timestamp` or replace with `DateTime` <!-- id: 25 -->

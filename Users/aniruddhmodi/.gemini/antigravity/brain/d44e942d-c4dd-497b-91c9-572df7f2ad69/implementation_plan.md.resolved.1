@@ -1,0 +1,32 @@
+# Refine UI Contrast and Swipe Behavior
+
+## Goal
+1.  **Swipe to Save**: Ensure the slider stays in the "saved" position after completion, without resetting automatically.
+2.  **UI Contrast**: Increase visual distinction between the top app bar, the middle content area, and the bottom navigation bar.
+
+## Proposed Changes
+
+### [lib/widgets/swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart)
+- [MODIFY] In [_completeSwipe](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#66-84), remove the `Future.delayed` block that resets `_isCompleted` and `_dragValue`.
+
+### [lib/theme/app_colors.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart)
+- [MODIFY] Update `AppColors.background` to a slightly darker/warmer shade (`0xFFF5F2F0`) to create better contrast against the white surfaces.
+
+### [lib/widgets/background_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/background_wrapper.dart)
+- [MODIFY] Update [BackgroundWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/background_wrapper.dart#4-16) to use `AppColors.background` instead of `AppColors.cream` to utilize the new darker shade.
+
+### [lib/screens/main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart)
+- [MODIFY] Update `AppBar` styling:
+    -   Increase gradient intensity (alpha 0.3 -> 0.5) for `rosePetal`.
+    -   Increase shadow opacity (alpha 0.1 -> 0.2).
+- [NOTE] The Bottom Navigation Bar uses `AppColors.surface` (White). With the body background changed to `0xFFF5F2F0`, the white bar will stand out more clearly, satisfying the contrast requirement.
+
+## Verification Plan
+### Manual Verification
+- **Swipe Behavior**:
+    -   Perform "Slide to Save".
+    -   Verify the button stays at the right side (check mark) and does not slide back to the start automatically.
+- **UI Contrast**:
+    -   Observe the Main Screen.
+    -   Verify the Top Bar and Bottom Bar (White) are clearly distinct from the central content area (Warm Grey/Beige).
+    -   Verify the Top Bar gradient is slightly more visible.

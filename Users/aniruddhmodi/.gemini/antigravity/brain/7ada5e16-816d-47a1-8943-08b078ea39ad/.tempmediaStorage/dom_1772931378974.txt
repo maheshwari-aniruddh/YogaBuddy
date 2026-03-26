@@ -1,0 +1,24 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (59,57)<a class='back-btn' href='instruments.html' />
+	[1] (68,57)<span >Back />
+🎸 Bass Guitar
+Status
+AR Active
+Camera Active
+[2] (45,324)<div >🎵 E2 />
+	[3] (59,324)<span >IDLE />
+[4] (114,324)<div >🎵 A2 />
+	[5] (128,324)<span >IDLE />
+[6] (184,324)<div >🎵 D2 />
+	[7] (198,324)<span >IDLE />
+[8] (253,324)<div >🎵 G2 />
+	[9] (267,324)<span >IDLE />
+Pitch
+1.0x
+Last:
+E2 (1.0x) → 9.6s ago
+
+</current_dom>

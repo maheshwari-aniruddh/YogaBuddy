@@ -1,0 +1,23 @@
+# Gesture Safety Plan
+
+## Goal Description
+Detect when user is moving *hands* (8+ fingers) down, likely for octave shifting, and suppress accidental note triggers.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Main Loop**:
+    - Add a pre-pass loop over `results.hand_landmarks` to calculate velocities.
+    - Count fingers with `v_y > velocity_threshold`.
+    - If `count >= 8`, set `suppress_triggers = True`.
+    - Visualization: Show "MOVING OCTAVE" text if suppressed.
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Move both hands down rapidly.
+    - **Expected**: No noise, maybe visual feedback "MOVING OCTAVE".
+- Play a 3-4 finger chord.
+    - **Expected**: Sounds play normally.

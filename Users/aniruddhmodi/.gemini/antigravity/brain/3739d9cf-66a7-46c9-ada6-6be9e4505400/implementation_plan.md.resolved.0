@@ -1,0 +1,29 @@
+# Research3 Script Modification Plan
+
+## Goal Description
+The user wants to run [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py), ensure it trains on GPU, and saves the resulting model as an [.h5](file:///Users/aniruddhmodi/Downloads/Research/best_model.h5) file with today's date in the filename.
+
+## User Review Required
+> [!IMPORTANT]
+> I will assume the user wants to train a **final model on the entire dataset** after the K-Fold cross-validation finishes (or instead of it, but likely in addition to allow current validation logic to remain), and save *that* model. This provides a deployable model.
+> I will also verify relevant data paths which seem hardcoded to a different user/directory structure.
+
+## Proposed Changes
+### Research Script
+#### [MODIFY] [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py)
+- **Update Paths**: Change `yes_folder` and `no_folder` to point to the local `thousand_image` directory in the current workspace.
+- **Save Model**:
+    - Import `datetime`.
+    - After the K-Fold loop, trigger a final training session on the full dataset (`X`, `y`).
+    - Generate filename: `model_YYYY-MM-DD.h5`.
+    - Save the model using `model.save()`.
+- **GPU Confirmation**: Add a snippet to print available physical devices to confirm GPU (MPS) is visible.
+
+## Verification Plan
+### Automated Tests
+- Run the modified script: `python research3.py`.
+- **Success Criteria**:
+    - Script runs without path errors.
+    - Prints "Num GPUs Available: ..."
+    - completes training (I might reduce epochs/folds for a quick test if the user wants, but user asked to "run" it, implies full run).
+    - Checks if `model_YYYY-MM-DD.h5` exists in the directory.

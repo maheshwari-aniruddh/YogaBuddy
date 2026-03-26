@@ -1,0 +1,10 @@
+# Task: PoseFlow Stable Deployment
+
+- [x] Renaming to PoseFlow <!-- id: 0 -->
+- [x] Full Project Deployment (Hybrid) <!-- id: 1 -->
+    - [x] Add local ML disclaimer to web app <!-- id: 2 -->
+    - [x] Configure GitHub Actions for deployment <!-- id: 3 -->
+    - [x] Push full project to `PoseFlow` repo <!-- id: 4 -->
+- [x] Verification <!-- id: 5 -->
+    - [x] Resolve React Router 404 issue (basename fix) <!-- id: 6 -->
+    - [x] Verify live URL: [maheshwari-aniruddh.github.io/PoseFlow/](https://maheshwari-aniruddh.github.io/PoseFlow/) <!-- id: 7 -->

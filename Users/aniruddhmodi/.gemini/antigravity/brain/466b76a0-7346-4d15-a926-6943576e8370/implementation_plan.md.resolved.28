@@ -1,0 +1,28 @@
+# Octave Shifting Plan
+
+## Goal Description
+Control octave (pitch/speed) by moving hands up or down the screen.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **AudioEngine**:
+    - [_load_sounds](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#16-67): After loading normal sound, get array via `pygame.sndarray.array(sound)`.
+    - Generate `arr_high = arr[::2]`.
+    - Generate `arr_low = np.repeat(arr, 2, axis=0)`.
+    - Create new Sounds and store in `self.sounds` dict keys like `c1_high`, `c1_low`.
+    - Update [play(note, y_pos)](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#68-71) to select suffix.
+- **Visuals**:
+    - Draw 2 horizontal lines.
+    - Add text labels for the zones.
+- **Helper**:
+    - `get_octave_modifier(y)`: Returns `_high`, `_low`, or (empty).
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Play a note at the top -> High pitch.
+- Play in middle -> Normal.
+- Play at bottom -> Low pitch.

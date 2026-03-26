@@ -1,0 +1,13 @@
+# Research & Ablation Study Task List
+
+- [ ] Environment Setup <!-- id: 0 -->
+    - [x] Check directory structure <!-- id: 1 -->
+    - [x] Install dependencies (shap, compatible numpy) <!-- id: 2 -->
+- [/] Ablation Experiments <!-- id: 3 -->
+    - [x] Create [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py) script <!-- id: 4 -->
+    - [x] Create [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh) runner <!-- id: 5 -->
+    - [/] Run HOG Experiment (Running PID 2920) <!-- id: 6 -->
+    - [ ] Run LBP Experiment (Queued) <!-- id: 7 -->
+- [ ] Analysis & Visualization <!-- id: 8 -->
+    - [ ] SHAP Analysis (Integrated in script) <!-- id: 9 -->
+    - [ ] Compare HOG vs LBP results <!-- id: 10 -->

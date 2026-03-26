@@ -1,0 +1,47 @@
+# Implementation Plan - Multi-Language Support
+
+The goal is to add support for **English, Hindi (with Devanagari script), Spanish, French, and Chinese**.
+
+## User Review Required
+> [!IMPORTANT]
+> This requires adding `flutter_localizations` and generating boilerplate code. I will assume standard Flutter localization best practices (ARB files).
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- Add `flutter_localizations` and `intl`.
+- Enable `generate: true`.
+
+#### [NEW] [l10n.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/l10n.yaml)
+- Configure ARB directory (`lib/l10n`) and template file.
+
+### Localization Files
+#### [NEW] `lib/l10n/app_en.arb` (English - Template)
+#### [NEW] `lib/l10n/app_hi.arb` (Hindi)
+#### [NEW] `lib/l10n/app_es.arb` (Spanish)
+#### [NEW] `lib/l10n/app_fr.arb` (French)
+#### [NEW] `lib/l10n/app_zh.arb` (Chinese)
+- Populate with key UI strings:
+    - Titles ("Daily Reminders", "SuperThanks")
+    - Buttons ("Save", "Send Gratitude")
+    - Prompts ("How was your day?")
+    - Settings labels ("Language", "Dark Mode")
+
+### UI Updates
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+- Add `localizationsDelegates` and `supportedLocales`.
+- Initialize `LocaleProvider` (new service) to manage language selection.
+
+#### [MODIFY] [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart)
+- Add a "Language" dropdown/selector.
+
+#### [MODIFY] `lib/screens/*.dart`
+- Replace hardcoded strings with `AppLocalizations.of(context)!.key`.
+
+## Verification Plan
+### Manual Verification
+- Go to Settings -> Change Language to Hindi.
+- Verify text changes to Hindi characters (e.g., "नमस्ते").
+- Verify Chinese characters appear correctly.
+- Check layout for text overflow involves longer languages (e.g., French/Spanish).

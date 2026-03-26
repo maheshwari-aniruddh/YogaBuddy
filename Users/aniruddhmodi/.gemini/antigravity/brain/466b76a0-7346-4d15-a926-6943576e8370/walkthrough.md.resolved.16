@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Low Sensitivity)
+
+## Summary
+The piano is now configured for maximum precision and minimal accidental triggers.
+
+## Configuration
+- **Threshold**: 0.12 (Very Low Sensitivity).
+- **Motion**: Requires a **very fast, deliberate strike** to play a note.
+- **Aids**: Grid lines and speed numbers help you perfect your technique.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

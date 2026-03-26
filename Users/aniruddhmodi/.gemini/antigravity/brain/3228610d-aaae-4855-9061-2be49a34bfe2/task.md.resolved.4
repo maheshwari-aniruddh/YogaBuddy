@@ -1,0 +1,14 @@
+# EfficientNet-B0 Ablation Study on BT-MRI Dataset
+
+- [x] Explore project structure and dataset
+- [x] Install dependencies (torch, torchvision, timm, scikit-image, etc.)
+- [x] Write implementation plan for ablation study
+- [x] Implement [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) with ablation study (4 configs, 20% data, save models with labels)
+- [x] Refactor [predict.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict.py) to gracefully handle OOD (hiding confidence, etc.)
+- [x] Evaluate updated [predict.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict.py) on test images (`image copy 3.png`, `image copy 5.png`)
+- [x] Create [eval_new_dataset.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_new_dataset.py) and run on "Brain Cancer - MRI dataset"
+- [x] Implement robust preprocessing (CLAHE) across all scripts ([main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py), `eval*.py`, [predict.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict.py))
+- [x] Add CLAHE to the `raw_transforms` so HOG and GLCM extract features from normalized lighting
+- [ ] Retrain `efficientnet_b1` models from scratch on CLAHE-normalized data
+- [ ] Recompute OOD statistics (`ood_stats.pt`) on CLAHE-normalized data
+- [ ] Re-evaluate on both local 17-class dataset and "Brain Cancer - MRI dataset"

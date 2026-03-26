@@ -1,0 +1,55 @@
+# Implementation Plan: Features & UI Polish
+
+The user wants to add Voice Entries, Mood Analytics, Heatmap Calendar, Smart Reminders, and an AI Summary, while upgrading the UI to a "Glassmorphism" style.
+
+## Dependencies
+- `flutter_heatmap_calendar`: For the contribution graph.
+- [record](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#139-161): For audio recording.
+- `audioplayers`: For playback.
+- `permission_handler`: For microphone permissions.
+- `path_provider`: For file storage.
+
+## Proposed Changes
+
+### 1. Configuration & Setup
+- **[pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)**: Add new packages.
+- **[ios/Runner/Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist)**: Add `NSMicrophoneUsageDescription`.
+
+### 2. UI Components (Glassmorphism)
+- **`lib/widgets/glass_container.dart`**: New widget wrapping `BackdropFilter` and `Container` with semi-transparent white/black colors and blur.
+- **[lib/theme/app_colors.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/theme/app_colors.dart)**: Add glass-specific colors.
+
+### 3. Data Model
+- **[lib/models/journal_entry.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart)**: Add `String? audioPath` field.
+- **[lib/services/store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)**: Handle audio file persistence.
+
+### 4. Features
+
+#### A. Voice Entries
+- **`lib/widgets/audio_recorder.dart`**: Button to hold-and-record.
+- **`lib/widgets/audio_player.dart`**: Simple play/pause bubble.
+- **[lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)**: Integrate recorder/player in the actions page.
+
+#### B. Analytics (Mood & Heatmap)
+- **`lib/screens/analytics_screen.dart`**: New screen.
+- **Mood Chart**: Re-use logic from `StatsScreen` but polish with `fl_chart`.
+- **Heatmap**: Use `HeatMapCalendar` to show activity intensity.
+- **AI Summary**: Simple word frequency analysis of recent entries to display "Week in 3 Words".
+
+#### C. Smart Reminders
+- **[lib/services/notification_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart)**: Add `scheduleInactivityReminder()`.
+- **Logic**: Check `lastJournalDate` on app open; if > 2 days, schedule a notification for tomorrow.
+
+### 5. Integration
+- **[lib/screens/main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart)**: Update navigation to include Analytics. Apply Glassmorphism.
+
+## Verification Plan
+
+### Automated Tests
+- Build test to ensure new dependencies don't break the build.
+- `flutter test` not applicable for UI/Audio without mocks, but we will ensure compilation.
+
+### Manual Verification
+- **Voice**: Record a clip, save, restart app, verify playback.
+- **Analytics**: Verify chart renders and heatmap reflects entries.
+- **UI**: Visually inspect the "Glass" effect on the Simulator.

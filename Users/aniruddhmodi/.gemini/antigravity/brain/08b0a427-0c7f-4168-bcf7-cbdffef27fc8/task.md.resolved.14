@@ -1,0 +1,7 @@
+# Task: Maximize B4 Accuracy & Robustness
+
+- [x] Investigate B4 model regression (over-regularized, underfitting) <!-- id: 16 -->
+- [x] Run head-to-head B3 vs B4 evaluation on Challenging Datasets <!-- id: 17 -->
+- [x] Analyze results and draft optimal training strategy <!-- id: 18 -->
+- [ ] Implement B4 v2 changes in [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) (lighter regularization, gradient accumulation) <!-- id: 19 -->
+- [ ] Push updated `carat-b4-training` kernel v2 to Kaggle <!-- id: 20 -->

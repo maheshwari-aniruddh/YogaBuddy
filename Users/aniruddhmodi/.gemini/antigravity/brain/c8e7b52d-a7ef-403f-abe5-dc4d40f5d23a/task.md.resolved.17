@@ -1,0 +1,7 @@
+# Task: Refine Smart Reminders
+
+- [x] Debug Firestore Permission Error <!-- id: 0 -->
+- [x] Ensure Local Timezone (`flutter_timezone`) <!-- id: 1 -->
+- [x] Update [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#18-25) text (remove "8:00 PM") <!-- id: 3 -->
+- [x] Verify [NotificationService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart#10-273) logic (7 PM - 10 PM) <!-- id: 4 -->
+- [x] Add verification logging [_printPendingNotifications](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/notification_service.dart#261-272) <!-- id: 5 -->

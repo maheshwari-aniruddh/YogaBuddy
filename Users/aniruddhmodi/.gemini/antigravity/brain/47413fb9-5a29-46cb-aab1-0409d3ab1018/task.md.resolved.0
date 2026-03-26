@@ -1,0 +1,25 @@
+# App Store Rejection Fixes
+
+## Fix 1: Sign in with Apple (Guideline 4.8)
+- [ ] Add `sign_in_with_apple` package to [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml)
+- [ ] Add Sign in with Apple entitlement to [Runner.entitlements](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Runner.entitlements)
+- [ ] Add `signInWithApple()` method to [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart)
+- [ ] Add Apple sign-in button to [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart)
+- [ ] Add localization strings for Apple sign-in in all [.arb](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/l10n/app_zh.arb) files
+- [ ] Run `flutter pub get` and `flutter gen-l10n`
+
+## Fix 2: iPad Export Data Bug (Guideline 2.1a)
+- [ ] Fix [_getSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#901-905) in [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) to return a proper rect for iPad share sheet
+
+## Fix 3: Account Deletion (Guideline 5.1.1v)
+- [ ] Add `deleteAccount()` method to [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart) (Firebase Auth delete + Firestore user doc delete)
+- [ ] Add `clearAllData()` method to [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart)
+- [ ] Add "Delete Account" UI section in [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) with confirmation dialog
+- [ ] Add localization strings for account deletion
+
+## Fix 4: Verification
+- [ ] Run `flutter analyze` to check for errors
+- [ ] Run `flutter build ios` to verify the build compiles
+
+## Bonus: App Launch Checklist
+- [ ] Create filled out app launch checklist artifact

@@ -1,0 +1,85 @@
+# Strategy: 95%+ Accuracy on ALL Challenging Datasets
+
+## Current Baseline
+
+| Dataset  | B3 Super | B4 Super v1 | Gap to 95% |
+|----------|----------|-------------|------------|
+| Blurred  | **97.1%** | 95.8%      | ✅ Already there |
+| Noisy    | 90.3%    | 89.0%       | **~5% short** |
+| Motion   | 49.7%    | 81.8%       | **~13% short** |
+
+## Multi-Pronged Approach
+
+### Phase 1: Train B4 v2 (better trained single model)
+
+#### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+**A. Reduce over-regularization** (fixes underfitting → boosts Blurred/Noisy)
+- `drop_rate` 0.4 → **0.2**, `drop_path_rate` 0.2 → **0.1**
+- Classifier dropout 0.5 → **0.3**
+- `weight_decay` 1e-3 → **5e-4**
+
+**B. Add realistic k-space motion augmentation** (boosts Motion further)
+- Add `RandomMotionBlur` — applies random directional motion blur with varying kernel sizes (7–21px) and angles
+- Keep existing `AddKSpaceZipperArtifact` (Moiré simulator)
+- **Combined**: model sees both ringing AND directional smear
+
+**C. Soften noise augmentation** (prevents Noisy regression)
+- Post-tensor noise `std` 0.1 → **0.05**
+- GaussianBlur sigma `(0.5, 2.0)` → `(0.1, 1.5)`
+
+**D. Gradient accumulation** (stabilizes small-batch training)
+- `ACCUM_STEPS = 4` → effective batch size = 32
+- `LEARNING_RATE = 5e-4`
+
+**E. Train for 40 epochs** (with patience=7) — gives more time to converge
+
+---
+
+### Phase 2: Ensemble B3 + B4 v2 at eval time (pushes all metrics higher)
+
+#### [NEW] [eval_ensemble.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval_ensemble.py)
+
+- Load **both** `efficientnet_b3_super.pth` and `efficientnet_b4_super.pth`
+- For each image, get softmax probabilities from both models
+- **Average the probabilities** → final prediction = argmax of averaged probs
+- B3 is strong on Blurred/Noisy, B4 is strong on Motion → ensemble gets best of both
+
+---
+
+### Phase 3: Test-Time Augmentation (TTA) (pushes accuracy ~1–3% higher)
+
+Applied in `eval_ensemble.py`:
+- For each test image, create **5 augmented views**:
+  1. Original
+  2. Horizontal flip
+  3. Vertical flip
+  4. Small rotation (+10°)
+  5. Small rotation (-10°)
+- Average predictions across all 5 views × 2 models = 10 total predictions
+- TTA smooths decision boundaries and reduces edge-case misclassifications
+
+## Expected Impact
+
+| Technique | Blurred | Noisy | Motion |
+|-----------|---------|-------|--------|
+| B3 alone | 97.1% | 90.3% | 49.7% |
+| B4 v1 alone | 95.8% | 89.0% | 81.8% |
+| B4 v2 (lighter reg) | ~97% | ~92% | ~85% |
+| Ensemble B3 + B4 v2 | ~98% | ~94% | ~88% |
+| + TTA | **~98%+** | **~95%+** | **~92%+** |
+
+> [!IMPORTANT]
+> Motion 95%+ is the hardest target. If ensemble+TTA doesn't reach it, we can add a **specialized motion-correction preprocessing** step (apply NLM-like deblurring before inference on motion-corrupted images).
+
+## Execution Order
+
+1. **First**: Implement B4 v2 changes in `main.py` and push to Kaggle (~8hr train)
+2. **While waiting**: Build `eval_ensemble.py` with TTA locally
+3. **After training**: Download B4 v2 weights, run ensemble eval
+4. **Evaluate**: If still below 95% on Motion, add motion-specific preprocessing
+
+## Verification
+
+- Run `eval_ensemble.py` on all 3 challenging datasets
+- All must show **≥95% accuracy**

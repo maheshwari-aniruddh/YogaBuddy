@@ -1,0 +1,19 @@
+# App Store Publication Checklist
+
+- [ ] **Preparation**
+    - [ ] Verify App Name and Bundle ID
+    - [ ] Update Version and Build Number in `pubspec.yaml`
+    - [ ] Generate App Icons (various sizes)
+    - [ ] specific configuration in `Info.plist` (NSPermissions, etc.)
+- [ ] **Apple Developer Account**
+    - [ ] Ensure valid Apple Developer Program membership
+    - [ ] Create App ID (Identifier)
+    - [ ] Create Provisioning Profiles (if manual signing)
+- [ ] **App Store Connect**
+    - [ ] Create New App in App Store Connect
+    - [ ] Fill in App Information (Privacy Policy, Screenshots, etc.)
+- [ ] **Build & Release**
+    - [ ] Configure Signing in Xcode
+    - [ ] Create Flutter Build (`flutter build ios --release`)
+    - [ ] Archive in Xcode
+    - [ ] Validate and Distribute

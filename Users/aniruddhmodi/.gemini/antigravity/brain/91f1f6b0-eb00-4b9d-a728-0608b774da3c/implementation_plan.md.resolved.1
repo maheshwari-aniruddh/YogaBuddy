@@ -1,0 +1,30 @@
+# Plan: Resolve iPhone Connection Issue
+
+The user is experiencing a timeout issue when attempting to run the Flutter app on their iPhone wirelessly. This is often caused by network instability, device locking, or Xcode state issues.
+
+## Proposed Steps
+
+### 1. Diagnostic & Cleanup
+- Run `flutter- [x] Diagnose and clear build cache <!-- id: 0 -->
+- [/] Attempt to run on a simulator (optional, to verify build) <!-- id: 1 -->
+- [ ] Provide instructions for manual device reset <!-- id: 2 -->
+- [ ] Verify connection after reset <!-- id: 3 --> [DEFERRED]
+I will provide the user with clear steps to manually reset the physical device connection if they wish to go back to it later:
+- Connect the iPhone to the Mac via USB.
+- "Trust" the device if prompted.
+- Ensure the device is unlocked and on the same Wi-Fi network.
+- Toggle Wi-Fi on both devices.
+- Restart Xcode and the iPhone if the issue persists.
+
+### 3. Verification
+- Run `flutter devices` after the above steps to see if the error status changes.
+- Attempt to run the app again.
+
+## Verification Plan
+
+### Automated Tests
+- `flutter doctor -v`: Check for any underlying toolchain issues.
+- `flutter devices`: Confirm the device is recognized and available.
+
+### Manual Verification
+- The user will need to confirm if the app launches successfully after following the manual reset steps.

@@ -1,0 +1,20 @@
+# Task: Add Features & Polish UI
+
+## Phase 1: Setup & Dependencies
+- [x] Add dependencies (record, audioplayers, heatmap, etc.) <!-- id: 4 -->
+- [x] Configure iOS permissions (Info.plist) <!-- id: 5 -->
+- [x] Create [GlassContainer](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/glass_container.dart#4-71) widget <!-- id: 6 -->
+
+## Phase 2: Core Features
+- [x] Implement Voice Entries (Recorder & Player) <!-- id: 7 -->
+- [x] Implement Analytics Screen (Mood Chart & Heatmap) <!-- id: 8 -->
+- [x] Implement Smart Reminders (Cancel on Entry) <!-- id: 9 -->
+- [/] Implement Simple AI Summary (Week in 3 Words) <!-- id: 10 -->
+
+## Phase 3: UI Polish
+- [ ] Apply Glassmorphism to Main Screen <!-- id: 11 -->
+- [ ] Apply Glassmorphism to Today Screen <!-- id: 12 -->
+- [ ] Polish Transitions & Animations <!-- id: 13 -->
+
+## Phase 4: Verification
+- [ ] Verify functionality on Simulator <!-- id: 14 -->

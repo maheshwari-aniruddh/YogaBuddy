@@ -1,0 +1,61 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+Navigation Menu
+[0] (32,46)<a aria-label='Homepage' class='tmp-mr-lg-3 color-fg-inherit flex-order-2 js-prevent-focus-on-mobile-nav' href='/' />
+[1] (85,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Platform />
+[2] (151,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Solutions />
+[3] (223,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Resources />
+[4] (303,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Open Source />
+[5] (382,46)<button class='NavDropdown-module__button__PEHWX js-details-target'>Enterprise />
+[6] (441,46)<a class='NavLink-module__link__EG3d4 MarketingNavigation-module__navLink__hUomM' href='https://github.com/pricing' />
+	[7] (441,46)<span >Pricing />
+[8] (734,46)<button aria-label='Search or jump to…' class='header-search-button placeholder input-button form-control d-flex flex-1 flex-self-stretch flex-items-center no-wrap width-full py-0 pl-2 pr-0 text-left border-0 box-shadow-none' placeholder='Search or jump to...' />
+	[9] (639,46)<div  />
+	[10] (733,46)<span >Search or jump to... />
+	[11] (831,46)<div  />
+[12] (870,46)<a class='HeaderMenu-link HeaderMenu-link--sign-in HeaderMenu-button flex-shrink-0 no-underline d-none d-lg-inline-flex border border-lg-0 rounded px-2 py-1' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fdeployments'>Sign in />
+Sign in to GitHub
+[13] (783,185)<label >Username or email address />
+[14] (804,225)<input class='form-control input-block js-login-field' id='login_field' />
+[15] (743,279)<label >Password />
+[16] (804,319)<input class='form-control form-control input-block js-password-field' id='password' />
+[17] (849,279)<a class='label-link position-absolute top-0 right-0' href='/password_reset' id='forgot-password'>Forgot password? />
+[18] (804,381)<input class='btn btn-primary btn-block js-sign-in-button' />
+[19] (804,435)<a class='Button--link Button--medium Button' href='/login?return_to=https%3A%2F%2Fgithub.com%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fdeployments' />
+	[20] (804,435)<span  />
+		[21] (804,435)<span >or continue with other methods />
+[22] (925,46)<a class='HeaderMenu-link HeaderMenu-link--sign-up HeaderMenu-button flex-shrink-0 d-flex d-lg-inline-flex no-underline border color-border-default rounded px-2 py-1' href='/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fmaheshwari-aniruddh%2FYogaBuddy%2Fdeployments&source=header'>Sign up />
+[23] (968,46)<button class='Button Button--iconOnly Button--invisible Button--medium AppHeader-button HeaderMenu-link border' id='icon-button-10d585db-be18-499b-ae81-d6cd298a7085' />
+[24] (500,627)<label class='d-block text-normal color-fg-muted mb-1 f4'>Find code, projects, and people on GitHub: />
+[25] (471,668)<input class='flex-auto input-lg form-control mr-2' id='not-found-search' />
+[26] (797,668)<button class='btn'>Search />
+[27] (427,744)<a class='Link--secondary' href='https://support.github.com?tags=dotcom-404'>Contact Support />
+—
+[28] (505,744)<a class='Link--secondary' href='https://githubstatus.com'>GitHub Status />
+—
+[29] (578,744)<a class='Link--secondary' href='https://x.com/githubstatus'>@githubstatus />
+Site-wide Links
+[30] (130,870)<a aria-label='Go to GitHub homepage' class='color-fg-default d-inline-block' href='/' />
+Subscribe to our developer newsletter
+Get tips, technical guides, and best practices. Twice a month.
+Platform
+[31] (397,909)<a class='Link--secondary' href='/features'>Features />
+[32] (400,953)<a class='Link--secondary' href='/enterprise'>Enterprise />
+[33] (394,996)<a class='Link--secondary' href='/features/copilot'>Copilot />
+Ecosystem
+[34] (546,909)<a class='Link--secondary' href='https://docs.github.com/get-started/exploring-integrations/about-building-integrations'>Developer API />
+[35] (534,953)<a class='Link--secondary' href='https://partner.github.com'>Partners />
+[36] (537,996)<a class='Link--secondary' href='https://github.com/edu'>Education />
+Support
+[37] (664,909)<a class='Link--secondary' href='https://docs.github.com'>Docs />
+[38] (693,953)<a class='Link--secondary' href='https://github.community'>Community Forum />
+[39] (699,996)<a class='Link--secondary' href='https://services.github.com'>Professional Services />
+Company
+[40] (804,909)<a class='Link--secondary' href='https://github.com/about'>About />
+[41] (817,953)<a class='Link--secondary' href='https://github.com/why-github'>Why GitHub />
+[42] (828,996)<a class='Link--secondary' href='/customer-stories?type=enterprise'>Customer stories />
+
+</current_dom>

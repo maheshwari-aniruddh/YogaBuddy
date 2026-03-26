@@ -1,0 +1,6 @@
+# Add NLM Preprocessing
+
+- [ ] Analyze [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) and update training preprocessing to include NLM
+- [ ] Analyze inference scripts ([predict.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict.py), [predict_batch.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/predict_batch.py), [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)) and update to include NLM
+- [ ] Retrain the massive super model using the updated preprocessing
+- [ ] Verify inference script outputs

@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Pygame and Bot scripts (Local only)
+main_pygame.py
+pygame_script.txt
+typer_bot.py
+scripts_for_bot/
+scripts_for_bot.zip
+
+# History and Zips (Local only)
+antigravity_history.zip
+cursor_history.zip
+pycharm_history.zip
+vscode_history.zip
+trash/
+tmp/

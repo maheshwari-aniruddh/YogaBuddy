@@ -1,0 +1,7 @@
+# Task: Verify GitHub Pages Deployment for PoseFlow
+
+## Checklist
+- [ ] Wait 60 seconds for GitHub Action to finish
+- [ ] Navigate to https://maheshwari-aniruddh.github.io/PoseFlow/
+- [ ] Verify the landing page loads correctly (no 404)
+- [ ] Confirm PoseFlow name is reflected (as per user's earlier request)

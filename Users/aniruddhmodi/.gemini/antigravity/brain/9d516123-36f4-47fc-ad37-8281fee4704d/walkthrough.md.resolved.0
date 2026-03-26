@@ -1,0 +1,25 @@
+# Server Startup Walkthrough
+
+I have successfully started all the servers for the Yogabuddy/OneBreath application.
+
+## Access Points
+
+| Service | URL | Status |
+| :--- | :--- | :--- |
+| **Web App** | [http://localhost:5003](http://localhost:5003) | ✅ Online |
+| **Yoga API** | [http://localhost:5002](http://localhost:5002) | ✅ Online |
+| **TTS Backend** | [http://localhost:5001](http://localhost:5001) | ✅ Online |
+
+## Servers Running
+
+The following servers were started using the [start_all_servers.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/start_all_servers.sh) script:
+
+1.  **TTS Backend**: Port 5001 (Python)
+2.  **Yoga API Server**: Port 5002 (Python/Flask)
+3.  **Web App**: Port 5003 (Vite/React)
+
+To stop the servers, you can run the following command in your terminal:
+```bash
+kill $(lsof -t -i:5001 -i:5002 -i:5003)
+```
+or find the process running [start_all_servers.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/start_all_servers.sh) and interrupt it.

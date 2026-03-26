@@ -1,0 +1,33 @@
+# AR Studio Plan
+
+## Goal Description
+1.  **Refine Current App**: Make the piano overlay opaque.
+2.  **New App (`ar_studio.py`)**: A "production-grade" AR instrument studio with synthetic audio and multi-mode support.
+
+## User Review Required
+- **Audio**: Using synthetic sounds (beeps/noise) implies no need for [.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1.wav) files.
+
+## Proposed Changes
+### [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Visuals**: Change `cv2.addWeighted` to direct array assignment `annotated_image[...] = piano_resized`.
+
+### [NEW] [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **Architecture**:
+    - `AudioEngine`: Generates sounds using `numpy` + `pygame.sndarray`.
+        - Piano: Sine waves.
+        - Drums: White noise (Snare), Low sine (Kick).
+    - `HandPhysics`: Tracks landmarks history, calculates velocity, detects curls.
+    - `Streamlit Loop`:
+        - Sidebar: Mode Selection (Piano/Drums), Camera Select, Sensitivity.
+        - Main Loop: MediaPipe process -> Physics Update -> Mode Logic -> Render.
+- **Modes**:
+    - **Piano**: 10 distinct notes mapped to 10 fingers. Curls = Sharps. Visual: Finger tip circles.
+    - **Drums**: Screen divided into 4 quadrants (Snare, Hat, Tom, Kick). Triggered by Index finger velocity in zone. Visual: Quadrant flash.
+
+## Verification Plan
+### Manual Verification
+1.  **Opaque Check**: Run [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py), verify piano is solid.
+2.  **Studio Check**: Run `streamlit run ar_studio.py`.
+    -   Test Piano: All 10 fingers.
+    -   Test Drums: Hit 4 corners.
+    -   Test Audio: Verify sounds play without delay.

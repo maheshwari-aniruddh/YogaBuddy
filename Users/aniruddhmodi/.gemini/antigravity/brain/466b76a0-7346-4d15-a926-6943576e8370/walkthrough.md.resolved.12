@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Audio Enabled)
+
+## Summary
+The virtual piano now produces real sound!
+
+## New Features
+- **Audio Feedback**: Plays [.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/e1.wav) files (key notes) instantly when you press a key.
+- **Polyphony**: Supports chords (multiple sounds playing at once).
+- **Audio Engine**: Uses `pygame` for low-latency playback.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

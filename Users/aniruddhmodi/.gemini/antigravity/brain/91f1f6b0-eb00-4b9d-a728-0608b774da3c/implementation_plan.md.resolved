@@ -1,0 +1,11 @@
+# Implementation Plan
+
+1.  **Fix Dependencies**: Add [record](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#162-186) package back to [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml).
+2.  **UI Polish**: 
+    -   Update [GlassContainer](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/glass_container.dart#4-71) to have higher opacity (more solid) and less shadow (less glow).
+3.  **Build Fix**: 
+    -   Kill lingering processes.
+    -   Clean build artifacts.
+    -   install pods.
+    -   Run app.
+4.  **Summary**: Generate feature summary.

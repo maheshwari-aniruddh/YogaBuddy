@@ -1,0 +1,31 @@
+# Implementation Plan - Phase 3: Visual Updates & Cleanup
+
+## Goal
+Enhance user experience with visual updates, implement requested UI changes (Swipe to Save), and ensure code cleanliness by removing legacy dependencies.
+
+## Completed Changes
+- **FaceID**: Implemented and Verified.
+- **UI Updates**:
+    - [x] **Swipe to Save**: Replaced standard button with [SwipeToSaveWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#5-18).
+    - [x] **Microphone Alignment**: Fixed overlap in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25).
+    - [x] **Star Button**: Restored accidentally removed button.
+- **Code Cleanup**:
+    - [x] **Firebase Removal**: Removed `Firebase.initializeApp`, `Firestore` usage in [FeedbackScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart#5-12), and deleted [firestore_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/firestore_service.dart).
+    - [x] **Settings Fix**: Updated [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#18-25) to use [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#4-40) instead of `FirebaseAuth`.
+
+## Verification Plan
+
+### Manual Verification
+#### 1. Visual Inspection
+- [ ] Check [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) layout.
+- [ ] Verify Microphone is centered and not overlapping.
+- [ ] Verify Star button is present and works.
+- [ ] Verify Swipe to Save widget looks correct.
+
+#### 2. Functional Testing
+- [ ] Swipe to Save: Ensure it triggers save (Haptic feedback + SnackBar).
+- [ ] Feedback: Submit feedback, ensure no crash (simulated success).
+- [ ] Settings: Logout/Login flow (ensuring [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#4-40) works).
+
+#### 3. Data Persistence
+- [ ] Create entry, save, restart app. Verify entry persists (Google Drive).

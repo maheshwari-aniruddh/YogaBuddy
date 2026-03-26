@@ -1,0 +1,7 @@
+# Implement GridWorld Extensions
+
+- [ ] Implement [ChameleonKid](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/ChameleonKid.java#8-15) extending [ChameleonCritter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/ChameleonCritter.java#30-56) 
+- [ ] Implement `RockHound` extending [Critter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/CrabCritter.java#32-116)
+- [ ] Implement `BlusterCritter` extending [Critter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/CrabCritter.java#32-116)
+- [ ] Implement `QuickCrab` extending [CrabCritter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/CrabCritter.java#32-116)
+- [ ] Implement `KingCrab` extending [CrabCritter](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/critters/CrabCritter.java#32-116)

@@ -1,0 +1,28 @@
+# Bug Fixes: Layout & Functionality
+
+## Goal Description
+Fix the `RenderFlex` overflow crash in [SuperThanksScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart#7-13) and address the reported "broken" slide-to-save functionality.
+
+## Proposed Changes
+
+### Screens
+
+#### [MODIFY] [super_thanks_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart)
+- **Problem**: `Spacer()` was used inside a `SingleChildScrollView`, causing infinite height constraint error.
+- **Fix**: Restructure the layout. Use a parent `Column` containing:
+    1. `Expanded` -> `SingleChildScrollView` (for scrollable content).
+    2. `Padding` -> [Button](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#1051-1089) (pinned to bottom).
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- **Safeguards**: Add `mounted` check in [_autoSave](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#282-320) before any state updates to prevent "dirty widget" errors.
+
+#### [MODIFY] [swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart)
+- **Gesture Handling**: Ensure `GestureDetector` logic is robust.
+- **Feedback**: Verify completion logic resets correctly if action fails (though action is void callback).
+
+## Verification Plan
+
+### Manual Verification
+1.  **SuperThanks**: Open "Feeling extra grateful?" / "SuperThanks" screen. Verify no crash.
+2.  **Layout**: Ensure "Send" button is at bottom and content scrolls.
+3.  **Slide to Save**: Go to "Wrap Up" page. Test slide to save. Ensure it triggers.

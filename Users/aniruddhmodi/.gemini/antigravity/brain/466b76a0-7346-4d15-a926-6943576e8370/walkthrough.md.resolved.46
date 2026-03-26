@@ -1,0 +1,23 @@
+# AR Instrument Studio Walkthrough (Octave Edition)
+
+## Summary
+The Complete AR Experience with **Octave Shifting** and **Waterfall Visuals**.
+
+## Octave Zones (Dotted Lines)
+-   **Top (High Octave)**: Plays notes 2x speed (Chipmunk pitch).
+-   **Middle**: Normal pitch.
+-   **Bottom (Low Octave)**: Plays notes 0.5x speed (Deep pitch).
+
+## Visuals
+-   **Waterfall**: Notes fall from top.
+-   **Zones**: Dotted lines show where to hold your hands for pitch shifting.
+
+## Controls
+-   **Strike**: Downward Motion (>0.02).
+-   **Reset**: Lift finger up.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

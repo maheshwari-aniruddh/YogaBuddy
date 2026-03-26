@@ -1,0 +1,59 @@
+# Music to Notes Converter & App Walkthrough
+
+## Feature Overview
+We implemented a **Music to Notes Converter** using Spleeter AI to separate vocals from instruments. This feature is integrated into the AirJam frontend.
+
+## 🚀 How to Run the Full Application
+
+The application consists of 3 servers that must run simultaneously:
+
+1.  **Web Frontend (Port 9000)**
+    *   Serves the UI ([index.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/airplay%202/index.html), [instruments.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/airplay%202/instruments.html), [converter.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/airplay%202/converter.html)).
+    *   Command:
+        ```bash
+        cd "airplay 2"
+        python3 -m http.server 9000
+        ```
+    *   URL: http://localhost:9000
+
+2.  **AR Studio Backend (Port 8501)**
+    *   Handles Piano/Drums camera tracking via Streamlit.
+    *   Command:
+        ```bash
+        streamlit run ar_studio.py --server.port 8501
+        ```
+    *   URL: http://localhost:8501
+
+3.  **Music Converter Backend (Port 8502)**
+    *   Handles audio separation using Spleeter (Python 3.10 Conda Env).
+    *   Command:
+        ```bash
+        # Must use the conda environment python
+        /opt/anaconda3/envs/spleeter/bin/python music_converter.py
+        ```
+    *   URL: http://localhost:8502
+
+## 🛠 Setup Details
+
+### Spleeter Integration
+*   Created a dedicated Conda environment: [spleeter](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/music_converter.py#27-35) (Python 3.10).
+    *   *Why?* Spleeter requires `tensorflow<2.13` and `numpy<1.19`, which are incompatible with the system's Python 3.11.
+*   Installed dependencies: `libsndfile`, `ffmpeg`, `librosa`.
+
+### New Files
+*   **[music_converter.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/music_converter.py)**: A lightweight HTTP server that wraps Spleeter. It accepts file uploads via POST, runs Spleeter, and returns the paths to isolated vocal/accompaniment tracks.
+*   **[airplay 2/converter.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/airplay%202/converter.html)**: A new frontend page with a drag-and-drop interface for uploading songs.
+*   Updated **[airplay 2/instruments.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay%20copy/airplay%202/instruments.html)**: Added the "Music Converter" card.
+
+## 🐛 Troubleshooting
+
+### "Drums are broken" / Indentation Errors
+*   **Cause**: Running the script from the wrong directory (`AirPlay` vs `AirPlay copy`). The `AirPlay` directory had syntax errors.
+*   **Fix**: Always run `streamlit` from the `AirPlay copy` directory.
+
+### "FFmpeg binary not found"
+*   **Cause**: The converter server couldn't find `ffmpeg` in the system path.
+*   **Fix**: The command [/opt/anaconda3/envs/spleeter/bin/python](file:///opt/anaconda3/envs/spleeter/bin/python) ensures it uses the environment's installed `ffmpeg`.
+
+### Spleeter Output
+*   Converted files are stored in a temporary directory during the session.

@@ -1,0 +1,9 @@
+# Task: Debug Firestore Permission Error
+
+- [ ] Check `firestore.rules` for `users` collection access <!-- id: 0 -->
+- [ ] Verify [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#5-140) query structure matches rules <!-- id: 1 -->
+- [ ] Propose Security Rules update to allow:
+    - [ ] Authenticated users to read `users` collection (for search)
+    - [ ] Authenticated users to write to `super_thanks` collection
+    - [ ] Users to update their own document in `users`
+- [ ] (Optional) Create `firestore.rules` if missing <!-- id: 2 -->

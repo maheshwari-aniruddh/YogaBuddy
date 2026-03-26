@@ -1,0 +1,29 @@
+# YogaBuddy Overhaul Tasks
+
+## Phase 1: Theming & UI Redesign
+- [x] Define color palette (Champagne `#c7e7ce`, Deep Forest `#1a3c34`) in Tailwind config
+- [x] Update global CSS ([index.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/one-breath-app/src/index.css))
+- [x] Replace default fonts with premium modern fonts
+- [x] Update layout and components to reflect new design system
+
+## Phase 2: Architecture Shift (Browser-side MediaPipe)
+- [x] Setup `@mediapipe/tasks-vision` in React
+- [x] Create a `PoseCamera` component to process video locally
+- [x] Modify [yoga_api_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Yogabuddy/yoga_api_server.py) to accept keypoint streams instead of raw video
+- [x] Remove OpenCV video capture from backend
+
+## Phase 3: Core ML & Tracking
+- [/] Implement a Better Classifier (MLP or Temporal CNN) in PyTorch/TensorFlow in Python backend
+- [ ] Integrate 3D pose data (z-axis) into the form corrector
+- [ ] Create a breathing detection heuristic using torso landmarks (shoulders/hips distance)
+
+## Phase 4: UX & Premium Features
+- [ ] Ghost/AR Pose Overlay: Render the "target" template skeleton over the user's video in the browser
+- [ ] Voice Commands: Integrate Web Speech API for hands-free control ("next", "pause")
+- [ ] LLM Coach: Connect an LLM (via API) to provide a personalized summary and tips after a session
+
+## Phase 5: Progress & Retention
+- [ ] Gamification: Implement XP, Streaks, and simple Badges (stored in SQLite/local storage)
+- [ ] Analytics Dashboard & Replay: Build a UI to see past sessions and replay the skeleton animation
+- [ ] Adaptive Programs: Logic to adjust next session's poses based on previous session scores
+

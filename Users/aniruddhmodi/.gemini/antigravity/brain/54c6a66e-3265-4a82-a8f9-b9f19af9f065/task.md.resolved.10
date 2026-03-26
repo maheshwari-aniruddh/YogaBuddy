@@ -1,0 +1,14 @@
+# Tasks
+
+- [x] Fix Dart compilation error in [lib/services/drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) <!-- id: 0 -->
+    - [x] Analyze [drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) and [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) <!-- id: 1 -->
+    - [x] Correct `authenticatedClient` usage <!-- id: 2 -->
+- [x] Fix iOS Build Configuration <!-- id: 3 -->
+    - [x] Check and fix `CFBundleVersion` in [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) <!-- id: 4 -->
+    - [x] Check Swift version configuration <!-- id: 5 -->
+- [x] Verify fix by running the build <!-- id: 6 -->
+    - [x] Check [journal_transition_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart) and [main_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart) mismatch <!-- id: 7 -->
+    - [x] Update [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) to accept `GoogleSignInAccount` <!-- id: 8 -->
+    - [x] Ensure call sites of [JournalTransitionScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/journal_transition_screen.dart#6-14) pass `GoogleSignInAccount` <!-- id: 9 -->
+    - [x] Verify [AuthService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#4-40) stream type <!-- id: 10 -->
+    - [x] Check [FeedbackScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/feedback_screen.dart#6-13) signature <!-- id: 11 -->

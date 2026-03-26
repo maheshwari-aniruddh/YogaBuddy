@@ -1,0 +1,177 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+To publish apps, finish setting up your developer account
+[0] (85,87)<a class='navigation-menu-logo _ngcontent-mpi-0' href='/console/u/2/developers/5950107568016089621/app-list' />
+	[1] (85,87)<img alt='Google Play Console logo' class='_ngcontent-mpi-0' role='button' />
+[2] (892,87)<div  />
+	[3] (892,87)<button aria-label='Unread notifications Open notification center' class='mdc-button mdc-button--icon-text gm3-button _ngcontent-mpi-24 mdc-button--tonal' />
+		notifications_unread
+		Unread notifications
+[4] (976,87)<div  />
+	[5] (976,86)<button class='mdc-icon-button pc-developer-icon-button gm3-button _ngcontent-mpi-4' />
+		[6] (976,86)<div  />
+[7] (96,169)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/app-list' role='button' />
+	[8] (26,169)<console-icon  />
+		[9] (26,169)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[10] (26,169)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>features />
+	[11] (58,169)<span >Home />
+[12] (96,218)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/policy-center' role='button' />
+	[13] (26,218)<console-icon  />
+		[14] (26,218)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[15] (26,218)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>android_security_privacy_safe />
+	[16] (73,218)<span >Policy status />
+[17] (96,266)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/users-and-permissions' role='button' />
+	[18] (26,266)<console-icon  />
+		[19] (26,266)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11 filled' />
+			[20] (26,266)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>user_attributes />
+	[21] (95,266)<span >Users and permissions />
+[22] (96,314)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/orders' role='button' />
+	[23] (26,314)<console-icon  />
+		[24] (26,314)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[25] (26,314)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>credit_card />
+	[26] (89,314)<span >Order management />
+[27] (96,363)<a class='item-link _ngcontent-mpi-26' role='button' />
+	[28] (11,363)<material-icon  />
+		[29] (11,363)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>arrow_right />
+	[30] (26,363)<console-icon  />
+		[31] (26,363)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[32] (26,363)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>download />
+	[33] (85,363)<span >Download reports />
+[34] (96,411)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/account' role='button' />
+	[35] (26,411)<console-icon  />
+		[36] (26,411)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[37] (26,411)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>badge />
+	[38] (87,411)<span >Developer account />
+[39] (96,459)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/activity-log' role='button' />
+	[40] (26,459)<console-icon  />
+		[41] (26,459)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[42] (26,459)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>description />
+	[43] (70,459)<span >Activity log />
+[44] (96,508)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/settings' role='button' />
+	[45] (26,508)<console-icon  />
+		[46] (26,508)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[47] (26,508)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>settings />
+	[48] (63,508)<span >Settings />
+[49] (96,556)<a class='item-link _ngcontent-mpi-26' href='/console/u/2/developers/5950107568016089621/help-and-support' role='button' />
+	[50] (26,556)<console-icon  />
+		[51] (26,556)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[52] (26,556)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>contact_support />
+	[53] (55,556)<span >Help />
+[54] (96,635)<a class='item-link _ngcontent-mpi-26 use-adi-colors' href='/console/u/2/developers/5950107568016089621/android-developer-verification' role='button' />
+	[55] (26,635)<console-icon  />
+		[56] (26,635)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+			[57] (26,635)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>app_promotion />
+	[58] (109,635)<span >Android developer verification />
+[59] (598,563)<div class='main-content _ngcontent-mpi-0' id='main-content' scrollable='true' />
+	Geet Modi
+	Personal account
+	brightness_1
+	Account ID: 5950107568016089621
+	Finish setting up your developer account
+	To publish apps on Google Play, finish setting up your developer account. This helps Google to verify your identity, protect your account, and keep Google Play users safe.
+	arrow_forward
+	Verify your contact phone number
+	[60] (794,468)<a aria-label='View more details about this issue.' class='mdc-button mdc-button--unelevated pc-text-inverted' href='/console/u/2/developers/5950107568016089621/account/phone-verification-issue-details' />
+		[61] (794,468)<span >View details />
+	Pinned apps
+	[62] (315,568)<material-icon aria-label='Tooltip for "Pinned apps"' class='icon _nghost-mpi-11 _ngcontent-mpi-42' role='button' />
+		[63] (315,568)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>help />
+	Pin apps here to access them quickly, and view key metrics
+	1 app
+	[64] (939,713)<a class='mdc-button mdc-button--text' href='/console/u/2/developers/5950107568016089621/create-new-app' />
+		[65] (939,713)<span >Create app />
+	[66] (232,767)<label class='label _ngcontent-mpi-39' id='aBF54F5E4-6934-4D4E-9B19-9BB0BB334351--2'>Filter by />
+	[67] (269,803)<div class='button _ngcontent-mpi-41' id='a26087D68-3FBB-4154-831C-ABDE5D27A257--0' role='button' />
+		[68] (227,803)<div >All />
+			[69] (269,803)<material-ripple  />
+			All
+		[70] (308,803)<material-icon  />
+			[71] (308,803)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>arrow_drop_down />
+	[72] (844,791)<label class='mdc-text-field mdc-text-field--upgraded _ngcontent-mpi-35 mdc-text-field--filled mdc-text-field--no-label mdc-text-field--with-leading-icon'>Search by app or package name />
+		search
+		Search by app or package name
+		[73] (856,791)<input aria-label='Search by app or package name' class='mdc-text-field__input _ngcontent-mpi-35' />
+	[74] (313,868)<div aria-label='App' class='particle-table-header-cell with-label-wrapper particle-sortable default-sort-asc resizable' role='columnheader' />
+		[75] (230,871)<span class='mt-header-label-wrapper' role='presentation' />
+			[76] (230,871)<span class='particle-header-title particle-sortable' role='presentation'>App />
+		[77] (411,868)<div  />
+	[78] (462,868)<div aria-label='Installed audience' class='particle-table-header-cell data-numeric with-label-wrapper particle-sortable default-sort-asc resizable' role='columnheader' />
+		[79] (468,871)<span class='mt-header-label-wrapper' role='presentation' />
+			[80] (468,871)<span class='particle-header-title particle-sortable' role='presentation'>Installed audience />
+			help_outline
+		[81] (518,868)<div  />
+	[82] (568,868)<div aria-label='App status' class='particle-table-header-cell with-label-wrapper particle-sortable default-sort-asc resizable' role='columnheader' />
+		[83] (548,871)<span class='mt-header-label-wrapper' role='presentation' />
+			[84] (548,871)<span class='particle-header-title particle-sortable' role='presentation'>App status />
+		[85] (624,868)<div  />
+	[86] (675,868)<div aria-label='Update status' class='particle-table-header-cell with-label-wrapper particle-sortable default-sort-asc resizable' role='columnheader' />
+		[87] (654,871)<span class='mt-header-label-wrapper' role='presentation' />
+			[88] (654,871)<span class='particle-header-title particle-sortable' role='presentation'>Update status />
+		[89] (730,868)<div  />
+	[90] (782,868)<div aria-label='Last updated' class='particle-table-header-cell with-label-wrapper particle-sortable default-sort-asc resizable' role='columnheader' />
+		[91] (759,871)<span class='mt-header-label-wrapper' role='presentation' />
+			[92] (759,871)<span class='particle-header-title particle-sortable' role='presentation'>Last updated />
+		[93] (838,868)<div  />
+	[94] (881,868)<div  />
+	[95] (923,868)<div  />
+	[96] (313,929)<ess-cell class='resizable' role='gridcell' />
+		[97] (251,929)<console-table-image-cell  />
+			[98] (251,926)<thumbnail  />
+				[99] (251,926)<image-text  />
+					[100] (251,926)<div  />
+						[101] (234,926)<div  />
+							[102] (234,927)<img  />
+						[103] (263,926)<div  />
+							[104] (267,926)<div  />
+								[105] (267,926)<div  />
+									[106] (267,926)<div >Rozze />
+	[107] (462,929)<ess-cell class='data-numeric resizable' role='gridcell' />
+		[108] (500,929)<console-table-text-cell  />
+			[109] (500,929)<div  />
+				[110] (500,929)<div  />
+					[111] (500,929)<span >0 />
+	[112] (568,929)<ess-cell class='resizable' role='gridcell' />
+		[113] (538,929)<console-table-text-cell  />
+			[114] (538,929)<div  />
+				[115] (538,929)<div  />
+					[116] (538,929)<span >Draft />
+	[117] (675,929)<ess-cell class='resizable' role='gridcell' />
+	[118] (782,929)<ess-cell class='resizable' role='gridcell' />
+		[119] (759,929)<text-field >Mar 5, 2026 />
+	[120] (857,929)<ess-cell class='resizable' role='gridcell' />
+		[121] (853,929)<console-table-secondary-actions-cell  />
+			[122] (853,929)<div  />
+				[123] (853,929)<button aria-label='Delete Rozze' class='gm3-button mdc-icon-button' />
+					[124] (853,929)<div  />
+					delete
+	[125] (899,929)<ess-cell class='resizable' role='gridcell' />
+		[126] (899,929)<console-table-toggle-icon-action-cell  />
+			[127] (899,929)<material-button class='toggle-icon _nghost-mpi-52 _ngcontent-mpi-51' />
+				[128] (899,929)<button aria-label='Pin Rozze' class='_ngcontent-mpi-52 mdc-icon-button' />
+					[129] (899,929)<div  />
+						[130] (899,929)<console-icon  />
+							[131] (899,929)<material-icon class='_ngcontent-mpi-27 _nghost-mpi-11' />
+								[132] (899,929)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>keep />
+	[133] (942,929)<ess-cell class='resizable' role='gridcell' />
+		[134] (942,929)<console-table-main-action-cell  />
+			[135] (942,929)<a aria-label='View Rozze' class='mdc-icon-button icon-button _ngcontent-mpi-53' href='/console/u/2/developers/5950107568016089621/app/4974430368538924087/app-dashboard' />
+				[136] (942,929)<div  />
+				arrow_right_alt
+	Show rows:
+	[137] (777,999)<div aria-label='Show rows: 10 selected.' class='button _ngcontent-mpi-41 border' id='aF31410CA-3A2F-45B2-A1CC-EBFD14D0215D--0' role='button' />
+		[138] (769,993)<span >10 />
+		[139] (782,993)<material-icon  />
+			[140] (782,993)<i class='material-icon-i material-icons-extended _ngcontent-mpi-11' role='img'>arrow_drop_down />
+	1 - 1 of 1
+	[141] (870,994)<material-button aria-label='Go to the first page' class='first _nghost-mpi-46 _ngcontent-mpi-45 is-disabled' role='button' />
+		first_page
+	[142] (897,994)<material-button aria-label='Go to the previous page' class='prev _nghost-mpi-46 _ngcontent-mpi-45 is-disabled' role='button' />
+		chevron_left
+	[143] (923,994)<material-button aria-label='Go to the next page' class='next _nghost-mpi-46 _ngcontent-mpi-45 is-disabled' role='button' />
+		chevron_right
+	[144] (950,994)<material-button aria-label='Go to the last page' class='last _nghost-mpi-46 _ngcontent-mpi-45 is-disabled' role='button' />
+		last_page
+
+</current_dom>

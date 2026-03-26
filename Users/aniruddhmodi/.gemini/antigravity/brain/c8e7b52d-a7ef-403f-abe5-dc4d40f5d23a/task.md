@@ -1,0 +1,25 @@
+# Task: Implement Globalization
+
+- [x] Add dependencies to `pubspec.yaml` <!-- id: 0 -->
+    - [x] `flutter_localizations` <!-- id: 1 -->
+    - [x] `intl` <!-- id: 2 -->
+- [x] Create `l10n.yaml` and ARB files <!-- id: 3 -->
+    - [x] English (Template) <!-- id: 4 -->
+    - [x] Hindi <!-- id: 5 -->
+    - [x] Spanish <!-- id: 6 -->
+    - [x] French <!-- id: 7 -->
+    - [x] Chinese <!-- id: 8 -->
+- [x] Configure `main.dart` for Localization <!-- id: 9 -->
+- [x] Create `LocalesProvider` / Language State management <!-- id: 10 -->
+- [x] Add Language Selector in `SettingsScreen` <!-- id: 11 -->
+- [x] Refactor UI strings (Partial/Key screens) <!-- id: 12 -->
+    - [x] Update ARB files with missing keys <!-- id: 13 -->
+    - [x] Apply `AppLocalizations` to `SettingsScreen` <!-- id: 14 -->
+    - [x] Apply `AppLocalizations` to `SuperThanksScreen` <!-- id: 15 -->
+    - [x] Apply `AppLocalizations` to `MainScreen` <!-- id: 19 -->
+    - [x] Apply `AppLocalizations` to `TodayScreen` <!-- id: 20 -->
+    - [x] Apply `AppLocalizations` to `StatsScreen` <!-- id: 21 -->
+    - [x] Apply `AppLocalizations` to `LoginScreen` <!-- id: 22 -->
+- [x] Fix Build Errors <!-- id: 16 -->
+    - [x] Resolve `intl` version conflict <!-- id: 17 -->
+    - [x] Fix `AppLocalizations` imports <!-- id: 18 -->

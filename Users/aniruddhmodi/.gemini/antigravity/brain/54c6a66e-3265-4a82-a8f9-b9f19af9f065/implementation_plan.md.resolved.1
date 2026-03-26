@@ -1,0 +1,31 @@
+# Implementation Plan - Phase 2: FaceID & Stabilization
+
+## Goal
+Stabilize the application by resolving serialization errors, ensuring consistent authentication (FaceID), and verifying correct data persistence to Google Drive.
+
+## Completed Changes
+- **Fixed iOS Build**: Updated Bundle ID to `com.aniruddhmodi.roze` and corrected Team ID configuration.
+- **Fixed Google Sign-In**: Updated [Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Info.plist) and [GoogleService-Info.plist](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/GoogleService-Info.plist).
+- **Fixed JSON Serialization**: Replaced `Timestamp` with ISO 8601 strings in [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#3-60).
+- **Implemented FaceID**: Added [BiometricService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/biometric_service.dart#4-32) and updated [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#14-19) to lock the app on startup if enabled.
+- **UI Enchancements**: Darkened borders for better visibility.
+
+## Verification Plan
+
+### Manual Verification
+#### 1. Launch & Authentication
+- [ ] Run app on physical iPhone.
+- [ ] Verify FaceID lock screen appears (if enabled).
+- [ ] Verify Unlock works.
+
+#### 2. Data Persistence
+- [ ] Create a new Journal Entry.
+- [ ] Verify it "Saves" without error (check console for "Error saving entry" logs).
+- [ ] Restart app and verify entry persists.
+
+#### 3. Google Drive Integration
+- [ ] Verify [DriveService](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart#10-247) successfully uploads JSON files.
+- [ ] **Constraint**: User MUST enable Google Drive API in Cloud Console.
+
+### Automated Tests
+- None planned for this phase; relying on manual user verification.

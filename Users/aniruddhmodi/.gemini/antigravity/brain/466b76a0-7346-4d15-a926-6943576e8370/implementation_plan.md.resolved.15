@@ -1,0 +1,24 @@
+# Refine Dimensions and Sensitivity Plan
+
+## Goal Description
+Expand the interactive area of the piano keys and find a balanced sensitivity setting.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Dimensions**:
+    - Increase `piano_h` from `100` to `150`. This makes the keys tall again, easier to target.
+- **Sensitivity**:
+    - Set `VELOCITY_THRESHOLD` to `0.10`.
+        - 0.08 was "too sensitive".
+        - 0.15 was "very high".
+        - 0.10 should be the "Goldilocks" zone.
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Verify keys are larger/taller.
+- Verify striking feels natural (not too hard, not too spammy).

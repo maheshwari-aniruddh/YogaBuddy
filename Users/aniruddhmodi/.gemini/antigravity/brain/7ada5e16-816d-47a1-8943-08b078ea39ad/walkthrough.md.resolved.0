@@ -1,0 +1,19 @@
+# Live Band Integration - Walkthrough
+
+The Jam Session / Live Band feature has been thoroughly integrated into the AirPlay platform.
+
+## Changes Made
+- **Backend:** Integrated the standalone [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py) WebSocket service which now runs securely on **port 8502**.
+- **Server Startup:** Appended [session_server.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/session_server.py) to [start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/start.sh) along with appropriate `pkill` lifecycle hooks.
+- **Frontend UI:** Injected the new Jam Session connection UI blocks (`jam-setup`, `jam-piano`, `jam-drums`) into [instruments.html](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/instruments.html).
+- **Frontend Logic:** Appended the JS core networking code to [app.js](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/app.js) ([JamSessionManager](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airjam-jam-export/airplay%202/app.js#278-346)) and modified the AR tracking message handler (`window.addEventListener('message')`) to synchronously broadcast and synthesize multiplayer notes over WebSocket.
+- **Frontend Styles:** Injected `.jam-*` CSS properties into [styles.css](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/airplay%202/styles.css).
+
+## How to Test
+1. Restart your servers using [./start.sh](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/start.sh) (or ensure it's fully running without ghost processes).
+2. Go to the primary UI at `http://localhost:8767/airplay%202/instruments.html` on two different browser tabs (or two different devices on the same network replacing `localhost` with your IP address).
+3. In Tab A, choose the **Jam Session** role. Click **Host Session**.
+4. You will receive a 6-character room code.
+5. In Tab B, choose the **Jam Session** role. Click **Join Session** and enter the code.
+6. Once connected, select your instrument on both tabs (e.g. Piano/Piano or Piano/Drums).
+7. Play notes using your keyboard or AR gestures in one tab. You should hear the specific note synthesis and see the visual key/drum flash in the other tab continuously!

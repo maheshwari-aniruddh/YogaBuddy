@@ -1,0 +1,29 @@
+# Streamlit App Walkthrough (Finger Mode)
+
+## Summary
+The app now assigns specific notes to each finger, turning your hands into the instrument.
+
+## Mappings
+| Hand | Finger | Natural (Straight) | Sharp (Curled) |
+| :--- | :--- | :--- | :--- |
+| **Left** | Pinky | C3 | C#3 |
+| **Left** | Ring | D3 | D#3 |
+| **Left** | Middle | E3 | F3 |
+| **Left** | Index | F3 | F#3 |
+| **Left** | Thumb | G3 | G#3 |
+| **Right** | Thumb | A3 | A#3 |
+| **Right** | Index | B3 | C4 |
+| **Right** | Middle | C4 | C#4 |
+| **Right** | Ring | D4 | D#4 |
+| **Right** | Pinky | E4 | F4 |
+
+## How to Play
+1. **Strike Down**: Move a finger down fast to play its note.
+2. **Curl**: Bend your finger while striking to play the **Sharp (#)** version.
+3. **Chords**: Strike with multiple fingers at once!
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

@@ -1,0 +1,16 @@
+# Remove Pygame-related Content
+
+The user wants to ensure the repository does not contain any Pygame scripts or related content. I have identified two files that need to be removed: [main_pygame.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/main_pygame.py) and [pygame_script.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/pygame_script.txt).
+
+## Proposed Changes
+
+### PoseFlow-Merged-Archive
+
+#### [DELETE] [main_pygame.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/main_pygame.py)
+#### [DELETE] [pygame_script.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/pygame_script.txt)
+
+## Verification Plan
+
+### Automated Tests
+- Run `grep -ri "pygame" .` in the root directory to ensure no other occurrences of "pygame" exist.
+- Run `find . -name "*pygame*"` to ensure no other files with "pygame" in their name exist.

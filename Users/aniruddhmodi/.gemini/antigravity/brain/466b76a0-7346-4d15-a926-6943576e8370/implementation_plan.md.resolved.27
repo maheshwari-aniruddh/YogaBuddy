@@ -1,0 +1,33 @@
+# Waterfall Visuals & Audio Mapping Plan
+
+## Goal Description
+1.  **Audio**: Align sound files exactly with the user's [sounds/](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#16-59) folder (Octave 1 files).
+2.  **Visuals**: Create "Waterfall" falling notes (Synthesia style) to guide playing.
+
+## User Review Required
+- **Drum Fallback**: Drums will use [c1.wav](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/sounds/c1.wav) (Piano sound) as requested if drum samples are missing, to prevent crashes.
+- **Right Hand Mapping**: Since only Octave 1 files exist (`g1`, `b1` etc), Right Hand will reuse these low notes or wrap around.
+
+## Proposed Changes
+### [ar_studio.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py)
+- **AudioEngine**:
+    - Rewrite [_load_sounds](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/ar_studio.py#16-59) with specific `finger_map`.
+    - Logic: `fingers -> note_name -> filename`.
+    - Sharp Check: `if curled: filename = filename.replace('.wav', 's.wav')`.
+- **GameEngine** (New Class):
+    - `notes`: List of `FallingNote`.
+    - `spawn_note()`: Create new note at random lane.
+    - `update()`: Move notes down.
+    - `check_hit(lane_index)`: Check if note is in target zone.
+    - [draw(image)](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py#65-268): Render rectangles.
+- **Main Loop**:
+    - Call `game.update()`.
+    - Call `game.draw()`.
+    - On Trigger: Call `game.check_hit(finger_index)`.
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Verify sounds match fingers (Pinky = C1).
+- Watch blocks fall.
+- Hit a key when block lands -> Score increases/Visual feedback.

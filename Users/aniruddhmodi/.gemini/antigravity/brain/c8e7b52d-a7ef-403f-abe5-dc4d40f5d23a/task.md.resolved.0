@@ -1,0 +1,13 @@
+# Task: Remove #tags feature
+
+- [ ] Analyze codebase for tag usage <!-- id: 0 -->
+    - [ ] Read [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart) <!-- id: 1 -->
+    - [ ] Read [lib/models/journal_entry.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart) <!-- id: 2 -->
+    - [ ] Read [lib/screens/search_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/search_screen.dart) <!-- id: 3 -->
+    - [ ] Read [lib/services/pdf_export_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/pdf_export_service.dart) <!-- id: 4 -->
+- [ ] Create Implementation Plan <!-- id: 5 -->
+- [ ] Remove Tags UI from `TodayScreen` <!-- id: 6 -->
+- [ ] Remove Tags from `JournalEntry` model (or deprecate) <!-- id: 7 -->
+- [ ] Remove Tags from Search <!-- id: 8 -->
+- [ ] Remove Tags from Export <!-- id: 9 -->
+- [ ] Verify application builds and runs <!-- id: 10 -->

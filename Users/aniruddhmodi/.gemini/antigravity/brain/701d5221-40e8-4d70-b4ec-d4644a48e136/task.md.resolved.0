@@ -1,0 +1,6 @@
+# Implementing Natural Typing Bot
+- [x] Create the typer bot script ([typer_bot.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Walktime/typer_bot.py))
+- [x] Install `pynput` dependency
+- [x] Create cool Pygame script ([pygame_script.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/Walktime/pygame_script.txt))
+- [x] Create empty [main_pygame.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/Walktime/main_pygame.py) file
+- [/] Run the typer bot while user has the editor active

@@ -1,0 +1,16 @@
+# Task: Verify `https://rozze.vercel.app` Deployment
+
+## Objectives:
+- [ ] Brand name changed to "Rozze" (not "Roze") in the navbar and throughout.
+- [ ] Section: "Why people actually stick with Rozze" includes 6 reason cards.
+- [ ] Section: "Research says it works" (science-backed) includes 4 stat cards.
+
+## Plan:
+1. Open `https://rozze.vercel.app`
+2. Wait 5s for full loading.
+3. Capture hero section screenshot and check navbar.
+4. Scroll to "Why people actually stick with Rozze" and capture.
+5. Scroll to "Research says it works" and capture.
+6. Verify card counts for both sections.
+7. Confirm branding details across the page.
+8. Report findings.

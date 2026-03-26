@@ -1,0 +1,25 @@
+# Streamlit App Walkthrough (Cobra Strike)
+
+## Summary
+The piano now uses **Velocity Detection** ("Cobra Strike") for keys.
+
+## How it Works
+- **The Motion**: Tap the keys quickly. Think "drumming" or "typing" rather than pressing.
+- **Logic**: The app measures how fast your finger moves DOWN.
+    - **Hover**: Move slowly = No Sound.
+    - **Strike**: Move fast (> 0.04 speed) = Sound!
+- **Visuals**:
+    - **Speed Number**: A number follows your finger.
+    - **Blue**: Too slow (Hover).
+    - **Green**: Fast enough (Strike).
+
+## Features
+- **Key Labels**: Notes on keys.
+- **Audio**: Real sounds.
+- **Polyphony**: Play multiple keys fast.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

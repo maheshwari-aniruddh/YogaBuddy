@@ -1,0 +1,120 @@
+# App Store Rejection Fixes — Walkthrough
+
+## Summary
+
+Fixed all three App Store guideline violations and the app now compiles cleanly with `flutter analyze` (0 errors, 0 warnings).
+
+---
+
+## Fix 1: Sign in with Apple (Guideline 4.8)
+
+**Problem**: App only offered Google Sign-In, violating the requirement for an equivalent privacy-respecting login option.
+
+**Changes**:
+
+| File | Change |
+|---|---|
+| [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) | Added `sign_in_with_apple` and `crypto` dependencies |
+| [Runner.entitlements](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/ios/Runner/Runner.entitlements) | Added `com.apple.developer.applesignin` entitlement |
+| [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart) | Added [signInWithApple()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#116-174) with SHA256 nonce security |
+| [login_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart) | Added Apple sign-in button (iOS-only) + handler |
+| [auth_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart) | Handle Apple users (no GoogleSignInAccount) |
+
+> [!IMPORTANT]
+> You still need to enable "Sign in with Apple" in **Xcode → Runner → Signing & Capabilities** and in your **Apple Developer portal** App ID. This is a manual step that can't be done in code.
+
+---
+
+## Fix 2: iPad Export Bug (Guideline 2.1a)
+
+**Problem**: Export Data button caused a cut-off share sheet on iPad because [_getSharePosition](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#946-950) used the entire screen's render box.
+
+**Changes**:
+
+| File | Change |
+|---|---|
+| [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) | Added `GlobalKey`s on export buttons, replaced [_getSharePosition(context)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#946-950) with [_getSharePositionFromKey(key)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#946-950) that anchors the share popover to the specific button's rect |
+
+---
+
+## Fix 3: Account Deletion (Guideline 5.1.1v)
+
+**Problem**: No option to delete account.
+
+**Changes**:
+
+| File | Change |
+|---|---|
+| [auth_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart) | Added [deleteAccount()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/auth_service.dart#175-220) — deletes Firestore user doc, super_thanks docs, disconnects Google, deletes Firebase Auth account |
+| [store.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart) | Added [clearAllData()](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/store.dart#390-413) — clears entries, deletes cache files, clears SharedPreferences |
+| [settings_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart) | Replaced standalone Log Out button with Account section containing Log Out + Delete Account. Delete Account shows a confirmation dialog requiring user to type "DELETE" |
+
+---
+
+## Verification
+
+```
+$ flutter pub get
+✅ Got dependencies!
+
+$ flutter analyze
+✅ 0 errors, 0 warnings (46 info-level style lints from pre-existing code)
+```
+
+---
+
+## App Launch Checklist
+
+Based on the checklist you shared, here's the status for Rozze:
+
+### App Store Stuff
+| Item | Status | Notes |
+|---|---|---|
+| App title with keywords | ✅ | "Rozze" — consider adding subtitle keywords |
+| Subtitle (don't leave empty) | ⚠️ Check | Make sure it's filled in App Store Connect |
+| App description (hook in first 2 lines) | ⚠️ Check | Verify the first 2 lines hook readers |
+| Keywords researched and added | ⚠️ Check | journal, mood, audio, diary, gratitude, mindfulness |
+| Screenshots (show benefits, not features) | ✅ | Previously captured in conversation `48128f07` |
+| App preview video (optional but helps) | ❌ Optional | Consider adding one for higher conversion |
+| Privacy policy URL | ⚠️ Check | Must be set in App Store Connect |
+| Support URL | ⚠️ Check | `https://rozze.vercel.app/` should work |
+| App category selected | ⚠️ Check | Health & Fitness or Lifestyle |
+| Age rating completed | ⚠️ Check | Should be 4+ (no objectionable content) |
+
+### Website Stuff
+| Item | Status | Notes |
+|---|---|---|
+| Landing page live | ✅ | `rozze.vercel.app` |
+| Open Graph tags set | ⚠️ Check | Verify og:title, og:description, og:image, og:url |
+| Favicon added | ⚠️ Check | Verify on the website |
+| Mobile responsive | ⚠️ Check | Test on mobile browser |
+| SSL certificate active (https) | ✅ | Vercel provides this |
+| Download/CTA button working | ⚠️ Check | Should link to App Store once live |
+
+### SEO Stuff
+| Item | Status | Notes |
+|---|---|---|
+| Google Search Console connected | ⚠️ TODO | Set up for rozze.vercel.app |
+| Bing Webmaster Tools connected | ⚠️ TODO | Optional but easy |
+| Sitemap submitted | ⚠️ TODO | Generate and submit |
+| IndexNow configured | ⚠️ TODO | Optional |
+| Meta title and description set | ⚠️ Check | Verify on website |
+| Robots.txt file in place | ⚠️ Check | Verify on website |
+
+### Marketing Stuff
+| Item | Status | Notes |
+|---|---|---|
+| Launch post drafted | ⚠️ TODO | Prepare for social media |
+| Social media assets ready | ⚠️ TODO | Screenshots + captions |
+| Email list notified | ⚠️ TODO | If applicable |
+| Product Hunt listing prepped | ⚠️ TODO | Optional |
+| Friends/community ready to support | ⚠️ TODO | Line up early downloads + reviews |
+
+### Legal Stuff
+| Item | Status | Notes |
+|---|---|---|
+| Privacy policy written and linked | ⚠️ Check | Must be linked in App Store Connect |
+| Terms of service written and linked | ⚠️ Check | Recommended |
+| Data handling documented | ⚠️ Check | App Store privacy nutrition labels |
+| GDPR compliance (if applicable) | ⚠️ Check | If targeting EU users |
+| Cookie notice (if website tracks) | ⚠️ Check | If analytics on website |

@@ -1,0 +1,78 @@
+# Optimal Training Strategy — B4 v2
+
+## Head-to-Head Results (B3 vs B4)
+
+| Dataset  | B3 Super | B4 Super (v1) | Delta |
+|----------|----------|----------------|-------|
+| Blurred  | **97.1%** | 95.8%         | -1.3% |
+| Noisy    | **90.3%** | 89.0%         | -1.3% |
+| Motion   | 49.7%    | **81.8%**      | **+32.1%** |
+
+## Root Cause Analysis
+
+**B4 v1 was over-regularized**, which hurt clean/Blurred/Noisy performance:
+- `drop_rate=0.4` + `drop_path_rate=0.2` + classifier `Dropout(0.5)` + `weight_decay=1e-3` = **way too much penalty**
+- Training accuracy was only ~89%, indicating **underfitting**
+
+**B4's augmentations (Moiré + noise) are the key innovation** — they fixed the Motion collapse that B3 had (49.7% → 81.8%). These MUST be kept.
+
+## Proposed Strategy: B4 with Lighter Regularization
+
+### [MODIFY] [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py)
+
+#### 1. Model Architecture (reduce regularization)
+```diff
+- drop_rate=0.4, drop_path_rate=0.2
++ drop_rate=0.2, drop_path_rate=0.1
+```
+```diff
+- nn.Dropout(0.5)
++ nn.Dropout(0.3)
+```
+
+#### 2. Optimizer (reduce weight decay)
+```diff
+- weight_decay=1e-3
++ weight_decay=5e-4
+```
+
+#### 3. Augmentation (soften noise, keep Moiré)
+```diff
+- AddGaussianNoise(std=0.1, p=0.3)  # post-tensor
++ AddGaussianNoise(std=0.05, p=0.3)  # post-tensor
+```
+```diff
+- transforms.GaussianBlur(kernel_size=5, sigma=(0.5, 2.0))
++ transforms.GaussianBlur(kernel_size=5, sigma=(0.1, 1.5))
+```
+- **Keep** [AddKSpaceZipperArtifact(p=0.3)](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#218-262) — this is the Motion savior
+- **Keep** first [AddGaussianNoise(p=0.3)](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py#205-217) at `std=0.05`
+
+#### 4. Gradient Accumulation (effective BS=32)
+```python
+ACCUM_STEPS = 4  # effective batch = 8 * 4 = 32
+```
+Update training loop to accumulate gradients and step every 4 mini-batches.
+
+#### 5. Learning Rate
+```diff
+- LEARNING_RATE = 1e-3
++ LEARNING_RATE = 5e-4
+```
+
+### [MODIFY] [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)
+- Update dropout to `0.3` to match new weights
+
+## Expected Outcome
+
+| Dataset  | B3 | B4 v1 | B4 v2 (target) |
+|----------|-----|-------|-----------------|
+| Blurred  | 97.1% | 95.8% | **≥97%** |
+| Noisy    | 90.3% | 89.0% | **≥92%** |
+| Motion   | 49.7% | 81.8% | **≥80%** |
+
+## Verification
+
+1. Push updated kernel to Kaggle (`carat-b4-training` v2)
+2. Monitor for train accuracy >92% (was 89% in v1)
+3. Download and evaluate with [eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py)

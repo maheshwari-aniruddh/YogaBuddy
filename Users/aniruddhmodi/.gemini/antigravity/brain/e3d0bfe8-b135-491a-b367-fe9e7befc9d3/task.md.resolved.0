@@ -1,0 +1,9 @@
+# Yoga Pose Detection Pipeline
+
+- [/] Write complete `yoga_pose_detector.py` script
+  - [/] Training pipeline (CSV load, hip-center norm, 3 models, save best)
+  - [/] Real-time inference (MediaPipe + model, smoothing, overlay)
+  - [/] Main entrypoint with auto-detect logic
+- [ ] Write [requirements.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/requirements.txt)
+- [ ] Verify script syntax / imports
+- [ ] Create walkthrough

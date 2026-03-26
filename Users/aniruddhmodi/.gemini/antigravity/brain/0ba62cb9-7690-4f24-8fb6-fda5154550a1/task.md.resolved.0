@@ -1,0 +1,8 @@
+- [ ] Create `implementation_plan.md`
+- [ ] Modify [research_ablation.py](file:///Users/aniruddhmodi/Downloads/Research/research_ablation.py)
+    - [ ] Add Training set metrics (Precision, Recall, F1)
+    - [ ] Ensure M2 Pro/MPS optimizations (Threads, Memory Growth, Contiguous arrays)
+    - [ ] Optimize `model.fit` parameters
+- [ ] Modify [run_ablation.sh](file:///Users/aniruddhmodi/Downloads/Research/run_ablation.sh)
+    - [ ] Enable COMBINED experiment for SHAP comparison
+- [ ] Verify changes

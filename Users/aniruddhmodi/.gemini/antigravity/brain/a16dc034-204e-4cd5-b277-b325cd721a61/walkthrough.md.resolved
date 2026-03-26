@@ -1,0 +1,12 @@
+# Walkthrough - Cleanup
+
+I have cleaned up the experimental files and the "time waste" directory as requested.
+
+## Actions Taken
+- **Stopped Background Process**: The [background_generator.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/timie_waste/background_generator.py) script was stopped.
+- **Deleted Files**: 
+    - `timie_waste/` directory (including all generated test scripts and logs).
+    - [nlm_hog_glcm_analysis.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/nlm_hog_glcm_analysis.py)
+    - [analysis_result.png](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/timie_waste/hog_analysis_result.png)
+
+The workspace has been returned to its previous state.

@@ -1,0 +1,15 @@
+# Streamlit App Walkthrough (Bigger Keys)
+
+## Summary
+The piano now features larger, easier-to-hit keys with balanced sensitivity.
+
+## Improvements
+- **Larger Keys**: Height increased to 150px.
+- **Balanced Sensitivity**: Threshold set to 0.10 (Not too hard, not too easy).
+- **Aim Assist**: Grid lines help you stay in the right lane.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

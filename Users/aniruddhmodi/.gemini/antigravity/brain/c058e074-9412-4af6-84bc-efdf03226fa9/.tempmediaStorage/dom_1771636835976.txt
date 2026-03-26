@@ -1,0 +1,26 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,915)<div  />
+	R
+	Roze
+	[1] (431,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#features'>Features />
+	[2] (498,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#how-it-works'>How It Works />
+	[3] (562,59)<a class='text-muted-foreground hover:text-foreground transition-colors font-medium text-sm' href='#privacy'>Privacy />
+	[4] (871,59)<button class='justify-center whitespace-nowrap transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-foreground text-background py-4 hover:scale-[1.02] shadow-elevated hover:shadow-glow font-semibold tracking-wide h-9 rounded-lg px-3 text-xs hidden sm:flex items-center gap-2' />
+		[5] (879,59)<span >Download />
+	Calendar Search
+	[6] (213,170)<p >Find any entry instantly. Search by date, mood, or transcribed content. />
+	Daily Reminders
+	[7] (500,172)<p >Gentle nudges at your perfect time. Build a sustainable mindfulness habit. />
+	iCloud Sync
+	[8] (787,175)<p >Seamlessly sync across all your devices. Your journal, everywhere you go. />
+	How It Works
+	Mindfulness in
+	four simple steps
+	From unlock to insight in under a minute. That's the Roze promise.
+	01
+	02
+
+</current_dom>

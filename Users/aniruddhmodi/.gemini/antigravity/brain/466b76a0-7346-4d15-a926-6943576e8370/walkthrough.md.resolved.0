@@ -1,0 +1,19 @@
+# MediaPipe Installation Walkthrough
+
+## Summary
+I successfully installed the `mediapipe` library into the project's virtual environment and downloaded the required [hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task) model file.
+
+## Verification Results
+### Installation
+Running `import mediapipe; print(mediapipe.__version__)` in the virtual environment was successful.
+
+### Model File
+The file [hand_landmarker.task](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/hand_landmarker.task) was successfully downloaded to the project root.
+
+```bash
+ls -lh hand_landmarker.task
+-rw-r--r--@ 1 aniruddhmodi  staff   7.5M Apr 25  2023 hand_landmarker.task
+```
+
+## Next Steps
+You can now run your notebook or python scripts using the `.venv` kernel.

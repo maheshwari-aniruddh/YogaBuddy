@@ -1,0 +1,19 @@
+# AR Instrument Studio Walkthrough (Safe Zones)
+
+## Summary
+Added **Grey Dead Zones** to Air Drums to prevent accidental hits.
+
+## Features
+-   **Dead Zones**: The grey cross in the middle is "safe". You can rest your hands there.
+-   **Audio**: Real samples (if available) or synthetic fallback.
+-   **Control**: Strict "Stop-to-Reset" logic.
+
+## Configuration
+-   **Sensitivity**: Default `0.15`.
+-   **Camera**: Auto-defaults to 0 & 1.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

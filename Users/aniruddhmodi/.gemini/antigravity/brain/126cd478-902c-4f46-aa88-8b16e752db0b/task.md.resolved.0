@@ -1,0 +1,9 @@
+# Generate App Description
+
+- [ ] Research App Features <!-- id: 0 -->
+    - [ ] Explore project structure (`lib/`) <!-- id: 1 -->
+    - [ ] Analyze key files (`pubspec.yaml`, `main.dart`, `onboarding_screen.dart`) <!-- id: 2 -->
+    - [ ] Identify core features (Moods, Audio, Google Drive, etc.) <!-- id: 3 -->
+- [ ] Draft Description <!-- id: 4 -->
+    - [ ] Write a comprehensive paragraph <!-- id: 5 -->
+    - [ ] Review and refine <!-- id: 6 -->

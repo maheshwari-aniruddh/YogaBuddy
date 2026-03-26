@@ -1,0 +1,24 @@
+# Walkthrough: Successful App Launch on Simulator
+
+I have successfully launched the "30sec Journal" app on an iOS simulator after encountering persistent connection issues with the physical device.
+
+## Steps Taken
+
+1. **Diagnostic Cleanup**: Ran `flutter clean` and `flutter pub get` to ensure the project state was fresh.
+2. **Device Discovery**: Identified that the physical iPhone was "busy" wirelessly and found an available iOS simulator (iPhone 16 Pro).
+3. **Simulator Launch**: Started the simulator and performed a fresh Xcode build.
+4. **App Execution**: Successfully launched [lib/main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) on the simulator.
+
+## Verification Results
+
+- **Build Status**: Succeeded in 97.9s.
+- **Runtime Status**: App is running and syncing files.
+- **Log Confirmation**: `flutter: main() started` was captured in the logs.
+
+> [!NOTE]
+> Wireless debugging on physical devices can be unstable. For faster development cycles when a cable isn't handy, the simulator is the recommended alternative.
+
+## Next Steps
+
+- You can now interact with the app on the iPhone 16 Pro simulator.
+- If you'd like to try running on your physical iPhone again, please connect it via a USB cable and let me know.

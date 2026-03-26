@@ -1,0 +1,25 @@
+# Task: Implement Globalization
+
+- [x] Add dependencies to [pubspec.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/pubspec.yaml) <!-- id: 0 -->
+    - [x] `flutter_localizations` <!-- id: 1 -->
+    - [x] `intl` <!-- id: 2 -->
+- [x] Create [l10n.yaml](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/l10n.yaml) and ARB files <!-- id: 3 -->
+    - [x] English (Template) <!-- id: 4 -->
+    - [x] Hindi <!-- id: 5 -->
+    - [x] Spanish <!-- id: 6 -->
+    - [x] French <!-- id: 7 -->
+    - [x] Chinese <!-- id: 8 -->
+- [x] Configure [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) for Localization <!-- id: 9 -->
+- [x] Create `LocalesProvider` / Language State management <!-- id: 10 -->
+- [x] Add Language Selector in [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#21-28) <!-- id: 11 -->
+- [x] Refactor UI strings (Partial/Key screens) <!-- id: 12 -->
+    - [x] Update ARB files with missing keys <!-- id: 13 -->
+    - [x] Apply `AppLocalizations` to [SettingsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/settings_screen.dart#21-28) <!-- id: 14 -->
+    - [x] Apply `AppLocalizations` to [SuperThanksScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/super_thanks_screen.dart#7-13) <!-- id: 15 -->
+    - [x] Apply `AppLocalizations` to [MainScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/main_screen.dart#18-25) <!-- id: 19 -->
+    - [x] Apply `AppLocalizations` to [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#22-30) <!-- id: 20 -->
+    - [x] Apply `AppLocalizations` to [StatsScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/stats_screen.dart#12-582) <!-- id: 21 -->
+    - [x] Apply `AppLocalizations` to [LoginScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/login_screen.dart#12-18) <!-- id: 22 -->
+- [x] Fix Build Errors <!-- id: 16 -->
+    - [x] Resolve `intl` version conflict <!-- id: 17 -->
+    - [x] Fix `AppLocalizations` imports <!-- id: 18 -->

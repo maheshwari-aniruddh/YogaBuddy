@@ -1,0 +1,59 @@
+# App Updates Implementation Plan
+
+## User Review Required
+> [!IMPORTANT]
+> **Biometric Logic Change**: To fix the infinite FaceID loop, I will disable the automatic authentication check in [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart) that runs every time the app resumes. Instead, authentication will be strictly handled by the [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#14-19) on startup and `SettingsScreen` for toggling. This prevents the loop caused by system dialogs interfering with app lifecycle states.
+
+## Proposed Changes
+
+### Feature: UI & UX Improvements
+
+#### [MODIFY] [today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- Update [SwipeToSaveWidget](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart#5-18) container to have more bottom padding/margin to "push it up a bit".
+- Update [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-630) to include a `Row` with "Bullet" and "New Line" buttons above the text field.
+    - Bullet: Inserts `• ` at cursor.
+    - New Line: Inserts `\n` at cursor.
+- Update [_buildActionsPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#631-803) media buttons:
+    - Split "Photo" into "Camera" and "Gallery" (or add a third "Camera" button).
+
+#### [MODIFY] [swipe_to_save_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/swipe_to_save_widget.dart)
+- Increase bottom margin/padding within the widget if necessary, or ensure layout constraints prevent checking cut-off.
+
+#### [MODIFY] [audio_recorder_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_recorder_widget.dart)
+- Update UI to clearly show "Recording" state (pulsing color or text label).
+- Since it is already a toggle, I will reinforce the visual feedback to make it feel more "intuitive".
+
+### Feature: Bug Fixes
+
+#### [MODIFY] [audio_player_widget.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_player_widget.dart)
+- Fix [_initSource](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_player_widget.dart#52-59): Ensure `getDuration` is called after setting the source so `_duration` is not zero.
+- Improve [_formatDuration](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/widgets/audio_player_widget.dart#66-76) to handle edge cases.
+
+#### [MODIFY] [calendar_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart)
+- Update `TableCalendar` `lastDay` to `DateTime.now()` to prevent future selection.
+- Add check in [onDaySelected](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart#36-43) to ignore future dates.
+
+#### [MODIFY] [main.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart)
+- **Remove** or **Refine** [didChangeAppLifecycleState](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart#61-66) logic. The loop happens because [_checkBiometrics](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart#67-85) triggers a system dialog -> app resigns active -> app resumes -> triggers [_checkBiometrics](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/main.dart#67-85) again.
+- Removing the resume check is the safest way to fix the loop while keeping startup security in [AuthWrapper](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#14-19).
+
+#### [MODIFY] [auth_wrapper.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart)
+- Ensure [_authenticate](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/auth_wrapper.dart#56-64) properly sets `_isLocked` state.
+
+### Feature: Content
+
+#### [MODIFY] [onboarding_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/onboarding_screen.dart)
+- Update the "Safe & Secure" page description (or add a new one) to explicitly state: "Your data is stored privately in your own Google Drive. We do not access or store your journal on our servers."
+
+## Verification Plan
+
+### Manual Verification
+- **Formatting**: Go to Today's entry, tap "Good". Tap "Bullet" button -> Verify `• ` appears. Tap return -> verify new line.
+- **Audio**: Record a clip. Verify red active state. Stop. Play back. Verify duration (e.g., "0:05") matches reality.
+- **Camera**: Tap "Camera" icon. Verify Camera opens. Take photo. Verify it saves.
+- **FaceID**:
+    1.  Enable in Settings.
+    2.  Close app. Open app. Verify it asks ONCE.
+    3.  Background app -> Resume. Verify it DOES NOT loop indefinitely.
+- **Swipe**: Verify swipe widget is not cut off at the bottom.
+- **Future Dates**: Go to Calendar. Try to click tomorrow. Verify it does not select.

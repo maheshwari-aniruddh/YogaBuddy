@@ -1,0 +1,33 @@
+# Walkthrough: Fixing Compilation Errors and Running GridWorld Programs
+
+I fixed the errors in the [BoxBug](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/GridWorld/src/GridWorldCode/projects/boxBug/BoxBug.java#25-58) compilation and started the `CircleBug` program as requested.
+
+## Changes Made
+
+### 1. Identified Syntax Errors
+The common errors when moving from Windows to Mac (or Linux) are:
+- **Quotes**: Using "curly quotes" (`“`, `”`) instead of standard straight quotes (`"`).
+- **Classpath Separator**: Windows uses `;`, while Mac uses `:`.
+- **Package Paths**: Running classes requires pointing to the root of the source directory.
+
+### 2. Compiled and Ran BoxBug
+The correct commands for your Mac environment are:
+```bash
+# Compile from project root
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/*.java
+
+# Run from project root (note the : instead of ;)
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.BoxBugRunner
+```
+
+### 3. Compiled and Ran CircleBug
+I have already executed these for you:
+```bash
+javac -cp "src/GridWorldCode/gridworld.jar" src/GridWorldCode/projects/boxBug/CircleBug*.java
+java -cp "src:src/GridWorldCode/gridworld.jar" GridWorldCode.projects.boxBug.CircleBugRunner
+```
+
+## Verification Results
+
+- **BoxBug**: Verified compilation and execution.
+- **CircleBug**: I have started the `CircleBugRunner`. You should see the GridWorld GUI window open on your screen now.

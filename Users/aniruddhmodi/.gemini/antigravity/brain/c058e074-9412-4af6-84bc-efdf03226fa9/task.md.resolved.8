@@ -1,0 +1,31 @@
+# 5 Major Features Implementation
+
+## Phase 1: Core Data Model & Migration
+- [x] Add `uuid` package
+- [x] Add [id](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#392-417) to [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#4-79)
+- [x] Change `photoPath` to `List<String> photos` in [JournalEntry](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/models/journal_entry.dart#4-79)
+- [x] Write migration logic in `JournalEntry.fromJson` for old data
+- [x] Ensure [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/.DS_Store) correctly handles saving/loading the new format without data loss
+
+## Phase 2: Today Screen UI & Multiple Entries
+- [x] Update [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#26-41) summary to show a timeline of today's entries
+- [x] Add "New Entry" FAB/button to trigger the swiping editor
+- [x] Update the swipe editor to insert/update the specific entry ID
+- [x] Update media preview strips to handle `List<String> photos`
+
+## Phase 3: Rich Text Formatting
+- [x] Add `flutter_markdown` package
+- [x] Create a formatting toolbar for the text fields (Bold, Italic, List)
+- [x] Render entry summaries using `MarkdownBody`
+
+## Phase 4: Advanced Search & Filtering
+- [ ] Add [mood](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#652-663) filter (1-5 rating) UI and logic
+- [ ] Add `hasMedia` checkbox filters (Photo/Audio/Video)
+- [ ] Add `isStarred` toggle filter
+- [ ] Update `Store.search` to accept these filters and execute real-time combined filtering
+
+## Phase 5: Home Screen Widgets
+- [ ] Add `home_widget` package
+- [ ] Implement iOS SwiftUI widget
+- [ ] Implement Android Kotlin widget
+- [ ] Update [Store](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/.DS_Store) to sync data to widgets on save

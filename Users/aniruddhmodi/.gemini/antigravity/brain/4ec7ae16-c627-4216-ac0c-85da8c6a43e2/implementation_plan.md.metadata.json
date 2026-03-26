@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "New implementation plan for the WebGL version using Three.js. Replaces the Python plan. Focuses on using `EffectComposer` for visuals and standard JS game loop.",
+  "updatedAt": "2025-12-09T09:02:16.870888Z",
+  "version": "1"
+}

@@ -1,0 +1,7 @@
+# EfficientNet-B0 Ablation Study on BT-MRI Dataset
+
+- [x] Explore project structure and dataset
+- [x] Install dependencies (torch, torchvision, timm, scikit-image, etc.)
+- [/] Write implementation plan for ablation study
+- [ ] Implement [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) with ablation study (4 configs, 20% data, save models with labels)
+- [ ] User runs training (only on explicit permission)

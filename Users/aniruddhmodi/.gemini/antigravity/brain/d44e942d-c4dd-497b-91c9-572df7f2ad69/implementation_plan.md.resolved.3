@@ -1,0 +1,34 @@
+# Enable Editing and Fix Keyboard Behavior
+
+## Goal
+1.  **Edit Past Entries**: Allow users to edit existing journal entries from the Calendar screen.
+2.  **Keyboard Dismissal**: Ensure the keyboard disappears when the user presses "Return" (Done) on the keyboard.
+
+## Proposed Changes
+
+### 1. [lib/screens/calendar_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/calendar_screen.dart)
+- [MODIFY] In the `entry != null` block (where it shows the existing entry details), add an **Edit Button** (e.g., an `IconButton` or `GradientButton` near the top or bottom).
+- [NEW] On edit press, navigate to [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) passing the `initialDate: _selectedDay`. This reuses the existing logic in [TodayScreen](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#17-25) to load and edit that day's entry.
+
+### 2. [lib/screens/today_screen.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart)
+- [MODIFY] In [_buildFieldPage](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#453-649):
+    -   Change `textInputAction` from `TextInputAction.none` to `TextInputAction.done`.
+    -   Keep `maxLines: 4` (or whatever it is) but ensure that `TextInputAction.done` actually submits.
+    -   **Constraint**: `TextField` with `maxLines > 1` serves `TextInputAction.newline` by default. To force "Done", we set `textInputAction: TextInputAction.done`. This might make the "Return" key close the keyboard. The user can still create new lines using the provided UI button [_buildFormatButton(Icons.keyboard_return, ...)](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/screens/today_screen.dart#956-974) which I observed in the previous step.
+    -   Alternatively, wrap the `TextField` or use a specific setting to allow both multiline and a done button, but standard iOS/Android behavior usually separates them. Given the user's request "click return the keyboard should disappear", I will enforce `TextInputAction.done`.
+- [MODIFY] Update `padding` or `GestureDetector` to ensure tapping outside also dismisses keyboard if not already handled.
+
+## Verification Plan
+### Manual Verification
+- **Editing**:
+    -   Go to Calendar.
+    -   Select a date with an existing entry.
+    -   Click the new "Edit" button.
+    -   Verify it opens the editor with the data pre-filled.
+    -   Make changes and save.
+    -   Verify changes are reflected.
+- **Keyboard**:
+    -   Open keyboard in "Today" screen.
+    -   Press "Return" on the keyboard.
+    -   Verify keyboard dismisses.
+    -   Verify user can still add new lines using the UI button if needed.

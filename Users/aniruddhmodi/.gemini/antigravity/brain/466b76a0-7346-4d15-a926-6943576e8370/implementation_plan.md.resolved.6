@@ -1,0 +1,23 @@
+# Piano Transparency Plan
+
+## Goal Description
+Make the piano overlay translucent so the user's hand (which is physically "behind" the virtual keys in the video feed) can be seen through the keys. Also adjust the position/height effectively "pushing it down".
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Overlay Logic**:
+    - Instead of *overwriting* pixel values (`frame[...] = resized_piano`), use `cv2.addWeighted`.
+    - Formula: `blended = alpha * overlay + (1 - alpha) * background`.
+    - Set `alpha` to around 0.5 or 0.6.
+- **Position**: "Push down" likely means reduce height or ensure strict bottom alignment.
+    - I'll keep the alignment at `target_height - piano_h` (bottom) but maybe set `piano_h` back to ~140px or ensure it's not floating. Transparency will help it feel less "high".
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Check that the piano is semi-transparent.
+- Put hand "on" the keys and verify the hand is visible through the keys.

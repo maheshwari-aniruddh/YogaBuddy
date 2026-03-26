@@ -1,0 +1,23 @@
+# Performance Optimization Plan
+
+## Goal Description
+Improve the frame rate of the hand tracking app by:
+1.  Enabling MPS (GPU) acceleration if available.
+2.  Switching to the `VIDEO` running mode for temporal optimization.
+3.  Implementing frame resizing to reduce inference load.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### Files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Running Mode**: Change `HandLandmarkerOptions` to use `running_mode=vision.RunningMode.VIDEO`.
+- **Inference**: Update the loop to use `detector.detect_for_video(mp_image, timestamp_ms)`.
+- **Delegate**: Update `BaseOptions` to try setting `delegate=BaseOptions.Delegate.GPU`.
+- **Resizing**: Resize the video frame (e.g., to 640x480 or smaller) before inference to speed up processing.
+
+## Verification Plan
+### Manual Verification
+- Run the app and observe smoothness.
+- Check terminal for any MPS/GPU related logs or errors (fallback to CPU if GPU fails).

@@ -1,0 +1,18 @@
+# Combined HTML Files Walkthrough
+
+I have combined the content from [example1.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example1.html) through [example6.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example6.html) into a new file [example8.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example8.html) with a randomized order of the body content. I also ensured [example7.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example7.html) was preserved in its original state.
+
+## Changes
+
+### [NEW] [example8.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example8.html)
+- Contains shuffled content from examples 1-6.
+- Syntactically correct HTML structure.
+
+### [RESTORED] [example7.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example7.html)
+- Restored original content after accidental overwrite.
+
+## Verification Results
+
+### Automated Tests
+- Validated that [example8.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example8.html) contains elements from all source files.
+- Verified [example7.html](file:///Users/aniruddhmodi/Documents/Aniruddh/School/10th-grade/APCSA/untitled1/src/example7.html) matches the original version from the build output.

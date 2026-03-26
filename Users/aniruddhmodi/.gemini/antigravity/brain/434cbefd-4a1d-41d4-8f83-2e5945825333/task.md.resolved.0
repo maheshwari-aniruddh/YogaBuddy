@@ -1,0 +1,6 @@
+# Task: Determine Batch Size
+
+- [x] Search for `batch_size`/`BATCH_SIZE` in the codebase <!-- id: 0 -->
+- [x] Confirm batch size in [main.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/main.py) <!-- id: 1 -->
+- [x] Identify batch sizes in other scripts ([eval.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/CARAT/eval.py), etc.) <!-- id: 2 -->
+- [ ] Notify the user with the findings <!-- id: 3 -->

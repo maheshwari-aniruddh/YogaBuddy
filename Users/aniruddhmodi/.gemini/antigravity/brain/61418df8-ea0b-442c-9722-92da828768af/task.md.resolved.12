@@ -1,0 +1,14 @@
+# Task: Fine-Tune Combined Model
+
+## Status
+- [ ] Create `research3_finetune.py` <!-- id: 12 -->
+    - [ ] Copy [research3.py](file:///Users/aniruddhmodi/Downloads/Research/research3.py).
+    - [ ] Set `base_model.trainable = True`.
+    - [ ] Set Learning Rate to `1e-5`.
+- [ ] Run Fine-Tuning Training <!-- id: 13 -->
+- [ ] Validate Fine-Tuned Model on `brd` <!-- id: 14 -->
+- [ ] Compare Results (Frozen vs Fine-Tuned) <!-- id: 15 -->
+
+<!-- Completed Tasks -->
+- [x] Fix Overfitting (Regularization) <!-- id: 9 -->
+- [x] External Validation (Frozen Model) - Result: 52% (Poor) <!-- id: 10 -->

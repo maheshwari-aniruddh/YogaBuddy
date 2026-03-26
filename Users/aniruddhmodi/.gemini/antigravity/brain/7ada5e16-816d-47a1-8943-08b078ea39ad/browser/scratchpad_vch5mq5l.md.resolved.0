@@ -1,0 +1,7 @@
+# Task: Verify Piano Player Song Loading
+
+- [ ] Navigate to http://localhost:8502/piano-player.html
+- [ ] Select 'Twinkle Twinkle Little Star' from the dropdown
+- [ ] Click 'Start Song'
+- [ ] Verify status text (e.g., '102 notes loaded')
+- [ ] Take a screenshot for confirmation

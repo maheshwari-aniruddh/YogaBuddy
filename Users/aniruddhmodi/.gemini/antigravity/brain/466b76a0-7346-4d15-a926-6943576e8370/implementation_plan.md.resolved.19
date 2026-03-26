@@ -1,0 +1,26 @@
+# Finger Sensitivity Plan
+
+## Goal Description
+Make the Ring finger easier to trigger (more sensitive) while keeping other fingers at the normal 0.10 threshold.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Configuration**:
+    - `VELOCITY_THRESHOLD_DEFAULT = 0.10`.
+    - `VELOCITY_THRESHOLD_SENSITIVE = 0.05` (For Ring).
+- **Logic**:
+    - Inside loop:
+        ```python
+        threshold = VELOCITY_THRESHOLD_SENSITIVE if f_name == "Ring" else VELOCITY_THRESHOLD_DEFAULT
+        if speed > threshold ...
+        ```
+
+## Verification Plan
+### Manual Verification
+- Run app.
+- Tap Index finger lightly -> Should NOT trigger (needs > 0.1).
+- Tap Ring finger lightly -> SHOULD trigger (needs > 0.05).

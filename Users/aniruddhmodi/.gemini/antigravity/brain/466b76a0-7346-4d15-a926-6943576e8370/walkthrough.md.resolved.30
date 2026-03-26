@@ -1,0 +1,20 @@
+# Streamlit App Walkthrough (Lift-to-Reset)
+
+## Summary
+To play a note again, you must **lift your finger** above the keys.
+
+## Mechanics
+1. **Strike**: Move finger down fast (Speed > 0.10).
+2. **Reset**: **Lift finger up** above the virtual keyboard area.
+   - Status Indicator: **"R"** (Ready) vs **"L"** (Locked).
+
+## Configuration
+- **Threshold**: `0.10`.
+- **Smoothing**: Active.
+- **Reset Zone**: Above the piano keys.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run app.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

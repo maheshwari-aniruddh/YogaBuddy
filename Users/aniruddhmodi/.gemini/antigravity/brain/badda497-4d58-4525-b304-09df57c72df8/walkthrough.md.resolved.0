@@ -1,0 +1,32 @@
+# Walkthrough - Removing Pygame-related Content
+
+I have removed all Pygame-related scripts and content from the repository as requested.
+
+## Changes Made
+
+### PoseFlow-Merged-Archive
+
+- [DELETE] [main_pygame.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/main_pygame.py)
+- [DELETE] [pygame_script.txt](file:///Users/aniruddhmodi/Documents/PycharmProjects/PoseFlow-Merged-Archive/pygame_script.txt)
+
+## Verification Results
+
+### Automated Tests
+
+- **Search for "pygame" in filenames:**
+  ```bash
+  find . -name "*pygame*"
+  ```
+  **Result:** 0 results found.
+
+- **Search for "pygame" in file content:**
+  ```bash
+  grep -ri "pygame" .
+  ```
+  **Result:** No matches found.
+
+- **Check for Pygame dependencies:**
+  ```bash
+  grep -i "pygame" requirements.txt package.json
+  ```
+  **Result:** No matches found.

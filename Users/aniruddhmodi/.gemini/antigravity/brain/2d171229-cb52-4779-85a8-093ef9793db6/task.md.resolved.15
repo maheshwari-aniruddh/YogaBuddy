@@ -1,0 +1,16 @@
+# Tasks
+
+- [ ] Run the app
+    - [x] Check connected devices <!-- id: 0 -->
+    - [x] Launch app on available device <!-- id: 1 -->
+    - [-] Debug startup crash <!-- id: 2 -->
+    - [-] Launch app on Aniruddh's iPhone <!-- id: 3 -->
+    - [-] Retry launch on Aniruddh's iPhone <!-- id: 4 -->
+    - [-] Launch app on Aniruddh's iPhone (Release Mode) <!-- id: 5 -->
+    - [x] Diagnose release build failure <!-- id: 6 -->
+    - [x] Retry release launch on Aniruddh's iPhone <!-- id: 7 -->
+- [ ] Debug Sign-In Failure
+    - [x] Check runtime logs <!-- id: 8 -->
+    - [x] Verify Google Sign-In configuration (Info.plist) <!-- id: 9 -->
+    - [x] Enable Keychain Sharing in Xcode (User Action) <!-- id: 10 -->
+    - [/] Launch release build on Aniruddh's iPhone (Final Check) <!-- id: 11 -->

@@ -1,0 +1,21 @@
+# Piano Positioning Plan
+
+## Goal Description
+Move the piano overlay "more to the bottom" by reducing its height. This aims to improve the 3D illusion by making the user interact with the "top edge" (caps) of the keys at the bottom of the frame.
+
+## User Review Required
+None.
+
+## Proposed Changes
+### files
+#### [MODIFY] [app.py](file:///Users/aniruddhmodi/Documents/PycharmProjects/AirPlay/app.py)
+- **Overlay Height**: Reduce `piano_h` from `160` to `100`.
+    - This pushes the `piano_top_y` boundary lower.
+    - User must reach further down to trigger keys.
+    - Labels will adjust automatically (`piano_h - 20`).
+
+## Verification Plan
+### Manual Verification
+- Run the app.
+- Check if piano takes up less vertical space.
+- Verify that keys are still triggerable but require reaching the "top" edge.

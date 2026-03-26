@@ -1,0 +1,6 @@
+# Implementation of SparseBoundedGrid
+
+- [ ] Create directory `projects/sparseGrid` [/]
+- [ ] Implement `SparseBoundedGrid.java` [ ]
+- [ ] Implement `SparseGridRunner.java` [ ]
+- [ ] Verify compilation and execution [ ]

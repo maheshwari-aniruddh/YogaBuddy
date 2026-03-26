@@ -1,0 +1,9 @@
+# Tasks
+
+- [ ] Fix Dart compilation error in [lib/services/drive_service.dart](file:///Users/aniruddhmodi/Documents/Aniruddh/Extracurricular/flutter-app/the_30sec_journal/lib/services/drive_service.dart) <!-- id: 0 -->
+    - [ ] Analyze `drive_service.dart` and `pubspec.yaml` <!-- id: 1 -->
+    - [ ] Correct `authenticatedClient` usage <!-- id: 2 -->
+- [ ] Fix iOS Build Configuration <!-- id: 3 -->
+    - [ ] Check and fix `CFBundleVersion` in `Info.plist` <!-- id: 4 -->
+    - [ ] Check Swift version configuration <!-- id: 5 -->
+- [ ] Verify fix by running the build <!-- id: 6 -->

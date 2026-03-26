@@ -1,0 +1,26 @@
+# AR Instrument Studio Walkthrough (Metal GPU)
+
+## Summary
+Performance Mode Active with **Metal GPU Acceleration**.
+-   **Engine**: MediaPipe Metal Delegate (GPU).
+-   **Resolution**: 640x480 (High Speed).
+-   **Audio**: Low Latency (512 buffer).
+
+## Features Verified
+1.  **Safety**: 8-Finger Gesture Guard protects ears during hand movement.
+2.  **Visuals**:
+    -   Darkened "Stage" View.
+    -   Bright Dotted Lines for Octaves.
+    -   Falling Neon Notes.
+3.  **Keyboard**: Visual overlay at bottom.
+
+## Controls
+-   **Strike**: Downward Motion (>0.02).
+-   **Reset**: Lift finger up.
+-   **Octaves**: Move hands Up/Down.
+
+## How to Run
+```bash
+./.venv/bin/streamlit run ar_studio.py
+```
+Open the URL shown in the terminal (usually http://localhost:8501).

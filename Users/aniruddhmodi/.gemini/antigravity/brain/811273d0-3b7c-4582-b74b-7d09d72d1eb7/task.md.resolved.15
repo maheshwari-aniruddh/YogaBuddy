@@ -1,0 +1,10 @@
+# Task: PoseFlow Deployment and Renaming
+
+- [x] Renaming to PoseFlow <!-- id: 0 -->
+- [x] Full Project Deployment <!-- id: 1 -->
+- [x] Code Cleaning & Obfuscation <!-- id: 2 -->
+    - [x] Remove all comments from GitHub files <!-- id: 3 -->
+    - [x] Randomize/Mess up formatting while keeping it functional <!-- id: 4 -->
+- [x] Verification <!-- id: 5 -->
+    - [x] Verify live URL on GH Pages <!-- id: 6 -->
+    - [x] Create final walkthrough with proof <!-- id: 7 -->
