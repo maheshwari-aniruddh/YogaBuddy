@@ -139,3 +139,9 @@ class PoseDetector:
         if keypoints is None:
             return 0.0
         return float(np.mean(keypoints[:, 2]))
+
+    def is_pose_visible(self, keypoints: np.ndarray, min_visible: int = 10) -> bool:
+        if keypoints is None:
+            return False
+        visible = np.sum(keypoints[:, 2] > config.POSE_CONFIDENCE_THRESHOLD)
+        return int(visible) >= min_visible

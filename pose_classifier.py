@@ -116,6 +116,15 @@ class PoseClassifier:
         pose_name = self.label_to_pose[label]
         print(f"✅ CLASSIFIER RESULT: pose='{pose_name}', confidence={confidence:.3f}, label={label}")
         return pose_name, float(confidence)
+
+    def get_top_n_predictions(self, keypoints: np.ndarray, n: int = 3) -> list:
+        if self.classifier is None:
+            raise ValueError("Classifier not trained.")
+        features = get_angle_features(keypoints).reshape(1, -1)
+        features_scaled = self.scaler.transform(features)
+        probabilities = self.classifier.predict_proba(features_scaled)[0]
+        top_indices = np.argsort(probabilities)[::-1][:n]
+        return [(self.label_to_pose[i], float(probabilities[i])) for i in top_indices if i in self.label_to_pose]
     def save(self, filepath: str):
         os.makedirs(os.path.dirname(filepath) if os.path.dirname(filepath) else '.', exist_ok=True)
         with open(filepath, 'wb') as f:

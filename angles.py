@@ -97,3 +97,8 @@ def get_angle_features(keypoints: np.ndarray) -> np.ndarray:
     for angle_name in feature_order:
         features.append(angles.get(angle_name, 0.0))
     return np.array(features, dtype=np.float32)
+
+
+def normalize_features(features: np.ndarray) -> np.ndarray:
+    max_angle = 180.0
+    return np.clip(features / max_angle, 0.0, 1.0)
