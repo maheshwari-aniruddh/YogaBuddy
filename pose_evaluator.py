@@ -5,7 +5,7 @@ import cv2
 from sklearn.metrics import classification_report, confusion_matrix
 from tqdm import tqdm
 from pose_detector import PoseDetector
-from utils.angles import get_angle_features
+from angles import get_angle_features
 import config
 
 

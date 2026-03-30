@@ -110,7 +110,7 @@ def run_yoga_session(poses, hold_times, camera_id=0):
             try:
                 ret, frame = camera.read()
                 if not ret:
-                    print(f"❌ Failed to read frame
+                    print(f"❌ Failed to read frame")
                     break
                 frame_count += 1
                 if frame_count == 1:
@@ -269,7 +269,7 @@ def run_yoga_session(poses, hold_times, camera_id=0):
                                     run_yoga_session._video_frame_count = 0
                                 run_yoga_session._video_frame_count += 1
                                 if run_yoga_session._video_frame_count <= 15:
-                                    print(f"📹 Sent video_frame
+                                    print(f"📹 Sent video_frame")
                                 elif run_yoga_session._video_frame_count == 16:
                                     print(f"📹 Video frames streaming... (continuing silently)")
                                 if frame_count <= 3:

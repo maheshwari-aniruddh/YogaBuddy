@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import cv2
 from pose_detector import PoseDetector
-from utils.angles import get_angle_features
+from angles import get_angle_features
 import config
 class PoseClassifier:
 
